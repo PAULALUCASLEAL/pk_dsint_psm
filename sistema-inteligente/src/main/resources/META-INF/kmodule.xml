@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Descriptor del modulo KIE. Drools lo busca en META-INF/kmodule.xml del classpath cuando se llama a
+  KieServices.getKieClasspathContainer() (ver Principal.ejecutarPruebaIntegracion).
+
+  - kbase (base de conocimiento): conjunto de reglas compiladas a partir de los .drl de los paquetes
+    indicados en "packages". Aqui solo "reglas", que corresponde a la carpeta src/main/resources/reglas.
+  - ksession (sesion): memoria de trabajo donde se insertan los hechos de un escenario y se disparan
+    las reglas. Se crea una sesion nueva por escenario para que sean independientes.
+
+  Decision de diseno: un unico paquete "reglas" y una unica kbase. Todas las reglas del mito (estado
+  inicial, obtencion de objetos, capacidades, muertes, liberaciones) comparten los mismos hechos y
+  globals, y el orden de presentacion se controla con agenda-group dentro de los .drl, no con varias
+  kbases. Alternativa descartada: una kbase por fase o por grupo de reglas, que complica la carga sin
+  aportar nada mientras solo se hace la fase 1.b.
+  default="true" permite obtener la kbase/ksession sin nombre; Principal usa aun asi el nombre.
+-->
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="mitologiaKB" packages="reglas" default="true">
+        <!-- Sesion con estado (stateful): necesaria para insert/modify/delete y encadenar hacia delante. -->
+        <ksession name="mitologiaSesion" default="true"/>
+    </kbase>
+</kmodule>

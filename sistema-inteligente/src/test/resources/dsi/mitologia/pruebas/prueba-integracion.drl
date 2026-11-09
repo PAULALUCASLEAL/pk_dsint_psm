@@ -1,0 +1,20 @@
+package dsi.mitologia.pruebas
+
+// PRUEBA DE INTEGRACION (solo test).
+// Hasta tener reglas reales estaba en src/main/resources/reglas y comprobaba que Drools 7.74.1 cargaba
+// y ejecutaba reglas en el proyecto. Una vez demostrado que las reglas del mito se cargan y se ejecutan
+// (ReglasPerseoAndromedaTest), se ha trasladado aqui para que NO forme parte de la KieBase mitologiaKB:
+// kmodule.xml solo incluye el paquete "reglas", y este fichero lo compila PruebaIntegracionDroolsTest
+// con KieHelper. Asi la ejecucion normal solo carga las reglas mitologicas.
+//
+// Comprueba: (1) que drools-compiler + drools-mvel compilan un DRL; (2) que un global se fija desde Java
+// y se modifica en un consecuente.
+
+global java.util.List registro;
+
+rule "Prueba de integracion: Drools funciona"
+    when
+        $s : String( this == "ping" )
+    then
+        registro.add("pong");
+end

@@ -1,0 +1,106 @@
+package reglas
+
+// AGENDA "Informacion Inicial" (nota 10 del enunciado).
+// Antes de generar la historia se deja constancia del estado de partida del escenario: estado de cada
+// personaje, quien posee cada objeto, favores, enojos, cautiverios, capacidades propias y variantes.
+// Estas reglas no modifican ningun hecho: solo registran eventos INFORMACION, que la salida puede
+// mostrar o filtrar. Sirven tambien para depurar las condiciones iniciales.
+//
+// R00 es la unica regla de la agenda MAIN de este fichero: con salience maxima se dispara la primera y
+// pasa el foco al grupo "Informacion Inicial". Cuando ese grupo se vacia, Drools vuelve a MAIN, donde
+// estan las reglas de la historia. Asi el orden de fases queda declarado en el DRL y no en Java
+// (decision recogida en MotorReglas).
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.Favor
+import dsi.mitologia.hechos.Enojo
+import dsi.mitologia.hechos.Cautiverio
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.hechos.VarianteMito
+import dsi.mitologia.escenario.Objetivo
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.OrigenCapacidad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+rule "R00 Mostrar la informacion inicial antes de la historia"
+    salience 1000
+when
+    Objetivo()
+then
+    drools.setFocus("Informacion Inicial");
+end
+
+rule "Informacion inicial: estado de un personaje"
+    agenda-group "Informacion Inicial"
+when
+    $p : Personaje()
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p)
+        .descripcion($p.getNombre() + " esta " + $p.getEstadoVital().getValorOwl()
+            + " y " + $p.getEstadoLibertad().getValorOwl())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: posesion de un objeto"
+    agenda-group "Informacion Inicial"
+when
+    Posesion($p : poseedor, $o : objeto)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p).objeto($o)
+        .descripcion($p.getNombre() + " tiene " + $o.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: favor de un dios"
+    agenda-group "Informacion Inicial"
+when
+    Favor($p : personaje, $d : dios)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p).destinatario($d)
+        .descripcion($p.getNombre() + " tiene el favor de " + $d.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: enojo de un dios"
+    agenda-group "Informacion Inicial"
+when
+    Enojo($p : personaje, $d : dios)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p).destinatario($d)
+        .descripcion($p.getNombre() + " tiene el enojo de " + $d.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: cautiverio"
+    agenda-group "Informacion Inicial"
+when
+    Cautiverio($c : captor, $p : preso)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $c).destinatario($p)
+        .descripcion($p.getNombre() + " esta preso de " + $c.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: capacidad propia"
+    agenda-group "Informacion Inicial"
+when
+    CapacidadDisponible($p : personaje, $c : capacidad, origen == OrigenCapacidad.PROPIA)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p).capacidad($c)
+        .descripcion($p.getNombre() + " tiene la capacidad propia " + $c.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "Informacion inicial: variante del mito activa"
+    agenda-group "Informacion Inicial"
+when
+    VarianteMito($n : nombre)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, null)
+        .descripcion("Variante del mito activa: " + $n)
+        .regla(drools.getRule().getName()));
+end

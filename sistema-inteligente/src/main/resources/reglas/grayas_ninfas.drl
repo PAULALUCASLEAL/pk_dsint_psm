@@ -1,0 +1,104 @@
+package reglas
+
+// BLOQUE D del catalogo: Grayas y Ninfas (R13-R19).
+// Orden causal minimo que garantizan los antecedentes (R45): localizar Grayas -> robar -> intercambiar
+// -> localizar Ninfas -> recibir zurron y sandalias.
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.modelo.Capacidad
+import dsi.mitologia.hechos.Favor
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.Localizacion
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R13. Con el favor de Hermes y de Atenea se puede ir en busca de las Grayas.
+rule "R13 Localizar a las Grayas con el favor de Hermes y Atenea"
+when
+    $h      : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $hermes : Personaje(id == "Hermes")
+    $atenea : Personaje(id == "Atenea")
+              Favor(personaje == $h, dios == $hermes)
+              Favor(personaje == $h, dios == $atenea)
+    $g      : Personaje(id == "Grayas", estadoVital == EstadoVital.VIVO)
+              not Localizacion(localizador == $h, localizado == $g)
+then
+    insert(new Localizacion($h, $g));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.LOCALIZAR, $h).destinatario($g)
+        .descripcion($h.getNombre() + " localiza a las " + $g.getNombre() + " debido a tener el favor de "
+            + $hermes.getNombre() + " y " + $atenea.getNombre())
+        .justificacion("tener el favor de " + $hermes.getNombre() + " y " + $atenea.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R14 + R15. Con Invisibilidad (cualquier fuente: casco, anillo...) se roba el ojo o el diente de las
+// Grayas ya localizadas. Basta con uno: en cuanto se intercambia (R16-R17, de mayor prioridad) el
+// heroe ya conoce a las Ninfas y la guarda "not Localizacion(... Ninfas)" impide seguir robando.
+rule "R14-R15 Robar el ojo o el diente de las Grayas gracias a la invisibilidad"
+when
+    $h   : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $g   : Personaje(id == "Grayas", estadoVital == EstadoVital.VIVO)
+           Localizacion(localizador == $h, localizado == $g)
+    $n   : Personaje(id == "Ninfas")
+           not Localizacion(localizador == $h, localizado == $n)
+    $inv : Capacidad(id == "Invisibilidad")
+    $ci  : CapacidadDisponible(personaje == $h, capacidad == $inv)
+    $pos : Posesion(poseedor == $g, $o : objeto)
+           Objeto(this == $o, id in ("OjoGrayas", "DienteGrayas"))
+then
+    modify($pos) { setPoseedor($h) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.ROBAR_OBJETO, $h).destinatario($g).objeto($o).capacidad($inv)
+        .descripcion($h.getNombre() + " obtiene (roba) " + $o.getNombre() + " de las " + $g.getNombre()
+            + " debido a tener Invisibilidad (" + $ci.getNombreFuente() + ") y las " + $g.getNombre() + " localizadas")
+        .justificacion("tener Invisibilidad (" + $ci.getNombreFuente() + ") y las " + $g.getNombre() + " localizadas")
+        .regla(drools.getRule().getName()));
+end
+
+// R16 + R17. A cambio de devolver lo robado, las Grayas revelan donde estan las Ninfas.
+// salience 10: el intercambio va antes que un segundo robo pendiente (el del otro objeto).
+rule "R16-R17 Intercambiar el ojo o el diente por la localizacion de las Ninfas"
+    salience 10
+when
+    $h   : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $g   : Personaje(id == "Grayas", estadoVital == EstadoVital.VIVO)
+           Localizacion(localizador == $h, localizado == $g)
+    $n   : Personaje(id == "Ninfas")
+           not Localizacion(localizador == $h, localizado == $n)
+    $pos : Posesion(poseedor == $h, $o : objeto)
+           Objeto(this == $o, id in ("OjoGrayas", "DienteGrayas"))
+then
+    modify($pos) { setPoseedor($g) }
+    insert(new Localizacion($h, $n));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INTERCAMBIAR_OBJETO, $h).destinatario($g).objeto($o)
+        .descripcion($h.getNombre() + " devuelve " + $o.getNombre() + " a las " + $g.getNombre()
+            + " a cambio de saber donde estan las " + $n.getNombre())
+        .justificacion("tener " + $o.getNombre() + " de las " + $g.getNombre())
+        .regla(drools.getRule().getName()));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.LOCALIZAR, $h).destinatario($n)
+        .descripcion($h.getNombre() + " localiza a las " + $n.getNombre() + " debido a intercambio de "
+            + $o.getNombre() + " con las " + $g.getNombre())
+        .justificacion("intercambio de " + $o.getNombre() + " con las " + $g.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R18 + R19. Las Ninfas dan sus objetos (ZurronMagico, SandaliasAladas) a quien las localiza.
+// Si el escenario niega que tengan alguno (R34), simplemente no hay Posesion que transferir.
+rule "R18-R19 Las Ninfas entregan sus objetos a quien las localiza"
+when
+    $h   : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $n   : Personaje(id == "Ninfas", estadoVital == EstadoVital.VIVO)
+           Localizacion(localizador == $h, localizado == $n)
+    $pos : Posesion(poseedor == $n, $o : objeto)
+then
+    modify($pos) { setPoseedor($h) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $h).destinatario($n).objeto($o)
+        .descripcion($h.getNombre() + " obtiene " + $o.getNombre() + " debido a las " + $n.getNombre() + " localizadas")
+        .justificacion("las " + $n.getNombre() + " localizadas")
+        .regla(drools.getRule().getName()));
+end

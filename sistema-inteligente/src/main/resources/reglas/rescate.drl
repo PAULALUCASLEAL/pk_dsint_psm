@@ -1,0 +1,130 @@
+package reglas
+
+// BLOQUE G del catalogo: Ceto, rescate y resultado de la mision (R28-R31).
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.modelo.Capacidad
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.hechos.Cautiverio
+import dsi.mitologia.hechos.Muerte
+import dsi.mitologia.hechos.Liberacion
+import dsi.mitologia.escenario.Objetivo
+import dsi.mitologia.escenario.TipoObjetivo
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R28. General: un heroe con Petrificacion mata a la criatura que tiene presa a alguien (Ceto).
+// La Petrificacion solo la tiene quien lleva la cabeza y sigue vivo, es decir, quien tiene el zurron
+// (sin zurron R27 lo mata antes). No puede repetirse: la criatura deja de estar viva.
+// salience -10: misma estrategia de combate que R23-R24 (primero prepararse, despues combatir).
+rule "R28 Petrificar con la cabeza de Medusa a la criatura que tiene preso a alguien"
+    salience -10
+when
+    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $petr : Capacidad(id == "Petrificacion")
+    $cp   : CapacidadDisponible(personaje == $h, capacidad == $petr)
+            Cautiverio($c : captor, preso != $h)
+    $cP   : Personaje(this == $c, criatura, estadoVital == EstadoVital.VIVO)
+then
+    modify($cP) { setEstadoVital(EstadoVital.MUERTO) }
+    insert(new Muerte($h, $c));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MATAR, $h).destinatario($c).capacidad($petr)
+        .descripcion($h.getNombre() + " mata a " + $c.getNombre() + " debido a tener " + $cp.getNombreFuente())
+        .justificacion("tener " + $cp.getNombreFuente() + " (Petrificacion)")
+        .regla(drools.getRule().getName()));
+end
+
+// R29. General: quien mata al captor libera a su preso. Se borra el Cautiverio (el preso deja de
+// estar_preso_por el captor), el preso pasa a libre y se registra la Liberacion (libera_a).
+rule "R29 Liberar al preso de la criatura muerta"
+when
+           Muerte($h : asesino, $c : victima)
+           Personaje(this == $h, estadoVital == EstadoVital.VIVO)
+    $cau : Cautiverio(captor == $c, $p : preso)
+    $pP  : Personaje(this == $p, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.PRESO)
+then
+    delete($cau);
+    modify($pP) { setEstadoLibertad(EstadoLibertad.LIBRE) }
+    insert(new Liberacion($h, $p));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.LIBERAR, $h).destinatario($p)
+        .descripcion($h.getNombre() + " libera a " + $p.getNombre() + " debido a matar a " + $c.getNombre())
+        .justificacion("matar a " + $c.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R30. Control: la mision LIBERAR esta cumplida si existe la Liberacion pedida, el liberado esta libre y
+// el protagonista sigue vivo. Solo explica; el resultado lo comprueba Objetivo.seCumpleEn en Java.
+rule "R30 Mision cumplida: el protagonista ha liberado al destino"
+    salience -500
+when
+    Objetivo(tipo == TipoObjetivo.LIBERAR, $pid : protagonistaId, $did : destinoId)
+    $h : Personaje(id == $pid, estadoVital == EstadoVital.VIVO)
+    $d : Personaje(id == $did, estadoLibertad == EstadoLibertad.LIBRE)
+         Liberacion(libertador == $h, liberado == $d)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.CUMPLIR_OBJETIVO, $h).destinatario($d)
+        .descripcion("Si, " + $h.getNombre() + " puede liberar a " + $d.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R31. Control: con salience minima estas reglas solo se disparan cuando no queda ninguna otra accion
+// aplicable. Como no modifican hechos, nada se reactiva despues: describen el estado final.
+rule "R31 Mision no demostrada"
+    salience -1000
+when
+    Objetivo(tipo == TipoObjetivo.LIBERAR, $pid : protagonistaId, $did : destinoId)
+    $h : Personaje(id == $pid)
+    $d : Personaje(id == $did)
+         not Liberacion(libertador == $h, liberado == $d)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h).destinatario($d)
+        .descripcion("No, no se puede demostrar que " + $h.getNombre() + " pueda liberar a " + $d.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "R31 Obstaculo: el protagonista ha muerto"
+    salience -1000
+when
+    Objetivo(tipo == TipoObjetivo.LIBERAR, $pid : protagonistaId, $did : destinoId)
+    $h : Personaje(id == $pid, estadoVital == EstadoVital.MUERTO)
+    $d : Personaje(id == $did)
+         not Liberacion(libertador == $h, liberado == $d)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h)
+        .descripcion("Obstaculo: " + $h.getNombre() + " ha muerto y no puede seguir actuando")
+        .regla(drools.getRule().getName()));
+end
+
+rule "R31 Obstaculo: falta una capacidad para enfrentarse a Medusa"
+    salience -1000
+when
+    Objetivo(tipo == TipoObjetivo.LIBERAR, $pid : protagonistaId)
+    $h   : Personaje(id == $pid, estadoVital == EstadoVital.VIVO)
+           Personaje(id == "Medusa", estadoVital == EstadoVital.VIVO)
+    $c   : Capacidad(id in ("Vuelo", "Invisibilidad", "Reflejo"))
+           not CapacidadDisponible(personaje == $h, capacidad == $c)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h).capacidad($c)
+        .descripcion("Obstaculo: " + $h.getNombre() + " no tiene Capacidad " + $c.getNombre()
+            + " y no puede enfrentarse a Medusa")
+        .regla(drools.getRule().getName()));
+end
+
+rule "R31 Obstaculo: falta un arma para enfrentarse a Medusa"
+    salience -1000
+when
+    Objetivo(tipo == TipoObjetivo.LIBERAR, $pid : protagonistaId)
+    $h   : Personaje(id == $pid, estadoVital == EstadoVital.VIVO)
+           Personaje(id == "Medusa", estadoVital == EstadoVital.VIVO)
+           not ( Posesion(poseedor == $h, $o : objeto) and Objeto(this == $o, arma) )
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h)
+        .descripcion("Obstaculo: " + $h.getNombre() + " no tiene ningun arma para enfrentarse a Medusa")
+        .regla(drools.getRule().getName()));
+end

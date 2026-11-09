@@ -1,0 +1,111 @@
+package reglas
+
+// BLOQUE F del catalogo: Medusa (R22-R27, R39).
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.modelo.Capacidad
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.ProporcionaCapacidad
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.hechos.Muerte
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R23 + R24 + R39 (y R22 implicita). Un heroe vivo y libre mata a Medusa si tiene un arma (HozAcero o,
+// en la variante, EspadaIndestructible: cualquier Objeto de clase Arma) y las capacidades Reflejo,
+// Invisibilidad y Vuelo, sea cual sea su fuente. El Vuelo es lo que permite llegar hasta Medusa
+// (R22): no se crea un hecho de "Medusa localizada" porque el enunciado no lo pide.
+// Si hay varias fuentes posibles se generan varias activaciones; la primera mata a Medusa y las demas
+// se cancelan solas porque Medusa ya no esta viva (no puede morir dos veces).
+// salience -10 (estrategia "prepararse antes de combatir"): el combate solo se elige cuando no queda
+// ninguna entrega, robo o capacidad pendiente. Sin ella, el orden de la agenda podria llevar a Perseo
+// a Medusa con el zurron de las Ninfas aun por recibir, y moriria al tomar la cabeza (R27) aunque el
+// escenario le permite tenerlo. El encadenamiento hacia delante no planifica; la prioridad lo suple.
+rule "R23-R24 Matar a Medusa con arma, Reflejo, Invisibilidad y Vuelo"
+    salience -10
+when
+    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $med  : Personaje(id == "Medusa", estadoVital == EstadoVital.VIVO)
+            Posesion(poseedor == $h, $arma : objeto)
+            Objeto(this == $arma, arma)
+    $ref  : Capacidad(id == "Reflejo")
+    $inv  : Capacidad(id == "Invisibilidad")
+    $vue  : Capacidad(id == "Vuelo")
+    $cr   : CapacidadDisponible(personaje == $h, capacidad == $ref)
+    $ci   : CapacidadDisponible(personaje == $h, capacidad == $inv)
+    $cv   : CapacidadDisponible(personaje == $h, capacidad == $vue)
+then
+    modify($med) { setEstadoVital(EstadoVital.MUERTO) }
+    insert(new Muerte($h, $med));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MATAR, $h).destinatario($med).objeto($arma)
+        .descripcion($h.getNombre() + " mata a " + $med.getNombre() + " debido a tener " + $arma.getNombre()
+            + ", Espejo (" + $cr.getNombreFuente() + "), Invisibilidad (" + $ci.getNombreFuente()
+            + ") y Vuelo (" + $cv.getNombreFuente() + ")")
+        .justificacion("tener " + $arma.getNombre() + ", Reflejo (" + $cr.getNombreFuente() + "), Invisibilidad ("
+            + $ci.getNombreFuente() + ") y Vuelo (" + $cv.getNombreFuente() + ")")
+        .regla(drools.getRule().getName()));
+end
+
+// R25. General: quien mata a alguien se queda con sus partes anatomicas (la cabeza de Medusa).
+rule "R25 El vencedor toma la cabeza de su victima"
+when
+           Muerte($h : asesino, $v : victima)
+           Personaje(this == $h, estadoVital == EstadoVital.VIVO)
+    $pos : Posesion(poseedor == $v, $o : objeto)
+           Objeto(this == $o, parteAnatomica)
+then
+    modify($pos) { setPoseedor($h) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $h).destinatario($v).objeto($o)
+        .descripcion($h.getNombre() + " obtiene " + $o.getNombre() + " debido a matar a " + $v.getNombre())
+        .justificacion("matar a " + $v.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R27. Quien lleva una parte anatomica que petrifica (CabezaMedusa) sin ZurronMagico muere.
+// salience 100: se aplica antes que cualquier otra consecuencia de tener la cabeza (p. ej. obtener la
+// Petrificacion o usarla contra Ceto). Las criaturas (Medusa, duena original) son inmunes.
+// No puede morir dos veces: exige estar VIVO y el consecuente lo deja MUERTO. No se crea un hecho
+// Muerte porque no hay asesino (es la operacion "morir" de EstadoAventura).
+rule "R27 Muere quien toma la cabeza de Medusa sin zurron magico"
+    salience 100
+when
+    $h      : Personaje(dios == false, criatura == false, estadoVital == EstadoVital.VIVO)
+    $petr   : Capacidad(id == "Petrificacion")
+              ProporcionaCapacidad($o : objeto, capacidad == $petr)
+              Objeto(this == $o, parteAnatomica)
+              Posesion(poseedor == $h, objeto == $o)
+    $zurron : Objeto(id == "ZurronMagico")
+              not Posesion(poseedor == $h, objeto == $zurron)
+then
+    modify($h) { setEstadoVital(EstadoVital.MUERTO) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MORIR, $h).objeto($o)
+        .descripcion($h.getNombre() + " muere al obtener " + $o.getNombre() + " por no tener " + $zurron.getNombre())
+        .justificacion("tener " + $o.getNombre() + " sin " + $zurron.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R26. Con el ZurronMagico la cabeza queda guardada y el heroe sobrevive. Solo registra la explicacion
+// que pide el enunciado: el estado ya es correcto (el heroe sigue vivo porque R27 no se activa).
+// Se dispara una vez por la refraccion de Drools: ninguno de sus hechos cambia despues.
+// salience 100 (como R27) para que la explicacion aparezca justo despues de obtener la cabeza.
+rule "R26 El zurron magico protege a quien lleva la cabeza de Medusa"
+    salience 100
+when
+    $h      : Personaje(dios == false, criatura == false, estadoVital == EstadoVital.VIVO)
+    $petr   : Capacidad(id == "Petrificacion")
+              ProporcionaCapacidad($o : objeto, capacidad == $petr)
+              Objeto(this == $o, parteAnatomica)
+              Posesion(poseedor == $h, objeto == $o)
+    $zurron : Objeto(id == "ZurronMagico")
+              Posesion(poseedor == $h, objeto == $zurron)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h).objeto($o)
+        .descripcion($h.getNombre() + " no muere al obtener " + $o.getNombre() + " por tener " + $zurron.getNombre())
+        .justificacion("guardar " + $o.getNombre() + " en " + $zurron.getNombre())
+        .regla(drools.getRule().getName()));
+end

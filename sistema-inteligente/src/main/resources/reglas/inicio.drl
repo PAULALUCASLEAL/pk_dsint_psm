@@ -1,0 +1,59 @@
+package reglas
+
+// BLOQUE A del catalogo: inicio del mito y captura de Andromeda (R01, R02).
+// Punto de partida (PreparadorEscenario): Ceto retenido por Poseidon y Andromeda libre. Estas reglas
+// deducen "Ceto queda libre debido al enojo de Poseidon hacia Casiopea" y "Andromeda queda presa debido
+// a estar Ceto libre", tal como pide la salida del enunciado.
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.hechos.Enojo
+import dsi.mitologia.hechos.Cautiverio
+import dsi.mitologia.hechos.Liberacion
+import dsi.mitologia.hechos.Filiacion
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R01. General: cualquier dios enojado con alguien suelta a la criatura que tenia retenida.
+// No se repite: el consecuente borra el Cautiverio que la activa y deja a la criatura libre.
+rule "R01 Un dios enojado libera a la criatura que retenia"
+when
+    Enojo($m : personaje, $d : dios)
+    Personaje(this == $d, estadoVital == EstadoVital.VIVO)
+    $cau : Cautiverio(captor == $d, $cr : preso)
+    $crP : Personaje(this == $cr, criatura, estadoVital == EstadoVital.VIVO,
+                     estadoLibertad == EstadoLibertad.PRESO)
+then
+    delete($cau);
+    modify($crP) { setEstadoLibertad(EstadoLibertad.LIBRE) }
+    insert(new Liberacion($d, $cr));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.QUEDAR_LIBRE, $cr).destinatario($d)
+        .descripcion($cr.getNombre() + " queda libre debido al enojo de " + $d.getNombre()
+            + " hacia " + $m.getNombre())
+        .justificacion("el enojo de " + $d.getNombre() + " hacia " + $m.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R02. General: la criatura soltada por el dios apresa a la hija/hijo de quien enojo al dios
+// (Filiacion Andromeda es_hijo_de Casiopea, en el OWL). Solo si el hijo esta vivo y libre: no se
+// apresa dos veces (R41) y la criatura debe estar viva y libre.
+rule "R02 La criatura liberada apresa al hijo de quien enojo al dios"
+when
+    Liberacion($d : libertador, $cr : liberado)
+    Enojo($m : personaje, dios == $d)
+    Filiacion($h : hijo, progenitor == $m)
+    Personaje(this == $cr, criatura, estadoVital == EstadoVital.VIVO,
+              estadoLibertad == EstadoLibertad.LIBRE)
+    $hP : Personaje(this == $h, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+then
+    modify($hP) { setEstadoLibertad(EstadoLibertad.PRESO) }
+    insert(new Cautiverio($cr, $h));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.APRESAR, $cr).destinatario($h)
+        .descripcion($h.getNombre() + " queda presa debido a estar " + $cr.getNombre() + " libre")
+        .justificacion("estar " + $cr.getNombre() + " libre (" + $h.getNombre() + " es hija de "
+            + $m.getNombre() + ", que enojo a " + $d.getNombre() + ")")
+        .regla(drools.getRule().getName()));
+end

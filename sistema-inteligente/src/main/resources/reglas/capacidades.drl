@@ -1,0 +1,97 @@
+package reglas
+
+// BLOQUES C, E e I del catalogo: capacidades (R09-R12, R20, R21, R36-R38).
+// Las capacidades se derivan con insertLogical (mantenimiento de la verdad): existen mientras exista
+// lo que las justifica. Si el personaje pierde el objeto, muere o suelta la montura, Drools retira la
+// CapacidadDisponible sin necesidad de reglas de borrado. Hay un hecho por fuente, asi que perder el
+// casco no quita la invisibilidad que da el anillo.
+// Las reglas de accion (robar, matar a Medusa) preguntan por la CAPACIDAD, nunca por el objeto
+// concreto: R36-R38 (unificar medios de vuelo, invisibilidad y reflejo) quedan cubiertas asi.
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.modelo.Capacidad
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.ProporcionaCapacidad
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.hechos.Cautiverio
+import dsi.mitologia.hechos.Filiacion
+import dsi.mitologia.hechos.VarianteMito
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+import dsi.mitologia.modelo.enums.OrigenCapacidad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R09 (cubre R10, R11, R12). Quien posee un objeto que proporciona una capacidad, la tiene.
+// Una sola regla para CascoHades/AnilloInvisibilidad -> Invisibilidad, EscudoEspejo/EspejoMano ->
+// Reflejo, SandaliasAladas/ConjuroVuelo -> Vuelo y CabezaMedusa -> Petrificacion.
+// Quedan fuera los dioses (custodian los objetos hasta entregarlos) y las criaturas (la CabezaMedusa es
+// parte de Medusa, no un objeto que ella "use"): solo heroes y mortales usan objetos en el mito.
+rule "R09-R12 Capacidad proporcionada por un objeto poseido"
+when
+    Posesion($p : poseedor, $o : objeto)
+    Personaje(this == $p, dios == false, criatura == false, estadoVital == EstadoVital.VIVO)
+    ProporcionaCapacidad(objeto == $o, $c : capacidad)
+then
+    insertLogical(CapacidadDisponible.deObjeto($p, $c, $o));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_CAPACIDAD, $p).objeto($o).capacidad($c)
+        .descripcion($p.getNombre() + " obtiene Capacidad " + $c.getNombre() + " debido a tener " + $o.getNombre())
+        .justificacion("tener " + $o.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R20 (variante Pegaso). Un heroe con la brida dorada captura a una criatura que vuela por si misma.
+// R21: en la version clasica Pegaso nace de Medusa, por lo que no puede capturarse para ir hasta ella.
+rule "R20 Capturar una criatura voladora con la brida dorada"
+when
+             not VarianteMito(nombre == VarianteMito.PEGASO_CLASICO)
+    $h     : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $brida : Objeto(id == "BridaDorada")
+             Posesion(poseedor == $h, objeto == $brida)
+    $vuelo : Capacidad(id == "Vuelo")
+    $m     : Personaje(criatura, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+             CapacidadDisponible(personaje == $m, capacidad == $vuelo, origen == OrigenCapacidad.PROPIA)
+then
+    modify($m) { setEstadoLibertad(EstadoLibertad.PRESO) }
+    insert(new Cautiverio($h, $m));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.APRESAR, $h).destinatario($m).objeto($brida)
+        .descripcion($h.getNombre() + " captura a " + $m.getNombre() + " debido a tener " + $brida.getNombre())
+        .justificacion("tener " + $brida.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R20 (continuacion). Montar a la criatura capturada da su capacidad de Vuelo (origen MONTURA).
+// insertLogical: si la montura muere o queda libre, el Vuelo desaparece.
+rule "R20b Vuelo por montar una criatura capturada"
+when
+    $vuelo : Capacidad(id == "Vuelo")
+             Cautiverio($h : captor, $m : preso)
+             Personaje(this == $h, heroe, estadoVital == EstadoVital.VIVO)
+             Personaje(this == $m, estadoVital == EstadoVital.VIVO)
+             CapacidadDisponible(personaje == $m, capacidad == $vuelo, origen == OrigenCapacidad.PROPIA)
+then
+    insertLogical(CapacidadDisponible.deMontura($h, $vuelo, $m));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_CAPACIDAD, $h).destinatario($m).capacidad($vuelo)
+        .descripcion($h.getNombre() + " obtiene Capacidad " + $vuelo.getNombre() + " debido a montar a " + $m.getNombre())
+        .justificacion("montar a " + $m.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R21 (version clasica). Pegaso nace del cuerpo de Medusa cuando esta muere. Se registra la filiacion
+// (relacion es_hijo_de del OWL). Junto con el "not" de R20 evita la dependencia circular.
+rule "R21 Version clasica: Pegaso nace de Medusa"
+when
+             VarianteMito(nombre == VarianteMito.PEGASO_CLASICO)
+    $med   : Personaje(id == "Medusa", estadoVital == EstadoVital.MUERTO)
+    $peg   : Personaje(id == "Pegaso")
+             not Filiacion(hijo == $peg, progenitor == $med)
+then
+    insert(new Filiacion($peg, $med));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $peg).destinatario($med)
+        .descripcion($peg.getNombre() + " nace del cuerpo de " + $med.getNombre() + " (version clasica)")
+        .justificacion("la muerte de " + $med.getNombre())
+        .regla(drools.getRule().getName()));
+end

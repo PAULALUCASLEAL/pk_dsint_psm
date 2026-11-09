@@ -1,0 +1,93 @@
+package reglas
+
+// BLOQUE B del catalogo: favores de los dioses y equipo (R03-R08).
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.hechos.Favor
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.VarianteMito
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// R03 + R04 + R06 en una sola regla general: un dios vivo entrega lo que posee a quien tiene su favor.
+// Con el OWL: Atenea -> EscudoBronce, Hermes -> HozAcero, Hades -> CascoHades.
+// La EspadaIndestructible de Hefesto queda fuera: segun el enunciado es una version alternativa
+// (R07, solo con la variante ESPADA_HEFESTO). En la version principal Hefesto pule el escudo (R05).
+// Transferencia coherente (R40): se modifica la unica Posesion del objeto, no se crea otra.
+// No hay bucle: tras el modify la Posesion ya no es del dios y el patron deja de casar.
+rule "R03-R04-R06 Un dios entrega su objeto a quien tiene su favor"
+when
+    $p   : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+           Favor(personaje == $p, $d : dios)
+           Personaje(this == $d, estadoVital == EstadoVital.VIVO)
+    $pos : Posesion(poseedor == $d, $o : objeto)
+           Objeto(this == $o, id != "EspadaIndestructible")
+then
+    modify($pos) { setPoseedor($p) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $p).destinatario($d).objeto($o)
+        .descripcion($p.getNombre() + " obtiene " + $o.getNombre() + " debido a tener el favor de " + $d.getNombre())
+        .justificacion("tener el favor de " + $d.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R05. Hefesto pule el EscudoBronce hasta convertirlo en EscudoEspejo. Se modela como transformacion:
+// el escudo de bronce deja de existir (delete de su Posesion) y aparece el espejo en manos del mismo
+// personaje. Guarda: nadie posee todavia un EscudoEspejo.
+rule "R05 Hefesto convierte el escudo de bronce en escudo-espejo"
+when
+    $p      : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $hef    : Personaje(id == "Hefesto", estadoVital == EstadoVital.VIVO)
+              Favor(personaje == $p, dios == $hef)
+    $bronce : Objeto(id == "EscudoBronce")
+    $espejo : Objeto(id == "EscudoEspejo")
+    $pos    : Posesion(poseedor == $p, objeto == $bronce)
+              not Posesion(objeto == $espejo)
+then
+    delete($pos);
+    insert(new Posesion($p, $espejo));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.TRANSFORMAR_OBJETO, $p).destinatario($hef).objeto($espejo)
+        .descripcion($p.getNombre() + " obtiene " + $espejo.getNombre() + " debido a tener el favor de "
+            + $hef.getNombre() + " y el " + $bronce.getNombre())
+        .justificacion("tener el favor de " + $hef.getNombre() + " y el " + $bronce.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+// R07 (variante). Hefesto entrega la EspadaIndestructible solo si el escenario activa la variante.
+rule "R07 Hefesto entrega la espada indestructible (variante)"
+when
+              VarianteMito(nombre == VarianteMito.ESPADA_HEFESTO)
+    $p      : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $hef    : Personaje(id == "Hefesto", estadoVital == EstadoVital.VIVO)
+              Favor(personaje == $p, dios == $hef)
+    $espada : Objeto(id == "EspadaIndestructible")
+    $pos    : Posesion(poseedor == $hef, objeto == $espada)
+then
+    modify($pos) { setPoseedor($p) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $p).destinatario($hef).objeto($espada)
+        .descripcion($p.getNombre() + " obtiene " + $espada.getNombre() + " debido a tener el favor de " + $hef.getNombre())
+        .justificacion("tener el favor de " + $hef.getNombre() + " (variante de la espada)")
+        .regla(drools.getRule().getName()));
+end
+
+// R08 (variante Pegaso). Hefesto entrega las bridas de oro. En el OWL la BridaDorada no tiene dueno;
+// el enunciado dice que se las da Hefesto, asi que la regla solo exige que nadie la posea.
+rule "R08 Hefesto entrega la brida dorada (variante Pegaso)"
+when
+              VarianteMito(nombre == VarianteMito.PEGASO)
+    $p      : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $hef    : Personaje(id == "Hefesto", estadoVital == EstadoVital.VIVO)
+              Favor(personaje == $p, dios == $hef)
+    $brida  : Objeto(id == "BridaDorada")
+              not Posesion(objeto == $brida)
+then
+    insert(new Posesion($p, $brida));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $p).destinatario($hef).objeto($brida)
+        .descripcion($p.getNombre() + " obtiene " + $brida.getNombre() + " debido a tener el favor de " + $hef.getNombre())
+        .justificacion("tener el favor de " + $hef.getNombre() + " (variante de Pegaso)")
+        .regla(drools.getRule().getName()));
+end

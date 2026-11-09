@@ -1,0 +1,47 @@
+package dsi.mitologia.pruebas
+
+// SOLO PARA PRUEBAS TECNICAS del modelo Java (no son reglas del mito).
+// Se compila desde los tests con KieHelper; no forma parte de la KieBase principal (kmodule.xml solo
+// incluye el paquete "reglas"), asi que nunca se mezcla con la historia de Perseo.
+// Lo usa IntegracionDroolsModeloTest para demostrar que los POJOs del modelo sirven como hechos.
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.ProporcionaCapacidad
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+
+// Mismo nombre que MotorReglas.GLOBAL_REGISTRO: MotorReglas solo lo enlaza si el DRL lo declara.
+// Es un global (salida para la vista) y no un hecho, para que no provoque activaciones.
+global dsi.mitologia.eventos.RegistroEventos registro
+
+// Prueba 12: Drools reconoce los hechos del modelo (Personaje con varios tipos + Posesion)
+// Demuestra: (1) que se puede casar por las propiedades booleanas isHeroe()/isSemidios() de un
+// personaje con varios tipos OWL a la vez; (2) que el enum EstadoVital se compara bien; (3) que la
+// union $p entre Personaje y Posesion funciona porque la Posesion referencia el mismo objeto insertado
+// (hechos desempaquetados); (4) que el consecuente puede anotar en el global con el nombre de la regla.
+// Con DominioDePrueba solo Perseo cumple el patron, por lo que debe dispararse una unica vez.
+rule "Prueba tecnica: heroe vivo que posee un objeto"
+when
+    $p   : Personaje(heroe, semidios, estadoVital == EstadoVital.VIVO)
+    $pos : Posesion(poseedor == $p, $o : objeto)
+then
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $p)
+        .objeto($o).justificacion("prueba tecnica").regla(drools.getRule().getName()));
+end
+
+// Mantenimiento de la verdad: la capacidad existe mientras exista la posesion que la justifica
+// Demuestra la capacidad derivada de un objeto: Posesion + ProporcionaCapacidad (conocimiento estatico
+// del OWL, p. ej. CascoHades -> Invisibilidad) => CapacidadDisponible con origen OBJETO.
+// Se usa insertLogical y no insert porque, si la Posesion se retira (Perseo pierde el casco), Drools
+// retracta sola la capacidad sin regla de borrado (el consecuente sigue siendo solo una insercion).
+// Ademas, un insertLogical de un hecho igual (equals) a uno ya justificado no crea un duplicado.
+rule "Prueba tecnica: capacidad por objeto (insertLogical)"
+when
+    $pos : Posesion($p : poseedor, $o : objeto)
+           ProporcionaCapacidad(objeto == $o, $c : capacidad)
+then
+    insertLogical(CapacidadDisponible.deObjeto($p, $c, $o));
+end
