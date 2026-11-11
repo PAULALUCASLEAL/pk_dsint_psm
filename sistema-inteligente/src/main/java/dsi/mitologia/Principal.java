@@ -159,25 +159,75 @@ public class Principal {
      * no deduce nada.
      */
     static String respuesta(EscenarioMitologico esc) {
+
         StringBuilder sb = new StringBuilder();
-        sb.append("Escenario ").append(esc.getId()).append(": ").append(esc.getPregunta()).append('\n');
+
+        sb.append("Escenario ")
+          .append(esc.getId())
+          .append(": ")
+          .append(esc.getPregunta())
+          .append('\n');
+
         sb.append("Condiciones:\n");
-        for (String c : esc.getCondiciones()) sb.append("  ").append(c).append('\n');
-        Objetivo o = esc.getObjetivo();
+
+        for (String condicion : esc.getCondiciones()) {
+            sb.append("  ").append(condicion).append('\n');
+        }
+
+        Objetivo objetivo = esc.getObjetivo();
+
+        String accion;
+
+        switch (objetivo.getTipo()) {
+            case MATAR:
+                accion = "matar a ";
+                break;
+
+            case LIBERAR:
+                accion = "liberar a ";
+                break;
+
+            default:
+                throw new IllegalArgumentException(
+                        "Respuesta no implementada para: "
+                        + objetivo.getTipo());
+        }
+
         if (esc.getResultado() == ResultadoMision.CONSEGUIDO) {
-            sb.append("Si, ").append(o.getProtagonistaId()).append(" puede liberar a ").append(o.getDestinoId())
+            sb.append("Si, ")
+              .append(objetivo.getProtagonistaId())
+              .append(" puede ")
+              .append(accion)
+              .append(objetivo.getDestinoId())
               .append(" debido a que:\n");
         } else {
-            sb.append("No, no se puede demostrar que ").append(o.getProtagonistaId()).append(" pueda liberar a ")
-              .append(o.getDestinoId()).append(". Lo que ocurre es:\n");
+            sb.append("No, no se puede demostrar que ")
+              .append(objetivo.getProtagonistaId())
+              .append(" pueda ")
+              .append(accion)
+              .append(objetivo.getDestinoId())
+              .append(". Lo que ocurre es:\n");
         }
-        for (EventoMitologico e : esc.getRegistro().getEventos()) {
-            boolean explicativo = e.getAccion() == TipoAccion.INFORMACION && e.getRegla() != null
-                    && (e.getRegla().startsWith("R2") || e.getRegla().startsWith("R31 Obstaculo"));
-            if ((e.getAccion() != TipoAccion.INFORMACION && e.getAccion() != TipoAccion.CUMPLIR_OBJETIVO) || explicativo) {
-                sb.append("  ").append(e.getDescripcion()).append('.').append('\n');
+
+        for (EventoMitologico evento : esc.getRegistro().getEventos()) {
+
+            boolean explicativo =
+                    evento.getAccion() == TipoAccion.INFORMACION
+                    && evento.getRegla() != null
+                    && (evento.getRegla().startsWith("R2")
+                        || evento.getRegla().startsWith("R31 Obstaculo"));
+
+            if ((evento.getAccion() != TipoAccion.INFORMACION
+                    && evento.getAccion() != TipoAccion.CUMPLIR_OBJETIVO)
+                    || explicativo) {
+
+                sb.append("  ")
+                  .append(evento.getDescripcion())
+                  .append('.')
+                  .append('\n');
             }
         }
+
         return sb.toString();
     }
 }

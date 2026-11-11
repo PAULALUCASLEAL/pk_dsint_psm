@@ -16,8 +16,8 @@ import dsi.mitologia.escenario.TipoObjetivo;
 
 public class LectorEscenario {
 
-    private static final Pattern PREGUNTA = Pattern.compile(
-            "^Puede (.+?) liberar a (.+?)\\?$");
+	private static final Pattern PREGUNTA = Pattern.compile(
+	        "^Puede (.+?) (liberar|matar) a (.+?)\\?$");
 
     private static final Pattern FAVOR = Pattern.compile(
             "^(.+?) tiene el favor de (.+)$");
@@ -58,19 +58,29 @@ public class LectorEscenario {
 
                     if (!pregunta.matches()) {
                         throw new IllegalArgumentException(
-                                "La pregunta debe tener la forma: "
-                                + "Puede <personaje> liberar a <personaje>?");
+                        		"La pregunta debe tener la forma: "
+                        		+ "Puede <personaje> liberar a <personaje>? "
+                        		+ "o Puede <personaje> matar a <personaje>?");
                     }
 
                     String protagonista = pregunta.group(1).trim();
-                    String destino = pregunta.group(2).trim();
+                    String accion = pregunta.group(2).trim();
+                    String destino = pregunta.group(3).trim();
 
-                    // Comprobamos que los personajes existen.
                     dominio.getPersonaje(protagonista);
                     dominio.getPersonaje(destino);
 
+                    TipoObjetivo tipo;
+
+                    if (accion.equals("matar")) {
+                        tipo = TipoObjetivo.MATAR;
+                    } else {
+                        tipo = TipoObjetivo.LIBERAR;
+                    }
+
                     Objetivo objetivo = new Objetivo(
-                            TipoObjetivo.LIBERAR, protagonista, destino);
+                            tipo, protagonista, destino);
+
 
                     String id = archivo.getName()
                             .replaceFirst("^Escenario", "")
