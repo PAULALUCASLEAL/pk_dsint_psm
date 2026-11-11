@@ -8,50 +8,28 @@ import dsi.mitologia.modelo.enums.CategoriaObjeto;
 
 /**
  * Clase OWL {@code Objeto} y sus subclases (Arma, Proteccion, ArtefactoMagico, ParteAnatomica).
- *
- * <p>Relacion con la ontologia: cada instancia es un individuo de {@code Objeto}; sus clases OWL
- * concretas se guardan en {@code categorias}. Las ObjectProperties que salen o llegan a un objeto
- * ({@code esta_en_posesion_de}, {@code proporciona_capacidad}) no son campos de esta clase, sino
- * hechos independientes.</p>
- *
- * <p>Papel en el mito: son los medios que Perseo va reuniendo. Ejemplos del OWL: EscudoBronce y
- * CascoHades (Proteccion), HozAcero (Arma), SandaliasAladas y ZurronMagico (ArtefactoMagico),
- * OjoGrayas y CabezaMedusa (ParteAnatomica). Las reglas usan la categoria cuando la condicion es
- * generica ("tener un arma" para matar a Medusa, "tener una proteccion" para fabricar el EscudoEspejo)
- * y la capacidad proporcionada en el resto de casos.</p>
- *
- * <p>Decision de diseno: inmutable, porque es conocimiento del dominio y se comparte entre escenarios.
- * Quien lo posee lo dice el hecho {@code Posesion}; que capacidad da lo dice el hecho
- * {@code ProporcionaCapacidad}. Asi los hechos quedan "desempaquetados" y las reglas pueden hacer
- * {@code Posesion(objeto == $o)} directamente, sin recorrer listas dentro del objeto.</p>
- *
- * <p>Alternativa descartada: un campo {@code poseedor} mutable dentro de {@code Objeto}. Obligaria a
- * hacer {@code modify} sobre el objeto en cada robo o intercambio (OjoGrayas pasa de las Grayas a
- * Perseo y despues a las Ninfas) y duplicaria la informacion de {@code tiene_objeto}.</p>
  */
 public final class Objeto implements EntidadMitologica {
 
-    /** Nombre local del IRI del individuo en mitologia.owl (p. ej. "HozAcero"). Clave de igualdad. */
+    /** Nombre local del IRI del objeto en mitologia.owl*/
     private final String id;
-    /** Nombre legible para la historia (p. ej. "Hoz de Acero"); por defecto igual al id. */
+    /** Nombre legible para la historia; por defecto igual al id. */
     private final String nombre;
     /**
-     * Subclases OWL de {@code Objeto} a las que pertenece el individuo. Conjunto inmodificable porque
-     * las subclases no son disjuntas en la ontologia y un objeto podria pertenecer a varias.
+     * Subclases OWL de {@code Objeto} a las que pertenece el objeto.
      */
-    private final Set<CategoriaObjeto> categorias;
+    private final Set<CategoriaObjeto> categorias; 
 
     /**
      * Crea un objeto del dominio.
      *
-     * @param id         nombre local del IRI en el OWL; obligatorio
-     * @param nombre     nombre para mostrar; si es {@code null} se usa el id
-     * @param categorias subclases OWL del objeto; {@code null} o vacio equivale a un {@code Objeto}
-     *                   generico sin subclase
+     * @param id         nombre local del IRI en el OWL
+     * @param nombre     nombre para mostrar
+     * @param categorias subclases OWL del objeto
      * @throws IllegalArgumentException si el id es nulo o vacio
      */
     public Objeto(String id, String nombre, Set<CategoriaObjeto> categorias) {
-        // El id es la clave de igualdad y el enlace con la ontologia: no puede faltar.
+        // El id es obligatorio
         if (id == null || id.isEmpty()) throw new IllegalArgumentException("El objeto necesita id");
         this.id = id;
         this.nombre = nombre == null ? id : nombre;
@@ -63,67 +41,60 @@ public final class Objeto implements EntidadMitologica {
                 : Collections.unmodifiableSet(EnumSet.copyOf(categorias));
     }
 
-    /** {@inheritDoc} */
     @Override
     public String getId() {
         return id;
     }
 
-    /** {@inheritDoc} */
     @Override
     public String getNombre() {
         return nombre;
     }
 
-    /** Subclases OWL del objeto (vista inmodificable). */
+    /** Subclases OWL del objeto (inmodificable). */
     public Set<CategoriaObjeto> getCategorias() {
         return categorias;
     }
 
     /**
-     * Indica si el objeto pertenece a la subclase OWL dada. Version generica de los getters booleanos,
-     * util en reglas que reciben la categoria como dato.
+     * Indica si el objeto pertenece a la subclase OWL dada.
      */
     public boolean esDeCategoria(CategoriaObjeto categoria) {
         return categorias.contains(categoria);
     }
 
-    // Getters booleanos para patrones Drools legibles: Objeto(arma), Objeto(proteccion)...
-    // Las categorias son inmutables, asi que no hay problemas de reactividad.
-
-    /** Clase OWL {@code Arma} (p. ej. HozAcero). Necesaria para la regla de matar a Medusa. */
+    /** Clase OWL {@code Arma} */
     public boolean isArma() {
         return esDeCategoria(CategoriaObjeto.ARMA);
     }
 
-    /** Clase OWL {@code Proteccion} (p. ej. EscudoBronce, CascoHades, EscudoEspejo). */
+    /** Clase OWL {@code Proteccion}*/
     public boolean isProteccion() {
         return esDeCategoria(CategoriaObjeto.PROTECCION);
     }
 
-    /** Clase OWL {@code ArtefactoMagico} (p. ej. SandaliasAladas, ZurronMagico). */
+    /** Clase OWL {@code ArtefactoMagico}*/
     public boolean isArtefactoMagico() {
         return esDeCategoria(CategoriaObjeto.ARTEFACTO_MAGICO);
     }
 
-    /** Clase OWL {@code ParteAnatomica} (p. ej. OjoGrayas, CabezaMedusa). */
+    /** Clase OWL {@code ParteAnatomica}*/
     public boolean isParteAnatomica() {
         return esDeCategoria(CategoriaObjeto.PARTE_ANATOMICA);
     }
 
-    /** Igualdad por id: un individuo OWL es un IRI, independientemente de cuantas instancias Java haya. */
+    /** Igualdad por id*/
     @Override
     public boolean equals(Object o) {
         return this == o || (o instanceof Objeto && id.equals(((Objeto) o).id));
     }
 
-    /** Coherente con {@link #equals(Object)}: depende solo del id, que es inmutable. */
     @Override
     public int hashCode() {
         return id.hashCode();
     }
 
-    /** Nombre seguido de sus categorias, p. ej. "HozAcero[ARMA]"; pensado para depuracion. */
+    /** Nombre seguido de sus categorias */
     @Override
     public String toString() {
         return nombre + categorias;
