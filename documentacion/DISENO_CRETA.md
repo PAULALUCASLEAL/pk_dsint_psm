@@ -1,6 +1,6 @@
 # Diseño de la ampliacion de Creta
 
-Estado: propuesta de diseño, pendiente de implementar y verificar.
+Propuesta de diseño, falta verificar y comprobar.
 
 ## Requisitos del enunciado
 
@@ -12,28 +12,28 @@ Estado: propuesta de diseño, pendiente de implementar y verificar.
 - En F2-2: Minotauro muerto por Teseo, Icaro muerto y Dedalo fuera.
 - En F2-4: Perseo utiliza alas creadas despues del encierro de Dedalo.
 
-## D01. Reutilizacion de las entidades
+## Reutilizacion de las entidades
 
 Los personajes nuevos seran individuos de las clases existentes.
 No vamos a crear una clase Java por personaje.
 
-## D02. Capacidad de vuelo comun
+## Capacidad de vuelo comun
 
-Las alas proporcionaran la capacidad Vuelo, ya existente.
+Las alas proporcionaran la capacidad Vuelo que ya existía.
 
 Justificacion:
 Las reglas de Medusa consultan capacidades, entonces las alas pueden sustituir a las sandalias sin duplicar el combate.
 
-## D03. Situacion en el laberinto
+## Situacion en el laberinto
 
-Se representara por separado estar dentro del laberinto
+Vamos a representar como cosas distintas estar dentro del laberinto
 y estar preso por un personaje.
 
 Justificacion:
 Estar libre no significa necesariamente estar fuera.
 El escenario F2-2 exige comprobar que Dedalo sale del laberinto.
 
-## D04. Estado de las alas
+## Estado de las alas
 
 Vamos a representar explicitamente si las alas estan rotas.
 Las alas rotas no deben permitir que se pueda volar.
@@ -41,7 +41,7 @@ Las alas rotas no deben permitir que se pueda volar.
 Justificacion:
 El enunciado permite recuperar y reparar las alas de Icaro.
 
-## D05. Relaciones humanas
+## Relaciones humanas
 
 Vamos a mantener los favores y enojos divinos existentes.
 Añadiremos relaciones separadas para ayuda y hostilidad humanas.
@@ -53,7 +53,7 @@ Esto tiene sentido porque Ariadna es la princesa que ayuda a Teseo, y Minos es e
 Aunque Minos es hijo de Zeus, eso no implica clasificarlo como Dios.
 Asi podemos representalro como Mortal y mantener separada las relacuiones humanas de los favores y enojos divinos.
 
-## D06. Aparicion de las alas
+## Aparicion de las alas
 
 Vamos a establecer que las alas existan en el catalogo de objetos, pero no tendran
 poseedor inicial. Las reglas de fabricacion les daran poseedor.
