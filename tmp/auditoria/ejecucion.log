@@ -1,0 +1,71 @@
+Directorio de escenarios: escenarios
+Directorio de soluciones: soluciones
+[main] INFO org.drools.compiler.kie.builder.impl.ClasspathKieProject - Found kmodule: file:/C:/Users/User/Desktop/Practicas%20DSINT/sistema-inteligente/target/classes/META-INF/kmodule.xml
+[main] WARN org.drools.compiler.kie.builder.impl.ClasspathKieProject - Unable to find pom.properties in /C:/Users/User/Desktop/Practicas DSINT/sistema-inteligente/target/classes
+[main] INFO org.drools.compiler.kie.builder.impl.ClasspathKieProject - Recursed up folders, found and used pom.xml C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[main] INFO org.drools.compiler.kie.builder.impl.InternalKieModuleProvider - Creating KieModule for artifact dsi:DSI_Mitologia:0.1.0-SNAPSHOT
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - Start creation of KieBase: mitologiaKB
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - End creation of KieBase: mitologiaKB
+
+Escenario F1-1: Puede Perseo liberar a Andromeda?
+Condiciones:
+  Perseo tiene el favor de Atenea
+  Perseo tiene el favor de Hermes
+  Perseo tiene el favor de Hades
+  Perseo tiene el favor de Hefesto
+  Casiopea tiene el enojo de Poseidon
+Si, Perseo puede liberar a Andromeda debido a que:
+  Perseo obtiene CascoHades debido a tener el favor de Hades.
+  Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Perseo obtiene HozAcero debido a tener el favor de Hermes.
+  Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
+  Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
+  Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
+  Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas.
+  Perseo obtiene SandaliasAladas debido a las Ninfas localizadas.
+  Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
+  Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
+  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
+  Andromeda queda presa debido a estar Ceto libre.
+  Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
+  Perseo obtiene CabezaMedusa debido a matar a Medusa.
+  Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
+  Perseo mata a Ceto debido a tener CabezaMedusa.
+  Perseo libera a Andromeda debido a matar a Ceto.
+
+
+Escenario F1-2: Puede Perseo liberar a Andromeda?
+Condiciones:
+  Perseo tiene el favor de Atenea
+  Perseo tiene el favor de Hermes
+  Perseo tiene el favor de Hefesto
+  Casiopea tiene el enojo de Poseidon
+  Atenea no tiene EscudoBronce
+  Hades no tiene CascoHades
+  Ninfas no tiene SandaliasAladas
+  Perseo tiene AnilloInvisibilidad
+  Perseo tiene EspejoMano
+  Perseo tiene ConjuroVuelo
+Si, Perseo puede liberar a Andromeda debido a que:
+  Perseo obtiene Capacidad Vuelo debido a tener ConjuroVuelo.
+  Perseo obtiene Capacidad Reflejo debido a tener EspejoMano.
+  Perseo obtiene Capacidad Invisibilidad debido a tener AnilloInvisibilidad.
+  Perseo obtiene HozAcero debido a tener el favor de Hermes.
+  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
+  Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas.
+  Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas.
+  Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
+  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
+  Andromeda queda presa debido a estar Ceto libre.
+  Perseo mata a Medusa debido a tener HozAcero, Espejo (EspejoMano), Invisibilidad (AnilloInvisibilidad) y Vuelo (ConjuroVuelo).
+  Perseo obtiene CabezaMedusa debido a matar a Medusa.
+  Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
+  Perseo mata a Ceto debido a tener CabezaMedusa.
+  Perseo libera a Andromeda debido a matar a Ceto.
+

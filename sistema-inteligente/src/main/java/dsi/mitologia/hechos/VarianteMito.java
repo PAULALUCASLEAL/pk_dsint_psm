@@ -2,17 +2,6 @@ package dsi.mitologia.hechos;
 
 /**
  * Hecho de control: una variante narrativa del mito que el escenario activa de forma explicita.
- *
- * <p>Relacion con la ontologia: no existe en {@code mitologia.owl}. Es una decision tecnica para poder
- * ejecutar las versiones alternativas que cita el enunciado (pag. 10-11) sin mezclarlas con la version
- * principal: la espada indestructible de Hefesto en lugar de la hoz de Hermes, volar montando a Pegaso
- * con las bridas de oro de Hefesto, o la version clasica en la que Pegaso nace de Medusa.</p>
- *
- * <p>Decision de diseno: un hecho por variante, con igualdad por nombre. Las reglas que solo valen en una
- * variante la exigen en su antecedente ({@code VarianteMito(nombre == VarianteMito.PEGASO)}) y las que la
- * excluyen usan {@code not}. Si el escenario no activa ninguna variante, se ejecuta la version del
- * enunciado. Alternativa descartada: anadir objetos o posesiones al OWL segun la variante, lo que obligaria
- * a Java a decidir que ocurre (nota O del enunciado).</p>
  */
 public final class VarianteMito {
 

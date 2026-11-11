@@ -1,0 +1,1198 @@
+PAGINA 1
+1 
+ 
+PROYECTO - CURSO 2026/2027 
+Mitología Griega 
+ 
+Tabla de contenido 
+1. OBJETIVO 2 
+2. METODOLOGÍA DE ENSEÑANZA 2 
+3. ENTREGABLES 2 
+A. CONTENIDO Y FORMATO DEL ENTREGABLE OPCIONAL 2 
+B. INFORMES DEL ENTREGABLE OPCIONAL 3 
+C. CONTENIDO Y FORMATO DEL ENTREGABLE FINAL 4 
+D. INFORMES DEL ENTREGABLE FINAL 5 
+E. ASPECTOS GENERALES DE LOS INFORMES 5 
+4. PRESENTACIONES ORALES 6 
+5. EL EQUIPO Y EL VOCAL 6 
+6. FORMATO DE LA EJECUCIÓN (PARÁMETROS PARA EL EJECUTABLE) 7 
+7. EVALUACIÓN 7 
+A. EVIDENCIAS PARA LA EVALUACIÓN 8 
+B. LA EVALUACIÓN POR FASES: 8 
+C. CRITERIOS GENERALES DE EVALUACIÓN: 8 
+8. CONTEXTO DEL PROYECTO PROPUESTO 8 
+A. FUENTE DE DATOS DE ENTRADA: 9 
+B. FUENTE DE CONOCIMIENTO EXPERTO: 9 
+C. RESUMEN DEL MITO DE LA LIBERACIÓN DE ANDRÓMEDA. 10 
+D. RESUMEN DEL MITO DEL LABERINTO DE CRETA: ÍCARO, DÉDALO Y EL MINOTAURO. 12 
+E. PERSONAJES PRINCIPALES Y ALGUNOS OBJETOS DE INTERÉS: 13 
+F. RESUMEN MUY BREVE DE AMBOS MITOS 13 
+G. CONEXIÓN CON EL MITO DE CASIOPEA. 13 
+H. HÉROE INVITADO 14 
+I. MONSTRUOS/CRIATURAS/OBJETOS ALTERNATIVOS 14 
+J. ESCENARIOS 14 
+ESCENARIO.F2-1.TXT EL MITO DE LA LIBERACIÓN DE ANDRÓMEDA 15 
+ESCENARIO.F2-2.TXT EL LABERINTO DE CRETA: MINOTAURO, ÍCARO Y 
+DÉDALO. 15 
+ESCENARIO.F2-3.TXT TESEO LIBERA A ANDRÓMEDA 15 
+ESCENARIO.F2-4.TXT PERSEO LIBERA A ANDRÓMEDA DE UNA CRIATURA MARINA, 
+PERO USA LAS ALAS DE ÍCARO O DÉDALO PARA CONSEGUIR EL VUELO QUE LE 
+PERMITA MATAR A MEDUSA. 15 
+ESCENARIO.F2-5.TXT UN HÉROE CUALQUIERA LIBERA A ANDRÓMEDA, PERO EN SU 
+ODISEA LLEGA A ESTAR PRESO DEL MINOTAURO. 15 
+ESCENARIO.F2-6.TXT LAS CHICAS SE EMPODERAN. 15 
+ESCENARIO.F2-7.TXT SOLO PUEDE QUEDAR UNO. 16 
+ESCENARIO.F2-8.TXT CONSTRUYE TU PROPIO MITO. 16 
+PAGINA 2
+2 
+ 
+9. ALGUNAS IDEAS PARA INICIAR EL PROCESO DE CREAR UNA ONTOLOGÍA Y EL PRIMER SISTEMA 
+INTELIGENTE (SI). 16 
+10. AGENDAS Y SU USO EN EL SI 20 
+11. NOTAS GENERALES SOBRE LA PRÁCTICA 21 
+12. CUALQUIER OTRA DUDA O EXPLICACIÓN 24 
+ 
+ 
+1. Objetivo 
+ 
+El objetivo de este proyecto es que el alumno desarrolle el prototipo de un 
+sistema inteligente capaz de contestar preguntas sobre diversos mitos de la 
+cultura griega. Las preguntas versan sobre si son posibles (y la secuencia de 
+eventos) realizar diferent es hazañas mitológicas en función de algunas 
+condiciones iniciales. 
+ 
+2. Metodología de enseñanza  
+ 
+En la parte práctica de esta asignatura se sigue una metodología de enseñanza 
+orientada a proyectos. Así, el alumno debe desarrollar un proyecto que 
+abarcará gran parte de los contenidos vistos en clase de teoría, llevándolos a 
+la práctica en un problema concreto. 
+ 
+3. Entregables  
+ 
+El proyecto consta de 2 entregables: uno parcial y opcional y otro final y 
+obligatorio. 
+ 
+Con el fin de que el alumno pueda saber cuál es  el estado del desarrollo del 
+proyecto antes de que finalice, existe la posibilidad de hacer un entregable 
+parcial. Este entregable es voluntario, no será evaluado y no supone puntos 
+extra. 
+ 
+El proyecto tiene un único entregable obligatorio , denominado entregable 
+final. Éste es el entregable que se evalúa y del que sale la nota final de las 
+prácticas. 
+ 
+Además, para facilitar la identificación, normalizaremos los nombres de los 
+entregables del proyecto, así como de su contenido. 
+ 
+¡MUY IMPORTANTE! No se consi derarán entregadas correctamente 
+aquellas prácticas que no sigan estas indicaciones y pueden acarrear 
+directamente el suspenderlas. 
+ 
+a. Contenido y formato del entregable opcional 
+ 
+PAGINA 3
+3 
+ 
+El entregable opcional se realizará tras completar las fases 1.a y 1.b del 
+proyecto, es decir, tras haber desarrollado la ontología completa con Protégé, 
+haber creado el proyecto Eclipse y haber desarrollado completamente uno de 
+los mitos propuestos. 
+ 
+Este entregable consta de UN ÚNICO FICHERO ZIP , que debe tener el 
+siguiente nombre: 
+ 
+DSI_OPC_<nombre_de_grupo>.zip 
+ 
+El fichero zip debe contener 2 directorios: uno para la fase 1.a y otro para la 
+fase 1.b. 
+ 
+El proyecto Protégé con la ontología (fase 1.a) debe ir en un directorio con el 
+siguiente nombre: 
+ 
+DSI_ONT_OPC_<nombre_de_grupo> 
+ 
+En el nombre de grupo no uséis símbolos especiales  (tildes, eñes, etc.) y 
+cambiad los espacios por underscores “_”. 
+ 
+Por ejemplo, si el grupo se llama “Informática Forever”, el proyecto Protégé con 
+la ontología irá en un directorio que se llamaría 
+DSI_ONT_OPC_Informatica_Forever. 
+ 
+El proyecto Eclipse (fase 1.b) debe ir en un directorio con el siguiente nombre: 
+ 
+DSI_KS_OPC_<nombre_de_grupo> 
+ 
+La codificación del proyecto debe ser UTF-8. 
+ 
+Adicionalmente, hay que elaborar 2 informes relativos a las fases 1.a y 1.b en 
+los que se detalle todo el trabajo realizado (ver más detalles en el siguiente 
+apartado). Cada informe debe ir en el subdirectorio correspondiente. 
+ 
+b. Informes del entregable opcional 
+ 
+A continuación, se explican los informes de cada una de las fases: 
+ 
+Informe de la fase 1.a: desarrollo de la ontología del dominio. 
+ 
+La ontología deberá reflejar los conceptos, atributos y relaciones 
+fundamentales que se plantea para la descripción d el dominio del proyecto 
+propuesto, así como sus relaciones y construcción básica. 
+ 
+La ontología debe centrarse en aquellos conceptos que podrán ser utilizados 
+durante el desarrollo del sistema. Por ejemplo, en este enunciado se habla de 
+Dioses, Héroes, Criaturas y Seres, por tanto, deben aparecer en la ontología. 
+ 
+PAGINA 4
+4 
+ 
+Sin embargo, en las fue ntes de conocimiento se mencionan otros muchos 
+aspectos que quedarán fuera del alcance de este proyecto (por ejemplo, los 
+Titanes). 
+ 
+La ontología debe ser lo más completa posible y debe incluir : conceptos, 
+relaciones, propiedades, metadatos (para todos los conceptos y relaciones) e 
+instancias (al menos una por cada concepto y relación). 
+ 
+Informe de la fase 1.b: desarrollo del sistema inteligente básico (un mito). 
+ 
+Consiste en desarrollar un SI capaz de leer un fichero de log que contiene 
+alguna pregunta (sobre el mito de Andrómeda/Perseo) y diversas afirmaciones 
+iniciales, así como un motor de reglas que, como mínimo, sea capaz de 
+describir una secuencia de sucesos y acciones que llevan a contestar la 
+pregunta hecha (por ejemplo: ¿puede Perseo liberar a Andromeda si …?). 
+ 
+c. Contenido y formato del entregable final 
+ 
+El entregable final se realizará tras completar todas las fases del proyecto (fase 
+1.a, 1.b y 2), es decir, tras haber desarrollado la ontología completa con 
+Protégé, haber creado el proyecto Eclipse y haber desarrollado completamente 
+todos los mitos propuestos. 
+ 
+Este entregable consta de UN ÚNICO FICHERO ZIP , que debe tener el 
+siguiente nombre: 
+ 
+DSI_FINAL_<nombre_de_grupo>.zip 
+ 
+El fichero zip debe contener 2 directorios: uno para la fase 1.a actualizada (es 
+decir, tras añadir todo el feedback de la entrega opcional o cualquier otra 
+modificación que se estime oportuno) y otro para la fase 2. 
+ 
+El proyecto Protégé con la ontología (fase 1.a) debe ir en un directorio con el 
+siguiente nombre: 
+ 
+DSI_ONT_FINAL_<nombre_de_grupo> 
+ 
+En el nombre de grupo no uséis símbolos especiales  (tildes, eñes, etc.) y 
+cambiad los espacios por underscores “_”. 
+ 
+Por ejemplo, si el grupo se llama “Informática Forever”, el proyecto Protégé con 
+la ontología irá en un directorio que  se llamaría 
+DSI_ONT_FINAL_Informatica_Forever. 
+ 
+El proyecto Eclipse (fase 2) debe ir en un directorio con el siguiente nombre: 
+ 
+DSI_KS_FINAL_<nombre_de_grupo> 
+ 
+La codificación del proyecto debe ser UTF-8. 
+PAGINA 5
+5 
+ 
+ 
+Adicionalmente, hay que elaborar 2 informes relativos a las fases 1.a y 2 en 
+los que se detalle todo el trabajo realizado (ver más detalles en el siguiente 
+apartado). Cada informe debe ir en el subdirectorio correspondiente. 
+ 
+d. Informes del entregable final 
+ 
+Informe de la fase 1.a: desarrollo de la ontología del dominio. 
+ 
+Si la ontología es la misma que la de la entrega opcional, el informe será el 
+mismo que el entregado en dicha entrega. Si la ontología ha sido actualizada, 
+el informe tendrá que indicar claramente las actualizaciones/modificaciones 
+realizadas. 
+ 
+Informe de la fase 2 : desarrollo del sistema inteligente completo (todos los 
+mitos). 
+ 
+Consiste en desarrollar un motor completo que además de tener la 
+funcionalidad de la fase 1.b sea capaz de: 
+- Responder preguntas sobre todos los mitos. 
+- Encontrar mitos alternativos m ediante la generalización de las reglas. Es 
+decir, encontrar si Héroes con objetos/características/capacidades iguales 
+a los Héroes originales pueden realizar otros mitos, o existen formas 
+alternativas de realizarse. Por ejemplo, si es necesario tener las sandalias 
+aladas (volar) para localizar a Medusa, cualquier otro medio alternativo de 
+volar (p.e. tener/capturar a Pegaso, un conjuro de vuelo, las alas de Ícaro, 
+etc.) podría valer para llevar a cabo esa hazaña (aunque en este caso 
+particular, dado que Pe gaso “nace”, de la muerte de Medusa, podría ser 
+difícil que eso sucediera). 
+ 
+El informe tendrá que indicar claramente las diferencias entre la fase 1.b y la 
+fase 2 del proyecto. 
+e. Aspectos generales de los informes 
+ 
+Los informes deberán incluir, como mínimo los siguientes elementos: 
+a) Las principales decisiones del diseño. 
+b) Uso de IA generativa: cómo se ha usado, para qué, qué 
+modelos/herramientas concretas se han usado, el prompt introducido, la 
+salida obtenida, etc. 
+c) Las principales características del sistema. 
+d) Una breve explicación (a modo de manual de usuario) de cómo simular una 
+ejecución completa. 
+e) Breves explicaciones para cada escenario 1 -7, de cómo se cumple, en 
+vuestra práctica, con lo pedido en los apartados que los describen, así 
+como cualquier aclaración debido a vuestra interpretación del mito del 
+laberinto (ver más adelante). 
+f) Explicación del Escenario 8 (construye tu propio mito) al estilo de lo aquí 
+explicado para Escenarios 1-7 (ver más adelante). 
+PAGINA 6
+6 
+ 
+ 
+4. Presentaciones orales 
+ 
+Presentación oral obligatoria 
+ 
+Habrá una presentación oral obligatoria al final del proyecto en la que todos los 
+miembros del equipo deben participar. 
+ 
+La duración de las presentaciones dependerá del número de equipos y 
+disponibilidad horaria. 
+ 
+Esta presentación se evaluará y formará parte de la calificación de todos los 
+miembros del equipo.  Es importante señalar que la nota de prácticas podría 
+ser diferente para cada miembro del grupo, incluida la posibilidad de que 
+algunos aprueben y otros suspendan dentro del mismo grupo. 
+ 
+Entrevista escrita 
+ 
+Posterior a la presentación oral, todos los miembros de cada equipo realizarán 
+una entrevista escrita en la misma sesión de clase. Dicha entrevista tendrá una 
+duración estimada de una hora y es tará orientada al proyecto enviado por el 
+equipo de trabajo. Es necesario pasar la entrevista para aprobar la práctica.  
+ 
+5. El equipo y el vocal  
+ 
+Los equipos se constituirán por 3 miembros en función de criterios de idoneidad 
+y afinidad. En casos excepciona les y justificados podrían hacerse equipos de 
+2 personas (por ejemplo, cuando el número de alumnos total no es divisible 
+por 3). No podrá haber equipos formados por un alumno o más de 3 alumnos. 
+ 
+Los grupos pueden tener miembros de diferentes subgrupos, pero deben tener 
+en cuenta que las presentaciones son en horario de prácticas, y que en un 
+grupo con miembros de diferentes subgrupos algunos podrían tener problemas 
+de colisión con otras asignaturas. 
+ 
+En su momento se ofrecerán en la herramienta “Apúntate” del aula virtual 
+diferentes slots dentro de los horarios de prácticas para escoger y realizar la 
+presentación y la entrevista. Será responsabilidad del vocal/portavoz del grupo 
+escoger un slot en el que todos sus miembros puedan acudir. Solo 
+aceptaremos las solicitudes en Apúntate realizadas por los 
+vocales/portavoces, las del resto de alumnos serán anuladas.  
+ 
+En resumen, el vocal/portavoz será el responsable de: 
+1. coordinar la comunicación entre el profesor y los miembros del equipo, 
+2. informar a sus compañeros de las comunicaciones/solicitudes que le 
+haya hecho el profesor 
+3. realizar las entregas de cada fase por el aula virtual (solo las puede 
+hacer el vocal) 
+PAGINA 7
+7 
+ 
+4. pedir el slot para las presentaciones obligatorias (solo la puede pedir el 
+vocal. 
+ 
+6. Formato de la ejecución (parámetros para el ejecutable) 
+ 
+El programa debe aceptar dos parámetros: el nombre del directorio donde 
+están los escenarios (los .txt) y el directorio donde se almacenan los ficheros 
+de las “soluciones” (RespuestaFx_y.txt con x la fase, 1 o 2, e y el número del 
+escenario). Para facilitar la evaluación, en el main de vuestro programa Java 
+debe haber dos variables de tipo String llamadas escenarios y soluciones 
+inicializadas a los directorios por defecto donde están esos ficheros si el 
+usuario ejecuta con argumentos estas variables deben actualizarse. 
+ 
+Es decir: 
+ 
+public class Mi_Clase_Principal { 
+    public static void main(String[] args) { 
+        String escenarios=”escenarios”; 
+        String soluciones=”soluciones”; 
+... 
+        if (args.length>=1) escenarios= args[0]; 
+        if (args.length>=2) soluciones= args[1]; 
+... 
+    } 
+} 
+ 
+El programa debe leer todos los ficheros EscenarioF2-[1..8].txt del directorio 
+origen y crear un fichero Respuesta por cada uno presente (con el mismo x e 
+y). Además, debe mostrar por consola tanto cada fichero Escenario (con 
+unas líneas de separación, p.e. “\n *** Fin Descripción Escenario ***\n\n”), 
+como cada respuesta, (con otras líneas de separación entre escenarios (p.e. 
+“\n *** Fin Escenario F3_2***\n\n”). 
+ 
+7. Evaluación 
+ 
+● Las prácticas deberán ser superadas (5 puntos) para poder hacer media 
+con la parte de teoría. 
+● Es obligatorio realizar el proyecto, la presentación oral y la entrevista 
+escrita. 
+● Para el desarrollo del proyecto se utilizará Git para el control de versiones 
+y la plataforma GitHub para almacenar y gestionar el código. Se deberá 
+incluir al profesor de prácticas en el repositorio con el correo electrónico 
+proporcionado por este.  
+ 
+PAGINA 8
+8 
+ 
+a. Evidencias para la evaluación 
+ 
+En general, la evaluación de las prácticas tendrá como evidencias de 
+evaluación: 
+- El entregable enviado. 
+- La exposición oral, donde los miembros que exponen representan a todos 
+los integrantes, compartiendo la misma evaluación. 
+- La entrevista escrita donde cada uno de los miembros del equipo 
+responderán preguntas sobre su práctica.  
+b. La evaluación por fases: 
+ 
+FASES: Ptos. 
+Fase 1.a: Ontología  (obligatorio) 3 
+Fase 2: S.I. completo (obligatorio) 6 
+Presentación y entrevista escrita  (obligatorio, se debe pasar para 
+poder aprobar la práctica). 
+1 
+ 
+c. Criterios generales de evaluación: 
+ 
+- Tanto en cuestiones de diseño como de desarrollo se considerará tanto la 
+corrección como la completitud de la solución propuesta. 
+- Se deberán aplicar los conocimientos adquiridos en las asignaturas de 
+desarrollo de software (por ejemplo, patrón modelo-vista-controlador). 
+- Se otorgará gran valor a las explicaciones dadas en los informes. Éstos 
+deberán justificar de forma clara el porqué de los diseños realizados. 
+- La detección de cualquier tipo de plagio se penalizará para todos los 
+miembros de los grupos implicados (sin entrar a valorar quien copia 
+a quien) con la calificación de SUSPENSO en la convocatoria que 
+proceda. Se podrá aplicar la normativa de la Universidad de Murcia al 
+respecto sobre autoría y plagio aplicándose las medidas disciplinarias ahí 
+reflejadas. 
+-  
+8. Contexto del proyecto propuesto 
+ 
+La mitología griega es el conjunto de mitos y leyendas que pertenecen a los 
+antiguos griegos, en las que se habla de sus dioses y héroes, sobre cuál es la 
+naturaleza del mundo y sus orígenes, además del significado de sus cultos y 
+rituales. Por sus características formó parte de la religión de la Antigua Grecia, 
+y se transmitió principalmente de forma oral, aunque algunos autores antiguos 
+(especialmente poetas) la plasmaron en parte en sus escritos, lo que ha 
+permitido que hayan llegado a la actualidad, y c on variadas versiones de los 
+mismos mitos. 
+ 
+Nota muy importante : No utilicéis tildes, ni eñes en los textos a usar para 
+evitar problemas de codificación de caracteres especiales. Tampoco uséis 
+tildes ni eñes en el código, en los nombres de clases y variables, etc. Tampoco 
+uséis punto final en los ficheros para vuestra comodidad en el parser. Veréis 
+que, en los ejemplos, salvo error, no hay tildes ni eñes (aunque pueda doler 
+PAGINA 9
+9 
+ 
+ver a Andrómeda sin tilde, son más los dolores de cabeza de Drools y Protègè 
+cuando no los lee correctamente). 
+ 
+a. Fuente de datos de entrada: 
+ 
+Los ficheros de pregunta/prueba llevarán los siguientes elementos: 
+Pregunta sobre si es posible una “misión”, con: 
+ 
+Misiones: Las misiones (preguntas base) consisten en preguntar si se puede: 
+ 
+a) Matar/Apresar/Liberar Personaje(Animal/Humano/Semidios/Héroe/¿Dios?)  
+b) Conseguir algún Objeto concreto. 
+c) Que cierto personaje Consiga una capacidad (Vuelo, Invisibilidad, etc.). 
+ 
+Condiciones: 
+Lista de condiciones iniciales pertinentes. 
+ 
+Por ejemplo: 
+¿Puede Perseo liberar a Andromeda? 
+Condiciones: 
+Perseo tiene el favor de Atenea 
+Perseo tiene el favor de Hermes 
+Perseo tiene el favor de Hefesto 
+Casiopea tiene el enojo de Poseidon 
+ 
+O, por ejemplo: 
+¿Puede Perseo Obtener Brida de Oro? 
+Condiciones: 
+Perseo tiene el favor de Hefesto 
+O, por ejemplo: 
+¿Puede Perseo tener la capacidad de Vuelo? 
+Condiciones: 
+Perseo localiza a las Grayas 
+Perseo tiene la capacidad de Invisibilidad 
+ 
+ 
+Nota muy importante : No utilicéis tildes, ni eñes en los textos a usar para 
+evitar problemas de codificación de caracteres especiales. Tampoco uséis 
+tildes ni eñes en el código, en los nombres de clases y variables, etc. Tampoco 
+uséis punto final en los ficheros para vuestra comodidad en el parser. 
+ 
+b. Fuente de conocimiento experto: 
+ 
+Se pueden encontrar multitud de fuentes respecto a los mitos griegos, tanto en 
+la red como en libros de texto o estudios. También hay numerosas películas 
+con adaptaciones de muchos mitos griegos, adaptaciones más o menos 
+alejadas de los textos clásicos. L a cultura occidental está fuertemente 
+influenciada por la mitología griega (que fue en gran parte adoptada por la 
+cultura romana) y no faltan numerosos ejemplos a todos los niveles, desde los 
+nombres de los planetas (a excepción de la tierra, tienen nombre s de dioses 
+PAGINA 10
+10 
+ 
+griegos) y sus satélites principales (relacionados con cada dios que da nombre 
+al planeta). Para el primer mito (rescate de Andrómeda por Perseo) se 
+proporciona un resumen del mito y se orienta sobre el tipo de salida esperable 
+del sistema. 
+Para los mitos de la Fase 2 se indicarán los nuevos mitos, las preguntas 
+obligatorias a responder, y alguna orientación sobre las respuestas esperadas 
+y las capacidades del Sistema Inteligente. 
+ 
+c. Resumen del mito de la liberación de Andrómeda. 
+ 
+Es un mito comp lejo que forma parte de la historia de Perseo. Mezclando 
+diversas fuentes podríamos resumirlo (de forma muy libre porque hay muchas 
+variantes del mito) de la siguiente manera: 
+ 
+Perseo es un  semidiós de la  mitología griega, hijo de  Zeus y de la 
+mortal Dánae.  
+Una de sus hazañas fue liberar a Andrómeda (con la que se casó). Andrómeda 
+estaba presa de Ceto, una Criatura marina que fue liberada por Poseidón (o 
+Doris en otras versiones), debido a que la madre de Andrómeda, Casiopea, 
+había enojado a Poseidón al in sultar a Doris. Casiopea insultó a 
+Doris/Poseidón al jactarse Andrómeda de ser más bella que las Nereidas (hijas 
+de Doris). Para evitar que Ceto destruyese su reino, Andrómeda y su marido 
+consintieron en que Ceto apresase a Andrómeda. 
+ Perseo liberó a Andr ómeda petrificando (matando) a Ceto. Lo petrificó 
+utilizando la cabeza de Medusa. Matar a Medusa (una de las Gorgonas) es 
+una historia propia. Con la ayuda (favor) de Hades, Hermes y de Atenea, 
+Perseo pudo ir en busca (localizar) a las Grayas, unas diosas menores que 
+eran tres viejas que compartían un solo ojo (y diente) y se lo turnaban entre 
+ellas. Perseo les robó su ojo y, a cambio de devolvérselo, las Grayas le dijeron 
+donde podía Perseo encontrar (localizar) a unas ninfas que poseían varios 
+objetos que serían necesarios para derrotar a Medusa: un Zurrón Mágico para 
+guardar la cabeza de Medusa (su sangre era corrosiva, y su mirada 
+petrificaba), unas sandalias aladas para poder llegar donde vivía Medusa (en 
+otras versiones, por ejemplo, en la película “Fu ria de Titanes” Perseo debe 
+liberar a Pegaso, el caballo volador, aunque en los clásicos Pegaso nace 
+precisamente del cuerpo asesinado de Medusa. En otras fuentes las sandalias 
+aladas se las da directamente Hermes), y el casco de Hades (que daba 
+invisibilidad) que se lo da el propio Hades. Además, necesitaba una hoz de 
+acero (para cortar la cabeza a Medusa) que le dio Hermes (en otras versiones 
+es una espada indestructible que le da Hefesto), y un escudo de bronce que le 
+dio Atenea, y que pulió el dios Hefestos hasta hacerlo tan reflectante como un 
+espejo (y así poder mirar a Medusa a través del reflejo y no quedar petrificado 
+al mirarla directamente). Con todos esos pertrechos, y debido a poder volar 
+(con las sandalias aladas) hasta donde estaba Medusa, Per seo pudo 
+enfrentarse a ella, matarla, cortarle la cabeza, guardarla en el zurrón mágico y 
+con ella poder matar a Cato y liberar a Andrómeda. 
+ Si se escoge la versión de que Perseo voló hasta Medusa debido tener 
+a Pegaso (en vez de las sandalias aladas) ent onces Perseo debe atrapar a 
+Pegaso antes con unas bridas de oro que le entrega Hefestos. En los clásicos, 
+PAGINA 11
+11 
+ 
+en realidad, Pegaso es “hijo” de Medusa, y nace cuando Perseo mata a 
+Medusa. 
+ En la fase 2, por ejemplo, las alas de Ícaro también pueden proporcionar 
+una forma de vuelo que permita a Perseo llegar a Medusa y, en general, 
+cualquier artilugio o poder que le de la capacidad de vuelo al Héroe en cuestión 
+debería valerle en la hazaña (en Fase 2, por ejemplo, hay un fichero donde se 
+le da un conjuro de vuelo). 
+ 
+En el fichero de pregunta para esta fase 1 estará la siguiente información: 
+¿Puede Perseo liberar a Andromeda? 
+Condiciones: 
+Perseo tiene el favor de Atenea 
+Perseo tiene el favor de Hermes 
+Perseo tiene el favor de Hades 
+Perseo tiene el favor de Hefesto 
+Casiopea tiene el enojo de Poseidon 
+ 
+Y la respuesta del sistema inteligente en la fase 1 debe ser parecida a lo 
+siguiente (Ignorar el texto entre paréntesis, es aclaratorio para estas notas. 
+Además, el texto de vuestro sistema experto podría incluir MÁS in formación 
+que la indicada, es decir, podría contener acciones no relevantes para el 
+resultado final, pero que pueden llevarse a cabo desde las condiciones 
+iniciales. Tampoco es importante el orden exacto excepto entre acciones que 
+necesariamente deben ir unas antes que otras, es decir, el orden parcial). 
+ 
+Si, Perseo puede liberar a Andromeda debido a que: 
+Ceto queda libre debido al enojo de Poseidon hacia Casiopea.  
+Andrómeda queda presa debido a estar Ceto libre.   
+Perseo obtiene Escudo de Bronce debido a tener el favor de Atenea.  
+Perseo obtiene Hoz de Acero debido a tener el favor de Hermes.  
+Perseo obtiene Escudo-Espejo debido a tener el favor de Hefesto y el Escudo 
+de Bronce. 
+Perseo obtiene Capacidad Espejo debido a tener Escudo-Espejo. 
+Perseo obtiene Casco de Hades debido a tener el favor de Hades.  
+Perseo obtiene la Capacidad Invisibilidad debido a tener el casco de Hades. 
+Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.  
+Perseo obtiene (roba) el ojo/diente de las Grayas debido a tener Invisibilidad 
+(Casco de Hades) y las Grayas localizada.  
+Perseo localiza a las Ninfas debido a intercambio de Ojo/Diente de las Grayas, 
+a las Grayas. 
+Perseo obtiene Zurron Magico debido a las Ninfas localizada.  
+Perseo obtiene Sandalias Aladas debido a las Ninfas localizada.  
+Perseo obtiene Capacidad Vuelo debido a tener Sandalias Aladas. 
+Perseo mata a Medusa debido a tener Hoz de Acero, Espejo (Escudo-Espejo), 
+Invisibilidad (Casco de Hades) y Vuelo (Sandalias Aladas).  
+Perseo obtiene cabeza de Medusa debido a matar a Medusa. 
+(Perseo no muere al obtener cabeza de Medusa por tener zurrón mágico, si 
+no lo tuviera Perseo debe morir).  
+Perseo mata Ceto debido a tener Cabeza de Medusa. 
+Perseo libera a Andrómeda debido a matar a Ceto. 
+PAGINA 12
+12 
+ 
+ 
+Podríamos tener otras preguntas con otras condiciones, p.e: 
+¿Puede Perseo liberar a Andromeda? 
+Condiciones: 
+Perseo tiene el favor de Atenea 
+Perseo tiene el favor de Hermes 
+Perseo tiene el favor de Hefesto 
+Casiopea tiene el enojo de Poseidón 
+Atenea no tiene Escudo de Bronce. 
+Hades no tiene Casco del Hades 
+Las Ninfas no tiene Sandalias Aladas. 
+Perseo tiene Anillo de Invisibilidad. 
+Perseo tiene Espejo de Mano. 
+Perseo tiene Conjuro de Vuelo. 
+ 
+Y la respuesta debe ser del tipo (debería contener al menos): 
+ 
+Si, Perseo puede liberar a Andromeda debido a que: 
+Ceto queda libre debido a enojo de Poseidón hacia Casiopea.  
+Andromeda queda presa debido a estar Ceto libre.  
+Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea. 
+Perseo obtiene Capacidad Invisibilidad debido a tener Anillo de Invisibilidad. 
+Perseo obtiene (roba) Ojo/Diente de las Grayas debido Invisibilidad (Anillo de 
+Invisibilidad) y las Grayas localizada. 
+Perseo localiza a las Ninfas debido a intercambio de Ojo/Diente de las Grayas 
+con las Grayas.  
+Perseo obtiene Zurron Magico debido a Ninfas localizada.  
+Perseo obtiene Capacidad Vuelo debido a tener Conjuro de Vuelo.  
+Perseo obtiene Capacidad Espejo debido a tener Espejo de Mano. 
+Perseo mata a Medusa debido a tener Hoz de acero, Espejo (tiene espejo de 
+mano), Invisibilidad (tiene anillo invisibilidad) y Vuelo (tiene conjuro de vuelo).  
+Perseo obtiene cabeza de Medusa debido a matar a Medusa. (Perseo no 
+muere al obtener cabeza de Medusa por tener zurrón mágico, si no lo tuviera 
+Perseo debe morir).  
+Perseo mata Ceto debido a tener Cabeza de Medusa.  
+Perseo libera a Andromeda debido a matar a Ceto.  
+ 
+Las discordancias gramaticales no son obligatorias (no hace falta que 
+concuerde ni el género ni el número en las frases). 
+ 
+d. Resumen del mito del laberinto de Creta: Ícaro, Dédalo y el 
+Minotauro. 
+ 
+En esta tercera fase habrá que introducir dos nuevos mitos relacionados entre 
+sí por la misma localización, el Laberinto de Creta. Esta vez no daré mucha 
+información sobre el mito para que practiquéis vuestra propia extracción de 
+información de diversas fu entes. Eso sí, indicaré unos breves elementos que 
+deberían estar presentes en todos vuestros trabajos. No es un mito muy 
+complejo independientemente, pero hay que tratar de entremezclarlo con el de 
+Casiopea. 
+PAGINA 13
+13 
+ 
+ 
+e. Personajes principales y algunos objetos de interés: 
+ 
+Deben estar: Minos, Teseo, Ariadna, el Minotauro, Ícaro y Dédalo. 
+Objetos: el hilo de Ariadna, la espada de Teseo, las alas de Ícaro y de Dédalo, 
+el cuerno del Minotauro (puede considerarse un arma especial). 
+ 
+f. Resumen muy breve de ambos mitos  
+ 
+(no debéis usar este resumen para extraer palabras claves, solo os lo indico 
+para que sepáis algunas cosas que podrían aparecer siguiendo lo ya hecho en 
+Fase 1 y 2 o con los cambios pertinentes): 
+Minos ordena a Ícaro y Dédalo que construyan el laberinto y enci erra en el 
+laberinto al Minotauro. Ariadna ayuda a Teseo a entrar en el laberinto (y a salir) 
+y Teseo se enfrenta y mata al Minotauro. La muerte del Minotauro cabrea a 
+Minos con Dédalo (puesto que alguien, Teseo, ha entrado y salido de el) con 
+lo que mete a Dédalo y a su hijo en el laberinto. En el laberinto, con cera de 
+abejas y plumas de aves que encuentran en el laberinto, Dédalo construye dos 
+pares de alas con las que escapan del laberinto. Ícaro muere al escapar con 
+las alas (que quedarán allí donde muera). 
+ 
+g. Conexión con el mito de Casiopea. 
+ 
+A la hora de implementar este mito os pido que tratéis de entremezclarlo con 
+el de Casiopea haciendo una versión que permita saltar de uno a otro mito. 
+Esta mezcla la podéis guiar guiándoos de las cosas que ya tené is en la 
+ontología para Casiopea (no deberíais añadir prácticamente nada a la 
+ontología en sí). 
+ 
+P.e.: Se puede hacer que el cuerno del Minotauro pueda ser alternativa a la 
+hoz de hierro para matar a Medusa. Las alas de Ícaro y Dédalo son objetos 
+que permiten volar. El Minotauro podría apresar a quien entre en el laberinto 
+sin el hilo de Ariadna. Quien enoje a Minos es enviado por Minos al laberinto. 
+Teseo podría tener un escenario donde tiene el favor de varios Dioses y ser él 
+quien libere a Casiopea. 
+ 
+Estas cosas permiten alternativas como que Casiopea enoja a Minos y éste 
+envía a Casiopea y a su hija Andrómeda al laberinto, donde son apresadas por 
+el Minotauro, con lo que tendríamos una nueva forma de “liberar a 
+Andrómeda… que pasa por matar al Minotauro. 
+ 
+Se pueden añadir al mito del Laberinto/Dédalo elementos que hagan que tener 
+el favor de los dioses del mito de Andrómeda permita a éste algún paso del 
+nuevo mito (p.e. el favor de Hades, y su casco, hace que Ariadna se enamore 
+del héroe invisible que la visite, puesto que el héroe se entera siendo invisible 
+de lo que le gusta a Ariadna y usa esa información para seducirla, ganando su 
+PAGINA 14
+14 
+ 
+favor, y con ello el hilo de Ariadna… o directamente le roba su hilo por ser 
+invisible). 
+ 
+Las alas de Ícaro estarán rotas, pero se pueden arreglar si se accede a la cera 
+de abejas y las plumas. 
+ 
+Podéis usar la imaginación, pero no os salgáis mucho de los conceptos que ya 
+tenéis, es decir, no extendáis la ontología ni hagáis muy complejos los mitos. 
+Veréis que pronto las intercon exiones producen bloqueos que impiden a los 
+mitos concluirse (se estorban los héroes). 
+h. Héroe invitado 
+ 
+Para añadir un tercero en disputa tendremos un Héroe invitado… Heracles 
+(Hércules en versión romana). A Herácles se le pueden otorgar ciertos favores 
+o capacidades (p.e., su fuerza descomunal le permite matar con sus manos a 
+Medusa o al Minotauro) y, desde luego, tiene el favor de su padre, Zeus. Esto 
+le puede proporcionar todo tipo de objetos que se os ocurran y puedan darle 
+otras capacidades. 
+i. Monstruos/Criaturas/objetos alternativos 
+ 
+Sería interesante poner alguna criatura alternativa a Ceto (p.e. el Kraken) y/o 
+a otras que aparecen en estos mitos. También objetos alternativos que 
+concedan la capacidad de volar, espejo, invisibilidad, y otras que se os puedan 
+ocurrir (como los ejemplos de conjuro de vuelo, o anillo invisibilidad), creando 
+situaciones para conseguirlos o dándoselos a Dioses o personajes que puedan 
+dárselos a los héroes si se tiene su favor y/o quizá alguna que otra condición 
+adicional tipo Localización, tener alguna capacidad ya activa, etc. 
+j. Escenarios 
+ 
+En esta segunda parte no daré escenarios mediante una configuración inicial, 
+sino que cada grupo debe crear (y entregar) sus propios ficheros de 
+configuración inicial para producir las histor ias relatadas en los diferentes 
+escenarios. Tratad de que, tras la pregunta, solo se incluyan los 
+favores/enojos, la desposesión de ciertos objetos (que sea diferente) de los 
+personajes que los tienen por defecto, y el apresamiento explícito de algún 
+personaje por otro. 
+ 
+En esta segunda entrega la “pregunta” es más bien secundaria, lo importante 
+es el desarrollo de la historia y que incluya dicha historia los elementos que se 
+indican. En caso de duda aplica el sentido común (y vuestro instinto 
+épico) y EXPLÍCALO en la documentación.  
+ 
+Se valorarán aquellos escenarios que generen el mito más “largo” 
+posible de acciones relacionadas con el objetivo (no el total de cosas que 
+suceden, sino de cosas que suceden relacionadas con el escenario… la 
+cadena causal desde el origen al final). Se entiende que “largo” es relativo a 
+los pasos que se han descrito en este documento y con respecto a vuestra 
+propia implementación. Es decir, no se admitirán como “largos” a mitos 
+PAGINA 15
+15 
+ 
+extendidos artificialmente si no van acompañados de cierta justificación en la 
+historia, ni debido a atomizar, a propósito, las frases que describen el 
+desarrollo. En realidad me refiero a que, si por ejemplo, el mito va de liberar a 
+Andrómeda, es peor “solución” una en la que la precondición sea que 
+Andrómeda está directamente presa de Ceto y que Perseo empieza el mito en 
+posesión de la cabeza de Medusa (lo que haría llegar al resultado en un solo 
+paso), frente a un escenario como el primero descrito en la fase 1b, donde 
+Perseo tiene que obtener varios objetos para matar primero a Medusa y luego 
+a Ceto, y donde Andrómeda empieza libre). 
+ 
+Escenario.F2-1.txt El mito de la liberación de Andrómeda 
+Este escenario se correspondería con el pr imer escenario de la fase 1b. Se 
+pregunta si Perseo puede liberar a Andrómeda partiendo del favor de varios 
+Dioses hacia Perseo y el Enojo de Poseidón hacia Casiopea. 
+ 
+Escenario.F2-2.txt El Laberinto de Creta: Minotauro, Ícaro y Dédalo. 
+Este escenario debe relatar el mito del Minotauro y el de Ícaro y Dédalo. Debe 
+incluir lo descrito en su resumen (con las condiciones que cada uno decida 
+para cada paso) y debe concluir con el Minotauro muerto a manos de Teseo, 
+con Ícaro muerto, y con Dédalo fuera del laberi nto. En cierto modo da igual la 
+pregunta, tan solo es importante que el desarrollo incluya ese “final”. 
+Escenario.F2-3.txt Teseo libera a Andrómeda 
+Este escenario debe incluir las condiciones mínimas para que sea Teseo quien 
+libere a Andrómeda. 
+Escenario.F2-4.txt Perseo libera a Andrómeda de una criatura marina, 
+pero usa las alas de Ícaro o Dédalo para conseguir el vuelo que le permita 
+matar a Medusa. 
+Este escenario debe incluir las condiciones mínimas para que Perseo tenga 
+las alas de Ícaro o Dé dalo para tener vuelo y con ello matar a Medusa, y con 
+la cabeza de Medusa petrificar a la criatura marina (Ceto o Kraken, p.e.) que 
+tenga presa a Andrómeda. Como Dédalo solo debería crear las alas si es 
+enviado al laberinto, el Minotauro debe morir. 
+Escenario.F2-5.txt Un héroe cualquiera libera a Andrómeda, pero en su 
+odisea llega a estar preso del Minotauro. 
+Este escenario debe incluir las condiciones mínimas para que un héroe libere 
+a Andrómeda, aunque antes debe haber estado preso del Minotauro (y debe 
+ser liberado por otro héroe). 
+Escenario.F2-6.txt Las chicas se empoderan. 
+Aunque en la mitología griega no siempre las mujeres tenían papeles pasivos 
+o secundarios, lo cierto es que no hay muchas “heroínas” al uso, pero en este 
+escenario se deben incluir l as condiciones mínimas para que un personaje 
+femenino libere a un personaje masculino de alguna de las criaturas. 
+Escenario.F2-7.txt Solo puede quedar uno. 
+En este escenario los 3 héroes tratarán de salvar a Andrómeda (da igual el que 
+lo haga), y uno de el los debe acabar la aventura teniendo en su inventario la 
+PAGINA 16
+16 
+ 
+cabeza del Minotauro, la cabeza de Medusa y la cabeza de la criatura marina 
+que tuvo apresada a Andrómeda. Si tienes problemas de estorbarse entre ellos 
+quizá debas incluir alguna regla para que pued an matarse entre ellos (con 
+algún arma). 
+Escenario.F2-8.txt Construye tu propio mito. 
+En este escenario tenéis libertad para crear un escenario que os apetezca. 
+Estableced las condiciones y obtened el mito “híbrido” que os apetezca 
+diferente a los anterior es… quizá con otros protagonistas o con personajes 
+nuevos alternativos. 
+ 
+9. Algunas ideas para iniciar el proceso de crear una 
+ontología y el primer Sistema Inteligente (SI). 
+ 
+A continuación, os propongo algunas ideas para iniciar el trabajo de crear una 
+ontología y un SI que resuelva la Fase 1 y Fase 2. Es muy importante que 
+sepáis que son solo ideas (y no necesariamente muy buenas, ni las mejores, 
+ni indicativas de la forma “correcta” de hacer el trabajo) para orientaros pero 
+que pueden contener (contienen) información superflua, contradictoria, e 
+incluso jugar un poco al despiste puesto que en la vida real no os encontraréis 
+con el trabajo a medio hacer, y debéis ser capaces de encontrar 
+incongruencias o vías que llevan a puntos muertos y experimentarlas. Bien es 
+cierto que la mayoría si van en el camino correcto. 
+ 
+Existen ya Ontologías sobre mitología griega… podría ser un buen punto de 
+partida el buscarlas y examinarlas. 
+ 
+Del texto, pregunta y tipo de respuesta podemos encontrar algunas palabras 
+clave de pe rsonajes (Ceto, Poseidón, las Grayas, las Nifas, Perseo, etc.), 
+algunas acciones (matar, liberar, localizar, obtener, tener), algunas 
+propiedades (estar vivo/muerto, etc.), algunos objetos (Escudo Espejo, 
+Sandalias Aladas). Todos ellos son instancias de co nceptos que habrá que ir 
+perfilando como candidatos a incluirse en la Ontología. 
+ 
+También es importante encontrar algunas relaciones importantes. 
+Tener el favor (Dioses->Semidioses/Héroes/Humanos) 
+Tener el enojo (Dioses-> Semidioses/Héroes/Humanos) 
+Parentesco (solo si se terminan revelando como relevantes) 
+Tener (Personaje->Objeto), etc. 
+ 
+También hay acciones que irán indicando qué cosas suceden, y que son el 
+corazón más tarde de las reglas. 
+Matar, Localizar, Apresar/Capturar, Obtener, Liberar, Intercambiar, etc. 
+ 
+También se pueden perfilar algunas reglas (que irán luego en el SI). Por 
+ejemplo: 
+ 
+PAGINA 17
+17 
+ 
+Para recibir objetos de los dioses se necesita el favor de los dioses, y/o quizá 
+la necesidad de ese objeto (para llevar a cabo la misión, especialmente si no 
+queremos que aparezcan un montón de acciones que no son necesarias para 
+la misión y diseñamos el sistema para que haga backward reasoning). Quizá 
+con solo el favor es suficiente para que le den a algún héroe lo que poseen. 
+ 
+Determinadas acciones sobre determinadas cosas/personajes necesitan 
+determinadas condiciones. P.e. Para matar a Medusa debe: 
+ Medusa está viva, 
+Hay un héroe (vivo) que 
+  Haya Localizado a Medusa 
+  Tenga invisibilidad 
+  Tenga vuelo 
+  Tenga espejo 
+  Tenga Hoz de Acero 
+ 
+Podría también añadirse como condición lo de que tenga el zurrón mágico, o 
+hacerlo más realista y comprobarlo después, cuando el héroe mate a medusa, 
+comprobar si ese héroe tiene el zurrón (y si no lo tiene que muera, y si muere 
+no puede hacer nada más). 
+ 
+Con los mitos podremos encontrar tanto muertes específicas (como la forma 
+de matar a Medusa, que necesita de objetos muy específicos) como muertes 
+algo más generales o muertes específicas que se pueden generalizar. Por 
+ejemplo, en la muerte de Medusa que h emos puesto antes, hay una 
+generalización de algunas condiciones como son “Tenga vuelo” o “Tenga 
+Espejo”, cuando el mito específico es “Tenga Sandalias Alagas” y “Tenga 
+Escudo Espejo”. Incluso se puede poner “Tenga Arma Indestructible” y que por 
+otro lado haya información sobre que objetos son armas indestructibles. 
+Es mejor crear reglas lo más genéricas que podáis, especialmente porque en 
+la fase 2 se piden mitos “alternativos” donde algunos objetos/personajes sean 
+intercambiables ya que lo importante es l a capacidad que le den el tener los 
+objetos, o que los personajes tengan similares capacidades o proporcionen 
+similares objetos/información, etc. La “muerte de Medusa” descrita en la regla 
+anterior permite matarla con Pegaso, con un conjuro de vuelo, o con  las 
+sandalias aladas originales indistintamente… un mito más “versionable”. 
+ 
+La muerte de Medusa (o cualquier otra criatura) o, en general, realizar 
+acciones, implica que sucedan varias cosas. Por ejemplo, al morir Medusa 
+aparece Pegaso (vivo y libre), ap arece el objeto “cabeza de Medusa” (que se 
+la queda quien la mata). Eso nos lleva a la idea de que podríamos tener una 
+regla genérica en la que todo el que mate a alguien/algo se queda con sus 
+posesiones.  
+ 
+Misiones: Las misiones (preguntas base) consisten en preguntar si se puede: 
+a)Matar/Apresar/Liberar 
+Personaje(Animal/Humano/Semidios/Héroe/¿Dios?)  
+b) Conseguir algún Objeto concreto. 
+c) Conseguir una capacidad (Vuelo, Invisibilidad, etc.) cierto personaje. 
+ 
+PAGINA 18
+18 
+ 
+ 
+Quizá podría ser importante tratar por separado las diferentes formas de matar, 
+como: Petrificar, Lucha física, otras… o las diferentes formas de Obtener (robo, 
+intercambio, regalo)… o quizá no merezca la pena esa distinción, eso 
+dependerá de cómo elaboréis las acciones. P.e. podríais tener una regla para 
+la muerte de cada personaje o clase (como el ejemplo de antes, una regla para 
+matar a Medusa), o podéis elaborar una acción de matar que busque hechos 
+que deben darse para que X mate a Y (enfoque más complejo, pero más 
+versátil). Esto se puede aplicar a todas las acciones. Por ejemplo, podéis tener 
+reglas que indiquen cómo se obtienen los diferentes objetos particulares. (P.e. 
+una regla que diga como se puede obtener/capturar a Pegaso, que sería: Ser 
+Héroe (vivo), tener la brida de oro, Pegaso estar l ibre, y quizá localizar a 
+Pegaso (recordando entonces que debéis introducir alguna hazaña intermedia 
+que proporcione la localización de Pegaso, al estilo de que para localizar a las 
+Ninfas hay que darle el ojo de las Grayas a las Grayas … poned imaginación  
+o leed los mitos) 
+ 
+También hay reglas generales de sentido común: 
+p.e. 
+Si X mata o apresa X puedes conseguir los objetos que X tiene  
+O 
+Si X mata a Y cambiar estado Y a muerto (o cambiarlo directamente al 
+producirse la muerte) 
+ 
+Ya os digo que matar a determinada criatura particular podría necesitar de 
+ciertos objetos/capacidades particulares. P.e.: 
+ 
+Si Cato Vivo y Perseo tiene Sandalias Aladas y Perseo tiene Cabeza de 
+Medusa entonces 
+ Perseo mata a Cato. 
+o bien generalizar al máximo: 
+Si Cato Vivo y SerX puede volar y SerX puede petrificar entonces 
+ SerX mata a Cato. 
+Cuidado con generalizar porque lo mismo se cuelan personajes haciendo las 
+acciones intermedias que impiden al Héroe principal hacer la misión… o lo 
+mismo se la facilitan. 
+ 
+La captura de Andrómeda puede hacerse de forma genérica (cuanto más 
+genérico el sistema, mejor) y convertirse en la captura de cualquier hijo de 
+alguien que ofende a Poseidón y así tener: 
+ 
+Si X enojo Poseidón y Cato Preso, e hijo X libre: 
+ Poseidón libera Cato 
+ Cato apresa hijo X 
+ 
+Lo de tener invisibilidad (u otras capacidades) se puede modelar con: 
+ 
+Si X tiene objeto Y y el objeto Y da invisibilidad 
+ Entonces X es invisible/tiene invisibilidad o X tiene la capacidad de 
+vuelo… como lo consideréis en vuestra Ontología. 
+PAGINA 19
+19 
+ 
+ 
+Hay que tener en cuenta que el detalle de como luego se puede implementar 
+dependerá de como se hayan modelado las capacidades posibles de un 
+personaje, si como un atributo del héroe, o bien como instancias del concepto 
+tener Invisibilidad  (que es una especialización de Capacidad), como una 
+Capacidad que tiene X. 
+ 
+Hay muchas posibilidades porque, por ejemplo, se pueden modelar muy 
+concretamente las acciones: 
+ 
+ Si Perseo mata a Cato entonces: 
+  Cato muere 
+  Andromeda libre 
+  Andromeda es liberada por Perseo. 
+  Perseo tiene Cabeza de Cato 
+  Perseo tiene … (eumerar todos los objetos de Cato) 
+ 
+Pero es mejor que se hagan reglas más abstractas y generales, p.e. es 
+interesante tener varias reglas del tipo. 
+ Si X mata a Y entonces: 
+ Muere(Y) (o Y.estado=Muerto) 
+ 
+Si X mata a Y y Z tiene preso a Y entonces: 
+     Z.estado=libre 
+     Z Libera a Y 
+ 
+            Si X mata a Y y Y tiene Z entonces: 
+  Quitar Y Tiene Z 
+                         Añadir X Tiene Z (o Modificar Tiene()) 
+ 
+Esas reglas de ejemplo os muestran, además ,dos formas de tratar 
+determinados estados (como atributo o como concepto)… si es un atributo hay 
+que modificar un hecho (instancia), si es un concepto hay que eliminar la 
+instancia de ese hecho y quizá insertar u na instancia o instancias de otros 
+hechos (si es del mismo tipo que la que se elimina se puede modificar en vez 
+de quitar una e insertar otra del mismo tipo). 
+ 
+Drools puede trabajar con forward chaining (insertamos los hechos iniciales y 
+vemos si al final de la ejecución está el hecho objetivo) o bien con backward 
+chaining Se pueden crear una serie de preguntas en el fichero de reglas como: 
+ 
+Query Liberar(Hero x, Creature y) 
+ Hero(x) 
+              Creature(y) 
+            EsLiberadoPor(y,x) 
+end 
+ 
+pero en realidad Drools no hace muy bien el backward chaining (para hacerlo 
+“bien” hay que poner las reglas al revés y no es algo intuitivo) así que no pasa 
+nada si hacéis forward chaining y se generan un montón de situaciones en 
+PAGINA 20
+20 
+ 
+vuestra historia que “sobr an”, es decir, que no aportan a la historia. No pasa 
+nada, lo importante es que estén las que sí son necesarias. 
+ 
+Otra cosa importante son los hechos iniciales. Aunque en el fichero de 
+pregunta irán algunas informaciones específicas. P.e.: 
+ 
+Perseo tiene el favor de Atenea 
+Perseo tiene el favor de Hermes 
+Perseo tiene el favor de Hefesto 
+Casiopea tiene el enojo de Poseidón 
+ 
+… hay muchas “cosas” que deben empezar en la base de conocimiento como 
+conocimiento inicial por defecto. Así por ejemplo ciertos objetos comienzan en 
+posesión de determinados personajes. P.e. sandalias aladas en posesión de 
+las Ninfas, escudo de bronce (sin espejo todavía) en posesión de Atenea, o 
+Yelmo de Hades (Invisibilidad) en posesión de Hermes, o Brida de Oro en 
+posesión de Hefestos. También hay seres que, por defecto, pueden empezar 
+vivos y libres (o no libres, como Cato). Por defecto tiene sentido que ningún 
+héroe tenga ni enojo ni favor de Dios alguno… o quizá decidas que es claro 
+que sí empiezan con el favor de algún Dios (p.e., los hijos de Zeus seguro que 
+tienen su favor inicialmente). 
+Esto fuerza a que el procesador de condiciones iniciales necesite “activar” 
+algunas reglas que cambien las condiciones por defecto con las condiciones 
+específicas. Por ejemplo, si una condición inic ial dice que Atenea NO TIENE 
+el escudo de bronce, entonces se debe eliminar de la base de conocimiento el 
+hecho por defecto de que Atenea tiene ese escudo… en otras ocasiones (p.e. 
+los favores iniciales de los Dioses) solo necesita insertar ese hecho en la base 
+de conocimiento. 
+ 
+La base de conocimiento debería tener, como mínimo, un conocimiento por 
+defecto inicial que le permita responder adecuadamente a las preguntas que 
+aparecen en los ficheros de preguntas por defecto. Conocimiento adicional 
+pertinente es un plus de calidad al trabajo. Finalmente, el poner algo de 
+imaginación sobre objetos alternativos, o criaturas y situaciones que permitan 
+variabilidad en los mitos, es definitivamente un plus, pero recordando 
+SIEMPRE no salirse del dominio más o menos coherente de la mitología 
+griega… es decir, no incluir un objeto tipo “Jet -Pack” para dotar de capacidad 
+para volar, o incluir el Martillo de Thor como objeto capaz de matar a Medusa… 
+mantened cierta coherencia (dentro de lo que las historias mitológicas pueden 
+resultar “coherentes”, que lo son en gran medida si las analizas en 
+profundidad). 
+ 
+10. Agendas y su uso en el SI 
+ 
+Para el Sistema Inteligente se deberían usar agendas (se verán en los 
+seminarios de Drools). Una forma básica de usarlas y cumplir este requ isito 
+podría ser crear algunas reglas que muestren el estado “inicial” antes de 
+PAGINA 21
+21 
+ 
+empezar las misiones, en particular listar estados de los personajes, 
+capacidades o en posesión de quien están los objetos. Por ejemplo: 
+Andrómeda presente y vivo y libre 
+Cato presente y vivo y libre 
+Medusa presente y vivo y libre 
+Perseo presente y vivo y libre 
+… 
+Hoz de Acero está en posesión de Hermes 
+Zurrón Mágico está en posesión de Ninfas 
+Sandalias Aladas está en posesión de Ninfas 
+… 
+Perseo tiene Capacidades: Ninguna. 
+… 
+ 
+Se puede usar “reglas” tipo “query” para obtener esas informaciones, o 
+directamente reglas que impriman información con ciertas condiciones. P.e.: 
+rule "imprimir Capacidades" 
+agenda-group "Informacion Inicial" 
+ when 
+  $c : Capacidad() 
+ then 
+  System.out.println($c.getPoseedor().getName()+" tiene la 
+capacidad "+$c.getNombre()); 
+end 
+ 
+Se aplica la agenda “Información Inicial” y después se pasa a la agenda de 
+generación de historias. 
+ 
+Este tipo de paso puede también ayudar a depurar el programa (pues puedes 
+visualizar las condiciones iniciales y comprobar si está todo lo necesario y se 
+han introducido correctamente las condiciones iniciales). 
+11. Notas generales sobre la práctica  
+ 
+Nota: Es normal si no entendéis algunas de estas notas antes de poneros a 
+hacer la práctica. Lo que aquí se menciona se podrá entender a medida que 
+trabajéis en la práctica. 
+ 
+A. En las documentaciones/entrega: 
+1) Poned el nombre del grupo. 
+2) Poned los nombres de los miembros del grupo. 
+3) Poned los subgrupos de cada miembro. 
+4) Usad codificación UTF-8 en ficheros de proyectos. 
+No hacerlo conlleva penalización en la nota. 
+ 
+B. Es importante que TODAS las clases concretas de la ontología tengan 
+UNA instancia ejemplo/prueba. 
+PAGINA 22
+22 
+ 
+C. Es importante que TODAS las clases tengan algo en Documentatio n 
+(meta-datos), y si ponéis la referencia de donde sacasteis esa 
+información (p.e. el link), mejor. 
+D. Comentad si seguís alguna metodología para hacer la ontología, 
+haciendo apartados con sus fases, los "resultados" de estas, y las 
+justificaciones de las decisiones tomadas. 
+E. Podríais incluir grafos y diagramas con la ontología, o bien hechos a 
+mano y escaneados, o bien usando algunos de los plugins que ofrece 
+protegé y aparecen en las trasparencias, p.e. Jambalaya, TgVizTab 
+(Para activar las pestañas de los plugins id a Project->Configure y en la 
+pestaña "Tab Widgets" activar los plugins que queráis, p.e. Jambalaya) 
+P.e. con Jambalaya podéis probar p.e. el QuickView de "Class&Instance 
+Tree" y luego probar el Radial o Spring Layout (iconos bajo la pestaña 
+Jambalaya). 
+Esos gráficos los podéis grabar (p.e. Menu->Jambalaya->File->Export... 
+) 
+Otro ejemplo, con TgVizTab pod éis seleccionar una clase en el class 
+browser, pinchar en add -class y luego en crear gráfico (en la ventana 
+settings, justo encima de la class browser)... podéis jugar con el "radio" 
+etc. 
+F. El documento 1 debería incluir cierta explicación del proceso por el que 
+tomáis las decisiones de diseño que tomáis, y su justificación. 
+G. Recordad incluir RESTRICCIONES en vuestra Ontología (3 como 
+mínimo). 
+H. No debéis programar siguiendo el paradigma imperativo/orientado a 
+objetos... (p.e. cojo un hecho "contenedor" de mucho s hechos e itero 
+calculando esto, o lo otro... o cojo un objeto que contiene la información 
+y luego extraigo uno de sus componentes para hacer esto o lo otro). Los 
+consecuentes de las reglas no deberían ser "programas" o trozos de 
+algoritmo (p.e. no deberí a ser un bucle for) sino solo 
+inserciones/modificaciones/borrados de un hecho... En general, en el 
+consecuente no debería haber más código java que 
+inserciones/modificaciones/eliminaciones de hechos y quizá mostrar 
+algo por pantalla (para debug)… no mucho más. 
+Además, los antecedentes deberían ir directamente a los conceptos que 
+se van a usar. 
+I. Puede parecer muy engorroso hacer una clase que ni siquiera tiene 
+nuevos atributos, o clases abstractas que aparentemente tampoco, pero 
+es solo un efecto secundario i ndeseado del hecho de que drools está 
+construido con java, y son necesarias las clases para crear hechos... 
+pero en este tipo de paradigma de programación son las ocurrencias de 
+los conceptos más concretos de la jerarquía (instancias de las clases 
+más profundas) las que mueven la inferencia de manera más natural. 
+No significa que no haya reglas sobre conceptos más generales, por 
+supuesto que las hay, pero las reglas deben trabajar al nivel de 
+abstracción sobre el que se refiere la condición, y no sobre niveles más 
+abstractos y añadir como condición extra indexaciones indirectas y 
+encadenadas a aspectos más profundos, organizados así por 
+conveniencia de programación o costumbre de OO-imperativo. 
+PAGINA 23
+23 
+ 
+J. No se deben ver las clases como en orientado a objetos, es decir , un 
+tipo abstracto de datos (colección de información y enlaces a otros 
+objetos), junto con elementos funcionales (métodos) y capacidad de 
+herencia, sino que hay que ver las ontologías como una estructura de 
+conceptos que contienen información que los def ine y una estructura 
+taxonómica... no diseñéis las clases para programar con ellas ni para 
+facilitar dicha programación sino para representar hechos (con los que 
+luego jugarán las reglas). 
+K. Insisto, no debéis "programar" en las reglas, el consecuente debe ser 
+básicamente un insertar/modificar/eliminar instancias. Los 
+antecedentes, deben ser patrones de hechos lo más simples posibles. 
+● Si tus consecuentes parecen un mini programa, vas por mal camino. 
+● Si tus antecedentes tienen patrones con valores que necesitan 
+"navegar" por varias referencias indirectas (navegar por punteros), 
+vas por mal camino (no estás al nivel correcto de abstracción). 
+L. Cuidado con la tentación de programar siguiendo el paradigma d e 
+Orientado a Objetos. Se tiene la tentación de "optimizar" a base de crear 
+objetos contenedores de la información, a la que accedéis "navegando" 
+por varias referencias indirectas (navegar por punteros) pero un sistema 
+basado en reglas funciona de otra man era... se busca simplicidad y 
+facilidad de entender las reglas, así que es al contrario, la base de 
+puebla de hechos básicos que las reglas puedan acceder directamente 
+lo que las hace mucho más legibles incluso para profanos de la 
+programación (y esa es la  idea). Todo el sistema de inferencia está 
+optimizado para precisamente ese tipo de estructuras 
+"desempaquetadas". 
+M. Aunque sea algo repetitivo. 
+Reglas del tipo: 
+ 
+when 
+  $c: Ciclo() 
+then 
+  ... 
+ 
+es un bucle... sospechad que posiblemente estéis "programando" 
+algorítmicamente... especialmente si accedéis a atributos de $c, o 
+indexáis a través de ellos... preguntaos si se puede hacer a un nivel más 
+bajo y que los antecedentes contengan más restriccio nes (sean más 
+concretos). 
+De nuevo esto no implica que no puedan, ni deban, existir reglas 
+generales (que usen elementos abstractos o menos restricciones), pero 
+estad atentos a ellas. 
+N. Se pueden entrar en bucles infinitos si tu consecuente (RHS) modifica 
+algo de tu mismo antecedente (LHS), lo que provoca reactivarse... para 
+eso están los atributos no-loop, y lock-on-active. 
+¿Cómo van? pues gracias al maravilloso stackoverflow (no me atribuiré 
+autoría de tan excelente explicación en 
+https://stackoverflow.com/questions/17042437/what-is-the-difference-
+between-no-loop-and-lock-on-active-in-drools) 
+PAGINA 24
+24 
+ 
+Long story short: 
+no-loop: avoid the re -activation of a rule caused by the RHS of that 
+SAME rule. 
+lock-on-active: avoid the re -activation of a rule NO MATTER what the 
+cause is. 
+Long story: http://ilesteban.wordpress.com/2012/11/16/about-drools-
+and-infinite-execution-loops/ 
+O. Es importante que entendáis que en el programa Java desde el que se 
+usa Drools solo debéis hacer labores de procesamiento de datos, pero 
+no de inferenci a. Es decir, en Java se pueden obtener los hechos 
+básicos directamente extraíbles de los datos de entrada e insertarlos en 
+la base de conocimiento, pero no para inferir hechos nuevos o 
+conceptos complejos no directamente señalados en los datos e 
+insertarlos. 
+12. Cualquier otra duda o explicación 
+ 
+Podéis realizar preguntas o dudas en las sesiones de trabajo, o vía tutorías. 
+Tratad de no abusar, en el sentido de preguntar cada mínima decisión que 
+toméis. Se os da libertad creativa con todas las consecuencias (es decir, 
+sabiendo que haréis todo tipo d iferente de cosas, sin que unas sean 
+inherentemente las únicas buenas) y sobre un dominio abierto a muchas 
+variantes. Las decisiones que repercuten en la nota negativamente son solo 
+aquellas que surgen de aplicar claramente mal los conceptos de la asignatura 
+y si los sistemas no son capaces de hacer los mínimos que se piden. No 
+olvidéis justificar vuestras decisiones, posiblemente más importante que 
+“hacer”, es justificar lo que se hace. 
+ 

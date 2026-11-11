@@ -7,27 +7,6 @@ import dsi.mitologia.modelo.Objeto;
 
 /**
  * Hecho de conocimiento estatico: un objeto proporciona una capacidad a quien lo posee.
- *
- * <p>Relacion con la ontologia: corresponde a la ObjectProperty {@code proporciona_capacidad}
- * (dominio Objeto, rango Capacidad, con restriccion allValuesFrom Capacidad sobre Objeto). No
- * tiene inversa en el OWL.</p>
- *
- * <p>Papel en el mito: en el OWL, CascoHades -> Invisibilidad, SandaliasAladas -> Vuelo,
- * EscudoEspejo -> Reflejo y CabezaMedusa -> Petrificacion. Varias fuentes pueden dar la misma
- * capacidad (AnilloInvisibilidad -> Invisibilidad, un conjuro de vuelo -> Vuelo) sin crear clases
- * nuevas: basta con anadir otro hecho.</p>
- *
- * <p>Uso en reglas: es la pieza que hace genericas las reglas de capacidades (nota del profesor):
- * una sola regla
- * {@code Posesion($p : poseedor, $o : objeto) ProporcionaCapacidad(objeto == $o, $c : capacidad)}
- * -> {@code insertLogical(CapacidadDisponible.deObjeto($p, $c, $o))} sirve para todos los objetos,
- * en lugar de una regla por objeto.</p>
- *
- * <p>Decision de diseno: se modela como hecho en memoria de trabajo y no como campo de Objeto
- * para que el antecedente sea un patron simple (notas K/L del profesor) y para que el
- * conocimiento del dominio venga de la ontologia y no quede programado en Java.</p>
- *
- * <p>Inmutable (no cambia durante la aventura). Igualdad por valor (objeto, capacidad).</p>
  */
 public final class ProporcionaCapacidad {
 

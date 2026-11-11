@@ -1,0 +1,208 @@
+PAGINA 1
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Desarrollo de Sistemas Inteligentes
+- Prácticas -
+Prof. Antonio López Martínez -Carrasco
+Prof. Denisse Kim
+PAGINA 2
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Organización de las prácticas
+• Las prácticas se dividen en 3 bloques:
+– Bloque 1. Desarrollo de ontologías (Protégé).
+• 1 sesión de seminario y 2 de trabajo autónomo y dudas.
+– Bloque 2. Desarrollo en Java-Drools.
+• 2 sesiones de seminario y 3 de trabajo autónomo y dudas.
+– Bloque 3. Fuzzy tools.
+• 1 sesión de seminario.
+• Se realizará un proyecto para poner en práctica
+todo lo aprendido en la asignatura.
+– También habrá una o varias sesiones para presentar el
+proyecto y realizar la entrevista escrita individual
+sobre el trabajo realizado.
+2
+PAGINA 3
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Calendario curso 2026-2027
+Sem Fechas G1.1 Fechas G1.2 Fechas G1.3 Fechas G1.4 Tipo de sesiones Entregables
+2 17/9 17/9 16/9 16/9 Presentación de las prácticas
+3 25/9 * 25/9 * 23/9 23/9 Seminario Protégé
+4 1/10 1/10 30/9 30/9 Trabajo autónomo y dudas
+5 8/10 8/10 7/10 7/10 Trabajo autónomo y dudas
+6 15/10 15/10 14/10 14/10 Seminario Java-Drools (1) Opcional 18/10
+7 22/10 22/10 21/10 21/10 Seminario Java-Drools (2)
+8 29/10 29/10 28/10 28/10 Trabajo autónomo y dudas
+9 5/11 5/11 4/11 4/11 Trabajo autónomo y dudas
+10 12/11 12/11 11/11 11/11 Trabajo autónomo y dudas
+11 19/11 19/11 18/11 18/11 Seminario Fuzzy Tools Final  22/11
+12 26/11 26/11 25/11 25/11 Presentación del proyecto y entrevista escrita
+13 3/12 3/12 2/12 2/12 Presentación del proyecto y entrevista escrita
+14 10/12 10/12 9/12 9/12 Presentación del proyecto y entrevista escrita 3
+PAGINA 4
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Proyecto - Mitología griega
+• Crearemos un Sistema Experto que nos indique si se puede, y
+cómo ha de llevarse a cabo, una hazaña épica basada en
+diversas mitologías, enumerando las condiciones “iniciales”.
+• Las hazañas se basan en:
+– La obtención de objetos mitológicos.
+– Liberar/Apresar/Matar personajes/criaturas mitológicas.
+• Tendremos a diversos seres: dioses y mortales, criaturas y humanos,
+héroes y gente normal.
+• Para conseguir objetos quizá necesitemos el favor de algún dios/a,
+y/o matar a alguna criatura, estar en posesión de otro objeto.
+• Para liberar a alguien (y obtener la gloria) quizá deba antes ser
+apresado.
+• Al sistema se le preguntarán cosas como si se puede liberar a
+Andrómeda.
+4
+PAGINA 5
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Proyecto - Mitología griega
+P.e.: Para liberar a Andrómeda …
+– El héroe Perseo debe petrificar (Matar) a la criatura Cato …
+– … pero solo lo podrá hacer si tiene la cabeza de Medusa, …
+– … pero a Medusa habrá que matarla antes, claro, pero matar a Medusa es algo
+que solo se puede hacer si se tiene:
+• El escudo espejo (un escudo que debe pulirlo el dios Hefesto, que solo lo
+hará si Perseo tiene su favor y el escudo de Atenea).
+• … y se tiene también a la criatura Pegaso (que, para obtenerlo, se debe
+apresar primero con la brida de oro que también se obtiene con el favor de
+Hefesto).
+– No obstante, antes de todo Andrómeda debe estar presa (custodiada por Cato),
+por haber insultado Casiopea (la madre de Andrómeda) a Doris (y provocar el
+enojo del dios Poseidón) alardeando de ser más bella que las Nereidas, las hijas
+de Doris …
+– Etc.
+El sistema tendrá como entrada una pregunta y un listado de las
+condiciones iniciales.
+La salida será la respuesta y el desarrollo de la inferencia que
+produjo la respuesta (en forma de pseudo-relato).
+5
+PAGINA 6
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Fases del proyecto
+Fase 2: sistema inteligente completo
+- Desarrollo de todos los mitos.
+Fase 1.b: sistema inteligente básico 
+- Creación del proyecto Eclipse y desarrollo de un mito.
+Fase 1.a: conocimiento del dominio
+- Desarrollo de la ontología completa con Protégé.
+ENTREGA 
+OPCIONAL
+ENTREGA FINAL
+PAGINA 7
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+Entrada1; P1 ; Respuesta
+Entrada1; P2 ; Respuesta 
+Entrada1; P3 ; Respuesta
+Entrada2; P1 ; Respuesta 
+Entrada2; P2 ; Respuesta 
+Entrada2; … ; Respuesta
+El sistema inteligente
+• Capas:
+7
+INTÉRPRETE
+ RAZONADOR
+BASE DE REGLAS
+P1
+P2
+P3
+P1
+P2
+P3
+ Resp1
+Resp2
+…
+Resp1
+Resp2
+Resp3
+GENERADOR 
+DE SALIDAS
+out1.input1.txt
+out1.input2.txt
+out2.txt
+input1.txt
+input2.txt
+Hecho en Java “Clásico”
+Hecho con Drools
+PAGINA 8
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+FORMACIÓN EQUIPOS
+• Práctica orientada a proyectos en equipo.
+• No se aceptan prácticas individuales.
+• REPETIMOS: NO SE ACEPTAN PRÁCTICAS INDIVIDUALES.
+• 3 alumnos.
+• Elegir nombre equipo.
+• Reglas a seguir:
+– Presentación oral grupal y entrevista escrita individual obligatorias para superar
+las prácticas.
+– Todos los componentes del equipo deben participar en la presentación.
+– Si se detecta plagio el suspenso afecta a todos los involucrados (grupo que
+copia y el grupo copiado) sin entrar a quien copia a quien.
+8
+PAGINA 9
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+ENTREGA OPCIONAL
+• No se evalúa, pero sí servirá para saber si vais por buen camino
+y se dará feedback a los equipos.
+• Se entregará mediante la tarea creada en el AulaVirtual para
+tal efecto.
+• Formato de la entrega:
+– Se entregará un ÚNICO FICHERO ZIP con el siguiente nombre:
+DSI_OPT_<nombre del equipo>.zip
+– El fichero zip debe contener 2 directorios con los siguientes nombres:
+• DSI_ONT_OPT_<nombre del equipo> -> Proyecto Protégé con la ontología completa
+e informe del diseño de la ontología.
+• DSI_KS_OPT_<nombre del equipo> -> Proyecto Eclipse con el sistema inteligente
+básico (descargado de GitHub) e informe sobre el SI básico.
+• Todos los informes se entregarán en formato PDF.
+o Más información en el enunciado del proyecto. 9
+PAGINA 10
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+ENTREGA OBLIGATORIA
+• El proyecto final que se evalúa.
+• Se entregará mediante la tarea creada en el AulaVirtual para
+tal efecto.
+• Formato de la entrega:
+– Se entregará un ÚNICO FICHERO ZIP con el siguiente nombre:
+DSI_FINAL_<nombre del equipo>.zip
+– El fichero zip debe contener 2 directorios con los siguientes nombres:
+• DSI_ONT_FINAL_<nombre del equipo> -> Proyecto Protégé con la ontología
+completa e informe del diseño de la ontología.
+• DSI_KS_FINAL_<nombre del equipo> -> Proyecto Eclipse con el sistema inteligente
+completo (descargado de GitHub) e informe sobre el SI completo.
+• Todos los informes se entregarán en formato PDF.
+o Más información en el enunciado del proyecto.
+10
+PAGINA 11
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+ENTREGA (ASPECTOS GENERALES)
+• Para el desarrollo de la parte de Java-Drools se utilizará Git
+para el control de versiones y la plataforma GitHub para
+almacenar y gestionar el código.
+• Cada equipo deberá tener un repositorio privado en GitHub al
+que se añadirá a todos los componentes del equipo y al
+profesor/a de prácticas.
+– Creadlo cuanto antes.
+• El nombre del repositorio debe contener el nombre del
+equipo.
+• Es OBLIGATORIO que todos los componentes del equipo
+contribuyan por igual al proyecto.
+– Dicha contribución DEBE VERSE REFLEJADA en los commits del
+proyecto.
+11
+PAGINA 12
+Curso: 2026-2027          Desarrollo de Sistemas Inteligentes          Itinerario: Computación
+USO DE IA GENERATIVA
+• Las herramientas de IA generativa pueden usarse como apoyo
+al proceso de aprendizaje, pero NUNCA para delegar el trabajo
+a realizar.
+• En caso de usar herramientas de IA generativa, el informe de la
+práctica deberá reflejar y describir detalladamente su uso.
+– Cómo se ha usado, para qué, qué modelos/herramientas concretas se
+han usado, el prompt introducido, la salida obtenida, etc.
+• El uso de IA generativa con el objetivo de delegar totalmente el
+trabajo a realizar implicará el suspenso directo del proyecto.
+• En cualquier caso, la recomendación general es que los
+alumnos no hagan uso de estas herramientas para así
+maximizar aprendizaje y adquisición de conocimientos. 12

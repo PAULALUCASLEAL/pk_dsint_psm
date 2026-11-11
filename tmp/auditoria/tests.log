@@ -1,0 +1,351 @@
+JUnit version 4.13.2
+........................[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - Start creation of KieBase: defaultKieBase
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - End creation of KieBase: defaultKieBase
+.[main] INFO org.drools.compiler.kie.builder.impl.ClasspathKieProject - Found kmodule: file:/C:/Users/User/Desktop/Practicas%20DSINT/sistema-inteligente/target/classes/META-INF/kmodule.xml
+[main] WARN org.drools.compiler.kie.builder.impl.ClasspathKieProject - Unable to find pom.properties in /C:/Users/User/Desktop/Practicas DSINT/sistema-inteligente/target/classes
+[main] INFO org.drools.compiler.kie.builder.impl.ClasspathKieProject - Recursed up folders, found and used pom.xml C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[main] INFO org.drools.compiler.kie.builder.impl.InternalKieModuleProvider - Creating KieModule for artifact dsi:DSI_Mitologia:0.1.0-SNAPSHOT
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - Start creation of KieBase: mitologiaKB
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - End creation of KieBase: mitologiaKB
+.[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - Start creation of KieBase: defaultKieBase
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - End creation of KieBase: defaultKieBase
+.[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - Start creation of KieBase: defaultKieBase
+[main] INFO org.drools.compiler.kie.builder.impl.KieContainerImpl - End creation of KieBase: defaultKieBase
+.=== Escenario G-A1 -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E36 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E37 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E38 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E39 Andromeda queda presa debido a estar Ceto libre
+  E40 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E41 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E42 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E43 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E44 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E45 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E47 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E48 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E49 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E50 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E51 Perseo mata a Ceto debido a tener CabezaMedusa
+  E52 Perseo libera a Andromeda debido a matar a Ceto
+  E53 Si, Perseo puede liberar a Andromeda
+=== Escenario G-B -> CONSEGUIDO
+  E31 Perseo obtiene Capacidad Vuelo debido a tener ConjuroVuelo
+  E32 Perseo obtiene Capacidad Reflejo debido a tener EspejoMano
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener AnilloInvisibilidad
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E36 Andromeda queda presa debido a estar Ceto libre
+  E37 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E38 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas
+  E39 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E40 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E41 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E42 Perseo mata a Medusa debido a tener HozAcero, Espejo (EspejoMano), Invisibilidad (AnilloInvisibilidad) y Vuelo (ConjuroVuelo)
+  E43 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E44 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E45 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E46 Perseo mata a Ceto debido a tener CabezaMedusa
+  E47 Perseo libera a Andromeda debido a matar a Ceto
+  E48 Si, Perseo puede liberar a Andromeda
+=== Escenario G-C -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E38 Andromeda queda presa debido a estar Ceto libre
+  E39 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E40 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E41 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E42 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E43 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E44 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E45 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E46 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E47 Perseo muere al obtener CabezaMedusa por no tener ZurronMagico
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo ha muerto y no puede seguir actuando
+=== Escenario G-A2 -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E36 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E37 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E38 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E39 Andromeda queda presa debido a estar Ceto libre
+  E40 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E41 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E42 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E43 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E44 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E45 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E47 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E48 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E49 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E50 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E51 Perseo mata a Ceto debido a tener CabezaMedusa
+  E52 Perseo libera a Andromeda debido a matar a Ceto
+  E53 Si, Perseo puede liberar a Andromeda
+.=== Escenario sin-enojo -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E38 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E39 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E40 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E41 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E42 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E43 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E44 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E45 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E46 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E47 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+.=== Escenario F1-3 -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E38 Andromeda queda presa debido a estar Ceto libre
+  E39 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E40 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E41 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E42 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E43 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E44 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E45 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E46 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E47 Perseo muere al obtener CabezaMedusa por no tener ZurronMagico
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo ha muerto y no puede seguir actuando
+.=== Escenario F1-2 -> CONSEGUIDO
+  E31 Perseo obtiene Capacidad Vuelo debido a tener ConjuroVuelo
+  E32 Perseo obtiene Capacidad Reflejo debido a tener EspejoMano
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener AnilloInvisibilidad
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E36 Andromeda queda presa debido a estar Ceto libre
+  E37 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E38 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas
+  E39 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E40 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E41 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E42 Perseo mata a Medusa debido a tener HozAcero, Espejo (EspejoMano), Invisibilidad (AnilloInvisibilidad) y Vuelo (ConjuroVuelo)
+  E43 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E44 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E45 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E46 Perseo mata a Ceto debido a tener CabezaMedusa
+  E47 Perseo libera a Andromeda debido a matar a Ceto
+  E48 Si, Perseo puede liberar a Andromeda
+..=== Escenario U1 -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E36 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E37 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E38 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E39 Andromeda queda presa debido a estar Ceto libre
+  E40 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E41 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E42 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E43 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E44 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E45 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E47 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E48 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E49 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E50 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E51 Perseo mata a Ceto debido a tener CabezaMedusa
+  E52 Perseo libera a Andromeda debido a matar a Ceto
+  E53 Si, Perseo puede liberar a Andromeda
+=== Escenario U2 -> CONSEGUIDO
+  E31 Perseo obtiene Capacidad Vuelo debido a tener ConjuroVuelo
+  E32 Perseo obtiene Capacidad Reflejo debido a tener EspejoMano
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener AnilloInvisibilidad
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E36 Andromeda queda presa debido a estar Ceto libre
+  E37 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E38 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas
+  E39 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E40 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E41 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E42 Perseo mata a Medusa debido a tener HozAcero, Espejo (EspejoMano), Invisibilidad (AnilloInvisibilidad) y Vuelo (ConjuroVuelo)
+  E43 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E44 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E45 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E46 Perseo mata a Ceto debido a tener CabezaMedusa
+  E47 Perseo libera a Andromeda debido a matar a Ceto
+  E48 Si, Perseo puede liberar a Andromeda
+=== Escenario U3 -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E38 Andromeda queda presa debido a estar Ceto libre
+  E39 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E40 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E41 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E42 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E43 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E44 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E45 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E46 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E47 Perseo muere al obtener CabezaMedusa por no tener ZurronMagico
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo ha muerto y no puede seguir actuando
+.=== Escenario vacio -> NO_CONSEGUIDO
+  E28 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E29 Andromeda queda presa debido a estar Ceto libre
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo no tiene Capacidad Vuelo y no puede enfrentarse a Medusa
+  Obstaculo: Perseo no tiene Capacidad Reflejo y no puede enfrentarse a Medusa
+  Obstaculo: Perseo no tiene Capacidad Invisibilidad y no puede enfrentarse a Medusa
+  Obstaculo: Perseo no tiene ningun arma para enfrentarse a Medusa
+.=== Escenario F1-1 -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E36 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E37 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E38 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E39 Andromeda queda presa debido a estar Ceto libre
+  E40 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E41 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E42 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E43 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E44 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E45 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E47 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E48 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E49 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E50 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E51 Perseo mata a Ceto debido a tener CabezaMedusa
+  E52 Perseo libera a Andromeda debido a matar a Ceto
+  E53 Si, Perseo puede liberar a Andromeda
+.=== Escenario F1-4 -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E38 Andromeda queda presa debido a estar Ceto libre
+  E39 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E40 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E41 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E42 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E43 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo no tiene Capacidad Vuelo y no puede enfrentarse a Medusa
+.=== Escenario F1-E -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E35 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E36 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E37 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E38 Perseo obtiene BridaDorada debido a tener el favor de Hefesto
+  E39 Perseo captura a Pegaso debido a tener BridaDorada
+  E40 Perseo obtiene Capacidad Vuelo debido a montar a Pegaso
+  E41 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E42 Andromeda queda presa debido a estar Ceto libre
+  E43 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E44 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E45 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E46 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E47 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E48 Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (Pegaso)
+  E49 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E50 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E51 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E52 Perseo mata a Ceto debido a tener CabezaMedusa
+  E53 Perseo libera a Andromeda debido a matar a Ceto
+  E54 Si, Perseo puede liberar a Andromeda
+.=== Escenario F1-F -> CONSEGUIDO
+  E32 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E33 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E34 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E35 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E36 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E37 Perseo obtiene EspadaIndestructible debido a tener el favor de Hefesto
+  E38 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E39 Andromeda queda presa debido a estar Ceto libre
+  E40 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E41 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E42 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E43 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E44 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E45 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  E47 Perseo mata a Medusa debido a tener EspadaIndestructible, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas)
+  E48 Perseo obtiene CabezaMedusa debido a matar a Medusa
+  E49 Perseo no muere al obtener CabezaMedusa por tener ZurronMagico
+  E50 Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa
+  E51 Perseo mata a Ceto debido a tener CabezaMedusa
+  E52 Perseo libera a Andromeda debido a matar a Ceto
+  E53 Si, Perseo puede liberar a Andromeda
+=== Escenario F1-F2 -> NO_CONSEGUIDO
+  E31 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E32 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E33 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E34 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E35 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E36 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E37 Andromeda queda presa debido a estar Ceto libre
+  E38 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E39 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E40 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E41 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E42 Perseo obtiene SandaliasAladas debido a las Ninfas localizadas
+  E43 Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas
+  E44 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo no tiene ningun arma para enfrentarse a Medusa
+...=== Escenario F1-E2 -> NO_CONSEGUIDO
+  E33 Perseo obtiene CascoHades debido a tener el favor de Hades
+  E34 Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades
+  E35 Perseo obtiene HozAcero debido a tener el favor de Hermes
+  E36 Perseo obtiene EscudoBronce debido a tener el favor de Atenea
+  E37 Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce
+  E38 Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo
+  E39 Perseo obtiene BridaDorada debido a tener el favor de Hefesto
+  E40 Ceto queda libre debido al enojo de Poseidon hacia Casiopea
+  E41 Andromeda queda presa debido a estar Ceto libre
+  E42 Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea
+  E43 Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas
+  E44 Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas
+  E45 Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas
+  E46 Perseo obtiene ZurronMagico debido a las Ninfas localizadas
+  No, no se puede demostrar que Perseo pueda liberar a Andromeda
+  Obstaculo: Perseo no tiene Capacidad Vuelo y no puede enfrentarse a Medusa
+
+Time: 3,932
+
+OK (41 tests)
+

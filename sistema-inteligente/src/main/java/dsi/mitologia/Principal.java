@@ -1,17 +1,22 @@
 package dsi.mitologia;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
+import dsi.mitologia.entrada.LectorEscenario;
 import dsi.mitologia.escenario.DominioMitologico;
 import dsi.mitologia.escenario.EscenarioMitologico;
 import dsi.mitologia.escenario.Objetivo;
 import dsi.mitologia.escenario.PreparadorEscenario;
 import dsi.mitologia.escenario.ResultadoMision;
-import dsi.mitologia.escenario.TipoObjetivo;
 import dsi.mitologia.eventos.EventoMitologico;
 import dsi.mitologia.eventos.TipoAccion;
 import dsi.mitologia.motor.MotorReglas;
@@ -51,37 +56,90 @@ public class Principal {
      * @param args opcionalmente, {@code args[0]} = directorio de escenarios y {@code args[1]} =
      *             directorio de soluciones; si faltan se usan los nombres por defecto del enunciado
      */
-    public static void main(String[] args) {
-        // Directorios por defecto, tal como exige el enunciado (apartado 6). Se usaran cuando exista el
-        // lector de EscenarioFx-y.txt y el escritor de RespuestaFx_y.txt.
+    public static void main(String[] args) throws IOException {
+
         String escenarios = "escenarios";
         String soluciones = "soluciones";
-        if (args.length >= 1) escenarios = args[0];
-        if (args.length >= 2) soluciones = args[1];
-        System.out.println("Directorio de escenarios: " + escenarios);
-        System.out.println("Directorio de soluciones: " + soluciones);
 
-        DominioMitologico dominio = PreparadorEscenario.cargarDominio(new File(OWL));
-        KieContainer contenedor = KieServices.Factory.get().getKieClasspathContainer();
-        Objetivo objetivo = new Objetivo(TipoObjetivo.LIBERAR, "Perseo", "Andromeda");
+        if (args.length >= 1) {
+            escenarios = args[0];
+        }
 
-        EscenarioMitologico f1 = new PreparadorEscenario("F1-1", "Puede Perseo liberar a Andromeda?", objetivo, dominio)
-                .favor("Perseo", "Atenea").favor("Perseo", "Hermes")
-                .favor("Perseo", "Hades").favor("Perseo", "Hefesto")
-                .enojo("Casiopea", "Poseidon")
-                .construir();
-        EscenarioMitologico f2 = new PreparadorEscenario("F1-2", "Puede Perseo liberar a Andromeda?", objetivo, dominio)
-                .favor("Perseo", "Atenea").favor("Perseo", "Hermes").favor("Perseo", "Hefesto")
-                .enojo("Casiopea", "Poseidon")
-                .noTiene("Atenea", "EscudoBronce").noTiene("Hades", "CascoHades")
-                .noTiene("Ninfas", "SandaliasAladas")
-                .tiene("Perseo", "AnilloInvisibilidad").tiene("Perseo", "EspejoMano")
-                .tiene("Perseo", "ConjuroVuelo")
-                .construir();
-        for (EscenarioMitologico esc : new EscenarioMitologico[] {f1, f2}) {
-            ejecutar(contenedor, esc);
-            System.out.println();
-            System.out.println(respuesta(esc));
+        if (args.length >= 2) {
+            soluciones = args[1];
+        }
+
+        File directorioEntrada = new File(escenarios);
+        File directorioSalida = new File(soluciones);
+
+        if (!directorioEntrada.isDirectory()) {
+            throw new IOException(
+                    "No existe el directorio de escenarios: "
+                    + directorioEntrada.getAbsolutePath());
+        }
+
+        File[] archivos = directorioEntrada.listFiles(
+                archivo -> archivo.isFile()
+                        && archivo.getName().matches(
+                                "EscenarioF2-[1-8]\\.txt"));
+
+        if (archivos == null) {
+            throw new IOException(
+                    "No se puede leer el directorio de escenarios");
+        }
+
+        if (archivos.length == 0) {
+            System.out.println(
+                    "No hay archivos EscenarioF2-1.txt a EscenarioF2-8.txt en "
+                    + directorioEntrada.getAbsolutePath());
+            return;
+        }
+
+        Arrays.sort(archivos, Comparator.comparing(File::getName));
+
+        Files.createDirectories(directorioSalida.toPath());
+
+        DominioMitologico dominio =
+                PreparadorEscenario.cargarDominio(new File(OWL));
+
+        KieContainer contenedor =
+                KieServices.Factory.get().getKieClasspathContainer();
+
+        LectorEscenario lector = new LectorEscenario();
+
+        for (File archivo : archivos) {
+
+            System.out.println("\n*** " + archivo.getName() + " ***");
+
+            String entrada = new String(
+                    Files.readAllBytes(archivo.toPath()),
+                    StandardCharsets.UTF_8);
+
+            System.out.println(entrada);
+            System.out.println("*** Fin Descripcion Escenario ***\n");
+
+            EscenarioMitologico escenario = lector.leer(archivo, dominio);
+
+            ejecutar(contenedor, escenario);
+
+            String textoRespuesta = respuesta(escenario);
+
+            String nombreRespuesta = archivo.getName()
+                    .replace("EscenarioF2-", "RespuestaF2_");
+
+            File archivoRespuesta =
+                    new File(directorioSalida, nombreRespuesta);
+
+            Files.write(
+                    archivoRespuesta.toPath(),
+                    textoRespuesta.getBytes(StandardCharsets.UTF_8));
+
+            System.out.println(textoRespuesta);
+            System.out.println(
+                    "Respuesta guardada en: "
+                    + archivoRespuesta.getAbsolutePath());
+
+            System.out.println("*** Fin Escenario ***\n");
         }
     }
 

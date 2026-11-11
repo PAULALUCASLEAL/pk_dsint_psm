@@ -1,0 +1,936 @@
+Acceso denegado.
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Program Files\apache-maven-3.9.11
+Java version: 17.0.18, vendor: Eclipse Adoptium, runtime: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot
+Default locale: es_ES, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.util < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] Created adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gav, file-hgav, file-static, gav, static]
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from C:\Program Files\apache-maven-3.9.11\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\User\.m2\settings.xml
+[DEBUG] Reading global toolchains from C:\Program Files\apache-maven-3.9.11\conf\toolchains.xml
+[DEBUG] Reading user toolchains from C:\Users\User\.m2\toolchains.xml
+[DEBUG] Using local repository at C:\Users\User\.m2\repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\User\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project dsi:DSI_Mitologia:jar:0.1.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Creating adapter using nameMapper 'gav' and factory 'rwlock-local'
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: dsi:DSI_Mitologia:jar:0.1.0-SNAPSHOT
+[DEBUG] Tasks:   [test-compile]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] -------------------------< dsi:DSI_Mitologia >--------------------------
+[INFO] Building DSI_Mitologia - Sistema inteligente sobre mitologia griega 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       dsi:DSI_Mitologia:0.1.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile, test]
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:3.3.1:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <addDefaultExcludes default-value="true"/>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}"/>
+  <escapeWindowsPaths default-value="true"/>
+  <fileNameFiltering default-value="false"/>
+  <includeEmptyDirs default-value="false"/>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false"/>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <skip default-value="false">${maven.resources.skip}</skip>
+  <supportMultiLineFiltering default-value="false"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <compilePath default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.compileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerReuseStrategy default-value="${reuseCreated}">${maven.compiler.compilerReuseStrategy}</compilerReuseStrategy>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <failOnWarning default-value="false">${maven.compiler.failOnWarning}</failOnWarning>
+  <forceJavacCompilerUse default-value="false">${maven.compiler.forceJavacCompilerUse}</forceJavacCompilerUse>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedSourcesDirectory default-value="${project.build.directory}/generated-sources/annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <mojoExecution default-value="${mojoExecution}"/>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <parameters default-value="false">${maven.compiler.parameters}</parameters>
+  <project default-value="${project}"/>
+  <projectArtifact default-value="${project.artifact}"/>
+  <release>${maven.compiler.release}</release>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skipMain>${maven.main.skip}</skipMain>
+  <skipMultiThreadWarning default-value="false">${maven.compiler.skipMultiThreadWarning}</skipMultiThreadWarning>
+  <source default-value="1.6">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.6">${maven.compiler.target}</target>
+  <useIncrementalCompilation default-value="true">${maven.compiler.useIncrementalCompilation}</useIncrementalCompilation>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:3.3.1:testResources (default-testResources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <addDefaultExcludes default-value="true"/>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}"/>
+  <escapeWindowsPaths default-value="true"/>
+  <fileNameFiltering default-value="false"/>
+  <includeEmptyDirs default-value="false"/>
+  <outputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <overwrite default-value="false"/>
+  <project default-value="${project}"/>
+  <resources default-value="${project.testResources}"/>
+  <session default-value="${session}"/>
+  <skip default-value="false">${maven.test.skip}</skip>
+  <supportMultiLineFiltering default-value="false"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir default-value="${basedir}"/>
+  <buildDirectory default-value="${project.build.directory}"/>
+  <compilePath default-value="${project.compileClasspathElements}"/>
+  <compileSourceRoots default-value="${project.testCompileSourceRoots}"/>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerReuseStrategy default-value="${reuseCreated}">${maven.compiler.compilerReuseStrategy}</compilerReuseStrategy>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <debuglevel>${maven.compiler.debuglevel}</debuglevel>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <failOnWarning default-value="false">${maven.compiler.failOnWarning}</failOnWarning>
+  <forceJavacCompilerUse default-value="false">${maven.compiler.forceJavacCompilerUse}</forceJavacCompilerUse>
+  <fork default-value="false">${maven.compiler.fork}</fork>
+  <generatedTestSourcesDirectory default-value="${project.build.directory}/generated-test-sources/test-annotations"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <mojoExecution default-value="${mojoExecution}"/>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <parameters default-value="false">${maven.compiler.parameters}</parameters>
+  <project default-value="${project}"/>
+  <release>${maven.compiler.release}</release>
+  <session default-value="${session}"/>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skip>${maven.test.skip}</skip>
+  <skipMultiThreadWarning default-value="false">${maven.compiler.skipMultiThreadWarning}</skipMultiThreadWarning>
+  <source default-value="1.6">${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target default-value="1.6">${maven.compiler.target}</target>
+  <testPath default-value="${project.testClasspathElements}"/>
+  <testRelease>${maven.compiler.testRelease}</testRelease>
+  <testSource>${maven.compiler.testSource}</testSource>
+  <testTarget>${maven.compiler.testTarget}</testTarget>
+  <useIncrementalCompilation default-value="true">${maven.compiler.useIncrementalCompilation}</useIncrementalCompilation>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=13430300, ConflictMarker.markTime=314600, ConflictMarker.nodeCount=53, ConflictIdSorter.graphTime=1531000, ConflictIdSorter.topsortTime=7301900, ConflictIdSorter.conflictIdCount=24, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=46158600, ConflictResolver.conflictItemCount=52, DfDependencyCollector.collectTime=4512489900, DfDependencyCollector.transformTime=76096400}
+[DEBUG] dsi:DSI_Mitologia:jar:0.1.0-SNAPSHOT
+[DEBUG]    org.kie:kie-api:jar:7.74.1.Final:compile
+[DEBUG]       org.kie.soup:kie-soup-maven-support:jar:7.74.1.Final:compile
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.30:compile
+[DEBUG]    org.drools:drools-core:jar:7.74.1.Final:compile
+[DEBUG]       org.kie:kie-internal:jar:7.74.1.Final:compile (version managed from 7.74.1.Final)
+[DEBUG]       org.kie.soup:kie-soup-xstream:jar:7.74.1.Final:compile
+[DEBUG]       org.drools:drools-core-reflective:jar:7.74.1.Final:compile (version managed from 7.74.1.Final)
+[DEBUG]       org.drools:drools-core-dynamic:jar:7.74.1.Final:runtime (version managed from 7.74.1.Final)
+[DEBUG]       commons-codec:commons-codec:jar:1.15:compile
+[DEBUG]    org.drools:drools-compiler:jar:7.74.1.Final:compile
+[DEBUG]       org.kie:kie-memory-compiler:jar:7.74.1.Final:compile (version managed from 7.74.1.Final)
+[DEBUG]       org.drools:drools-ecj:jar:7.74.1.Final:compile (version managed from 7.74.1.Final)
+[DEBUG]       org.antlr:antlr-runtime:jar:3.5.2:compile
+[DEBUG]       com.thoughtworks.xstream:xstream:jar:1.4.20:compile
+[DEBUG]          io.github.x-stream:mxparser:jar:1.2.2:compile
+[DEBUG]             xmlpull:xmlpull:jar:1.1.3.1:compile
+[DEBUG]    org.drools:drools-mvel:jar:7.74.1.Final:compile
+[DEBUG]       org.mvel:mvel2:jar:2.4.15.Final:compile
+[DEBUG]       org.kie.soup:kie-soup-project-datamodel-commons:jar:7.74.1.Final:compile
+[DEBUG]          org.kie.soup:kie-soup-commons:jar:7.74.1.Final:compile
+[DEBUG]          org.kie.soup:kie-soup-project-datamodel-api:jar:7.74.1.Final:compile
+[DEBUG]    org.slf4j:slf4j-simple:jar:1.7.26:compile
+[DEBUG]    junit:junit:jar:4.13.2:test
+[DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ DSI_Mitologia ---
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=89400, ConflictMarker.markTime=89900, ConflictMarker.nodeCount=13, ConflictIdSorter.graphTime=38200, ConflictIdSorter.topsortTime=86900, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=13439600, ConflictResolver.conflictItemCount=13, DfDependencyCollector.collectTime=3073746800, DfDependencyCollector.transformTime=13838500}
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:3.3.1
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.26:runtime
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.5.1:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:3.3.1:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.36:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.7:compile
+[DEBUG]    commons-io:commons-io:jar:2.11.0:compile
+[DEBUG]    org.apache.commons:commons-lang3:jar:3.12.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.3.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.3.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:3.3.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:3.3.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.26
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.5.1
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:3.3.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[DEBUG]   Included: commons-io:commons-io:jar:2.11.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.12.0
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-resources-plugin:3.3.1:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:3.3.1, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-resources-plugin:3.3.1:resources:default-resources' with basic configurator -->
+[DEBUG]   (f) addDefaultExcludes = true
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (f) fileNameFiltering = false
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: dsi:DSI_Mitologia:0.1.0-SNAPSHOT @ C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@22e5f96e
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) supportMultiLineFiltering = false
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used:
+[DEBUG] classworlds.conf: C:\Program Files\apache-maven-3.9.11\bin\m2.conf
+[DEBUG] drools.version: 7.74.1.Final
+[DEBUG] env.=C:: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.=EXITCODE: 00000000
+[DEBUG] env.ACSETUPSVCPORT: 23210
+[DEBUG] env.ACSVCPORT: 17532
+[DEBUG] env.ALLUSERSPROFILE: C:\ProgramData
+[DEBUG] env.APPDATA: C:\Users\User\AppData\Roaming
+[DEBUG] env.ASL.LOG: Destination=file
+[DEBUG] env.BROWSER_USE_ACCESS_EXECUTOR_ID: ["02ed243f-11de-44c5-b4ae-7bdc368f5084","native-browser-plugin"]
+[DEBUG] env.BROWSER_USE_ACCESS_PIPE_PATH: \\.\pipe\codex-app-tools-30f5b63a-2c29-4539-9437-db01ab031e76
+[DEBUG] env.BROWSER_USE_ACCESS_VERIFYING_IDENTITY: MCowBQYDK2VwAyEA0O2XNIfQcK4o8SyTDSAzyeknSzCQkDPpUTFt8KeJpA4=
+[DEBUG] env.CLASSWORLDS_JAR: "C:\Program Files\apache-maven-3.9.11\boot\plexus-classworlds-2.9.0.jar"
+[DEBUG] env.CLASSWORLDS_LAUNCHER: org.codehaus.plexus.classworlds.launcher.Launcher
+[DEBUG] env.CODEX_APPLY_PATCH_PRESERVE_LINE_ENDINGS: 1
+[DEBUG] env.CODEX_APP_RUNTIME_CLI_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\codex.exe
+[DEBUG] env.CODEX_APP_TOOLS_PIPE_PATH: \\.\pipe\codex-app-tools-30f5b63a-2c29-4539-9437-db01ab031e76
+[DEBUG] env.CODEX_CI: 1
+[DEBUG] env.CODEX_INTERNAL_ORIGINATOR_OVERRIDE: Codex Desktop
+[DEBUG] env.CODEX_MCP_NODE_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\cua_node\bin\node.exe
+[DEBUG] env.CODEX_PERMISSION_PROFILE: :workspace
+[DEBUG] env.CODEX_SAGE_BACKFILL_TRACKER_TAB_REUSE: 1
+[DEBUG] env.CODEX_SANDBOX_NETWORK_DISABLED: 1
+[DEBUG] env.CODEX_SESSION_ID: 01a1cc2e-aba7-7e23-840f-2abd4cd936f2
+[DEBUG] env.CODEX_SHELL: 1
+[DEBUG] env.CODEX_TASK_WORKSPACE_VERIFYING_IDENTITY: MCowBQYDK2VwAyEA0O2XNIfQcK4o8SyTDSAzyeknSzCQkDPpUTFt8KeJpA4=
+[DEBUG] env.CODEX_TECTONIC_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\tectonic\tectonic.exe
+[DEBUG] env.CODEX_THREAD_ID: 01a1cc2e-aba7-7e23-840f-2abd4cd936f2
+[DEBUG] env.CODEX_TOOL_CALL_ID: exec-73591d9d-2cec-44b6-aff7-96a8cdb5b6f6
+[DEBUG] env.CODEX_VERSION: 0.167.0-alpha.4.1
+[DEBUG] env.CODEX_WINDOWS_REGISTERED_CORE: 1
+[DEBUG] env.CODEX_WINDOWS_SANDBOX_PACKAGE_FAMILY: OpenAI.Codex_2p2nqsd0c76g0
+[DEBUG] env.COLORTERM: 
+[DEBUG] env.COMMONPROGRAMFILES: C:\Program Files\Common Files
+[DEBUG] env.COMMONPROGRAMFILES(X86): C:\Program Files (x86)\Common Files
+[DEBUG] env.COMMONPROGRAMW6432: C:\Program Files\Common Files
+[DEBUG] env.COMPUTERNAME: DESKTOP-T86S8JF
+[DEBUG] env.COMSPEC: C:\WINDOWS\system32\cmd.exe
+[DEBUG] env.DISABLE_AUTO_UPDATE: true
+[DEBUG] env.DRIVERDATA: C:\Windows\System32\Drivers\DriverData
+[DEBUG] env.ERROR_CODE: 0
+[DEBUG] env.EXEC_DIR: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.GH_PAGER: cat
+[DEBUG] env.GIT_PAGER: cat
+[DEBUG] env.HOMEDRIVE: C:
+[DEBUG] env.HOMEPATH: \Users\User
+[DEBUG] env.IGCCSVC_DB: AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAw9gEiQB4XE2rsB8KyXUQ5QQAAAACAAAAAAAQZgAAAAEAACAAAADozYSHQw/uzuSF/nVxifZ5i1deJ602l/1I2lyH/KGtewAAAAAOgAAAAAIAACAAAABTVLA8ZZ3Q1omjebTpSRu9038TAVeJom0DXwpz5v+5KWAAAACD9RRFIn07fIvnMhZS0fjFe9g+I2CJCZ7ziZL+Qx0cHHVTU2DnYKfofgTOGvbfJxlX5tezwsD6d1O8MYZ75hkzhE5/YKNwYp4PQJBpzILIDaxc4gOUt9RbxwyicKkALTBAAAAANVLvAaIbNve4oyMOxrUSVH75JrYfhxLVAbo5zJSN11BNdnPo/uPHtwGA55cooaBnn4IqnX5SfVArgKf/R/04Jg==
+[DEBUG] env.JAVACMD: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin\java.exe
+[DEBUG] env.JVMCONFIG: \.mvn\jvm.config
+[DEBUG] env.LANG: C.UTF-8
+[DEBUG] env.LC_ALL: C.UTF-8
+[DEBUG] env.LC_CTYPE: C.UTF-8
+[DEBUG] env.LOCALAPPDATA: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}
+[DEBUG] env.LOGONSERVER: \\DESKTOP-T86S8JF
+[DEBUG] env.LOG_FORMAT: json
+[DEBUG] env.MAVEN_CMD_LINE_ARGS: -o -X test-compile
+[DEBUG] env.MAVEN_HOME: C:\Program Files\apache-maven-3.9.11
+[DEBUG] env.MAVEN_OPTS: --enable-native-access=ALL-UNNAMED 
+[DEBUG] env.MAVEN_PROJECTBASEDIR: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.NO_COLOR: 1
+[DEBUG] env.NUMBER_OF_PROCESSORS: 16
+[DEBUG] env.ONEDRIVE: C:\Users\User\OneDrive
+[DEBUG] env.OS: Windows_NT
+[DEBUG] env.PAGER: cat
+[DEBUG] env.PATH: C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Users\User\.codex\tmp\arg0-windows\codex-arg0M18UQl;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\libheif\libheif\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\jxrlib\jxrlib\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\poppler\Library\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\override;C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\WSL\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\User\scoop\shims;C:\Users\User\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\User\AppData\Local\Programs\Python\Python312\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\User\AppData\Local\Programs\Warp\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\fallback;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\node\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\git\cmd;C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources
+[DEBUG] env.PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+[DEBUG] env.PROCESSOR_ARCHITECTURE: AMD64
+[DEBUG] env.PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+[DEBUG] env.PROCESSOR_LEVEL: 6
+[DEBUG] env.PROCESSOR_REVISION: ba02
+[DEBUG] env.PROGRAMDATA: C:\ProgramData
+[DEBUG] env.PROGRAMFILES: C:\Program Files
+[DEBUG] env.PROGRAMFILES(X86): C:\Program Files (x86)
+[DEBUG] env.PROGRAMW6432: C:\Program Files
+[DEBUG] env.PROMPT: $P$G
+[DEBUG] env.PSMODULEPATH: C:\Users\User\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\windowsapps\openai.codexprimaryruntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell\Modules;C:\Users\User\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+[DEBUG] env.PT8HOME: C:\Program Files\Cisco Packet Tracer 8.2.2
+[DEBUG] env.PUBLIC: C:\Users\Public
+[DEBUG] env.RLSSVCPORT: 22112
+[DEBUG] env.RTOOLS45_HOME: C:\rtools45
+[DEBUG] env.RUST_LOG: warn
+[DEBUG] env.SHELL: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+[DEBUG] env.SYSTEMDRIVE: C:
+[DEBUG] env.SYSTEMROOT: C:\WINDOWS
+[DEBUG] env.TEMP: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp
+[DEBUG] env.TERM: dumb
+[DEBUG] env.TMP: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp
+[DEBUG] env.USERDOMAIN: DESKTOP-T86S8JF
+[DEBUG] env.USERDOMAIN_ROAMINGPROFILE: DESKTOP-T86S8JF
+[DEBUG] env.USERNAME: User
+[DEBUG] env.USERPROFILE: C:\Users\User
+[DEBUG] env.VBOX_MSI_INSTALL_PATH: C:\Program Files\Oracle\VirtualBox\
+[DEBUG] env.WDIR: C:\Users\User\Desktop\Practicas DSINT
+[DEBUG] env.WINDIR: C:\WINDOWS
+[DEBUG] env.ZES_ENABLE_SYSMAN: 1
+[DEBUG] env.ZSH_TMUX_AUTOSTART: false
+[DEBUG] env.ZSH_TMUX_AUTOSTARTED: true
+[DEBUG] file.encoding: Cp1252
+[DEBUG] file.separator: \
+[DEBUG] java.class.path: C:\Program Files\apache-maven-3.9.11\boot\plexus-classworlds-2.9.0.jar
+[DEBUG] java.class.version: 61.0
+[DEBUG] java.home: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot
+[DEBUG] java.io.tmpdir: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp\
+[DEBUG] java.library.path: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Users\User\.codex\tmp\arg0-windows\codex-arg0M18UQl;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\libheif\libheif\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\jxrlib\jxrlib\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\poppler\Library\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\override;C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\WSL\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\User\scoop\shims;C:\Users\User\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\User\AppData\Local\Programs\Python\Python312\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\User\AppData\Local\Programs\Warp\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\fallback;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\node\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\git\cmd;C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources;.
+[DEBUG] java.runtime.name: OpenJDK Runtime Environment
+[DEBUG] java.runtime.version: 17.0.18+8
+[DEBUG] java.specification.maintenance.version: 1
+[DEBUG] java.specification.name: Java Platform API Specification
+[DEBUG] java.specification.vendor: Oracle Corporation
+[DEBUG] java.specification.version: 17
+[DEBUG] java.vendor: Eclipse Adoptium
+[DEBUG] java.vendor.url: https://adoptium.net/
+[DEBUG] java.vendor.url.bug: https://github.com/adoptium/adoptium-support/issues
+[DEBUG] java.vendor.version: Temurin-17.0.18+8
+[DEBUG] java.version: 17.0.18
+[DEBUG] java.version.date: 2026-01-20
+[DEBUG] java.vm.compressedOopsMode: Zero based
+[DEBUG] java.vm.info: mixed mode, sharing
+[DEBUG] java.vm.name: OpenJDK 64-Bit Server VM
+[DEBUG] java.vm.specification.name: Java Virtual Machine Specification
+[DEBUG] java.vm.specification.vendor: Oracle Corporation
+[DEBUG] java.vm.specification.version: 17
+[DEBUG] java.vm.vendor: Eclipse Adoptium
+[DEBUG] java.vm.version: 17.0.18+8
+[DEBUG] jdk.debug: release
+[DEBUG] library.jansi.path: C:\Program Files\apache-maven-3.9.11\lib\jansi-native
+[DEBUG] line.separator: 
+
+[DEBUG] maven.build.timestamp: 2026-11-11T20:00:05Z
+[DEBUG] maven.build.version: Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+[DEBUG] maven.compiler.source: 1.8
+[DEBUG] maven.compiler.target: 1.8
+[DEBUG] maven.conf: C:\Program Files\apache-maven-3.9.11/conf
+[DEBUG] maven.home: C:\Program Files\apache-maven-3.9.11
+[DEBUG] maven.multiModuleProjectDirectory: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] maven.version: 3.9.11
+[DEBUG] native.encoding: Cp1252
+[DEBUG] os.arch: amd64
+[DEBUG] os.name: Windows 11
+[DEBUG] os.version: 10.0
+[DEBUG] path.separator: ;
+[DEBUG] project.baseUri: file:/C:/Users/User/Desktop/Practicas%20DSINT/sistema-inteligente/
+[DEBUG] project.build.sourceEncoding: UTF-8
+[DEBUG] project.reporting.outputEncoding: UTF-8
+[DEBUG] sun.arch.data.model: 64
+[DEBUG] sun.boot.library.path: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin
+[DEBUG] sun.cpu.endian: little
+[DEBUG] sun.cpu.isalist: amd64
+[DEBUG] sun.io.unicode.encoding: UnicodeLittle
+[DEBUG] sun.java.command: org.codehaus.plexus.classworlds.launcher.Launcher -o -X test-compile
+[DEBUG] sun.java.launcher: SUN_STANDARD
+[DEBUG] sun.jnu.encoding: Cp1252
+[DEBUG] sun.management.compiler: HotSpot 64-Bit Tiered Compilers
+[DEBUG] sun.os.patch.level: 
+[DEBUG] user.country: ES
+[DEBUG] user.dir: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] user.home: C:\Users\User
+[DEBUG] user.language: es
+[DEBUG] user.name: User
+[DEBUG] user.script: 
+[DEBUG] user.variant: 
+[DEBUG] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] Using 'UTF-8' encoding to copy filtered properties files.
+[DEBUG] resource with targetPath null
+directory C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
+[INFO] Copying 8 resources from src\main\resources to target\classes
+[DEBUG] Copying file META-INF\kmodule.xml
+[DEBUG] file kmodule.xml has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'kmodule.xml'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\META-INF\kmodule.xml to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\META-INF\kmodule.xml
+[DEBUG] Copying file reglas\capacidades.drl
+[DEBUG] file capacidades.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'capacidades.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\capacidades.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\capacidades.drl
+[DEBUG] Copying file reglas\favores.drl
+[DEBUG] file favores.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'favores.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\favores.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\favores.drl
+[DEBUG] Copying file reglas\grayas_ninfas.drl
+[DEBUG] file grayas_ninfas.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'grayas_ninfas.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\grayas_ninfas.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\grayas_ninfas.drl
+[DEBUG] Copying file reglas\informacion_inicial.drl
+[DEBUG] file informacion_inicial.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'informacion_inicial.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\informacion_inicial.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\informacion_inicial.drl
+[DEBUG] Copying file reglas\inicio.drl
+[DEBUG] file inicio.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'inicio.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\inicio.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\inicio.drl
+[DEBUG] Copying file reglas\medusa.drl
+[DEBUG] file medusa.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'medusa.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\medusa.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\medusa.drl
+[DEBUG] Copying file reglas\rescate.drl
+[DEBUG] file rescate.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'rescate.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\resources\reglas\rescate.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes\reglas\rescate.drl
+[DEBUG] no user filter components
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ DSI_Mitologia ---
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://repository.apache.org/snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus.snapshots (http://snapshots.repository.codehaus.org).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for ow2-snapshot (http://repository.ow2.org/nexus/content/repositories/snapshots).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=10133500, ConflictMarker.markTime=1466700, ConflictMarker.nodeCount=118, ConflictIdSorter.graphTime=5259300, ConflictIdSorter.topsortTime=104800, ConflictIdSorter.conflictIdCount=45, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=150288100, ConflictResolver.conflictItemCount=72, DfDependencyCollector.collectTime=5634187000, DfDependencyCollector.transformTime=168101400}
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:3.8.1
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:2.0.4:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-aether-provider:jar:3.0:runtime
+[DEBUG]       org.sonatype.aether:aether-impl:jar:1.7:compile
+[DEBUG]          org.sonatype.aether:aether-spi:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-api:jar:1.7:compile
+[DEBUG]       org.sonatype.aether:aether-util:jar:1.7:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.14:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile (version managed from default)
+[DEBUG]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3:compile
+[DEBUG]          org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]       commons-io:commons-io:jar:2.5:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-incremental:jar:1.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-java:jar:0.9.10:compile
+[DEBUG]       org.ow2.asm:asm:jar:6.2:compile
+[DEBUG]       com.thoughtworks.qdox:qdox:jar:2.0-M9:compile (version managed from default)
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:2.8.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:2.8.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:2.8.4:runtime
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:3.8.1
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.4
+[DEBUG]   Included: org.sonatype.aether:aether-util:jar:1.7
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.14
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-incremental:jar:1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-java:jar:0.9.10
+[DEBUG]   Included: org.ow2.asm:asm:jar:6.2
+[DEBUG]   Included: com.thoughtworks.qdox:qdox:jar:2.0-M9
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:2.8.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:2.8.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:2.8.4
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.1, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile:default-compile' with basic configurator -->
+[DEBUG]   (f) basedir = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG]   (f) buildDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target
+[DEBUG]   (f) compilePath = [C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes, C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar, C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar, C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar, C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar, C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar, C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar, C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar, C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar]
+[DEBUG]   (f) compileSourceRoots = [C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) failOnWarning = false
+[DEBUG]   (f) forceJavacCompilerUse = false
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedSourcesDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations
+[DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile {execution: default-compile}
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[DEBUG]   (f) parameters = false
+[DEBUG]   (f) project = MavenProject: dsi:DSI_Mitologia:0.1.0-SNAPSHOT @ C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[DEBUG]   (f) projectArtifact = dsi:DSI_Mitologia:jar:0.1.0-SNAPSHOT
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@22e5f96e
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) skipMultiThreadWarning = false
+[DEBUG]   (f) source = 1.8
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (s) target = 1.8
+[DEBUG]   (f) useIncrementalCompilation = true
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Adding C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations to compile source roots:
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\java
+[DEBUG] New compile source roots:
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\java
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations
+[DEBUG] CompilerReuseStrategy: reuseCreated
+[DEBUG] useIncrementalCompilation enabled
+[DEBUG] New dependency detected: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[INFO] Changes detected - recompiling the module!
+[DEBUG] Classpath:
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar
+[DEBUG]  C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar
+[DEBUG]  C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar
+[DEBUG]  C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar
+[DEBUG] Source roots:
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\java
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations
+[DEBUG] Command line options:
+[DEBUG] -d C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes -classpath C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes;C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar;C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar;C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar;C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar;C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar;C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar; -sourcepath C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\main\java;C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations; -s C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-sources\annotations -g -nowarn -target 1.8 -source 1.8 -encoding UTF-8
+[DEBUG] incrementalBuildHelper#beforeRebuildExecution
+[INFO] Compiling 33 source files to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[DEBUG] incrementalBuildHelper#afterRebuildExecution
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ DSI_Mitologia ---
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-resources-plugin:3.3.1:testResources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:3.3.1, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-resources-plugin:3.3.1:testResources:default-testResources' with basic configurator -->
+[DEBUG]   (f) addDefaultExcludes = true
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (f) fileNameFiltering = false
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: dsi:DSI_Mitologia:0.1.0-SNAPSHOT @ C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@22e5f96e
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) supportMultiLineFiltering = false
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used:
+[DEBUG] classworlds.conf: C:\Program Files\apache-maven-3.9.11\bin\m2.conf
+[DEBUG] drools.version: 7.74.1.Final
+[DEBUG] env.=C:: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.=EXITCODE: 00000000
+[DEBUG] env.ACSETUPSVCPORT: 23210
+[DEBUG] env.ACSVCPORT: 17532
+[DEBUG] env.ALLUSERSPROFILE: C:\ProgramData
+[DEBUG] env.APPDATA: C:\Users\User\AppData\Roaming
+[DEBUG] env.ASL.LOG: Destination=file
+[DEBUG] env.BROWSER_USE_ACCESS_EXECUTOR_ID: ["02ed243f-11de-44c5-b4ae-7bdc368f5084","native-browser-plugin"]
+[DEBUG] env.BROWSER_USE_ACCESS_PIPE_PATH: \\.\pipe\codex-app-tools-30f5b63a-2c29-4539-9437-db01ab031e76
+[DEBUG] env.BROWSER_USE_ACCESS_VERIFYING_IDENTITY: MCowBQYDK2VwAyEA0O2XNIfQcK4o8SyTDSAzyeknSzCQkDPpUTFt8KeJpA4=
+[DEBUG] env.CLASSWORLDS_JAR: "C:\Program Files\apache-maven-3.9.11\boot\plexus-classworlds-2.9.0.jar"
+[DEBUG] env.CLASSWORLDS_LAUNCHER: org.codehaus.plexus.classworlds.launcher.Launcher
+[DEBUG] env.CODEX_APPLY_PATCH_PRESERVE_LINE_ENDINGS: 1
+[DEBUG] env.CODEX_APP_RUNTIME_CLI_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\codex.exe
+[DEBUG] env.CODEX_APP_TOOLS_PIPE_PATH: \\.\pipe\codex-app-tools-30f5b63a-2c29-4539-9437-db01ab031e76
+[DEBUG] env.CODEX_CI: 1
+[DEBUG] env.CODEX_INTERNAL_ORIGINATOR_OVERRIDE: Codex Desktop
+[DEBUG] env.CODEX_MCP_NODE_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\cua_node\bin\node.exe
+[DEBUG] env.CODEX_PERMISSION_PROFILE: :workspace
+[DEBUG] env.CODEX_SAGE_BACKFILL_TRACKER_TAB_REUSE: 1
+[DEBUG] env.CODEX_SANDBOX_NETWORK_DISABLED: 1
+[DEBUG] env.CODEX_SESSION_ID: 01a1cc2e-aba7-7e23-840f-2abd4cd936f2
+[DEBUG] env.CODEX_SHELL: 1
+[DEBUG] env.CODEX_TASK_WORKSPACE_VERIFYING_IDENTITY: MCowBQYDK2VwAyEA0O2XNIfQcK4o8SyTDSAzyeknSzCQkDPpUTFt8KeJpA4=
+[DEBUG] env.CODEX_TECTONIC_PATH: C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources\tectonic\tectonic.exe
+[DEBUG] env.CODEX_THREAD_ID: 01a1cc2e-aba7-7e23-840f-2abd4cd936f2
+[DEBUG] env.CODEX_TOOL_CALL_ID: exec-73591d9d-2cec-44b6-aff7-96a8cdb5b6f6
+[DEBUG] env.CODEX_VERSION: 0.167.0-alpha.4.1
+[DEBUG] env.CODEX_WINDOWS_REGISTERED_CORE: 1
+[DEBUG] env.CODEX_WINDOWS_SANDBOX_PACKAGE_FAMILY: OpenAI.Codex_2p2nqsd0c76g0
+[DEBUG] env.COLORTERM: 
+[DEBUG] env.COMMONPROGRAMFILES: C:\Program Files\Common Files
+[DEBUG] env.COMMONPROGRAMFILES(X86): C:\Program Files (x86)\Common Files
+[DEBUG] env.COMMONPROGRAMW6432: C:\Program Files\Common Files
+[DEBUG] env.COMPUTERNAME: DESKTOP-T86S8JF
+[DEBUG] env.COMSPEC: C:\WINDOWS\system32\cmd.exe
+[DEBUG] env.DISABLE_AUTO_UPDATE: true
+[DEBUG] env.DRIVERDATA: C:\Windows\System32\Drivers\DriverData
+[DEBUG] env.ERROR_CODE: 0
+[DEBUG] env.EXEC_DIR: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.GH_PAGER: cat
+[DEBUG] env.GIT_PAGER: cat
+[DEBUG] env.HOMEDRIVE: C:
+[DEBUG] env.HOMEPATH: \Users\User
+[DEBUG] env.IGCCSVC_DB: AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAw9gEiQB4XE2rsB8KyXUQ5QQAAAACAAAAAAAQZgAAAAEAACAAAADozYSHQw/uzuSF/nVxifZ5i1deJ602l/1I2lyH/KGtewAAAAAOgAAAAAIAACAAAABTVLA8ZZ3Q1omjebTpSRu9038TAVeJom0DXwpz5v+5KWAAAACD9RRFIn07fIvnMhZS0fjFe9g+I2CJCZ7ziZL+Qx0cHHVTU2DnYKfofgTOGvbfJxlX5tezwsD6d1O8MYZ75hkzhE5/YKNwYp4PQJBpzILIDaxc4gOUt9RbxwyicKkALTBAAAAANVLvAaIbNve4oyMOxrUSVH75JrYfhxLVAbo5zJSN11BNdnPo/uPHtwGA55cooaBnn4IqnX5SfVArgKf/R/04Jg==
+[DEBUG] env.JAVACMD: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin\java.exe
+[DEBUG] env.JVMCONFIG: \.mvn\jvm.config
+[DEBUG] env.LANG: C.UTF-8
+[DEBUG] env.LC_ALL: C.UTF-8
+[DEBUG] env.LC_CTYPE: C.UTF-8
+[DEBUG] env.LOCALAPPDATA: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}
+[DEBUG] env.LOGONSERVER: \\DESKTOP-T86S8JF
+[DEBUG] env.LOG_FORMAT: json
+[DEBUG] env.MAVEN_CMD_LINE_ARGS: -o -X test-compile
+[DEBUG] env.MAVEN_HOME: C:\Program Files\apache-maven-3.9.11
+[DEBUG] env.MAVEN_OPTS: --enable-native-access=ALL-UNNAMED 
+[DEBUG] env.MAVEN_PROJECTBASEDIR: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] env.NO_COLOR: 1
+[DEBUG] env.NUMBER_OF_PROCESSORS: 16
+[DEBUG] env.ONEDRIVE: C:\Users\User\OneDrive
+[DEBUG] env.OS: Windows_NT
+[DEBUG] env.PAGER: cat
+[DEBUG] env.PATH: C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Users\User\.codex\tmp\arg0-windows\codex-arg0M18UQl;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\libheif\libheif\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\jxrlib\jxrlib\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\poppler\Library\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\override;C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\WSL\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\User\scoop\shims;C:\Users\User\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\User\AppData\Local\Programs\Python\Python312\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\User\AppData\Local\Programs\Warp\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\fallback;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\node\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\git\cmd;C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources
+[DEBUG] env.PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL
+[DEBUG] env.PROCESSOR_ARCHITECTURE: AMD64
+[DEBUG] env.PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+[DEBUG] env.PROCESSOR_LEVEL: 6
+[DEBUG] env.PROCESSOR_REVISION: ba02
+[DEBUG] env.PROGRAMDATA: C:\ProgramData
+[DEBUG] env.PROGRAMFILES: C:\Program Files
+[DEBUG] env.PROGRAMFILES(X86): C:\Program Files (x86)
+[DEBUG] env.PROGRAMW6432: C:\Program Files
+[DEBUG] env.PROMPT: $P$G
+[DEBUG] env.PSMODULEPATH: C:\Users\User\Documents\PowerShell\Modules;C:\Program Files\PowerShell\Modules;c:\program files\windowsapps\openai.codexprimaryruntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell\Modules;C:\Users\User\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+[DEBUG] env.PT8HOME: C:\Program Files\Cisco Packet Tracer 8.2.2
+[DEBUG] env.PUBLIC: C:\Users\Public
+[DEBUG] env.RLSSVCPORT: 22112
+[DEBUG] env.RTOOLS45_HOME: C:\rtools45
+[DEBUG] env.RUST_LOG: warn
+[DEBUG] env.SHELL: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+[DEBUG] env.SYSTEMDRIVE: C:
+[DEBUG] env.SYSTEMROOT: C:\WINDOWS
+[DEBUG] env.TEMP: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp
+[DEBUG] env.TERM: dumb
+[DEBUG] env.TMP: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp
+[DEBUG] env.USERDOMAIN: DESKTOP-T86S8JF
+[DEBUG] env.USERDOMAIN_ROAMINGPROFILE: DESKTOP-T86S8JF
+[DEBUG] env.USERNAME: User
+[DEBUG] env.USERPROFILE: C:\Users\User
+[DEBUG] env.VBOX_MSI_INSTALL_PATH: C:\Program Files\Oracle\VirtualBox\
+[DEBUG] env.WDIR: C:\Users\User\Desktop\Practicas DSINT
+[DEBUG] env.WINDIR: C:\WINDOWS
+[DEBUG] env.ZES_ENABLE_SYSMAN: 1
+[DEBUG] env.ZSH_TMUX_AUTOSTART: false
+[DEBUG] env.ZSH_TMUX_AUTOSTARTED: true
+[DEBUG] file.encoding: Cp1252
+[DEBUG] file.separator: \
+[DEBUG] java.class.path: C:\Program Files\apache-maven-3.9.11\boot\plexus-classworlds-2.9.0.jar
+[DEBUG] java.class.version: 61.0
+[DEBUG] java.home: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot
+[DEBUG] java.io.tmpdir: C:\Users\User\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{60c74e5a-0748-4c2a-95fa-30b0dde668a6}\Temp\
+[DEBUG] java.library.path: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Users\User\.codex\tmp\arg0-windows\codex-arg0M18UQl;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\powershell;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\libheif\libheif\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\jxrlib\jxrlib\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\poppler\Library\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\override;C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\WSL\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\User\scoop\shims;C:\Users\User\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\User\AppData\Local\Programs\Python\Python312\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\User\AppData\Local\Programs\Warp\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin\copilot-shim;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\bin\fallback;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\node\bin;C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\dependencies\native\git\cmd;C:\Program Files\WindowsApps\OpenAI.Codex_26.1106.6628.0_x64__2p2nqsd0c76g0\app\resources;.
+[DEBUG] java.runtime.name: OpenJDK Runtime Environment
+[DEBUG] java.runtime.version: 17.0.18+8
+[DEBUG] java.specification.maintenance.version: 1
+[DEBUG] java.specification.name: Java Platform API Specification
+[DEBUG] java.specification.vendor: Oracle Corporation
+[DEBUG] java.specification.version: 17
+[DEBUG] java.vendor: Eclipse Adoptium
+[DEBUG] java.vendor.url: https://adoptium.net/
+[DEBUG] java.vendor.url.bug: https://github.com/adoptium/adoptium-support/issues
+[DEBUG] java.vendor.version: Temurin-17.0.18+8
+[DEBUG] java.version: 17.0.18
+[DEBUG] java.version.date: 2026-01-20
+[DEBUG] java.vm.compressedOopsMode: Zero based
+[DEBUG] java.vm.info: mixed mode, sharing
+[DEBUG] java.vm.name: OpenJDK 64-Bit Server VM
+[DEBUG] java.vm.specification.name: Java Virtual Machine Specification
+[DEBUG] java.vm.specification.vendor: Oracle Corporation
+[DEBUG] java.vm.specification.version: 17
+[DEBUG] java.vm.vendor: Eclipse Adoptium
+[DEBUG] java.vm.version: 17.0.18+8
+[DEBUG] jdk.debug: release
+[DEBUG] library.jansi.path: C:\Program Files\apache-maven-3.9.11\lib\jansi-native
+[DEBUG] line.separator: 
+
+[DEBUG] maven.build.timestamp: 2026-11-11T20:00:36Z
+[DEBUG] maven.build.version: Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+[DEBUG] maven.compiler.source: 1.8
+[DEBUG] maven.compiler.target: 1.8
+[DEBUG] maven.conf: C:\Program Files\apache-maven-3.9.11/conf
+[DEBUG] maven.home: C:\Program Files\apache-maven-3.9.11
+[DEBUG] maven.multiModuleProjectDirectory: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] maven.version: 3.9.11
+[DEBUG] native.encoding: Cp1252
+[DEBUG] os.arch: amd64
+[DEBUG] os.name: Windows 11
+[DEBUG] os.version: 10.0
+[DEBUG] path.separator: ;
+[DEBUG] project.baseUri: file:/C:/Users/User/Desktop/Practicas%20DSINT/sistema-inteligente/
+[DEBUG] project.build.sourceEncoding: UTF-8
+[DEBUG] project.reporting.outputEncoding: UTF-8
+[DEBUG] sun.arch.data.model: 64
+[DEBUG] sun.boot.library.path: C:\Program Files\Eclipse Adoptium\jdk-17.0.18.8-hotspot\bin
+[DEBUG] sun.cpu.endian: little
+[DEBUG] sun.cpu.isalist: amd64
+[DEBUG] sun.io.unicode.encoding: UnicodeLittle
+[DEBUG] sun.java.command: org.codehaus.plexus.classworlds.launcher.Launcher -o -X test-compile
+[DEBUG] sun.java.launcher: SUN_STANDARD
+[DEBUG] sun.jnu.encoding: Cp1252
+[DEBUG] sun.management.compiler: HotSpot 64-Bit Tiered Compilers
+[DEBUG] sun.os.patch.level: 
+[DEBUG] user.country: ES
+[DEBUG] user.dir: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG] user.home: C:\Users\User
+[DEBUG] user.language: es
+[DEBUG] user.name: User
+[DEBUG] user.script: 
+[DEBUG] user.variant: 
+[DEBUG] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] Using 'UTF-8' encoding to copy filtered properties files.
+[DEBUG] resource with targetPath null
+directory C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\resources
+excludes []
+includes []
+[DEBUG] ignoreDelta true
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[DEBUG] Copying file dsi\mitologia\pruebas\prueba-integracion.drl
+[DEBUG] file prueba-integracion.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'prueba-integracion.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\resources\dsi\mitologia\pruebas\prueba-integracion.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes\dsi\mitologia\pruebas\prueba-integracion.drl
+[DEBUG] Copying file dsi\mitologia\pruebas\prueba-tecnica-modelo.drl
+[DEBUG] file prueba-tecnica-modelo.drl has a filtered file extension
+[DEBUG] Using 'UTF-8' encoding to copy filtered resource 'prueba-tecnica-modelo.drl'.
+[DEBUG] copy C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\resources\dsi\mitologia\pruebas\prueba-tecnica-modelo.drl to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes\dsi\mitologia\pruebas\prueba-tecnica-modelo.drl
+[DEBUG] no user filter components
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ DSI_Mitologia ---
+[DEBUG] Loading mojo org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:3.8.1, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44]
+[DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile:default-testCompile' with basic configurator -->
+[DEBUG]   (f) basedir = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente
+[DEBUG]   (f) buildDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target
+[DEBUG]   (f) compilePath = [C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes, C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar, C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar, C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar, C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar, C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar, C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar, C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar, C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar]
+[DEBUG]   (f) compileSourceRoots = [C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) failOnWarning = false
+[DEBUG]   (f) forceJavacCompilerUse = false
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) generatedTestSourcesDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations
+[DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile {execution: default-testCompile}
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes
+[DEBUG]   (f) parameters = false
+[DEBUG]   (f) project = MavenProject: dsi:DSI_Mitologia:0.1.0-SNAPSHOT @ C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\pom.xml
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@22e5f96e
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) skipMultiThreadWarning = false
+[DEBUG]   (f) source = 1.8
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (s) target = 1.8
+[DEBUG]   (f) testPath = [C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes, C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes, C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar, C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-core-dynamic\7.74.1.Final\drools-core-dynamic-7.74.1.Final.jar, C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar, C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar, C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar, C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar, C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar, C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar, C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar, C:\Users\User\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar, C:\Users\User\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar]
+[DEBUG]   (f) useIncrementalCompilation = true
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Adding C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations to test-compile source roots:
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\java
+[DEBUG] New test-compile source roots:
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\java
+  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations
+[DEBUG] CompilerReuseStrategy: reuseCreated
+[DEBUG] useIncrementalCompilation enabled
+[DEBUG] New dependency detected: C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes
+[INFO] Changes detected - recompiling the module!
+[DEBUG] Classpath:
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-core-dynamic\7.74.1.Final\drools-core-dynamic-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar
+[DEBUG]  C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar
+[DEBUG]  C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar
+[DEBUG]  C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar
+[DEBUG]  C:\Users\User\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar
+[DEBUG]  C:\Users\User\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar
+[DEBUG] Source roots:
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\java
+[DEBUG]  C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations
+[DEBUG] Command line options:
+[DEBUG] -d C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes -classpath C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes;C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\classes;C:\Users\User\.m2\repository\org\kie\kie-api\7.74.1.Final\kie-api-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-maven-support\7.74.1.Final\kie-soup-maven-support-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\User\.m2\repository\org\drools\drools-core\7.74.1.Final\drools-core-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\kie-internal\7.74.1.Final\kie-internal-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-xstream\7.74.1.Final\kie-soup-xstream-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\drools\drools-core-reflective\7.74.1.Final\drools-core-reflective-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\drools\drools-core-dynamic\7.74.1.Final\drools-core-dynamic-7.74.1.Final.jar;C:\Users\User\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\User\.m2\repository\org\drools\drools-compiler\7.74.1.Final\drools-compiler-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\kie-memory-compiler\7.74.1.Final\kie-memory-compiler-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\drools\drools-ecj\7.74.1.Final\drools-ecj-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\antlr\antlr-runtime\3.5.2\antlr-runtime-3.5.2.jar;C:\Users\User\.m2\repository\com\thoughtworks\xstream\xstream\1.4.20\xstream-1.4.20.jar;C:\Users\User\.m2\repository\io\github\x-stream\mxparser\1.2.2\mxparser-1.2.2.jar;C:\Users\User\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar;C:\Users\User\.m2\repository\org\drools\drools-mvel\7.74.1.Final\drools-mvel-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\mvel\mvel2\2.4.15.Final\mvel2-2.4.15.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-commons\7.74.1.Final\kie-soup-project-datamodel-commons-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-commons\7.74.1.Final\kie-soup-commons-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\kie\soup\kie-soup-project-datamodel-api\7.74.1.Final\kie-soup-project-datamodel-api-7.74.1.Final.jar;C:\Users\User\.m2\repository\org\slf4j\slf4j-simple\1.7.26\slf4j-simple-1.7.26.jar;C:\Users\User\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\User\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar; -sourcepath C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\src\test\java;C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations; -s C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\generated-test-sources\test-annotations -g -nowarn -target 1.8 -source 1.8 -encoding UTF-8
+[DEBUG] incrementalBuildHelper#beforeRebuildExecution
+[INFO] Compiling 6 source files to C:\Users\User\Desktop\Practicas DSINT\sistema-inteligente\target\test-classes
+[DEBUG] incrementalBuildHelper#afterRebuildExecution
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  52.281 s
+[INFO] Finished at: 2026-11-11T21:00:41+01:00
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Shutting down adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gav, file-hgav, file-static, gav, static]
+[DEBUG] Shutting down 'file-lock' factory
+[DEBUG] Shutting down 'rwlock-local' factory
+[DEBUG] Shutting down 'semaphore-local' factory
+[DEBUG] Shutting down 'noop' factory
