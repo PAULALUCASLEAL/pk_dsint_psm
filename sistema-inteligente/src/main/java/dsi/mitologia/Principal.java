@@ -81,7 +81,7 @@ public class Principal {
         File[] archivos = directorioEntrada.listFiles(
                 archivo -> archivo.isFile()
                         && archivo.getName().matches(
-                                "EscenarioF2-[1-8]\\.txt"));
+                        		"EscenarioF[12]-[1-8]\\.txt"));
 
         if (archivos == null) {
             throw new IOException(
@@ -125,7 +125,7 @@ public class Principal {
             String textoRespuesta = respuesta(escenario);
 
             String nombreRespuesta = archivo.getName()
-                    .replace("EscenarioF2-", "RespuestaF2_");
+                    .replaceFirst("EscenarioF([12])-", "RespuestaF$1_");
 
             File archivoRespuesta =
                     new File(directorioSalida, nombreRespuesta);
