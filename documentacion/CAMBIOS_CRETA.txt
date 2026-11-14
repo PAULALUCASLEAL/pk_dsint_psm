@@ -1,8 +1,6 @@
 ¡Registro de ampliacion de Creta!
 
 CREACIÓN DE PERSONAJES:
-
-
 -He añadido Teseo como Heroe y Mortal
 -He añadido Ariadna como Mortal
 -He añadido a Minotauro como Criatura
@@ -10,13 +8,10 @@ CREACIÓN DE PERSONAJES:
 -He añadido Dedalo como Mortal
 -He añadido Heracles como Heroe y Semidios
 
-
 RELACIONES DE PARENTESCO Y EL FAVOR DE ZEUS:
 
 -He añadido la relacion Icaro es_hijo_de Dedalo
-
 -He añadido la relacion Heracles es_hijo_de Zeus
-
 -He añadido  el favor inicial de Zeus hacia Heracles.
 Lo represento explicitamente porque el parentesco no implica
 automaticamente un favor.
@@ -97,3 +92,12 @@ He creado hostil_con con dominio y rango Personaje para representar
 hostilidad humana. No he añadido hostilidad inicial de Minos contra
 Dedalo: las reglas la generaran como consecuencia de los sucesos
 del laberinto.
+
+REPRESENTAR SI UN PERSONAJE ESTÁ DENTRO DEL LABERINTO:
+
+Lo que pasa es que estado_libertad no indica dónde está. Teseo puede estar libre pero dentro del laberinto,
+mientras que al final necesitamos demostrar que Dédalo está fuera del laberinto como tal. Por eso creamos esta propiedad.
+
+He creado en_laberinto como propiedad de datos de Personaje,
+con rango boolean y caracter funcional "como máximo un valor", y no asigna un valor inicial automáticamente así distinguimos
+la ubicacion del personaje de su estado de libertad.
