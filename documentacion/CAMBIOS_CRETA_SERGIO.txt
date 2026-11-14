@@ -170,4 +170,77 @@ El hecho no encierra a nadie por sí solo, es decir, una relga utilizara esa hos
 
 
 
+PREPARAR DominioMitologico PARA GUARDAR LOS DATOS INICIALES QUE LEEREMOS DEL OWL:
 
+El recorrido es este: Owl -> DominioMitologico -> EstadoAventura -> Drools
+
+Por ahora solo voy a modificar DominioMItologico.
+
+He ampliado DominioMitologico para almacenar las ubicaciones, estados de rotura, ayudas y hostilidades iniciales. 
+Guardamos identificadores para crear hechos independientes por escenario.
+Se comprueba que las entidades existen y que los estados
+iniciales no sean contradictorios. Falta conectar su lectura
+desde el OWL y su incorporacion a EstadoAventura.
+
+
+
+
+---------PENDIENTE PARA COMPLETAR CRETA Y LA FASE 2-----------------
+
+1. Integrar los cuatro hechos nuevos en EstadoAventura:
+   UbicacionLaberinto, EstadoRoturaObjeto, AyudaHumana y
+   HostilidadHumana. Incluir inicializacion, copia independiente,
+   insercion en Drools y recuperacion del estado final.
+
+2. Ampliar CargadorOntologia para traducir las propiedades
+   en_laberinto, roto, ayuda_a y hostil_con al dominio Java.
+   Comprobar que carga los valores sin avisos ni perdidas.
+
+3. Actualizar y ampliar las pruebas de carga e integridad:
+   nuevos individuos, relaciones, estados y aislamiento
+   entre escenarios. Mantener funcionando los ejemplos de Perseo.
+
+4. Adaptar la regla de capacidades para que las alas rotas
+   no proporcionen vuelo y las reparadas vuelvan a proporcionarlo.
+
+5. Implementar las reglas de Creta:
+   ayuda de Ariadna y entrega del hilo, entrada al laberinto,
+   captura, combate contra el Minotauro y salida de Teseo;
+   hostilidad de Minos, encierro de Dedalo e Icaro, obtencion
+   de materiales, fabricacion de alas, escape, muerte de Icaro
+   y rotura de sus alas. Evitar repeticiones y bucles.
+
+6. Implementar las conexiones entre mitos:
+   recuperar y reparar alas, permitir su uso por Perseo,
+   utilizar el cuerno como arma alternativa y definir
+   los combates que permite la fuerza de Heracles.
+
+7. Resolver los casos con varios protagonistas:
+   rescate de un heroe por otro, protagonista femenina y
+   reunion de las tres cabezas en un unico inventario.
+
+8. Completar el parser y las respuestas:
+   preguntas de apresar, obtener objetos y conseguir capacidades;
+   nombres legibles y condiciones necesarias para los escenarios.
+   Incluir cautiverios explicitos y las relaciones humanas
+   que decidamos admitir como entrada.
+
+9. Crear y verificar los ocho escenarios oficiales de Fase 2.
+   Comprobar los acontecimientos exigidos en cada historia,
+   no solamente que la respuesta final sea positiva.
+
+10. Completar la presentacion y explicacion de resultados:
+    mostrar la informacion inicial de la agenda y revisar
+    las explicaciones para los distintos tipos de mision.
+
+11. Actualizar DISENO_CRETA.md y el registro de pruebas.
+    Completar los informes de ontologia y sistema, el manual
+    de ejecucion, el registro de uso de IA y la entrega final.
+
+ESTADO ACTUAL:
+El OWL contiene los personajes, objetos y propiedades nuevas.
+Las cuatro clases de hechos estan creadas y DominioMitologico
+esta preparado para almacenar sus datos iniciales.
+El proyecto compila, pero esas propiedades nuevas todavia
+no estan conectadas con EstadoAventura y el cargador.
+Las reglas de Creta aun no estan implementadas.

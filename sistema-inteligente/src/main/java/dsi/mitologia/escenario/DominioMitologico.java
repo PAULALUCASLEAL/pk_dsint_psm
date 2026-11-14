@@ -57,6 +57,14 @@ public class DominioMitologico {
     private final List<String[]> cautiverios = new ArrayList<String[]>();
     /** Pares {personaje, capacidad} de {tiene_capacidad} innatas (sin objeto que las de). */
     private final List<String[]> capacidadesPropias = new ArrayList<String[]>();
+    // Estado inicial dentro o fuera del laberinto, por personaje.
+    private final Map<String, Boolean> ubicacionesLaberinto = new LinkedHashMap<String, Boolean>();
+    // Estado inicial de rotura, por objeto.
+    private final Map<String, Boolean> estadosRotura = new LinkedHashMap<String, Boolean>();
+    // Pares: ayudante, beneficiario.
+    private final List<String[]> ayudasHumanas = new ArrayList<String[]>();
+    // Pares: personaje hostil, destinatario.
+    private final List<String[]> hostilidadesHumanas = new ArrayList<String[]>();
 
     // ---- Entidades ----
 
@@ -144,6 +152,56 @@ public class DominioMitologico {
         anadirPar(capacidadesPropias, getPersonaje(personajeId).getId(), getCapacidad(capacidadId).getId());
     }
 
+    public void registrarUbicacionLaberinto(
+            String personajeId, boolean dentro) {
+
+        getPersonaje(personajeId);
+
+        Boolean anterior = ubicacionesLaberinto.get(personajeId);
+
+        if (anterior != null && anterior.booleanValue() != dentro) {
+            throw new IllegalStateException(
+                    "Ubicaciones iniciales contradictorias para "
+                    + personajeId);
+        }
+
+        ubicacionesLaberinto.put(personajeId, dentro);
+    }
+
+    public void registrarEstadoRotura(
+            String objetoId, boolean roto) {
+
+        getObjeto(objetoId);
+
+        Boolean anterior = estadosRotura.get(objetoId);
+
+        if (anterior != null && anterior.booleanValue() != roto) {
+            throw new IllegalStateException(
+                    "Estados de rotura iniciales contradictorios para "
+                    + objetoId);
+        }
+
+        estadosRotura.put(objetoId, roto);
+    }
+
+    public void registrarAyudaHumana(
+            String ayudanteId, String beneficiarioId) {
+
+        anadirPar(
+                ayudasHumanas,
+                getPersonaje(ayudanteId).getId(),
+                getPersonaje(beneficiarioId).getId());
+    }
+
+    public void registrarHostilidadHumana(
+            String hostilId, String destinatarioId) {
+
+        anadirPar(
+                hostilidadesHumanas,
+                getPersonaje(hostilId).getId(),
+                getPersonaje(destinatarioId).getId());
+    }
+
     // ---- Getters ----
     public Personaje getPersonaje(String id) {
         return buscar(personajes, id, "personaje");
@@ -225,6 +283,24 @@ public class DominioMitologico {
         return capacidadesPropias;
     }
 
+    Map<String, Boolean> getUbicacionesLaberinto() {
+        return Collections.unmodifiableMap(ubicacionesLaberinto);
+    }
+
+    Map<String, Boolean> getEstadosRotura() {
+        return Collections.unmodifiableMap(estadosRotura);
+    }
+
+    List<String[]> getAyudasHumanas() {
+        return Collections.unmodifiableList(ayudasHumanas);
+    }
+
+    List<String[]> getHostilidadesHumanas() {
+        return Collections.unmodifiableList(hostilidadesHumanas);
+    }
+
+
+    
     // ---- Auxiliares ----
 
     /**
