@@ -106,6 +106,17 @@ ASIGNAR ESTADO INICIAL DEL LABERINTO A LOS PERSONAJES:
 
 IMPORTANTE -> !Hemos decidido empezar la simulación con el laberitno ya construido y el Minotauro dentro!
 Ponemos al minotauro dentro y a los demas personajes fuera del laberinto
-
-
 Lo hacemos porque las entradas al laberinto y el encierro de Dédalo e Ícaro deben producirse después mediante reglas, no estar resueltos de antemano.
+
+REPRESENTAR SI UN OBJETO ESTÁ ROTO:
+
+He reado roto como DataType Propertie con dominio Objeto y rango boolean.
+
+Esto es necesario porque las alas de Ícaro pueden romperse y repararse.
+No ponemos las alas de Ícaro rotas desde el principio, porque primero se fabrican, luego se utilizan para escapar y ya la regla
+de su caída las cambiará a true.
+
+Y aunque las alas estén definidas como no rotas, siguen sin propietario, porque ninguna estará disponible para un personaje
+hasta que las reglas las fabriquen y entreguen.
+
+

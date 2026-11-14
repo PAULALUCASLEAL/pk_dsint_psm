@@ -1,4 +1,4 @@
-; Sat Nov 14 13:26:09 CET 2026
+; Sat Nov 14 13:29:24 CET 2026
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[mitologia_ProjectKB_Class8457]
-		[mitologia_ProjectKB_Class8458]
-		[mitologia_ProjectKB_Class8459]
-		[mitologia_ProjectKB_Class8460]
-		[mitologia_ProjectKB_Class8461]))
+		[mitologia_ProjectKB_Class9569]
+		[mitologia_ProjectKB_Class9570]
+		[mitologia_ProjectKB_Class9571]
+		[mitologia_ProjectKB_Class9572]
+		[mitologia_ProjectKB_Class9573]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5602,36 +5602,36 @@
 ([mitologia_ProjectKB_Class8] of  Property_List
 )
 
-([mitologia_ProjectKB_Class8457] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class8458] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([mitologia_ProjectKB_Class8459] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class8460] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class8461] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
 ([mitologia_ProjectKB_Class9] of  Widget
 
 	(is_hidden TRUE)
 	(property_list [mitologia_ProjectKB_Class10])
 	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
+
+([mitologia_ProjectKB_Class9569] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class9570] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([mitologia_ProjectKB_Class9571] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class9572] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class9573] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([OWL_ProjectKB_Instance_3] of  String
 
@@ -5798,8 +5798,8 @@
 		":TO"
 		"http://www.w3.org/2003/11/swrl#propertyPredicate"
 		"http://www.w3.org/2002/07/owl#disjointWith"
-		"http://www.w3.org/2001/XMLSchema#gMonthDay"
 		"http://www.w3.org/2002/07/owl#equivalentProperty"
+		"http://www.w3.org/2001/XMLSchema#gMonthDay"
 		"http://www.w3.org/2001/XMLSchema#anyURI"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
 		"http://www.w3.org/2001/XMLSchema#QName"

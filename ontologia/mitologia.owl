@@ -271,6 +271,14 @@
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:range rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ayuda_a">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relacion entre un personaje que presta ayuda y otro que la recibe.&#xD;
+   Se distingue del favor divino. Permite representar la ayuda de&#xD;
+   Ariadna a Teseo</rdfs:comment>
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#mata_a">
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -285,14 +293,6 @@
     posee.</rdfs:comment>
     <rdfs:range rdf:resource="#Capacidad"/>
     <rdfs:domain rdf:resource="#Objeto"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="ayuda_a">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Relacion entre un personaje que presta ayuda y otro que la recibe.&#xD;
-   Se distingue del favor divino. Permite representar la ayuda de&#xD;
-   Ariadna a Teseo</rdfs:comment>
-    <rdfs:range rdf:resource="#Personaje"/>
-    <rdfs:domain rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hostil_con">
     <rdfs:domain rdf:resource="#Personaje"/>
@@ -365,6 +365,11 @@
       valores vivo o muerto.
     &lt;/p&gt;</rdfs:comment>
   </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="roto">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Objeto"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
   <owl:FunctionalProperty rdf:ID="en_laberinto">
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     <rdfs:domain rdf:resource="#Personaje"/>
@@ -414,17 +419,19 @@
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
   </Heroe>
-  <ArtefactoMagico rdf:ID="BridaDorada"/>
   <ArtefactoMagico rdf:ID="AlasDedalo">
     <proporciona_capacidad>
       <Capacidad rdf:ID="Vuelo"/>
     </proporciona_capacidad>
+    <roto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</roto>
   </ArtefactoMagico>
   <ArtefactoMagico rdf:ID="AlasIcaro">
+    <roto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</roto>
     <proporciona_capacidad rdf:resource="#Vuelo"/>
   </ArtefactoMagico>
   <Objeto rdf:ID="CeraAbejas"/>
-  <Objeto rdf:ID="PlumasAve"/>
   <Criatura rdf:ID="Pegaso">
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
@@ -446,6 +453,8 @@
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Rey de Creta. Ordena construir el laberinto y encierra a Dedalo e Icaro tras la muerte del Minotauro. Fuente: enunciado, apartado 8.f.</rdfs:comment>
   </Mortal>
+  <ArtefactoMagico rdf:ID="BridaDorada"/>
+  <Objeto rdf:ID="PlumasAve"/>
   <Criatura rdf:ID="Ceto">
     <tiene_objeto>
       <ParteAnatomica rdf:ID="CabezaCeto">
