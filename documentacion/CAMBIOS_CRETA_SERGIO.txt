@@ -1,4 +1,5 @@
-¡Registro de ampliacion de Creta!
+/
+Aqui he ido poniendo todos los cambios y explicaciones de lo que he ido haciendo con el nuevo mito:
 
 CREACIÓN DE PERSONAJES:
 -He añadido Teseo como Heroe y Mortal
@@ -118,5 +119,16 @@ de su caída las cambiará a true.
 
 Y aunque las alas estén definidas como no rotas, siguen sin propietario, porque ninguna estará disponible para un personaje
 hasta que las reglas las fabriquen y entreguen.
+
+
+CREACION DE LA CLASE DE UBICACÍON EN EL LABERINTO:
+
+He creado UbicacionLaberinto en el paquete hechos para representar si un personaje está dentro o fuera del laberinto.
+Todavía no he cargado estos hechos desde OWL ni los he insertado en Drools.
+
+Esta clase sirve para poder hacer UbicacionLaberinto(Minotauro, true), o hacer UbicacionLaberinto(Teseo, false).
+
+
+
 
 
