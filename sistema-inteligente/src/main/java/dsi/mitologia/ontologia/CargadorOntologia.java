@@ -138,7 +138,7 @@ public class CargadorOntologia {
     // ------------------------------------------------------------------
 
     /**
-     * Recorre los hijos directos de {@code rdf:RDF} y guarda cada individuo (elemento con
+     * Recorre los nodos identificados de {@code rdf:RDF} y guarda cada individuo (elemento con
      * {@code rdf:about} que no sea una declaracion OWL) junto con el conjunto de clases que declara,
      * tanto por {@code rdf:type} (Protege 5) como por el nombre del elemento (Protege 3).
      */
@@ -153,26 +153,48 @@ public class CargadorOntologia {
         } catch (Exception ex) {
             throw new IllegalArgumentException("No se puede leer la ontologia " + owl, ex);
         }
-        for (Node n = raiz.getFirstChild(); n != null; n = n.getNextSibling()) {
-            if (!(n instanceof Element)) continue;
-            Element el = (Element) n;
-            String about = el.getAttributeNS(RDF, "about");
-            // Se saltan owl:Ontology, owl:Class, owl:ObjectProperty... (vocabulario, no individuos).
-            if (about.isEmpty() || esDeclaracion(el)) continue;
-            String id = local(about);
-            Set<String> ts = new LinkedHashSet<String>();
-            // Serializacion Protege 3: <Heroe rdf:about="#Perseo"> declara la clase en el nombre.
+        // Protege 3 puede anidar individuos dentro de relaciones y usar rdf:ID.
+        // Reunimos todos sus fragmentos antes de crear entidades y relaciones.
+        NodeList nodos = raiz.getElementsByTagNameNS("*", "*");
+        Set<String> vocabulario = new LinkedHashSet<String>();
+        for (int i = 0; i < nodos.getLength(); i++) {
+            Element el = (Element) nodos.item(i);
+            if (esDeclaracion(el)) vocabulario.add(identificador(el));
+        }
+        for (int i = 0; i < nodos.getLength(); i++) {
+            Element el = (Element) nodos.item(i);
+            String id = identificador(el);
+            if (id.isEmpty() || esDeclaracion(el) || vocabulario.contains(id)) continue;
+            Set<String> ts = tipos.get(id);
+            if (ts == null) {
+                ts = new LinkedHashSet<String>();
+                tipos.put(id, ts);
+                individuos.put(id, raiz.getOwnerDocument().createElement("individuo"));
+            }
             if (!esNodoGenerico(el)) ts.add(el.getLocalName());
             for (Element hijo : hijos(el)) {
                 if (RDF.equals(hijo.getNamespaceURI()) && "type".equals(hijo.getLocalName())) {
-                    String t = local(hijo.getAttributeNS(RDF, "resource"));
-                    // NamedIndividual no es una clase del mito: solo marca que es un individuo.
+                    String t = destino(hijo);
                     if (!"NamedIndividual".equals(t)) ts.add(t);
                 }
+                individuos.get(id).appendChild(hijo.cloneNode(true));
             }
-            individuos.put(id, el);
-            tipos.put(id, ts);
         }
+    }
+
+    private static String identificador(Element el) {
+        String id = el.getAttributeNS(RDF, "ID");
+        return id.isEmpty() ? local(el.getAttributeNS(RDF, "about")) : id;
+    }
+
+    private static String destino(Element propiedad) {
+        String recurso = propiedad.getAttributeNS(RDF, "resource");
+        if (!recurso.isEmpty()) return local(recurso);
+        for (Element anidado : hijos(propiedad)) {
+            String id = identificador(anidado);
+            if (!id.isEmpty()) return id;
+        }
+        return "";
     }
 
     /**
@@ -232,7 +254,7 @@ public class CargadorOntologia {
         if (!esPersonaje && !esObjeto && !d.existeCapacidad(id)) return;
         for (Element h : hijos(el)) {
             String prop = h.getLocalName();
-            String destino = local(h.getAttributeNS(RDF, "resource"));
+            String destino = destino(h);
             if (!PROPIEDADES_CONOCIDAS.contains(prop)) {
                 avisos.add(id + ": propiedad no traducida " + prop + (destino.isEmpty() ? "" : " " + destino));
                 continue;

@@ -1,791 +1,528 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.owl-ontologies.com/Ontology1793785230.owl#"
-     xml:base="http://www.owl-ontologies.com/Ontology1793785230.owl"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
-     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#">
-    <owl:Ontology rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#apresa_a -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#apresa_a">
-        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#esta_preso_por"/>
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Modela qu&amp;#233; personaje captura a otro.
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns="http://www.owl-ontologies.com/Ontology1793785230.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xml:base="http://www.owl-ontologies.com/Ontology1793785230.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Criatura">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Monstruos, bestias y seres mitol&amp;#243;gicos.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#es_asesinado_por -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#es_asesinado_por">
-        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#mata_a"/>
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Inversa de mata_a.
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Personaje"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Dios">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Deidades de la mitolog&amp;#237;a griega, tanto principales como menores.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#es_hijo_de -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#es_hijo_de">
-        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_hijo"/>
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Modelo el parectesco familiar entre Personajes.
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Personaje"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Heroe">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Personajes que llevan a cabo misiones y haza&amp;#241;as.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#es_liberado_por -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#es_liberado_por">
-        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#libera_a"/>
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Inversa de libera_a.
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Personaje"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Semidios">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Personaje"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Personajes descendientes de un dios y un mortal.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#esta_en_posesion_de -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#esta_en_posesion_de">
-        <owl:inverseOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_objeto"/>
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Inversa de tiene_objeto.
+  </owl:Class>
+  <owl:Class rdf:about="#Personaje">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="estado_vital"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="estado_libertad"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Objeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_objeto"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Dios"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_favor"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Dios"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_enojo"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Capacidad"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_capacidad"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Concepto central para abarcar a todos los actores del mito
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#esta_preso_por -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#esta_preso_por">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Inversa de apresa_a.
+  </owl:Class>
+  <owl:Class rdf:about="#Objeto">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Concepto central para los items o artefactos que los personajes pueden 
+      conseguir y utilizar.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#libera_a -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#libera_a">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Capacidad"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="proporciona_capacidad"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#Personaje"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Proteccion">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Objetos de car&amp;#225;cter defensivo.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Objeto"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Capacidad">
+    <owl:disjointWith rdf:resource="#Personaje"/>
+    <owl:disjointWith rdf:resource="#Objeto"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Concepto que representa las habilidades o poderes que poseen los 
+      personajes o que son proporcionados por los objetos.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ParteAnatomica">
+    <rdfs:subClassOf rdf:resource="#Objeto"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Restos biol&amp;#243;gicos de criaturas que se obtienen y utlizan como objetos.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Arma">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Objetos de car&amp;#225;cter ofensivo utilizados para el combate o asesinato.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Objeto"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Mortal">
+    <rdfs:subClassOf rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Personajes humanos sin capacidades divinas directas.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ArtefactoMagico">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Objetos con propiedades o poderes sobrenaturales.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Objeto"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="libera_a">
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
       Modela qu&amp;#233; personaje libera a otro de su cautiverio.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#localiza_a -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#localiza_a">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-                    <rdf:Description rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Indica que un personaje ha descubierto a otro personaje u objeto.
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="apresa_a">
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Modela qu&amp;#233; personaje captura a otro.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#mata_a -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#mata_a">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Registra la acci&amp;#243;n de asesinar a otro personaje.
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="esta_preso_por"/>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="es_hijo_de">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Modelo el parectesco familiar entre Personajes.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#proporciona_capacidad -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#proporciona_capacidad">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-        <rdfs:comment>Relaciona a un Objeto con una Capacidad que permite adquirir a quien lo 
-    posee.</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_capacidad -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_capacidad">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Relaciona a un Personaje con una Capacidad que posee o puede utilizar.
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="tiene_hijo"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="esta_en_posesion_de">
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:domain rdf:resource="#Objeto"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de tiene_objeto.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_enojo -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_enojo">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Relaciona a un Personaje con un Dios que le castiga con su enojo.
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="#tiene_objeto"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="es_asesinado_por">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="mata_a"/>
+    </owl:inverseOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de mata_a.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_favor -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_favor">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Relaciona a un Personaje con un Dios del que recibe su favor.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_hijo -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_hijo">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Inversa de es_hijo_de.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_objeto -->
-
-    <owl:ObjectProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_objeto">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#tiene_objeto">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
       Relaciona a un Personaje con un Objeto que posee.
     &lt;/p&gt;</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#estado_libertad -->
-
-    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#estado_libertad">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:oneOf>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                        <rdf:first>libre</rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first>preso</rdf:first>
-                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </owl:oneOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
+    <rdfs:range rdf:resource="#Objeto"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#tiene_hijo">
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de es_hijo_de.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="es_liberado_por">
+    <owl:inverseOf rdf:resource="#libera_a"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de libera_a.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#esta_preso_por">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de apresa_a.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:range rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="localiza_a">
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Indica que un personaje ha descubierto a otro personaje u objeto.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Objeto"/>
+          <owl:Class rdf:about="#Personaje"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#mata_a">
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Registra la acci&amp;#243;n de asesinar a otro personaje.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#proporciona_capacidad">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relaciona a un Objeto con una Capacidad que permite adquirir a quien lo 
+    posee.</rdfs:comment>
+    <rdfs:range rdf:resource="#Capacidad"/>
+    <rdfs:domain rdf:resource="#Objeto"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#tiene_favor">
+    <rdfs:range rdf:resource="#Dios"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Relaciona a un Personaje con un Dios del que recibe su favor.
+    &lt;/p&gt;</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#tiene_capacidad">
+    <rdfs:range rdf:resource="#Capacidad"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Relaciona a un Personaje con una Capacidad que posee o puede utilizar.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#tiene_enojo">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Relaciona a un Personaje con un Dios que le castiga con su enojo.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range rdf:resource="#Dios"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="#estado_libertad">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
       Describe la situacion actual de libertad de un Personaje. Su valor debe 
       mantenerse coherente con la relacion esta_preso_por. Solo puede tomar 
       los valores libre o preso.
     &lt;/p&gt;</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#estado_vital -->
-
-    <owl:DatatypeProperty rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#estado_vital">
-        <rdfs:domain rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:oneOf>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                        <rdf:first>muerto</rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first>vivo</rdf:first>
-                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </owl:oneOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >preso</rdf:first>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >libre</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#estado_vital">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >muerto</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >vivo</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
       Describe la situacion vital de un Personaje. Solo puede tomar los 
       valores vivo o muerto.
     &lt;/p&gt;</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Arma -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Arma">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Objetos de car&amp;#225;cter ofensivo utilizados para el combate o asesinato.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#ArtefactoMagico -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#ArtefactoMagico">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Objetos con propiedades o poderes sobrenaturales.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad">
-        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Concepto que representa las habilidades o poderes que poseen los 
-      personajes o que son proporcionados por los objetos.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Criatura -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Criatura">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Monstruos, bestias y seres mitol&amp;#243;gicos.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Dios -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Deidades de la mitolog&amp;#237;a griega, tanto principales como menores.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Heroe -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Heroe">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Personajes que llevan a cabo misiones y haza&amp;#241;as.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Mortal -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Mortal">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Personajes humanos sin capacidades divinas directas.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#proporciona_capacidad"/>
-                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Concepto central para los items o artefactos que los personajes pueden 
-      conseguir y utilizar.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#ParteAnatomica -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#ParteAnatomica">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Restos biol&amp;#243;gicos de criaturas que se obtienen y utlizan como objetos.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_capacidad"/>
-                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_enojo"/>
-                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_favor"/>
-                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#tiene_objeto"/>
-                <owl:allValuesFrom rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#estado_libertad"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#estado_vital"/>
-                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Concepto central para abarcar a todos los actores del mito
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Proteccion -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Proteccion">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Objeto"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Objetos de car&amp;#225;cter defensivo.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Semidios -->
-
-    <owl:Class rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Semidios">
-        <rdfs:subClassOf rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Personaje"/>
-        <rdfs:comment>&lt;p style=&quot;margin-top: 0&quot;&gt;
-      Personajes descendientes de un dios y un mortal.
-    &lt;/p&gt;</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Andromeda -->
-
-   
-	<owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Andromeda">
-		<rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Mortal"/>
-		<es_hijo_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Casiopea"/>
-		<esta_preso_por rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Ceto"/>
-		<estado_libertad>preso</estado_libertad>
-		<estado_vital>vivo</estado_vital>
-	</owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Atenea -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Atenea">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#EscudoBronce"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#BridaDorada -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#BridaDorada">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ArtefactoMagico"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#CabezaMedusa -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#CabezaMedusa">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ParteAnatomica"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Medusa"/>
-        <proporciona_capacidad rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Petrificacion"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#CascoHades -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#CascoHades">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Proteccion"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Hades"/>
-        <proporciona_capacidad rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Invisibilidad"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Casiopea -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Casiopea">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Mortal"/>
-        <tiene_enojo rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Poseidon"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Ceto -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Ceto">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Criatura"/>
-        <apresa_a rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Andromeda"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Danae -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Danae">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Mortal"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#DienteGrayas -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#DienteGrayas">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ParteAnatomica"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Grayas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#EscudoBronce -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#EscudoBronce">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Proteccion"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Atenea"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#EscudoEspejo -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#EscudoEspejo">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Proteccion"/>
-        <proporciona_capacidad rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Reflejo"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#EspadaIndestructible -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#EspadaIndestructible">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Arma"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Hefesto"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Grayas -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Grayas">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#DienteGrayas"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#OjoGrayas"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Hades -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Hades">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#CascoHades"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Hefesto -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Hefesto">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#EspadaIndestructible"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Hermes -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Hermes">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#HozAcero"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#HozAcero -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#HozAcero">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Arma"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Hermes"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Invisibilidad -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Invisibilidad">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Medusa -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Medusa">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Criatura"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#CabezaMedusa"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Ninfas -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Ninfas">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#SandaliasAladas"/>
-        <tiene_objeto rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ZurronMagico"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#OjoGrayas -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#OjoGrayas">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ParteAnatomica"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Grayas"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Pegaso -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Pegaso">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Criatura"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-	<!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Perseo -->
-
-	<owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Perseo">
-		<rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Heroe"/>
-		<rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Semidios"/>
-		<es_hijo_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Zeus"/>
-		<es_hijo_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Danae"/>
-		<estado_libertad>libre</estado_libertad>
-		<estado_vital>vivo</estado_vital>
-	</owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Petrificacion -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Petrificacion">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Poseidon -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Poseidon">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Reflejo -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Reflejo">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#SandaliasAladas -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#SandaliasAladas">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ArtefactoMagico"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Ninfas"/>
-        <proporciona_capacidad rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Vuelo"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Vuelo -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Vuelo">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Capacidad"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#Zeus -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#Zeus">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Dios"/>
-        <estado_libertad>libre</estado_libertad>
-        <estado_vital>vivo</estado_vital>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.owl-ontologies.com/Ontology1793785230.owl#ZurronMagico -->
-
-    <owl:NamedIndividual rdf:about="http://www.owl-ontologies.com/Ontology1793785230.owl#ZurronMagico">
-        <rdf:type rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#ArtefactoMagico"/>
-        <esta_en_posesion_de rdf:resource="http://www.owl-ontologies.com/Ontology1793785230.owl#Ninfas"/>
-    </owl:NamedIndividual>
+  </owl:DatatypeProperty>
+  <Semidios rdf:ID="Perseo">
+    <es_hijo_de>
+      <Dios rdf:ID="Zeus">
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >libre</estado_libertad>
+      </Dios>
+    </es_hijo_de>
+    <es_hijo_de>
+      <Mortal rdf:ID="Danae">
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >libre</estado_libertad>
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+      </Mortal>
+    </es_hijo_de>
+    <rdf:type rdf:resource="#Heroe"/>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Semidios>
+  <ArtefactoMagico rdf:ID="BridaDorada"/>
+  <Criatura rdf:ID="Pegaso">
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Criatura>
+  <Proteccion rdf:ID="EscudoEspejo">
+    <proporciona_capacidad>
+      <Capacidad rdf:ID="Reflejo"/>
+    </proporciona_capacidad>
+  </Proteccion>
+  <Mortal rdf:ID="Minos">
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rey de Creta. Ordena construir el laberinto y encierra a Dedalo e Icaro tras la muerte del Minotauro. Fuente: enunciado, apartado 8.f.</rdfs:comment>
+  </Mortal>
+  <Dios rdf:ID="Grayas">
+    <tiene_objeto>
+      <ParteAnatomica rdf:ID="OjoGrayas">
+        <esta_en_posesion_de rdf:resource="#Grayas"/>
+      </ParteAnatomica>
+    </tiene_objeto>
+    <tiene_objeto>
+      <ParteAnatomica rdf:ID="DienteGrayas">
+        <esta_en_posesion_de rdf:resource="#Grayas"/>
+      </ParteAnatomica>
+    </tiene_objeto>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Dios>
+  <Dios rdf:ID="Ninfas">
+    <tiene_objeto>
+      <ArtefactoMagico rdf:ID="ZurronMagico">
+        <esta_en_posesion_de rdf:resource="#Ninfas"/>
+      </ArtefactoMagico>
+    </tiene_objeto>
+    <tiene_objeto>
+      <ArtefactoMagico rdf:ID="SandaliasAladas">
+        <esta_en_posesion_de rdf:resource="#Ninfas"/>
+        <proporciona_capacidad>
+          <Capacidad rdf:ID="Vuelo"/>
+        </proporciona_capacidad>
+      </ArtefactoMagico>
+    </tiene_objeto>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Dios>
+  <ParteAnatomica rdf:ID="CabezaMedusa">
+    <esta_en_posesion_de>
+      <Criatura rdf:ID="Medusa">
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >libre</estado_libertad>
+        <tiene_objeto rdf:resource="#CabezaMedusa"/>
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+      </Criatura>
+    </esta_en_posesion_de>
+    <proporciona_capacidad>
+      <Capacidad rdf:ID="Petrificacion"/>
+    </proporciona_capacidad>
+  </ParteAnatomica>
+  <Criatura rdf:ID="Ceto">
+    <apresa_a>
+      <Mortal rdf:ID="Andromeda">
+        <es_hijo_de>
+          <Mortal rdf:ID="Casiopea">
+            <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >libre</estado_libertad>
+            <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >vivo</estado_vital>
+            <tiene_enojo>
+              <Dios rdf:ID="Poseidon">
+                <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >vivo</estado_vital>
+                <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >libre</estado_libertad>
+              </Dios>
+            </tiene_enojo>
+          </Mortal>
+        </es_hijo_de>
+        <esta_preso_por rdf:resource="#Ceto"/>
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >preso</estado_libertad>
+      </Mortal>
+    </apresa_a>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Criatura>
+  <Dios rdf:ID="Hermes">
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <tiene_objeto>
+      <Arma rdf:ID="HozAcero">
+        <esta_en_posesion_de rdf:resource="#Hermes"/>
+      </Arma>
+    </tiene_objeto>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Dios>
+  <Dios rdf:ID="Atenea">
+    <tiene_objeto>
+      <Proteccion rdf:ID="EscudoBronce">
+        <esta_en_posesion_de rdf:resource="#Atenea"/>
+      </Proteccion>
+    </tiene_objeto>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+  </Dios>
+  <Proteccion rdf:ID="CascoHades">
+    <proporciona_capacidad>
+      <Capacidad rdf:ID="Invisibilidad"/>
+    </proporciona_capacidad>
+    <esta_en_posesion_de>
+      <Dios rdf:ID="Hades">
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >libre</estado_libertad>
+        <tiene_objeto rdf:resource="#CascoHades"/>
+      </Dios>
+    </esta_en_posesion_de>
+  </Proteccion>
+  <Dios rdf:ID="Hefesto">
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+    <tiene_objeto>
+      <Arma rdf:ID="EspadaIndestructible">
+        <esta_en_posesion_de rdf:resource="#Hefesto"/>
+      </Arma>
+    </tiene_objeto>
+  </Dios>
 </rdf:RDF>
 
-
-
-<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
+<!-- Created with Protege (with OWL Plugin 3.4.8, Build 629)  http://protege.stanford.edu -->

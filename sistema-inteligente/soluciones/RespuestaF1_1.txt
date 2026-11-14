@@ -10,17 +10,17 @@ Si, Perseo puede liberar a Andromeda debido a que:
   Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
   Andromeda queda presa debido a estar Ceto libre.
   Perseo obtiene CascoHades debido a tener el favor de Hades.
+  Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Perseo obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
+  Perseo devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Perseo localiza a las Ninfas debido a intercambio de DienteGrayas con las Grayas.
+  Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
+  Perseo obtiene SandaliasAladas debido a las Ninfas localizadas.
+  Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
   Perseo obtiene HozAcero debido a tener el favor de Hermes.
   Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
   Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
   Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
-  Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
-  Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
-  Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.
-  Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas.
-  Perseo obtiene SandaliasAladas debido a las Ninfas localizadas.
-  Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
-  Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
   Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
   Perseo obtiene CabezaMedusa debido a matar a Medusa.
   Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.

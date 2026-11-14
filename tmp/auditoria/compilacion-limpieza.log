@@ -1,0 +1,25 @@
+Acceso denegado.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< dsi:DSI_Mitologia >--------------------------
+[INFO] Building DSI_Mitologia - Sistema inteligente sobre mitologia griega 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ DSI_Mitologia ---
+[INFO] Copying 8 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ DSI_Mitologia ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ DSI_Mitologia ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ DSI_Mitologia ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.229 s
+[INFO] Finished at: 2026-11-14T11:49:54+01:00
+[INFO] ------------------------------------------------------------------------

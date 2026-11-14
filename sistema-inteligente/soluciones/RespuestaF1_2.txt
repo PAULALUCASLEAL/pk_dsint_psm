@@ -12,16 +12,16 @@ Condiciones:
   Perseo tiene ConjuroVuelo
 Si, Perseo puede liberar a Andromeda debido a que:
   Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
-  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
-  Andromeda queda presa debido a estar Ceto libre.
-  Perseo obtiene HozAcero debido a tener el favor de Hermes.
   Perseo obtiene Capacidad Vuelo debido a tener ConjuroVuelo.
   Perseo obtiene Capacidad Reflejo debido a tener EspejoMano.
   Perseo obtiene Capacidad Invisibilidad debido a tener AnilloInvisibilidad.
-  Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas.
-  Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.
-  Perseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas.
+  Perseo obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (AnilloInvisibilidad) y las Grayas localizadas.
+  Perseo devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Perseo localiza a las Ninfas debido a intercambio de DienteGrayas con las Grayas.
   Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
+  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
+  Andromeda queda presa debido a estar Ceto libre.
+  Perseo obtiene HozAcero debido a tener el favor de Hermes.
   Perseo mata a Medusa debido a tener HozAcero, Espejo (EspejoMano), Invisibilidad (AnilloInvisibilidad) y Vuelo (ConjuroVuelo).
   Perseo obtiene CabezaMedusa debido a matar a Medusa.
   Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.

@@ -42,7 +42,7 @@ public class CargadorOntologiaTest {
     }
 
     /**
-     * Se cargan todos los individuos y sin ningun aviso: 15 personajes (Andromeda, Atenea, Casiopea,
+     * Se cargan todos los individuos y sin ningun aviso: 16 personajes (incluido Minos; Andromeda, Atenea, Casiopea,
      * Ceto, Danae, Grayas, Hades, Hefesto, Hermes, Medusa, Ninfas, Pegaso, Perseo, Poseidon, Zeus),
      * 11 objetos y 4 capacidades (Invisibilidad, Petrificacion, Reflejo, Vuelo).
      *
@@ -51,11 +51,44 @@ public class CargadorOntologiaTest {
      */
     @Test
     public void cargaTodosLosIndividuos() {
-        assertEquals(15, dominio.getPersonajes().size());
+        assertEquals(16, dominio.getPersonajes().size());
         assertEquals(11, dominio.getObjetos().size());
         assertEquals(4, dominio.getCapacidades().size());
         // Cero avisos: con la ontologia buena todo debe traducirse; el mensaje muestra los avisos si no.
         assertTrue("Sin avisos: " + cargador.getAvisos(), cargador.getAvisos().isEmpty());
+    }
+
+    @Test
+    public void minosConservaLosEstadosExplicitos() {
+        Personaje minos = dominio.getPersonaje("Minos");
+        assertTrue(minos.isMortal());
+        assertEquals(dsi.mitologia.modelo.enums.EstadoVital.VIVO, minos.getEstadoVital());
+        assertEquals(EstadoLibertad.LIBRE, minos.getEstadoLibertad());
+    }
+
+    @Test
+    public void admiteIndividuosAnidadosYFragmentosConRdfId() throws Exception {
+        String xml = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' "
+            + "xmlns='urn:mito#'>"
+            + "<Mortal rdf:ID='Hijo'><estado_vital>vivo</estado_vital>"
+            + "<estado_libertad>libre</estado_libertad><es_hijo_de>"
+            + "<Mortal rdf:ID='Padre'><estado_vital>vivo</estado_vital>"
+            + "<estado_libertad>libre</estado_libertad></Mortal></es_hijo_de></Mortal>"
+            + "<rdf:Description rdf:about='#Hijo'><rdf:type rdf:resource='#Heroe'/>"
+            + "</rdf:Description></rdf:RDF>";
+        File archivo = File.createTempFile("protege348-", ".owl");
+        try {
+            java.nio.file.Files.write(archivo.toPath(), xml.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            CargadorOntologia lector = new CargadorOntologia();
+            DominioMitologico d = lector.cargar(archivo);
+            assertEquals(2, d.getPersonajes().size());
+            assertTrue(d.getPersonaje("Hijo").isHeroe());
+            assertTrue(d.getPersonaje("Hijo").isMortal());
+            assertEquals(1, EstadoAventura.inicial(d).getFiliaciones().size());
+            assertTrue(lector.getAvisos().toString(), lector.getAvisos().isEmpty());
+        } finally {
+            java.nio.file.Files.deleteIfExists(archivo.toPath());
+        }
     }
 
     /**
