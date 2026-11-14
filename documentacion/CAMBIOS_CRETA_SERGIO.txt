@@ -148,5 +148,18 @@ A la clase la he llamado EstadoRoturaObjeto porque representa
 especificamente la rotura: true significa roto y false no roto.
 
 
+CREACIÓN DEL HECHO DE AYUDA HUMANA:
+
+Este hecho representará la relacion Ariadna ayuda_a Teseo que añadimos añadí antes en Protege.
+
+La clase la voy a llamar AyudaHumana.java
+
+El hecho representara AyudaHumana(Ariadna, Teseo) que tiene Ayudante -> Beneficiario
+
+Eso sí, mas adelante una regla utilizara esat ayuda y la posesión del hilo para realizar la entrega.
+
+
+
+
 
 
