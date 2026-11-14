@@ -123,11 +123,29 @@ hasta que las reglas las fabriquen y entreguen.
 
 CREACION DE LA CLASE DE UBICACÍON EN EL LABERINTO:
 
+UbacionLaberinto.java
+
 He creado UbicacionLaberinto en el paquete hechos para representar si un personaje está dentro o fuera del laberinto.
 Todavía no he cargado estos hechos desde OWL ni los he insertado en Drools.
 
 Esta clase sirve para poder hacer UbicacionLaberinto(Minotauro, true), o hacer UbicacionLaberinto(Teseo, false).
 
+
+
+CREACION DE LA CLASE DE JAVA PARA VER SI UN OBJETO ESTÁ ROTO O NO:
+
+
+Este hecho permitirá a Drools saber si unas alas están rotas.
+
+Objeo descibe qué objeto existe y se comparte entre escenarios, si está roto o no puede cambiar en cada historia,
+por eso hemos decidido guardarlo aparte.
+
+Nos serviara para tener estos hechos iniciales: EstadoRoturaObjeto(AlasIcaro, false), EstadoRoturaObjeto(AlasDedalo, false).
+
+Despues una regla podrá cambiar las alas de Ícaro a (roto=true) al caer, y otra devolverlas a false al repararlas.
+
+A la clase la he llamado EstadoRoturaObjeto porque representa
+especificamente la rotura: true significa roto y false no roto.
 
 
 
