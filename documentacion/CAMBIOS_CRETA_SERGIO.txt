@@ -159,6 +159,14 @@ El hecho representara AyudaHumana(Ariadna, Teseo) que tiene Ayudante -> Benefici
 Eso sí, mas adelante una regla utilizara esat ayuda y la posesión del hilo para realizar la entrega.
 
 
+CREACIÓN DEL HECHO DE HOSTILIDAD HUMANA:
+
+Este hecho va a representar la relación hostil_con.
+
+Servira para HostilidadHumana(Minos, Dedalo) "minos mantiene hostilidad contra Dédalo".
+
+Hemos separado esta relación de "ENOJO", porque nuestro "Enojo" esta reservado para dioses.
+El hecho no encierra a nadie por sí solo, es decir, una relga utilizara esa hostilidad y provocara el encierro.
 
 
 
