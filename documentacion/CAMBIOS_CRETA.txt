@@ -101,3 +101,11 @@ mientras que al final necesitamos demostrar que Dédalo está fuera del laberint
 He creado en_laberinto como propiedad de datos de Personaje,
 con rango boolean y caracter funcional "como máximo un valor", y no asigna un valor inicial automáticamente así distinguimos
 la ubicacion del personaje de su estado de libertad.
+
+ASIGNAR ESTADO INICIAL DEL LABERINTO A LOS PERSONAJES:
+
+IMPORTANTE -> !Hemos decidido empezar la simulación con el laberitno ya construido y el Minotauro dentro!
+Ponemos al minotauro dentro y a los demas personajes fuera del laberinto
+
+
+Lo hacemos porque las entradas al laberinto y el encierro de Dédalo e Ícaro deben producirse después mediante reglas, no estar resueltos de antemano.

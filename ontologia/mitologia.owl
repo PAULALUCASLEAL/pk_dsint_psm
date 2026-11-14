@@ -398,6 +398,8 @@
             <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >vivo</estado_vital>
             <tiene_favor rdf:resource="#Zeus"/>
+            <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</en_laberinto>
           </Semidios>
         </tiene_hijo>
         <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -437,6 +439,8 @@
   <Mortal rdf:ID="Minos">
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
+    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</en_laberinto>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -491,6 +495,8 @@
         >Arma de Teseo en el mito del Minotauro</rdfs:comment>
       </Arma>
     </tiene_objeto>
+    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</en_laberinto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Mortal>
@@ -526,6 +532,8 @@
         <rdf:type rdf:resource="#ParteAnatomica"/>
       </Arma>
     </tiene_objeto>
+    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</en_laberinto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Criatura>
@@ -614,6 +622,8 @@
     >vivo</estado_vital>
     <tiene_hijo>
       <Mortal rdf:ID="Icaro">
+        <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+        >false</en_laberinto>
         <es_hijo_de rdf:resource="#Dedalo"/>
         <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >libre</estado_libertad>
@@ -625,6 +635,8 @@
     </tiene_hijo>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Constructor del laberinto que fabrica alas para escapar con Icaro</rdfs:comment>
+    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</en_laberinto>
   </Mortal>
   <Mortal rdf:ID="Ariadna">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -639,6 +651,8 @@
     <ayuda_a rdf:resource="#Teseo"/>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
+    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</en_laberinto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Mortal>

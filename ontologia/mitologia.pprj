@@ -1,4 +1,4 @@
-; Sat Nov 14 13:19:15 CET 2026
+; Sat Nov 14 13:26:09 CET 2026
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[mitologia_ProjectKB_Class8422]
-		[mitologia_ProjectKB_Class8423]
-		[mitologia_ProjectKB_Class8424]
-		[mitologia_ProjectKB_Class8425]
-		[mitologia_ProjectKB_Class8426]))
+		[mitologia_ProjectKB_Class8457]
+		[mitologia_ProjectKB_Class8458]
+		[mitologia_ProjectKB_Class8459]
+		[mitologia_ProjectKB_Class8460]
+		[mitologia_ProjectKB_Class8461]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5602,27 +5602,27 @@
 ([mitologia_ProjectKB_Class8] of  Property_List
 )
 
-([mitologia_ProjectKB_Class8422] of  String
+([mitologia_ProjectKB_Class8457] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Class")
 	(string_value "%3ANAME"))
 
-([mitologia_ProjectKB_Class8423] of  String
+([mitologia_ProjectKB_Class8458] of  String
 
 	(name ":INSTANCE-ANNOTATION")
 	(string_value "%3AANNOTATION-TEXT"))
 
-([mitologia_ProjectKB_Class8424] of  String
+([mitologia_ProjectKB_Class8459] of  String
 
 	(name ":META-CLASS")
 	(string_value "%3ANAME"))
 
-([mitologia_ProjectKB_Class8425] of  String
+([mitologia_ProjectKB_Class8460] of  String
 
 	(name "http://www.w3.org/2002/07/owl#Thing")
 	(string_value "%3ANAME"))
 
-([mitologia_ProjectKB_Class8426] of  String
+([mitologia_ProjectKB_Class8461] of  String
 
 	(name ":PAL-CONSTRAINT")
 	(string_value "%3APAL-NAME"))
