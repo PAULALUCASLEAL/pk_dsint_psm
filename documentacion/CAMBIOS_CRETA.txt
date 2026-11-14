@@ -1,0 +1,57 @@
+¡Registro de ampliacion de Creta!
+
+CREACIÓN DE PERSONAJES:
+
+
+-He añadido Teseo como Heroe y Mortal
+-He añadido Ariadna como Mortal
+-He añadido a Minotauro como Criatura
+-He añadido Icaro como Mortal
+-He añadido Dedalo como Mortal
+-He añadido Heracles como Heroe y Semidios
+
+
+RELACIONES DE PARENTESCO Y EL FAVOR DE ZEUS:
+
+-He añadido la relacion Icaro es_hijo_de Dedalo
+
+-He añadido la relacion Heracles es_hijo_de Zeus
+
+-He añadido  el favor inicial de Zeus hacia Heracles.
+Lo represento explicitamente porque el parentesco no implica
+automaticamente un favor.
+
+
+CREACIÓN DE OBJETOS DE CRETA:
+
+-He creado HiloAriadna como ArtefactoMagico para representar
+el objeto que permite orientarse y salir del laberinto.
+
+-He creado EspadaTeseo como Arma.
+
+-He creado AlasIcaro y AlasDedalo como ArtefactoMagico.
+
+-He creado CuernoMinotauro como ParteAnatomica.
+
+-He creado CeraAbejas y PlumasAve como objetos que representan
+los materiales necesarios para fabricar y reparar las alas.
+
+-He creado CabezaMinotauro y CabezaCeto como partes anatomicas
+para representar los trofeos del escenario F2-7.
+
+-He añadido Arma como segundo tipo de CuernoMinotauro para que
+pueda reutilizar las reglas de combate, ademas de las de trofeos.
+
+ASIGNACION DE PROPIETARIOS INICIALES:
+
+-He asignado las posesiones iniciales: Ariadna tiene HiloAriadna,
+Teseo tiene EspadaTeseo, Minotauro tiene su cuerno y cabeza,
+y Ceto tiene CabezaCeto.
+
+RELACION DE LAS ALAS DE VUELOl:
+
+-He relacionado AlasIcaro y AlasDedalo con la capacidad Vuelo
+existente para reutilizar las reglas que requieren volar.
+
+-Las alas y los materiales quedan sin propietario inicial.
+Su obtencion y fabricacion se implementaran mediante reglas.

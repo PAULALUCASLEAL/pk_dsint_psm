@@ -17,6 +17,22 @@ Propuesta de diseño, falta verificar y comprobar.
 Los personajes nuevos seran individuos de las clases existentes.
 No vamos a crear una clase Java por personaje.
 
+## Clasificacion multiple de personajes
+
+Heroe representa un papel narrativo, mientras que Mortal y
+Semidios describen la naturaleza o ascendencia del personaje.
+Estas categorias no se consideran mutuamente excluyentes.
+
+Se mantiene Perseo como Heroe y Semidios. Heracles recibe
+los mismos tipos. Teseo se representa como Heroe y Mortal,
+adoptando una interpretacion humana para el alcance del proyecto.
+
+El tipo Heroe permite reutilizar las reglas actuales de combate.
+El segundo tipo aporta informacion descriptiva y no es una
+condicion tecnica necesaria para combatir.
+
+Ariadna se mantiene como Mortal. No se le asigna Heroe.
+
 ## Capacidad de vuelo comun
 
 Las alas proporcionaran la capacidad Vuelo que ya existía.

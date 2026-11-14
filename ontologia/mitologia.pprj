@@ -1,4 +1,4 @@
-; Sat Nov 14 11:45:03 CET 2026
+; Sat Nov 14 12:32:40 CET 2026
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[mitologia_ProjectKB_Class114]
-		[mitologia_ProjectKB_Class115]
-		[mitologia_ProjectKB_Class116]
-		[mitologia_ProjectKB_Class117]
-		[mitologia_ProjectKB_Class118]))
+		[mitologia_ProjectKB_Class481]
+		[mitologia_ProjectKB_Class482]
+		[mitologia_ProjectKB_Class483]
+		[mitologia_ProjectKB_Class484]
+		[mitologia_ProjectKB_Class485]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5341,31 +5341,6 @@
 	(property_list [mitologia_ProjectKB_Class12])
 	(widget_class_name "edu.stanford.smi.RemoteKBTab.WordNetTab"))
 
-([mitologia_ProjectKB_Class114] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class115] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([mitologia_ProjectKB_Class116] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class117] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class118] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
-
 ([mitologia_ProjectKB_Class12] of  Property_List
 )
 
@@ -5542,6 +5517,31 @@
 
 ([mitologia_ProjectKB_Class48] of  Property_List
 )
+
+([mitologia_ProjectKB_Class481] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class482] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([mitologia_ProjectKB_Class483] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class484] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class485] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
 
 ([mitologia_ProjectKB_Class49] of  Widget
 
