@@ -248,14 +248,6 @@
     <rdfs:range rdf:resource="#Personaje"/>
     <rdfs:domain rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="#esta_preso_por">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Inversa de apresa_a.
-    &lt;/p&gt;</rdfs:comment>
-    <rdfs:domain rdf:resource="#Personaje"/>
-    <rdfs:range rdf:resource="#Personaje"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="localiza_a">
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -271,6 +263,14 @@
       </owl:Class>
     </rdfs:range>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#esta_preso_por">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Inversa de apresa_a.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:range rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#mata_a">
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -285,6 +285,18 @@
     posee.</rdfs:comment>
     <rdfs:range rdf:resource="#Capacidad"/>
     <rdfs:domain rdf:resource="#Objeto"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ayuda_a">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relacion entre un personaje que presta ayuda y otro que la recibe.&#xD;
+   Se distingue del favor divino. Permite representar la ayuda de&#xD;
+   Ariadna a Teseo</rdfs:comment>
+    <rdfs:range rdf:resource="#Personaje"/>
+    <rdfs:domain rdf:resource="#Personaje"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hostil_con">
+    <rdfs:domain rdf:resource="#Personaje"/>
+    <rdfs:range rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#tiene_favor">
     <rdfs:range rdf:resource="#Dios"/>
@@ -368,6 +380,12 @@
           <Semidios rdf:ID="Heracles">
             <es_hijo_de rdf:resource="#Zeus"/>
             <rdf:type rdf:resource="#Heroe"/>
+            <tiene_capacidad>
+              <Capacidad rdf:ID="FuerzaExtraordinaria">
+                <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >&lt;pre dir="ltr"&gt;&lt;code&gt;Fuerza propia de Heracles que permite plantear formas alternativas de combat&lt;/code&gt;&lt;/pre&gt;</rdfs:comment>
+              </Capacidad>
+            </tiene_capacidad>
             <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >Heroe invitado con fuerza extraordinaria y favor de Zeus</rdfs:comment>
             <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -455,6 +473,22 @@
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
   </Criatura>
+  <Mortal rdf:ID="Teseo">
+    <rdf:type rdf:resource="#Heroe"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Heroe que entra al laberinto con ayuda de Ariadna y mata al Minotauro.</rdfs:comment>
+    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >libre</estado_libertad>
+    <tiene_objeto>
+      <Arma rdf:ID="EspadaTeseo">
+        <esta_en_posesion_de rdf:resource="#Teseo"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Arma de Teseo en el mito del Minotauro</rdfs:comment>
+      </Arma>
+    </tiene_objeto>
+    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vivo</estado_vital>
+  </Mortal>
   <Dios rdf:ID="Grayas">
     <tiene_objeto>
       <ParteAnatomica rdf:ID="DienteGrayas">
@@ -597,24 +631,9 @@
         <esta_en_posesion_de rdf:resource="#Ariadna"/>
       </ArtefactoMagico>
     </tiene_objeto>
+    <ayuda_a rdf:resource="#Teseo"/>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
-    <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >vivo</estado_vital>
-  </Mortal>
-  <Mortal rdf:ID="Teseo">
-    <rdf:type rdf:resource="#Heroe"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Heroe que entra al laberinto con ayuda de Ariadna y mata al Minotauro.</rdfs:comment>
-    <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >libre</estado_libertad>
-    <tiene_objeto>
-      <Arma rdf:ID="EspadaTeseo">
-        <esta_en_posesion_de rdf:resource="#Teseo"/>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >Arma de Teseo en el mito del Minotauro</rdfs:comment>
-      </Arma>
-    </tiene_objeto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Mortal>

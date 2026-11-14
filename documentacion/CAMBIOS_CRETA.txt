@@ -55,3 +55,45 @@ existente para reutilizar las reglas que requieren volar.
 
 -Las alas y los materiales quedan sin propietario inicial.
 Su obtencion y fabricacion se implementaran mediante reglas.
+
+-He creado FuerzaExtraordinaria como instancia de Capacidad
+y se la he asignado directamente a Heracles como habilidad propia.
+
+QUE OCURRE CON CABEZACETO:
+
+-He comprobado que F1-1 y F1-2 siguen funcionando tras ampliar
+la ontologia. Ademas, la regla general de trofeos permite
+que Perseo obtenga CabezaCeto al matar a Ceto.
+
+Esto pasa porque teníamos la regal de que si alguien mata a una víctima, obtiene las parte anatómicas que esta posee.
+Antes servía para obtener CabezaMedusa, y como ahora hemos añadido CabezaCeto en posesión d Ceto, esa misma regla
+también la entrega a Perseo cuando mata a Ceto.
+
+Obtener la cabeza de ceto en el mito angituo no vale para nada, porque para rescatar a Andrómeda no ahce falta CabezaCeto,
+pero en F2-7 sí que hace falta, porque uno de los heroes debe terminar con las cabeza de Medusa, el Minotauro y la criatura marina (Ceto).
+Por eso hemos añadido CabezaCeto.
+
+CREACIÓN DE AYUDAR_A:
+
+Hay que represntar que Ariadna ayuda a Teseo.
+Lo que pasa es que tiene_favor está reservado a dioses. Entonces esta nueva relación permitirá representar ayuda
+entre personajes humanos, tal como hemos acordado en DISENO_CRETA.md
+
+Es importante porque por ejemplo Ariadna ayuda_a TESEO activará la regla Ariadna le entrega el hilo.
+Minos se enfada con Dédalo -> Minos encierra a Dédalo e Ícaro.
+
+He creado ayuda_a como propiedad de objeto con dominio y rango
+Personaje. He establecido Ariadna ayuda_a Teseo para representar
+la ayuda humana sin utilizar el favor reservado a dioses.
+
+CREACIÓN DE HOSTILIDAD HUMANA:
+
+Esto es para que las reglas puedan representar el enojo de Minos contra Dédalo.
+
+Ese enojo debe aparecer durante la historia, después de la muerte del Minotauro y la salida de Teseo. Lo generará una regla Drools asi que no lo vamos
+a dar por ocurrido desde el principio.
+
+He creado hostil_con con dominio y rango Personaje para representar
+hostilidad humana. No he añadido hostilidad inicial de Minos contra
+Dedalo: las reglas la generaran como consecuencia de los sucesos
+del laberinto.
