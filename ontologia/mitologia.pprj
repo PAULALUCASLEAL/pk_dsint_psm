@@ -1,4 +1,4 @@
-; Sat Nov 14 13:29:24 CET 2026
+; Sun Nov 15 18:55:29 CET 2026
 ; 
 ;+ (version "3.4.8")
 ;+ (build "Build 629")
@@ -6,11 +6,11 @@
 ([BROWSER_SLOT_NAMES] of  Property_List
 
 	(properties
-		[mitologia_ProjectKB_Class9569]
-		[mitologia_ProjectKB_Class9570]
-		[mitologia_ProjectKB_Class9571]
-		[mitologia_ProjectKB_Class9572]
-		[mitologia_ProjectKB_Class9573]))
+		[mitologia_ProjectKB_Class202]
+		[mitologia_ProjectKB_Class203]
+		[mitologia_ProjectKB_Class204]
+		[mitologia_ProjectKB_Class205]
+		[mitologia_ProjectKB_Class206]))
 
 ([CLSES_TAB] of  Widget
 
@@ -5383,6 +5383,31 @@
 ([mitologia_ProjectKB_Class20] of  Property_List
 )
 
+([mitologia_ProjectKB_Class202] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Class")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class203] of  String
+
+	(name ":INSTANCE-ANNOTATION")
+	(string_value "%3AANNOTATION-TEXT"))
+
+([mitologia_ProjectKB_Class204] of  String
+
+	(name ":META-CLASS")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class205] of  String
+
+	(name "http://www.w3.org/2002/07/owl#Thing")
+	(string_value "%3ANAME"))
+
+([mitologia_ProjectKB_Class206] of  String
+
+	(name ":PAL-CONSTRAINT")
+	(string_value "%3APAL-NAME"))
+
 ([mitologia_ProjectKB_Class21] of  Widget
 
 	(is_hidden TRUE)
@@ -5587,18 +5612,6 @@
 	(property_list [mitologia_ProjectKB_Class8])
 	(widget_class_name "edu.stanford.smi.protegex.evaluation.MetaAnalysis"))
 
-([mitologia_ProjectKB_Class7069] of  Property_List
-)
-
-([mitologia_ProjectKB_Class7182] of  Property_List
-)
-
-([mitologia_ProjectKB_Class7295] of  Property_List
-)
-
-([mitologia_ProjectKB_Class7408] of  Property_List
-)
-
 ([mitologia_ProjectKB_Class8] of  Property_List
 )
 
@@ -5607,31 +5620,6 @@
 	(is_hidden TRUE)
 	(property_list [mitologia_ProjectKB_Class10])
 	(widget_class_name "edu.stanford.smi.protege.keywordsearch.StringSearch"))
-
-([mitologia_ProjectKB_Class9569] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Class")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class9570] of  String
-
-	(name ":INSTANCE-ANNOTATION")
-	(string_value "%3AANNOTATION-TEXT"))
-
-([mitologia_ProjectKB_Class9571] of  String
-
-	(name ":META-CLASS")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class9572] of  String
-
-	(name "http://www.w3.org/2002/07/owl#Thing")
-	(string_value "%3ANAME"))
-
-([mitologia_ProjectKB_Class9573] of  String
-
-	(name ":PAL-CONSTRAINT")
-	(string_value "%3APAL-NAME"))
 
 ([OWL_ProjectKB_Instance_3] of  String
 
@@ -5697,13 +5685,13 @@
 		"http://www.w3.org/2000/01/rdf-schema#range"
 		"http://www.w3.org/2000/01/rdf-schema#Container"
 		":SLOT"
-		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"
 		"http://www.w3.org/2002/07/owl#DatatypeProperty"
+		"http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"
 		":CREATION-TIMESTAMP"
+		"http://www.w3.org/2002/07/owl#FunctionalProperty"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#value"
 		":VALUES"
 		"http://www.w3.org/2002/07/owl#AllDifferent"
-		"http://www.w3.org/2002/07/owl#FunctionalProperty"
 		"http://www.w3.org/2003/11/swrl#body"
 		"http://www.w3.org/2002/07/owl#MaxCardinalityRestriction"
 		"http://www.w3.org/2001/XMLSchema#gYearMonth"
@@ -5798,8 +5786,8 @@
 		":TO"
 		"http://www.w3.org/2003/11/swrl#propertyPredicate"
 		"http://www.w3.org/2002/07/owl#disjointWith"
-		"http://www.w3.org/2002/07/owl#equivalentProperty"
 		"http://www.w3.org/2001/XMLSchema#gMonthDay"
+		"http://www.w3.org/2002/07/owl#equivalentProperty"
 		"http://www.w3.org/2001/XMLSchema#anyURI"
 		"http://www.w3.org/1999/02/22-rdf-syntax-ns#List"
 		"http://www.w3.org/2001/XMLSchema#QName"

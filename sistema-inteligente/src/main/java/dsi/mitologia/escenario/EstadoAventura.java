@@ -18,6 +18,7 @@ import dsi.mitologia.hechos.Localizacion;
 import dsi.mitologia.hechos.Muerte;
 import dsi.mitologia.hechos.Posesion;
 import dsi.mitologia.hechos.ProporcionaCapacidad;
+import dsi.mitologia.hechos.Ubicacion;
 import dsi.mitologia.modelo.Capacidad;
 import dsi.mitologia.modelo.EntidadMitologica;
 import dsi.mitologia.modelo.Objeto;
@@ -86,7 +87,9 @@ public class EstadoAventura {
     private final List<Muerte> muertes = new ArrayList<Muerte>();
     /** Hechos {@code libera_a} (libertador, liberado); historicos, no se retiran. */
     private final List<Liberacion> liberaciones = new ArrayList<Liberacion>();
-
+    /** Hechos {@code esta_en_lugar} (personaje, lugar) vigentes. */
+    private final List<Ubicacion> ubicaciones = new ArrayList<Ubicacion>(); 
+    
     /** Privado: los estados se crean con {@link #inicial(DominioMitologico)} o {@link #copia()}. */
     private EstadoAventura(DominioMitologico dominio) {
         if (dominio == null) throw new IllegalArgumentException("Falta el dominio");
@@ -124,6 +127,10 @@ public class EstadoAventura {
             preso.setEstadoLibertad(EstadoLibertad.PRESO);
             e.cautiverios.add(new Cautiverio(e.getPersonaje(c[0]), preso));
         }
+        // Cargar ubicaciones iniciales del dominio enlazándolas con las copias propias de personajes
+        for (Ubicacion u : dominio.getUbicacionesIniciales()) {
+            e.ubicaciones.add(new Ubicacion(e.getPersonaje(u.getPersonaje().getId()), u.getLugar()));
+        }
         // Las capacidades propias van al final: concederCapacidad exige que el personaje este vivo.
         for (String[] c : dominio.getCapacidadesPropias()) {
             e.concederCapacidad(CapacidadDisponible.propia(e.getPersonaje(c[0]), e.getCapacidad(c[1])));
@@ -156,6 +163,9 @@ public class EstadoAventura {
         for (Cautiverio c : cautiverios) e.cautiverios.add(new Cautiverio(e.mio(c.getCaptor()), e.mio(c.getPreso())));
         for (Muerte m : muertes) e.muertes.add(new Muerte(e.mio(m.getAsesino()), e.mio(m.getVictima())));
         for (Liberacion l : liberaciones) e.liberaciones.add(new Liberacion(e.mio(l.getLibertador()), e.mio(l.getLiberado())));
+        for (Ubicacion u : ubicaciones) {
+            e.ubicaciones.add(new Ubicacion(e.mio(u.getPersonaje()), u.getLugar()));
+        }
         return e;
     }
 
@@ -504,7 +514,7 @@ public class EstadoAventura {
     // =====================================================================
     // Localizacion, favores y enojos
     // =====================================================================
-
+    
     /** Registra {@code localiza_a} sobre un personaje (Perseo localiza a las Ninfas); false si ya existia. */
     public boolean registrarLocalizacion(Personaje localizador, Personaje localizado) {
         return anadirSiFalta(localizaciones, new Localizacion(mio(localizador), mio(localizado)));
@@ -610,6 +620,10 @@ public class EstadoAventura {
     public List<Liberacion> getLiberaciones() {
         return Collections.unmodifiableList(liberaciones);
     }
+    
+    public List<Ubicacion> getUbicaciones() {
+        return Collections.unmodifiableList(ubicaciones);
+    }
 
     // =====================================================================
     // Puente con Drools (sin depender de la API de Drools)
@@ -639,6 +653,7 @@ public class EstadoAventura {
         hechos.addAll(cautiverios);
         hechos.addAll(muertes);
         hechos.addAll(liberaciones);
+        hechos.addAll(ubicaciones);
         return hechos;
     }
 
@@ -659,6 +674,7 @@ public class EstadoAventura {
         cautiverios.clear();
         muertes.clear();
         liberaciones.clear();
+        ubicaciones.clear();
         for (Object h : hechosSesion) {
             if (h instanceof Personaje) personajes.put(((Personaje) h).getId(), (Personaje) h);
             else if (h instanceof Posesion) posesiones.add((Posesion) h);

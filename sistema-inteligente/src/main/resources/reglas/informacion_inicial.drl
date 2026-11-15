@@ -100,6 +100,7 @@ rule "Informacion inicial: variante del mito activa"
 when
     VarianteMito($n : nombre)
 then
+
     registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, null)
         .descripcion("Variante del mito activa: " + $n)
         .regla(drools.getRule().getName()));

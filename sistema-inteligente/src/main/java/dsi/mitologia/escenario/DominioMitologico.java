@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 import dsi.mitologia.hechos.ProporcionaCapacidad;
+import dsi.mitologia.hechos.Ubicacion;
 import dsi.mitologia.modelo.Capacidad;
+import dsi.mitologia.modelo.Lugar;
 import dsi.mitologia.modelo.Objeto;
 import dsi.mitologia.modelo.Personaje;
 
@@ -57,15 +59,16 @@ public class DominioMitologico {
     private final List<String[]> cautiverios = new ArrayList<String[]>();
     /** Pares {personaje, capacidad} de {tiene_capacidad} innatas (sin objeto que las de). */
     private final List<String[]> capacidadesPropias = new ArrayList<String[]>();
-    // Estado inicial dentro o fuera del laberinto, por personaje.
-    private final Map<String, Boolean> ubicacionesLaberinto = new LinkedHashMap<String, Boolean>();
     // Estado inicial de rotura, por objeto.
     private final Map<String, Boolean> estadosRotura = new LinkedHashMap<String, Boolean>();
     // Pares: ayudante, beneficiario.
     private final List<String[]> ayudasHumanas = new ArrayList<String[]>();
     // Pares: personaje hostil, destinatario.
     private final List<String[]> hostilidadesHumanas = new ArrayList<String[]>();
-
+    // Para la ubicacion
+    private final Map<String, Lugar> lugares = new LinkedHashMap<>();
+    private final List<Ubicacion> ubicacionesIniciales = new ArrayList<>();
+    
     // ---- Entidades ----
 
     public Personaje registrarPersonaje(Personaje p) {
@@ -152,20 +155,24 @@ public class DominioMitologico {
         anadirPar(capacidadesPropias, getPersonaje(personajeId).getId(), getCapacidad(capacidadId).getId());
     }
 
-    public void registrarUbicacionLaberinto(
-            String personajeId, boolean dentro) {
-
-        getPersonaje(personajeId);
-
-        Boolean anterior = ubicacionesLaberinto.get(personajeId);
-
-        if (anterior != null && anterior.booleanValue() != dentro) {
-            throw new IllegalStateException(
-                    "Ubicaciones iniciales contradictorias para "
-                    + personajeId);
+    public Lugar registrarLugar(Lugar lugar) {
+        lugares.put(lugar.getId(), lugar);
+        return lugar;
+    }
+    
+    public void registrarUbicacion(String idPersonaje, String idLugar) {
+        Personaje p = getPersonaje(idPersonaje);
+        Lugar l = getLugar(idLugar);
+        
+        if (p == null || l == null) {
+            throw new RuntimeException("Personaje o Lugar no encontrado en el dominio.");
         }
-
-        ubicacionesLaberinto.put(personajeId, dentro);
+        
+        ubicacionesIniciales.add(new Ubicacion(p, l));
+    } 
+    
+    public void registrarUbicacion(Personaje personaje, Lugar lugar) {
+        ubicacionesIniciales.add(new Ubicacion(personaje, lugar));
     }
 
     public void registrarEstadoRotura(
@@ -282,9 +289,13 @@ public class DominioMitologico {
     List<String[]> getCapacidadesPropias() {
         return capacidadesPropias;
     }
+    
+    public Lugar getLugar(String id) {
+        return lugares.get(id);
+    }
 
-    Map<String, Boolean> getUbicacionesLaberinto() {
-        return Collections.unmodifiableMap(ubicacionesLaberinto);
+    public List<Ubicacion> getUbicacionesIniciales() {
+        return Collections.unmodifiableList(ubicacionesIniciales);
     }
 
     Map<String, Boolean> getEstadosRotura() {

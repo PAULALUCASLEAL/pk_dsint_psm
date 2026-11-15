@@ -11,31 +11,13 @@
     xmlns:owl="http://www.w3.org/2002/07/owl#"
   xml:base="http://www.owl-ontologies.com/Ontology1793785230.owl">
   <owl:Ontology rdf:about=""/>
-  <owl:Class rdf:ID="Criatura">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Monstruos, bestias y seres mitol&amp;#243;gicos.
-    &lt;/p&gt;</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Personaje"/>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:ID="Dios">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Deidades de la mitolog&amp;#237;a griega, tanto principales como menores.
-    &lt;/p&gt;</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Personaje"/>
-    </rdfs:subClassOf>
-  </owl:Class>
   <owl:Class rdf:ID="Heroe">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
       Personajes que llevan a cabo misiones y haza&amp;#241;as.
     &lt;/p&gt;</rdfs:comment>
     <rdfs:subClassOf>
-      <owl:Class rdf:about="#Personaje"/>
+      <owl:Class rdf:ID="Personaje"/>
     </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="Semidios">
@@ -49,39 +31,25 @@
   </owl:Class>
   <owl:Class rdf:about="#Personaje">
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Lugar"/>
+    </owl:disjointWith>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="tiene_capacidad"/>
+          <owl:DatatypeProperty rdf:ID="estado_vital"/>
         </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
         <owl:allValuesFrom>
           <owl:Class rdf:ID="Capacidad"/>
         </owl:allValuesFrom>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Dios"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="tiene_enojo"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#Dios"/>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="tiene_favor"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:ID="Objeto"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="tiene_objeto"/>
+          <owl:ObjectProperty rdf:ID="tiene_capacidad"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -94,68 +62,78 @@
         >1</owl:cardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:cardinality>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="estado_vital"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
       Concepto central para abarcar a todos los actores del mito
     &lt;/p&gt;</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="#Objeto">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Concepto central para los items o artefactos que los personajes pueden 
-      conseguir y utilizar.
-    &lt;/p&gt;</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom>
-          <owl:Class rdf:about="#Capacidad"/>
+          <owl:Class rdf:ID="Dios"/>
         </owl:allValuesFrom>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="proporciona_capacidad"/>
+          <owl:ObjectProperty rdf:ID="tiene_favor"/>
         </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <owl:disjointWith rdf:resource="#Personaje"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_enojo"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:about="#Dios"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Capacidad"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Objeto"/>
+        </owl:allValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="tiene_objeto"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Objeto"/>
+    </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Proteccion">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
       Objetos de car&amp;#225;cter defensivo.
     &lt;/p&gt;</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="#Objeto"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Capacidad">
-    <owl:disjointWith rdf:resource="#Objeto"/>
-    <owl:disjointWith rdf:resource="#Personaje"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Concepto que representa las habilidades o poderes que poseen los 
-      personajes o que son proporcionados por los objetos.
-    &lt;/p&gt;</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:ID="ParteAnatomica">
-    <rdfs:subClassOf rdf:resource="#Objeto"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >&lt;p style="margin-top: 0"&gt;
-      Restos biol&amp;#243;gicos de criaturas que se obtienen y utlizan como objetos.
-    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Objeto"/>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="Arma">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
       Objetos de car&amp;#225;cter ofensivo utilizados para el combate o asesinato.
     &lt;/p&gt;</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="#Objeto"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Objeto"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Capacidad">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Lugar"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Personaje"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Objeto"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Concepto que representa las habilidades o poderes que poseen los 
+      personajes o que son proporcionados por los objetos.
+    &lt;/p&gt;</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Mortal">
     <rdfs:subClassOf rdf:resource="#Personaje"/>
@@ -164,12 +142,66 @@
       Personajes humanos sin capacidades divinas directas.
     &lt;/p&gt;</rdfs:comment>
   </owl:Class>
+  <owl:Class rdf:about="#Lugar">
+    <owl:disjointWith rdf:resource="#Capacidad"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Objeto"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Personaje"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;&#xD;
+      Concepto que representa las distintas ubicaciones en las que se puede &#xD;
+      encontrar un personaje&#xD;
+    &lt;/p&gt;</rdfs:comment>
+  </owl:Class>
   <owl:Class rdf:ID="ArtefactoMagico">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
       Objetos con propiedades o poderes sobrenaturales.
     &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Objeto"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Criatura">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Monstruos, bestias y seres mitol&amp;#243;gicos.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Personaje"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Dios">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Deidades de la mitolog&amp;#237;a griega, tanto principales como menores.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Personaje"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Objeto">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Concepto central para los items o artefactos que los personajes pueden 
+      conseguir y utilizar.
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="proporciona_capacidad"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Capacidad"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <owl:disjointWith rdf:resource="#Lugar"/>
+    <owl:disjointWith rdf:resource="#Capacidad"/>
+    <owl:disjointWith rdf:resource="#Personaje"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ParteAnatomica">
     <rdfs:subClassOf rdf:resource="#Objeto"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;
+      Restos biol&amp;#243;gicos de criaturas que se obtienen y utlizan como objetos.
+    &lt;/p&gt;</rdfs:comment>
   </owl:Class>
   <owl:ObjectProperty rdf:ID="libera_a">
     <rdfs:range rdf:resource="#Personaje"/>
@@ -322,6 +354,11 @@
     <rdfs:range rdf:resource="#Dios"/>
     <rdfs:domain rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="roto">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Objeto"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#estado_libertad">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
@@ -335,9 +372,9 @@
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
           >libre</rdf:first>
           <rdf:rest rdf:parseType="Resource">
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >preso</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
           </rdf:rest>
         </owl:oneOf>
       </owl:DataRange>
@@ -348,13 +385,13 @@
     <rdfs:range>
       <owl:DataRange>
         <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >muerto</rdf:first>
           <rdf:rest rdf:parseType="Resource">
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
             <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >vivo</rdf:first>
           </rdf:rest>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-          >muerto</rdf:first>
         </owl:oneOf>
       </owl:DataRange>
     </rdfs:range>
@@ -365,31 +402,22 @@
       valores vivo o muerto.
     &lt;/p&gt;</rdfs:comment>
   </owl:DatatypeProperty>
-  <owl:FunctionalProperty rdf:ID="roto">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdfs:domain rdf:resource="#Objeto"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-  </owl:FunctionalProperty>
-  <owl:FunctionalProperty rdf:ID="en_laberinto">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <owl:FunctionalProperty rdf:ID="esta_en_lugar">
     <rdfs:domain rdf:resource="#Personaje"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >&lt;p style="margin-top: 0"&gt;&#xD;
+      Modela que un personaje se encuentre/ubique en un lugar.&#xD;
+    &lt;/p&gt;</rdfs:comment>
+    <rdfs:range rdf:resource="#Lugar"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:FunctionalProperty>
-  <Heroe rdf:ID="Perseo">
-    <es_hijo_de>
-      <Mortal rdf:ID="Danae">
-        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >libre</estado_libertad>
-        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-        >vivo</estado_vital>
-      </Mortal>
-    </es_hijo_de>
+  <Semidios rdf:ID="Perseo">
     <es_hijo_de>
       <Dios rdf:ID="Zeus">
         <tiene_hijo>
-          <Semidios rdf:ID="Heracles">
+          <Heroe rdf:ID="Heracles">
             <es_hijo_de rdf:resource="#Zeus"/>
-            <rdf:type rdf:resource="#Heroe"/>
+            <rdf:type rdf:resource="#Semidios"/>
             <tiene_capacidad>
               <Capacidad rdf:ID="FuerzaExtraordinaria">
                 <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -403,9 +431,7 @@
             <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
             >vivo</estado_vital>
             <tiene_favor rdf:resource="#Zeus"/>
-            <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-            >false</en_laberinto>
-          </Semidios>
+          </Heroe>
         </tiene_hijo>
         <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >vivo</estado_vital>
@@ -413,12 +439,21 @@
         >libre</estado_libertad>
       </Dios>
     </es_hijo_de>
-    <rdf:type rdf:resource="#Semidios"/>
+    <es_hijo_de>
+      <Mortal rdf:ID="Danae">
+        <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >libre</estado_libertad>
+        <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >vivo</estado_vital>
+      </Mortal>
+    </es_hijo_de>
+    <rdf:type rdf:resource="#Heroe"/>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
-  </Heroe>
+  </Semidios>
+  <Lugar rdf:ID="LaberintoCreta"/>
   <ArtefactoMagico rdf:ID="AlasDedalo">
     <proporciona_capacidad>
       <Capacidad rdf:ID="Vuelo"/>
@@ -446,8 +481,6 @@
   <Mortal rdf:ID="Minos">
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
-    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</en_laberinto>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -491,8 +524,8 @@
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
   </Criatura>
-  <Mortal rdf:ID="Teseo">
-    <rdf:type rdf:resource="#Heroe"/>
+  <Heroe rdf:ID="Teseo">
+    <rdf:type rdf:resource="#Mortal"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Heroe que entra al laberinto con ayuda de Ariadna y mata al Minotauro.</rdfs:comment>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -504,19 +537,20 @@
         >Arma de Teseo en el mito del Minotauro</rdfs:comment>
       </Arma>
     </tiene_objeto>
-    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</en_laberinto>
+    <esta_en_lugar>
+      <Lugar rdf:ID="MundoExterior"/>
+    </esta_en_lugar>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
-  </Mortal>
+  </Heroe>
   <Dios rdf:ID="Grayas">
     <tiene_objeto>
-      <ParteAnatomica rdf:ID="DienteGrayas">
+      <ParteAnatomica rdf:ID="OjoGrayas">
         <esta_en_posesion_de rdf:resource="#Grayas"/>
       </ParteAnatomica>
     </tiene_objeto>
     <tiene_objeto>
-      <ParteAnatomica rdf:ID="OjoGrayas">
+      <ParteAnatomica rdf:ID="DienteGrayas">
         <esta_en_posesion_de rdf:resource="#Grayas"/>
       </ParteAnatomica>
     </tiene_objeto>
@@ -531,31 +565,29 @@
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
     <tiene_objeto>
+      <ParteAnatomica rdf:ID="CuernoMinotauro">
+        <esta_en_posesion_de rdf:resource="#Minotauro"/>
+        <rdf:type rdf:resource="#Arma"/>
+      </ParteAnatomica>
+    </tiene_objeto>
+    <tiene_objeto>
       <ParteAnatomica rdf:ID="CabezaMinotauro">
         <esta_en_posesion_de rdf:resource="#Minotauro"/>
       </ParteAnatomica>
     </tiene_objeto>
-    <tiene_objeto>
-      <Arma rdf:ID="CuernoMinotauro">
-        <esta_en_posesion_de rdf:resource="#Minotauro"/>
-        <rdf:type rdf:resource="#ParteAnatomica"/>
-      </Arma>
-    </tiene_objeto>
-    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >true</en_laberinto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Criatura>
   <Dios rdf:ID="Ninfas">
     <tiene_objeto>
-      <ArtefactoMagico rdf:ID="SandaliasAladas">
+      <ArtefactoMagico rdf:ID="ZurronMagico">
         <esta_en_posesion_de rdf:resource="#Ninfas"/>
-        <proporciona_capacidad rdf:resource="#Vuelo"/>
       </ArtefactoMagico>
     </tiene_objeto>
     <tiene_objeto>
-      <ArtefactoMagico rdf:ID="ZurronMagico">
+      <ArtefactoMagico rdf:ID="SandaliasAladas">
         <esta_en_posesion_de rdf:resource="#Ninfas"/>
+        <proporciona_capacidad rdf:resource="#Vuelo"/>
       </ArtefactoMagico>
     </tiene_objeto>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -631,8 +663,7 @@
     >vivo</estado_vital>
     <tiene_hijo>
       <Mortal rdf:ID="Icaro">
-        <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-        >false</en_laberinto>
+        <esta_en_lugar rdf:resource="#MundoExterior"/>
         <es_hijo_de rdf:resource="#Dedalo"/>
         <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
         >libre</estado_libertad>
@@ -642,10 +673,9 @@
         >vivo</estado_vital>
       </Mortal>
     </tiene_hijo>
+    <esta_en_lugar rdf:resource="#MundoExterior"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Constructor del laberinto que fabrica alas para escapar con Icaro</rdfs:comment>
-    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</en_laberinto>
   </Mortal>
   <Mortal rdf:ID="Ariadna">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -660,8 +690,7 @@
     <ayuda_a rdf:resource="#Teseo"/>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
-    <en_laberinto rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
-    >false</en_laberinto>
+    <esta_en_lugar rdf:resource="#MundoExterior"/>
     <estado_vital rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >vivo</estado_vital>
   </Mortal>

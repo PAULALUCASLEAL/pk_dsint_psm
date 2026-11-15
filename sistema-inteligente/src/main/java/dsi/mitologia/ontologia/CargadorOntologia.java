@@ -19,6 +19,7 @@ import org.w3c.dom.NodeList;
 
 import dsi.mitologia.escenario.DominioMitologico;
 import dsi.mitologia.modelo.Capacidad;
+import dsi.mitologia.modelo.Lugar;
 import dsi.mitologia.modelo.Objeto;
 import dsi.mitologia.modelo.Personaje;
 import dsi.mitologia.modelo.enums.CategoriaObjeto;
@@ -100,7 +101,7 @@ public class CargadorOntologia {
     static {
         Collections.addAll(PROPIEDADES_CONOCIDAS, "type", "comment", "label", "estado_vital", "estado_libertad",
                 "tiene_objeto", "esta_en_posesion_de", "proporciona_capacidad", "es_hijo_de", "tiene_hijo",
-                "tiene_favor", "tiene_enojo", "apresa_a", "esta_preso_por", "tiene_capacidad");
+                "tiene_favor", "tiene_enojo", "apresa_a", "esta_preso_por", "tiene_capacidad", "esta_en_lugar");
     }
 
     /**
@@ -205,7 +206,8 @@ public class CargadorOntologia {
     private void crearEntidad(DominioMitologico d, String id, Set<String> clases, Element el) {
         Set<TipoPersonaje> tp = EnumSet.noneOf(TipoPersonaje.class);
         Set<CategoriaObjeto> co = EnumSet.noneOf(CategoriaObjeto.class);
-        boolean personaje = false, objeto = false, capacidad = false;
+        boolean personaje = false, objeto = false, capacidad = false, lugar = false;
+        
         for (String c : clases) {
             TipoPersonaje t = TipoPersonaje.desdeClaseOwl(c);
             CategoriaObjeto o = CategoriaObjeto.desdeClaseOwl(c);
@@ -215,14 +217,17 @@ public class CargadorOntologia {
             else if (o != null) { co.add(o); objeto = true; }
             else if ("Objeto".equals(c)) objeto = true;
             else if ("Capacidad".equals(c)) capacidad = true;
+            else if ("Lugar".equals(c)) lugar = true;
             else avisos.add(id + ": clase no traducida " + c);
         }
-        // Relacion con la ontologia: Personaje, Objeto y Capacidad se declaran disjuntas en el OWL.
-        int n = (personaje ? 1 : 0) + (objeto ? 1 : 0) + (capacidad ? 1 : 0);
+        
+        // Relacion con la ontologia: Personaje, Objeto, Capacidad y Lugar se declaran disjuntas en el OWL.
+        int n = (personaje ? 1 : 0) + (objeto ? 1 : 0) + (capacidad ? 1 : 0) + (lugar ? 1 : 0);
         if (n != 1) {
-            avisos.add(id + ": no se carga (tipos " + clases + "; Personaje, Objeto y Capacidad son disjuntas)");
+            avisos.add(id + ": no se carga (tipos " + clases + "; Personaje, Objeto, Capacidad y Lugar son disjuntas)");
             return;
         }
+        
         if (personaje) {
             String vital = texto(el, "estado_vital");
             String libertad = texto(el, "estado_libertad");
@@ -236,8 +241,10 @@ public class CargadorOntologia {
                     libertad == null ? EstadoLibertad.LIBRE : EstadoLibertad.desdeOwl(libertad)));
         } else if (objeto) {
             d.registrarObjeto(new Objeto(id, id, co));
-        } else {
+        } else if (capacidad) {
             d.registrarCapacidad(new Capacidad(id, id));
+        } else if (lugar) {
+            d.registrarLugar(new Lugar(id, id));
         }
     }
 
@@ -250,15 +257,20 @@ public class CargadorOntologia {
     private void leerRelaciones(DominioMitologico d, String id, Element el) {
         boolean esPersonaje = d.existePersonaje(id);
         boolean esObjeto = d.existeObjeto(id);
+        boolean esLugar = d.getLugar(id) != null; 
+
         // Individuo descartado en la primera pasada: ya tiene su aviso, no se repite por cada propiedad.
-        if (!esPersonaje && !esObjeto && !d.existeCapacidad(id)) return;
+        if (!esPersonaje && !esObjeto && !d.existeCapacidad(id) && !esLugar) return;
+        
         for (Element h : hijos(el)) {
             String prop = h.getLocalName();
             String destino = destino(h);
+            
             if (!PROPIEDADES_CONOCIDAS.contains(prop)) {
                 avisos.add(id + ": propiedad no traducida " + prop + (destino.isEmpty() ? "" : " " + destino));
                 continue;
             }
+            
             // Las DatatypeProperties y rdf:type ya se usaron en crearEntidad: ninguna rama las recoge aqui.
             try {
                 if ("tiene_objeto".equals(prop)) d.registrarPosesion(id, destino);
@@ -271,9 +283,9 @@ public class CargadorOntologia {
                 else if ("apresa_a".equals(prop)) d.registrarCautiverio(id, destino);
                 else if ("esta_preso_por".equals(prop)) d.registrarCautiverio(destino, id);
                 else if ("tiene_capacidad".equals(prop)) d.registrarCapacidadPropia(id, destino);
+                else if ("esta_en_lugar".equals(prop)) d.registrarUbicacion(id, destino);
             } catch (RuntimeException ex) {
-                // Destino inexistente o incoherente (p. ej. un objeto con dos duenos por defecto): se avisa
-                // y se sigue, para no perder el resto de la ontologia por un aserto erroneo.
+                // Destino inexistente o incoherente
                 avisos.add(id + ": " + prop + " " + destino + " no se carga: " + ex.getMessage());
             }
         }
