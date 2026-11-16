@@ -3,9 +3,11 @@ package dsi.mitologia.escenario;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import dsi.mitologia.hechos.ProporcionaCapacidad;
 import dsi.mitologia.hechos.Ubicacion;
@@ -59,8 +61,6 @@ public class DominioMitologico {
     private final List<String[]> cautiverios = new ArrayList<String[]>();
     /** Pares {personaje, capacidad} de {tiene_capacidad} innatas (sin objeto que las de). */
     private final List<String[]> capacidadesPropias = new ArrayList<String[]>();
-    // Estado inicial de rotura, por objeto.
-    private final Map<String, Boolean> estadosRotura = new LinkedHashMap<String, Boolean>();
     // Pares: ayudante, beneficiario.
     private final List<String[]> ayudasHumanas = new ArrayList<String[]>();
     // Pares: personaje hostil, destinatario.
@@ -68,6 +68,8 @@ public class DominioMitologico {
     // Para la ubicacion
     private final Map<String, Lugar> lugares = new LinkedHashMap<>();
     private final List<Ubicacion> ubicacionesIniciales = new ArrayList<>();
+    // Mapa: ID del Objeto -> Conjunto de condiciones físicas (ej. "intacto", "conjurado")
+    private final Map<String, Set<String>> estadosFisicos = new LinkedHashMap<>();
     
     // ---- Entidades ----
 
@@ -174,23 +176,24 @@ public class DominioMitologico {
     public void registrarUbicacion(Personaje personaje, Lugar lugar) {
         ubicacionesIniciales.add(new Ubicacion(personaje, lugar));
     }
+    
+    public void registrarEstadoFisico(String objetoId, String condicion) {
+        getObjeto(objetoId); // Valida que exista en el dominio
 
-    public void registrarEstadoRotura(
-            String objetoId, boolean roto) {
+        estadosFisicos.putIfAbsent(objetoId, new HashSet<>());
+        Set<String> condicionesActuales = estadosFisicos.get(objetoId);
 
-        getObjeto(objetoId);
-
-        Boolean anterior = estadosRotura.get(objetoId);
-
-        if (anterior != null && anterior.booleanValue() != roto) {
+        // Validar contradicciones lógicas evidentes (puedes ampliar esta lista si añades más antónimos)
+        if ((condicion.equals("roto") && condicionesActuales.contains("intacto")) ||
+            (condicion.equals("intacto") && condicionesActuales.contains("roto"))) {
             throw new IllegalStateException(
-                    "Estados de rotura iniciales contradictorios para "
-                    + objetoId);
+                "Estados físicos iniciales contradictorios para " + objetoId + ": roto e intacto."
+            );
         }
 
-        estadosRotura.put(objetoId, roto);
+        condicionesActuales.add(condicion);
     }
-
+   
     public void registrarAyudaHumana(
             String ayudanteId, String beneficiarioId) {
 
@@ -208,6 +211,8 @@ public class DominioMitologico {
                 getPersonaje(hostilId).getId(),
                 getPersonaje(destinatarioId).getId());
     }
+    
+
 
     // ---- Getters ----
     public Personaje getPersonaje(String id) {
@@ -298,8 +303,8 @@ public class DominioMitologico {
         return Collections.unmodifiableList(ubicacionesIniciales);
     }
 
-    Map<String, Boolean> getEstadosRotura() {
-        return Collections.unmodifiableMap(estadosRotura);
+    Map<String, Set<String>> getEstadosFisicos() {
+        return Collections.unmodifiableMap(estadosFisicos);
     }
 
     List<String[]> getAyudasHumanas() {

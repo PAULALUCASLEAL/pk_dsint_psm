@@ -101,7 +101,8 @@ public class CargadorOntologia {
     static {
         Collections.addAll(PROPIEDADES_CONOCIDAS, "type", "comment", "label", "estado_vital", "estado_libertad",
                 "tiene_objeto", "esta_en_posesion_de", "proporciona_capacidad", "es_hijo_de", "tiene_hijo",
-                "tiene_favor", "tiene_enojo", "apresa_a", "esta_preso_por", "tiene_capacidad", "esta_en_lugar");
+                "tiene_favor", "tiene_enojo", "apresa_a", "esta_preso_por", "tiene_capacidad", "esta_en_lugar",
+                "estado_fisico");
     }
 
     /**
@@ -241,6 +242,15 @@ public class CargadorOntologia {
                     libertad == null ? EstadoLibertad.LIBRE : EstadoLibertad.desdeOwl(libertad)));
         } else if (objeto) {
             d.registrarObjeto(new Objeto(id, id, co));
+            // Leer todos los estados físicos declarados para este objeto (puede haber varios)
+            for (Element h : hijos(el)) {
+                if ("estado_fisico".equals(h.getLocalName())) {
+                    String condicion = h.getTextContent().trim();
+                    if (!condicion.isEmpty()) {
+                        d.registrarEstadoFisico(id, condicion);
+                    }
+                }
+            }
         } else if (capacidad) {
             d.registrarCapacidad(new Capacidad(id, id));
         } else if (lugar) {

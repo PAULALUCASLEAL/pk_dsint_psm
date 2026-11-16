@@ -11,6 +11,7 @@ import java.util.Map;
 import dsi.mitologia.hechos.CapacidadDisponible;
 import dsi.mitologia.hechos.Cautiverio;
 import dsi.mitologia.hechos.Enojo;
+import dsi.mitologia.hechos.EstadoFisicoObjeto;
 import dsi.mitologia.hechos.Favor;
 import dsi.mitologia.hechos.Filiacion;
 import dsi.mitologia.hechos.Liberacion;
@@ -89,6 +90,8 @@ public class EstadoAventura {
     private final List<Liberacion> liberaciones = new ArrayList<Liberacion>();
     /** Hechos {@code esta_en_lugar} (personaje, lugar) vigentes. */
     private final List<Ubicacion> ubicaciones = new ArrayList<Ubicacion>(); 
+    /** Hechos estado_fisico vigentes (objeto, condicion). */
+    private final List<EstadoFisicoObjeto> estadosFisicos = new ArrayList<>();
     
     /** Privado: los estados se crean con {@link #inicial(DominioMitologico)} o {@link #copia()}. */
     private EstadoAventura(DominioMitologico dominio) {
@@ -135,6 +138,13 @@ public class EstadoAventura {
         for (String[] c : dominio.getCapacidadesPropias()) {
             e.concederCapacidad(CapacidadDisponible.propia(e.getPersonaje(c[0]), e.getCapacidad(c[1])));
         }
+        // Cargar los estados físicos iniciales
+        for (Map.Entry<String, java.util.Set<String>> entrada : dominio.getEstadosFisicos().entrySet()) {
+            Objeto obj = e.getObjeto(entrada.getKey());
+            for (String condicion : entrada.getValue()) {
+                e.estadosFisicos.add(new EstadoFisicoObjeto(obj, condicion));
+            }
+        }
         return e;
     }
 
@@ -165,6 +175,9 @@ public class EstadoAventura {
         for (Liberacion l : liberaciones) e.liberaciones.add(new Liberacion(e.mio(l.getLibertador()), e.mio(l.getLiberado())));
         for (Ubicacion u : ubicaciones) {
             e.ubicaciones.add(new Ubicacion(e.mio(u.getPersonaje()), u.getLugar()));
+        }
+        for (EstadoFisicoObjeto ef : estadosFisicos) {
+            e.estadosFisicos.add(new EstadoFisicoObjeto(ef.getObjeto(), ef.getCondicion()));
         }
         return e;
     }
@@ -654,6 +667,7 @@ public class EstadoAventura {
         hechos.addAll(muertes);
         hechos.addAll(liberaciones);
         hechos.addAll(ubicaciones);
+        hechos.addAll(estadosFisicos);
         return hechos;
     }
 
@@ -675,6 +689,7 @@ public class EstadoAventura {
         muertes.clear();
         liberaciones.clear();
         ubicaciones.clear();
+        estadosFisicos.clear();
         for (Object h : hechosSesion) {
             if (h instanceof Personaje) personajes.put(((Personaje) h).getId(), (Personaje) h);
             else if (h instanceof Posesion) posesiones.add((Posesion) h);
@@ -685,6 +700,7 @@ public class EstadoAventura {
             else if (h instanceof Cautiverio) cautiverios.add((Cautiverio) h);
             else if (h instanceof Muerte) muertes.add((Muerte) h);
             else if (h instanceof Liberacion) liberaciones.add((Liberacion) h);
+            else if (h instanceof EstadoFisicoObjeto) estadosFisicos.add((EstadoFisicoObjeto) h);
         }
     }
 
