@@ -51,13 +51,14 @@ public class CargadorOntologiaTest {
      */
     @Test
     public void cargaTodosLosIndividuos() {
-        assertEquals(16, dominio.getPersonajes().size());
-        assertEquals(11, dominio.getObjetos().size());
-        assertEquals(4, dominio.getCapacidades().size());
+        // Valores actualizados para la expansión del Laberinto de Creta
+        assertEquals(22, dominio.getPersonajes().size());
+        assertEquals(20, dominio.getObjetos().size());
+        assertEquals(5, dominio.getCapacidades().size());
+
         // Cero avisos: con la ontologia buena todo debe traducirse; el mensaje muestra los avisos si no.
         assertTrue("Sin avisos: " + cargador.getAvisos(), cargador.getAvisos().isEmpty());
     }
-
     @Test
     public void minosConservaLosEstadosExplicitos() {
         Personaje minos = dominio.getPersonaje("Minos");
@@ -130,7 +131,7 @@ public class CargadorOntologiaTest {
         // Assert: objetos que proporcionan capacidades (exactamente los 4 asertos del OWL).
         assertTrue(e.proporciona(e.getObjeto("SandaliasAladas"), e.getCapacidad("Vuelo")));
         assertTrue(e.proporciona(e.getObjeto("CabezaMedusa"), e.getCapacidad("Petrificacion")));
-        assertEquals(4, dominio.getProporciona().size());
+        assertEquals(6, dominio.getProporciona().size());
     }
 
     /**
@@ -150,8 +151,11 @@ public class CargadorOntologiaTest {
         assertEquals(EstadoLibertad.PRESO, andromeda.getEstadoLibertad());
         assertEquals("Ceto", e.captorDe(andromeda).getId());
         assertTrue(e.tieneEnojo(e.getPersonaje("Casiopea"), e.getPersonaje("Poseidon")));
-        assertEquals(3, e.getFiliaciones().size());
-        // Sin favores por defecto: el OWL no contiene ningun aserto tiene_favor.
-        assertFalse(e.getFavores().iterator().hasNext());
+
+        // Actualizado de 3 a 5 para incluir a Ícaro/Dédalo y Heracles/Zeus
+        assertEquals(5, e.getFiliaciones().size());
+
+        // Ahora sí hay un favor por defecto en el OWL: el de Zeus a Heracles.
+        assertEquals(1, e.getFavores().size());
     }
 }
