@@ -70,6 +70,30 @@ Nuevas, en `creta.drl`:
 - Las alas de Ícaro quedan rotas y sin recoger. Así otro héroe puede encontrarlas y arreglarlas con cera y plumas (lo usaremos en F2-4). Por eso la cera y las plumas no se gastan al fabricar.
 - La regla de capacidades (R09) ahora solo reacciona a si el personaje está vivo o muerto. Antes, al escapar (pasar de preso a libre), el Vuelo aparecía dos veces en la historia.
 
+## Escenarios que mezclan los dos mitos
+
+**F2-3. Teseo libera a Andrómeda.** No hace falta ninguna regla nueva: Teseo sigue el mismo camino que Perseo porque las reglas son genéricas. Basta con que tenga el favor de Atenea, Hermes, Hades y Hefesto. Si falta cualquiera de los cuatro, no lo consigue. El enojo de Poseidón no hace falta escribirlo porque ya está en la ontología.
+
+**F2-4. Perseo vuela con las alas de Dédalo.** Tampoco hace falta ninguna regla nueva. Las condiciones son:
+
+```
+Teseo tiene el favor de Ariadna
+Perseo tiene el favor de Atenea
+Perseo tiene el favor de Hermes
+Perseo tiene el favor de Hades
+Perseo tiene el favor de Hefesto
+Perseo tiene el favor de Dedalo
+Ninfas no tiene SandaliasAladas
+```
+
+- El favor de Ariadna pone en marcha la historia de Creta. Así muere el Minotauro y Dédalo acaba fabricando las alas, como pide el enunciado.
+- El favor de Dédalo es lo que une los dos mitos. En los mitos originales Perseo y Dédalo no se conocen, pero el enunciado solo deja poner en el escenario favores, enojos, desposesiones y apresamientos, y pide usar la imaginación para mezclarlos. Lo interpretamos así: Dédalo, una vez libre, ayuda a Perseo prestándole sus alas, igual que los dioses le ayudan con sus objetos. Se usa la misma regla de favores (R03), sin reglas nuevas.
+- Quitamos las sandalias a las Ninfas para que Perseo solo pueda volar con las alas.
+
+Hemos comprobado que las siete condiciones son necesarias: quitando cualquiera, Perseo no lo consigue o vuela con las sandalias.
+
+Otra opción, más cercana a la idea del enunciado, sería que Perseo recogiera las alas rotas de Ícaro y las arreglara con cera y plumas. Necesita tres reglas nuevas y la dejamos como mejora.
+
 ## Pruebas
 
 Las pruebas automáticas de Creta están en `ReglasCretaTeseoTest`, `ReglasCretaDedaloTest` y `ReglasCretaHuidaTest`. Comprueban el final que pide el enunciado, que los pasos salen en orden y que sin el favor de Ariadna no pasa nada de Creta. La historia de Perseo sigue funcionando igual.
