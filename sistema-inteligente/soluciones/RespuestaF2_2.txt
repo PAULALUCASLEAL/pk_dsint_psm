@@ -16,9 +16,9 @@ Si, Teseo puede matar a Minotauro debido a que:
   Dedalo encuentra PlumasAve en LaberintoCreta.
   Dedalo encuentra CeraAbejas en LaberintoCreta.
   Dedalo fabrica AlasDedalo debido a tener CeraAbejas y PlumasAve.
-  Dedalo obtiene Capacidad Vuelo debido a tener AlasDedalo.
   Dedalo fabrica AlasIcaro para Icaro debido a tener CeraAbejas y PlumasAve.
   Icaro obtiene Capacidad Vuelo debido a tener AlasIcaro.
   Icaro escapa volando de LaberintoCreta debido a tener Vuelo (AlasIcaro).
+  Dedalo obtiene Capacidad Vuelo debido a tener AlasDedalo.
   Dedalo escapa volando de LaberintoCreta debido a tener Vuelo (AlasDedalo).
   Icaro muere al escapar volando y AlasIcaro quedan rotas donde cae.

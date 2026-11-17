@@ -1,0 +1,34 @@
+Escenario F2-6: Puede Danae liberar a Perseo?
+Condiciones:
+  Zeus tiene el enojo de Poseidon
+  Danae tiene el favor de Atenea
+  Danae tiene el favor de Hermes
+  Danae tiene el favor de Hades
+  Danae tiene el favor de Hefesto
+Si, Danae puede liberar a Perseo debido a que:
+  Danae obtiene CascoHades debido a tener el favor de Hades.
+  Danae obtiene HozAcero debido a tener el favor de Hermes.
+  Danae obtiene EscudoBronce debido a tener el favor de Atenea.
+  Danae obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
+  Perseo queda presa debido a estar Ceto libre.
+  Heracles queda presa debido a estar Ceto libre.
+  Andromeda queda presa debido a estar Ceto libre.
+  Danae localiza a las Grayas debido a tener el favor de Hermes y Atenea.
+  Danae obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Danae obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Danae obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
+  Danae devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Danae localiza a las Ninfas debido a intercambio de DienteGrayas con las Grayas.
+  Danae obtiene ZurronMagico debido a las Ninfas localizadas.
+  Danae obtiene SandaliasAladas debido a las Ninfas localizadas.
+  Danae obtiene Capacidad Vuelo debido a tener SandaliasAladas.
+  Danae mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
+  Danae obtiene CabezaMedusa debido a matar a Medusa.
+  Danae no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Danae obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
+  Danae mata a Ceto debido a tener CabezaMedusa.
+  Danae libera a Andromeda debido a matar a Ceto.
+  Danae libera a Heracles debido a matar a Ceto.
+  Danae libera a Perseo debido a matar a Ceto.
+  Danae obtiene CabezaCeto debido a matar a Ceto.

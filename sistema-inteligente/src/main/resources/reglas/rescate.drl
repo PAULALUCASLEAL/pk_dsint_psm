@@ -26,7 +26,7 @@ global dsi.mitologia.eventos.RegistroEventos registro
 rule "R28 Petrificar con la cabeza de Medusa a la criatura que tiene preso a alguien"
     salience -10
 when
-    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $h : Personaje(dios == false, criatura == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
     $petr : Capacidad(id == "Petrificacion")
     $cp   : CapacidadDisponible(personaje == $h, capacidad == $petr)
             Cautiverio($c : captor, preso != $h)
@@ -126,5 +126,39 @@ when
 then
     registro.registrar(EventoMitologico.nuevo(TipoAccion.INFORMACION, $h)
         .descripcion("Obstaculo: " + $h.getNombre() + " no tiene ningun arma para enfrentarse a Medusa")
+        .regla(drools.getRule().getName()));
+end
+
+rule "R32 Solo puede quedar uno: Combate a muerte entre heroes por los trofeos"
+when
+    $asesino : Personaje(heroe == true, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    Favor(personaje == $asesino) // Solo participan héroes activos
+    $victima : Personaje(heroe == true, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE, this != $asesino)
+    Favor(personaje == $victima) // Solo atacan a héroes activos
+    $arma    : Objeto(arma == true)
+               Posesion(poseedor == $asesino, objeto == $arma)
+    $trofeo  : Objeto(parteAnatomica == true)
+               Posesion(poseedor == $victima, objeto == $trofeo)
+then
+    modify($victima) { setEstadoVital(EstadoVital.MUERTO) }
+    insert(new Muerte($asesino, $victima));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MATAR, $asesino).destinatario($victima).objeto($arma)
+        .descripcion($asesino.getNombre() + " asesina a " + $victima.getNombre() + " en combate con " + $arma.getNombre() + " para robarle " + $trofeo.getNombre())
+        .justificacion("combate a muerte por " + $trofeo.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "R33 Botin de guerra: el vencedor saquea todas las posesiones del caido"
+    salience 50
+when
+    Muerte($asesino : asesino, $victima : victima)
+    Personaje(this == $asesino, estadoVital == EstadoVital.VIVO)
+    $pos : Posesion(poseedor == $victima, $o : objeto)
+    Objeto(this == $o, parteAnatomica == false) // Las partes anatómicas ya las roba R25/R99
+then
+    modify($pos) { setPoseedor($asesino) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $asesino).destinatario($victima).objeto($o)
+        .descripcion($asesino.getNombre() + " saquea " + $o.getNombre() + " del cadaver de " + $victima.getNombre())
+        .justificacion("saquear a " + $victima.getNombre())
         .regla(drools.getRule().getName()));
 end

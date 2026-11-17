@@ -29,7 +29,7 @@ global dsi.mitologia.eventos.RegistroEventos registro
 rule "R23-R24 Matar a Medusa con arma, Reflejo, Invisibilidad y Vuelo"
     salience -10
 when
-    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $h : Personaje(dios == false, criatura == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
     $med  : Personaje(id == "Medusa", estadoVital == EstadoVital.VIVO)
             Posesion(poseedor == $h, $arma : objeto)
             Objeto(this == $arma, arma)

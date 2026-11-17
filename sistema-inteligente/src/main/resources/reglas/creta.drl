@@ -82,6 +82,7 @@ when
     $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
     $ded   : Personaje(id == "Dedalo", estadoVital == EstadoVital.VIVO)
              Muerte($h : asesino, $m : victima)
+			 Personaje(this == $m, id == "Minotauro")
              Ubicacion(personaje == $m, $lab : lugar, lugar.id == "LaberintoCreta")
              Ubicacion(personaje == $h, lugar.id == "MundoExterior")
              not Enojo(personaje == $ded, dios == $minos)
