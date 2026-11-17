@@ -2,6 +2,23 @@
 
 Esta es la versión del mito que hemos decidido contar con nuestras reglas.
 
+## Escenario y respuesta: qué es cada cosa
+
+- El **escenario** (`escenarios/EscenarioF2-2.txt`) es la entrada. Lo escribimos nosotros a mano: una pregunta y las condiciones de partida. El enunciado pide que cada grupo cree los suyos.
+- La **respuesta** (`soluciones/RespuestaF2_2.txt`) es la salida. No se escribe a mano: la genera el programa al ejecutarlo (`mvn compile exec:java`). Dice si se puede o no y cuenta la historia paso a paso.
+
+Lo que hay en medio es Drools: lee la ontología (lo que hay al empezar), le añade las condiciones del escenario y va disparando reglas hasta que no queda nada por hacer.
+
+El escenario F2-2 es este:
+
+```
+Puede Teseo matar a Minotauro?
+Condiciones:
+Teseo tiene el favor de Ariadna
+```
+
+Con esa condición basta, el resto se encadena solo. El enunciado dice que en F2-2 la pregunta da igual; lo importante es que la historia acabe con el Minotauro muerto por Teseo, Ícaro muerto y Dédalo fuera del laberinto.
+
 ## Cómo empieza
 
 El laberinto ya está construido y el Minotauro está dentro. Construirlo no aporta nada a la historia, así que empezamos a partir de ahí. Teseo, Ariadna, Dédalo e Ícaro están fuera, vivos y libres. Ariadna tiene el hilo y Teseo su espada. Las alas existen y están intactas, pero no son de nadie todavía, igual que la cera y las plumas.
@@ -14,32 +31,45 @@ El laberinto ya está construido y el Minotauro está dentro. Construirlo no apo
 4. Sigue el hilo y sale.
 5. Minos se entera de que alguien ha entrado y salido, y se enoja con Dédalo.
 6. Encierra en el laberinto a Dédalo y a su hijo Ícaro.
-7. Dentro, Dédalo encuentra cera y plumas y fabrica dos pares de alas.
+7. Dentro encuentran cera y plumas, y Dédalo fabrica dos pares de alas.
 8. Con las alas consiguen Vuelo y escapan.
 9. Ícaro muere en la huida y sus alas se quedan rotas donde cae.
 
-Así se cumple lo que pide el enunciado: el Minotauro muere a manos de Teseo, Ícaro muere y Dédalo acaba fuera del laberinto.
+## Reglas que usa
 
-## El fichero de entrada
+Hemos reutilizado todas las reglas de Perseo que hemos podido. Como son genéricas ("quien te da su favor te da su objeto", "quien mata a alguien se queda sus partes", "quien tiene un objeto que da Vuelo, vuela"), sirven también para Creta sin tocarlas.
 
-```
-Puede Teseo matar a Minotauro?
-Condiciones:
-Teseo tiene el favor de Ariadna
-```
+Reutilizadas de Perseo:
 
-Con esa condición basta, el resto se encadena solo.
+- **R03-R04-R06** (`favores.drl`): Ariadna da el hilo a Teseo porque él tiene su favor.
+- **R25** (`medusa.drl`): Teseo se queda la cabeza y el cuerno del Minotauro.
+- **R09-R12** (`capacidades.drl`): las alas dan Vuelo a quien las tiene.
+
+Nuevas, en `creta.drl`:
+
+- **C01**: un héroe con el hilo y un arma entra en el laberinto.
+- **C02**: un héroe con arma mata a la criatura que está con él en el laberinto.
+- **C03**: el héroe sale siguiendo el hilo después de matarla.
+- **C04**: Minos se enoja con Dédalo cuando alguien ha entrado, matado al Minotauro y salido.
+- **C05**: Minos encierra en el laberinto a quien le enoja.
+- **C06**: Minos encierra también a sus hijos.
+- **C07**: quien está encerrado encuentra la cera y las plumas.
+- **C08**: Dédalo fabrica sus alas.
+- **C09**: Dédalo fabrica las alas de su hijo.
+- **C10**: quien está encerrado y tiene Vuelo escapa.
+- **C11**: el hijo que escapa volando con su padre muere y sus alas se rompen.
 
 ## Decisiones que hemos tomado
 
-- Ariadna da el hilo por su favor, con la misma regla que usan los dioses con Perseo. Por eso Favor y Enojo valen para cualquier personaje (ver DISENO_CRETA.md).
-- El enojo de Minos es el mismo Enojo de Poseidón. Cualquiera que enoje a Minos acaba en el laberinto junto a sus hijos, no solo Dédalo.
-- La cera y las plumas las encuentra quien está encerrado en el laberinto.
-- Las alas las fabrica Dédalo. La ontología no dice quién sabe hacerlas y el enunciado pide no ampliarla, así que la regla lo nombra.
-- Para escapar basta con estar encerrado y tener Vuelo, venga de donde venga.
+- Favor y Enojo valen para cualquier personaje, no solo para dioses. Así Ariadna da el hilo con la regla de siempre y el enfado de Minos es un Enojo normal. Además el enunciado pide no añadir casi nada a la ontología (ver DISENO_CRETA.md).
+- El favor de Ariadna va en el escenario y no en la ontología. Si estuviera en la ontología, Ariadna daría el hilo a Teseo en todas las historias, también en las de Perseo.
+- Las reglas son generales siempre que se puede: C01, C02 y C03 valen para cualquier héroe con el hilo, y C05 y C06 para cualquiera que enoje a Minos.
+- Solo nombramos a Minos y a Dédalo donde la ontología no da otra forma de saberlo (quién construyó el laberinto, quién sabe hacer alas).
 - No podemos representar el sol, así que Ícaro muere por ser el hijo que escapa volando con su padre.
-- Las alas de Ícaro quedan rotas y sin recoger. Así otro héroe puede encontrarlas y arreglarlas con cera y plumas (lo usaremos en F2-4).
+- Al escapar se guarda que la persona "se ha liberado". Así Minos no la vuelve a encerrar; sin esto había un bucle infinito.
+- Las alas de Ícaro quedan rotas y sin recoger. Así otro héroe puede encontrarlas y arreglarlas con cera y plumas (lo usaremos en F2-4). Por eso la cera y las plumas no se gastan al fabricar.
+- La regla de capacidades (R09) ahora solo reacciona a si el personaje está vivo o muerto. Antes, al escapar (pasar de preso a libre), el Vuelo aparecía dos veces en la historia.
 
-## Estado
+## Pruebas
 
-La historia completa funciona (reglas C01 a C11 en `creta.drl`). El escenario es `escenarios/EscenarioF2-2.txt` y la respuesta `soluciones/RespuestaF2_2.txt`.
+Las pruebas automáticas de Creta están en `ReglasCretaTeseoTest`, `ReglasCretaDedaloTest` y `ReglasCretaHuidaTest`. Comprueban el final que pide el enunciado, que los pasos salen en orden y que sin el favor de Ariadna no pasa nada de Creta. La historia de Perseo sigue funcionando igual.
