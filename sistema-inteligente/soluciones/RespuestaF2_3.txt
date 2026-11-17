@@ -5,25 +5,25 @@ Condiciones:
   Teseo tiene el favor de Hades
   Teseo tiene el favor de Hefesto
 Si, Teseo puede liberar a Andromeda debido a que:
+  Teseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
   Teseo obtiene CascoHades debido a tener el favor de Hades.
+  Teseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Teseo obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
+  Teseo devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
+  Teseo localiza a las Ninfas debido a intercambio de DienteGrayas con las Grayas.
+  Teseo obtiene ZurronMagico debido a las Ninfas localizadas.
+  Teseo obtiene SandaliasAladas debido a las Ninfas localizadas.
+  Teseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
   Teseo obtiene HozAcero debido a tener el favor de Hermes.
   Teseo obtiene EscudoBronce debido a tener el favor de Atenea.
   Teseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Teseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
   Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
   Andromeda queda presa debido a estar Ceto libre.
-  Teseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
-  Teseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
-  Teseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
-  Teseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
-  Teseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.
-  Teseo localiza a las Ninfas debido a intercambio de OjoGrayas con las Grayas.
-  Teseo obtiene SandaliasAladas debido a las Ninfas localizadas.
-  Teseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
-  Teseo obtiene ZurronMagico debido a las Ninfas localizadas.
-  Teseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
+  Teseo mata a Medusa debido a tener EspadaTeseo, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
   Teseo obtiene CabezaMedusa debido a matar a Medusa.
   Teseo no muere al obtener CabezaMedusa por tener ZurronMagico.
   Teseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
   Teseo mata a Ceto debido a tener CabezaMedusa.
-  Teseo libera a Andromeda debido a matar a Ceto.
   Teseo obtiene CabezaCeto debido a matar a Ceto.
+  Teseo libera a Andromeda debido a matar a Ceto.

@@ -114,6 +114,22 @@ then
         .regla(drools.getRule().getName()));
 end
 
+rule "C05b El Minotauro apresa a los prisioneros de Minos que no tienen el hilo"
+when
+    $mino : Personaje(id == "Minotauro", estadoVital == EstadoVital.VIVO)
+    $h    : Personaje(estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $h, lugar.id == "LaberintoCreta")
+            not Posesion(poseedor == $h, objeto.id == "HiloAriadna")
+    $cau  : Cautiverio(captor.id == "Minos", preso == $h)
+then
+    delete($cau);
+    insert(new Cautiverio($mino, $h));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.APRESAR, $mino).destinatario($h)
+        .descripcion($mino.getNombre() + " apresa a " + $h.getNombre() + " por estar en el laberinto sin el Hilo de Ariadna")
+        .justificacion("estar en el laberinto sin el hilo")
+        .regla(drools.getRule().getName()));
+end
+
 rule "C06 Minos encierra tambien a los hijos de quien le enoja"
     salience 9
 when
