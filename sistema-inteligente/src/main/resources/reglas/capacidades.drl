@@ -33,7 +33,7 @@ global dsi.mitologia.eventos.RegistroEventos registro
 rule "R09-R12 Capacidad proporcionada por un objeto poseido"
 when
     Posesion($p : poseedor, $o : objeto)
-    Personaje(this == $p, dios == false, criatura == false, estadoVital == EstadoVital.VIVO)
+    Personaje(this == $p, dios == false, criatura == false, estadoVital == EstadoVital.VIVO) @watch(!*, estadoVital)
     ProporcionaCapacidad(objeto == $o, $c : capacidad)
 then
     insertLogical(CapacidadDisponible.deObjeto($p, $c, $o));

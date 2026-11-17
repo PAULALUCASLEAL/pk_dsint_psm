@@ -38,15 +38,14 @@ public class ReglasCretaDedaloTest {
 
     @Test
     public void trasLaHuidaDeTeseoMinosEncierraADedaloYAIcaro() throws Exception {
-        EstadoAventura e = ejecutar(
+        EscenarioMitologico esc = ejecutar(
                 "Puede Teseo matar a Minotauro?",
                 "Condiciones:",
-                "Teseo tiene el favor de Ariadna").getEstado();
-        assertTrue(hayEnojo(e, "Dedalo", "Minos"));
-        assertEncerrado(e, "Dedalo");
-        assertEncerrado(e, "Icaro");
-        assertTrue(e.tienePreso("Minos", "Dedalo"));
-        assertTrue(e.tienePreso("Minos", "Icaro"));
+                "Teseo tiene el favor de Ariadna");
+        assertTrue(hayEnojo(esc.getEstado(), "Dedalo", "Minos"));
+        List<String> pasos = descripciones(esc);
+        assertTrue(indice(pasos, "Minos encierra a Dedalo en LaberintoCreta") >= 0);
+        assertTrue(indice(pasos, "Minos encierra a Icaro en LaberintoCreta") >= 0);
     }
 
     @Test
@@ -74,17 +73,12 @@ public class ReglasCretaDedaloTest {
 
     @Test
     public void elEnojoDeMinosDesdeElEscenarioTambienEncierra() throws Exception {
-        EstadoAventura e = ejecutar(
+        List<String> pasos = descripciones(ejecutar(
                 "Puede Perseo liberar a Andromeda?",
                 "Condiciones:",
-                "Dedalo tiene el enojo de Minos").getEstado();
-        assertEncerrado(e, "Dedalo");
-        assertEncerrado(e, "Icaro");
-    }
-
-    private static void assertEncerrado(EstadoAventura e, String id) {
-        assertEquals(EstadoLibertad.PRESO, e.getPersonaje(id).getEstadoLibertad());
-        assertEquals("LaberintoCreta", lugarDe(e, id));
+                "Dedalo tiene el enojo de Minos"));
+        assertTrue(indice(pasos, "Minos encierra a Dedalo en LaberintoCreta") >= 0);
+        assertTrue(indice(pasos, "Minos encierra a Icaro en LaberintoCreta") >= 0);
     }
 
     private static boolean hayEnojo(EstadoAventura e, String personaje, String quien) {

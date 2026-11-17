@@ -280,17 +280,48 @@ R03-R04-R06 hace que Ariadna le entregue el HiloAriadna.
 - **Ejemplo:** *Minos se enoja con Dedalo debido a que Teseo ha entrado y salido de LaberintoCreta y ha matado a Minotauro.*
 
 ### C05 · Minos encierra en el laberinto a quien le enoja — `creta.drl` · E
-- **Condiciones:** Minos vivo; `Enojo($x, Minos)`; `$x` vivo, libre y en MundoExterior.
-- **Consecuencias:** `$x` pasa a LaberintoCreta y a preso; `insert(Cautiverio(Minos, $x))`; evento `APRESAR`.
+- **Condiciones:** Minos vivo; `Enojo($x, Minos)`; `$x` vivo, libre y en MundoExterior; `$x` no se ha escapado antes (`not Liberacion(liberado == $x)`).
+- **Consecuencias:** `$x` pasa a LaberintoCreta y a preso; `insert(Cautiverio(Minos, $x))`; evento `APRESAR`. salience 10.
 - **Justificacion:** general, como sugiere el enunciado («quien enoje a Minos es enviado al laberinto»). Tambien
   funciona si el enojo viene del escenario («Dedalo tiene el enojo de Minos»).
 - **Ejemplo:** *Minos encierra a Dedalo en LaberintoCreta debido a su enojo con Dedalo.*
 
 ### C06 · Minos encierra tambien a los hijos de quien le enoja — `creta.drl` · E
 - **Condiciones:** Minos vivo; `Enojo($x, Minos)`; `Filiacion($y, $x)`; `$y` vivo, libre y en MundoExterior.
-- **Consecuencias:** como C05 para `$y`. salience -1: primero el padre y despues el hijo.
+- **Consecuencias:** como C05 para `$y`. salience 9: el hijo se encierra justo despues del padre y antes de que nadie pueda escapar.
 - **Justificacion:** general: usa `es_hijo_de` del OWL (Icaro hijo de Dedalo), igual que R02 usa la hija de Casiopea.
 - **Ejemplo:** *Minos encierra a Icaro en LaberintoCreta debido a ser hijo de Dedalo.*
+
+### C07 · Quien esta encerrado en el laberinto encuentra cera y plumas — `creta.drl` · E
+- **Condiciones:** `$x` vivo y preso en LaberintoCreta; CeraAbejas o PlumasAve sin dueño.
+- **Consecuencias:** `insert(Posesion($x, material))`; evento `OBTENER_OBJETO`.
+- **Justificacion:** el enunciado dice que la cera y las plumas «las encuentran en el laberinto».
+
+### C08 y C09 · Dedalo fabrica sus alas y las de su hijo — `creta.drl` · E
+- **Condiciones:** Dedalo vivo en LaberintoCreta; alguien tiene CeraAbejas y PlumasAve; las alas aun no tienen dueño.
+  C09 exige ademas un hijo de Dedalo (`Filiacion`) vivo en el mismo lugar.
+- **Consecuencias:** `insert(Posesion(Dedalo, AlasDedalo))` y `insert(Posesion(hijo, AlasIcaro))`. Las alas dan Vuelo con R09.
+- **Justificacion:** nombran a Dedalo porque la ontologia no dice quien sabe fabricar alas. Los materiales no se gastan,
+  para poder reparar despues las alas rotas.
+
+### C10 · Escapar volando del laberinto — `creta.drl` · E
+- **Condiciones:** `$x` vivo y preso en LaberintoCreta, con Vuelo de cualquier fuente; `Cautiverio(_, $x)`.
+- **Consecuencias:** `delete(Cautiverio)`; `$x` libre y en MundoExterior; `insert(Liberacion($x, $x))`; evento `SALIR`.
+- **Justificacion:** general: sirve cualquier fuente de Vuelo. La `Liberacion($x, $x)` («se libera a si mismo») deja
+  constancia de la huida, y C05/C06 la usan para que Minos no vuelva a encerrar a quien ya escapo (sin ella habia un bucle).
+
+### C11 · El hijo muere al escapar volando y sus alas se rompen — `creta.drl` · E
+- **Condiciones:** `Enojo($p, Minos)`; `Filiacion($y, $p)`; padre e hijo vivos, libres y en MundoExterior; el hijo
+  tiene Vuelo por unas alas en estado «intacto».
+- **Consecuencias:** el hijo muere; las alas pasan a «roto» y siguen siendo suyas (quedan donde cae); evento `MORIR`. salience -5.
+- **Justificacion:** no podemos representar el sol, asi que muere el hijo que escapa volando con su padre.
+  Las alas rotas quedan para que otro heroe pueda recogerlas y repararlas (F2-4).
+- **Ejemplo:** *Icaro muere al escapar volando y AlasIcaro quedan rotas donde cae.*
+
+### Cambio en R09-R12 (`capacidades.drl`)
+- Se añade `@watch(!*, estadoVital)` al patron `Personaje`. Antes, cualquier cambio del personaje (por ejemplo pasar
+  de preso a libre al escapar) volvia a disparar la regla y la capacidad salia dos veces en la historia. Ahora solo
+  reacciona a si esta vivo o muerto, que es lo que importa para tener la capacidad.
 
 ## 5. Reglas del catalogo que no son una regla DRL propia
 

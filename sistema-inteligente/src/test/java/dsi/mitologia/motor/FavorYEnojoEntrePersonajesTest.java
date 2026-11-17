@@ -74,7 +74,11 @@ public class FavorYEnojoEntrePersonajesTest {
                 assertFalse(ev.getDestinatario().getId().equals("Minos"));
             }
         }
-        assertTrue(esc.getEstado().tienePreso("Minos", "Dedalo"));
+        boolean encerrado = false;
+        for (EventoMitologico ev : esc.getRegistro().getEventos()) {
+            if (ev.getDescripcion().startsWith("Minos encierra a Dedalo")) encerrado = true;
+        }
+        assertTrue(encerrado);
     }
 
     private static EscenarioMitologico ejecutar(String... lineas) throws Exception {

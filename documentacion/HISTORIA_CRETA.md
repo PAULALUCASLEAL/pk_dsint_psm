@@ -42,4 +42,4 @@ Con esa condición basta, el resto se encadena solo.
 
 ## Estado
 
-Los pasos 1 a 6 ya funcionan (reglas C01 a C06 en `creta.drl`). Faltan los pasos 7 a 9.
+La historia completa funciona (reglas C01 a C11 en `creta.drl`). El escenario es `escenarios/EscenarioF2-2.txt` y la respuesta `soluciones/RespuestaF2_2.txt`.

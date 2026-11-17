@@ -9,6 +9,10 @@ import dsi.mitologia.hechos.Muerte
 import dsi.mitologia.hechos.Enojo
 import dsi.mitologia.hechos.Cautiverio
 import dsi.mitologia.hechos.Filiacion
+import dsi.mitologia.hechos.Liberacion
+import dsi.mitologia.hechos.CapacidadDisponible
+import dsi.mitologia.hechos.EstadoFisicoObjeto
+import dsi.mitologia.modelo.Capacidad
 import dsi.mitologia.eventos.EventoMitologico
 import dsi.mitologia.eventos.TipoAccion
 import dsi.mitologia.modelo.enums.EstadoVital
@@ -91,11 +95,13 @@ then
 end
 
 rule "C05 Minos encierra en el laberinto a quien le enoja"
+    salience 10
 when
     $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
              Enojo($x : personaje, dios == $minos)
     $xP    : Personaje(this == $x, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
     $u     : Ubicacion(personaje == $x, lugar.id == "MundoExterior")
+             not Liberacion(liberado == $x)
     $lab   : Lugar(id == "LaberintoCreta")
 then
     modify($u) { setLugar($lab) }
@@ -109,13 +115,14 @@ then
 end
 
 rule "C06 Minos encierra tambien a los hijos de quien le enoja"
-    salience -1
+    salience 9
 when
     $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
              Enojo($x : personaje, dios == $minos)
              Filiacion($y : hijo, progenitor == $x)
     $yP    : Personaje(this == $y, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
     $u     : Ubicacion(personaje == $y, lugar.id == "MundoExterior")
+             not Liberacion(liberado == $y)
     $lab   : Lugar(id == "LaberintoCreta")
 then
     modify($u) { setLugar($lab) }
@@ -125,5 +132,103 @@ then
         .descripcion($minos.getNombre() + " encierra a " + $y.getNombre() + " en " + $lab.getNombre()
             + " debido a ser hijo de " + $x.getNombre())
         .justificacion("ser hijo de " + $x.getNombre() + ", que ha enojado a " + $minos.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C07 Quien esta encerrado en el laberinto encuentra cera y plumas"
+when
+    $x   : Personaje(estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.PRESO)
+           Ubicacion(personaje == $x, $lab : lugar, lugar.id == "LaberintoCreta")
+    $o   : Objeto(id == "CeraAbejas" || id == "PlumasAve")
+           not Posesion(objeto == $o)
+then
+    insert(new Posesion($x, $o));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $x).objeto($o)
+        .descripcion($x.getNombre() + " encuentra " + $o.getNombre() + " en " + $lab.getNombre())
+        .justificacion("estar encerrado en " + $lab.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C08 Dedalo fabrica sus alas con cera y plumas"
+when
+    $d    : Personaje(id == "Dedalo", estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $d, lugar.id == "LaberintoCreta")
+    $cera : Objeto(id == "CeraAbejas")
+    $plum : Objeto(id == "PlumasAve")
+            Posesion(objeto == $cera)
+            Posesion(objeto == $plum)
+    $alas : Objeto(id == "AlasDedalo")
+            not Posesion(objeto == $alas)
+then
+    insert(new Posesion($d, $alas));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.OBTENER_OBJETO, $d).objeto($alas)
+        .descripcion($d.getNombre() + " fabrica " + $alas.getNombre() + " debido a tener " + $cera.getNombre()
+            + " y " + $plum.getNombre())
+        .justificacion("tener " + $cera.getNombre() + " y " + $plum.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C09 Dedalo fabrica las alas de su hijo encerrado con el"
+when
+    $d    : Personaje(id == "Dedalo", estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $d, $lab : lugar, lugar.id == "LaberintoCreta")
+            Filiacion($y : hijo, progenitor == $d)
+    $yP   : Personaje(this == $y, estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $y, lugar == $lab)
+    $cera : Objeto(id == "CeraAbejas")
+    $plum : Objeto(id == "PlumasAve")
+            Posesion(objeto == $cera)
+            Posesion(objeto == $plum)
+    $alas : Objeto(id == "AlasIcaro")
+            not Posesion(objeto == $alas)
+then
+    insert(new Posesion($y, $alas));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.ENTREGAR_OBJETO, $d).destinatario($y).objeto($alas)
+        .descripcion($d.getNombre() + " fabrica " + $alas.getNombre() + " para " + $y.getNombre()
+            + " debido a tener " + $cera.getNombre() + " y " + $plum.getNombre())
+        .justificacion("tener " + $cera.getNombre() + " y " + $plum.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C10 Escapar volando del laberinto"
+when
+    $x   : Personaje(estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.PRESO)
+    $u   : Ubicacion(personaje == $x, $lab : lugar, lugar.id == "LaberintoCreta")
+    $vue : Capacidad(id == "Vuelo")
+    $cv  : CapacidadDisponible(personaje == $x, capacidad == $vue)
+    $cau : Cautiverio(preso == $x)
+    $ext : Lugar(id == "MundoExterior")
+then
+    delete($cau);
+    modify($x) { setEstadoLibertad(EstadoLibertad.LIBRE) }
+    modify($u) { setLugar($ext) }
+    insert(new Liberacion($x, $x));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.SALIR, $x).destinatario($lab)
+        .descripcion($x.getNombre() + " escapa volando de " + $lab.getNombre() + " debido a tener Vuelo ("
+            + $cv.getNombreFuente() + ")")
+        .justificacion("tener Vuelo (" + $cv.getNombreFuente() + ")")
+        .regla(drools.getRule().getName()));
+end
+
+rule "C11 El hijo muere al escapar volando y sus alas se rompen"
+    salience -5
+when
+    $minos : Personaje(id == "Minos")
+             Enojo($p : personaje, dios == $minos)
+             Filiacion($y : hijo, progenitor == $p)
+    $yP    : Personaje(this == $y, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+             Ubicacion(personaje == $y, lugar.id == "MundoExterior")
+             Personaje(this == $p, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+             Ubicacion(personaje == $p, lugar.id == "MundoExterior")
+    $vue   : Capacidad(id == "Vuelo")
+             CapacidadDisponible(personaje == $y, capacidad == $vue, $alas : fuente)
+    $ef    : EstadoFisicoObjeto(objeto == $alas, condicion == "intacto")
+then
+    modify($yP) { setEstadoVital(EstadoVital.MUERTO) }
+    modify($ef) { setCondicion("roto") }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MORIR, $y).objeto($ef.getObjeto())
+        .descripcion($y.getNombre() + " muere al escapar volando y " + $ef.getObjeto().getNombre()
+            + " quedan rotas donde cae")
+        .justificacion("volar demasiado alto al escapar con " + $p.getNombre())
         .regla(drools.getRule().getName()));
 end
