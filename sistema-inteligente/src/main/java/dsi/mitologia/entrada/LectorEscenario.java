@@ -16,8 +16,9 @@ import dsi.mitologia.escenario.TipoObjetivo;
 
 public class LectorEscenario {
 
-	private static final Pattern PREGUNTA = Pattern.compile(
-	        "^Puede (.+?) (liberar|matar) a (.+?)\\?$");
+    // PATRÓN ACTUALIZADO: Admite '¿' opcional y los nuevos verbos de la Fase 2
+    private static final Pattern PREGUNTA = Pattern.compile(
+            "^(?i)\\¿?Puede (.+?) (liberar a|matar a|Obtener|tener la capacidad de) (.+?)\\?$");
 
     private static final Pattern FAVOR = Pattern.compile(
             "^(.+?) tiene el favor de (.+)$");
@@ -43,7 +44,6 @@ public class LectorEscenario {
         for (int i = 0; i < lineas.size(); i++) {
             String linea = lineas.get(i).trim();
 
-            // Algunos editores añaden esta marca al principio del archivo.
             if (i == 0 && linea.startsWith("\uFEFF")) {
                 linea = linea.substring(1).trim();
             }
@@ -58,29 +58,38 @@ public class LectorEscenario {
 
                     if (!pregunta.matches()) {
                         throw new IllegalArgumentException(
-                        		"La pregunta debe tener la forma: "
-                        		+ "Puede <personaje> liberar a <personaje>? "
-                        		+ "o Puede <personaje> matar a <personaje>?");
+                                "Formato de pregunta inválido. Use: ¿Puede <personaje> liberar a/matar a/Obtener/tener la capacidad de <destino>?");
                     }
 
                     String protagonista = pregunta.group(1).trim();
                     String accion = pregunta.group(2).trim();
                     String destino = pregunta.group(3).trim();
 
-                    dominio.getPersonaje(protagonista);
-                    dominio.getPersonaje(destino);
-
                     TipoObjetivo tipo;
-
-                    if (accion.equals("matar")) {
-                        tipo = TipoObjetivo.MATAR;
-                    } else {
-                        tipo = TipoObjetivo.LIBERAR;
+                    
+                    // NUEVO BLOQUE SWITCH PARA MANEJAR TODOS LOS OBJETIVOS
+                    switch (accion) {
+                        case "matar a":
+                            tipo = TipoObjetivo.MATAR;
+                            dominio.getPersonaje(destino);
+                            break;
+                        case "liberar a":
+                            tipo = TipoObjetivo.LIBERAR;
+                            dominio.getPersonaje(destino);
+                            break;
+                        case "Obtener":
+                            tipo = TipoObjetivo.OBTENER_OBJETO;
+                            dominio.getObjeto(destino);
+                            break;
+                        case "tener la capacidad de":
+                            tipo = TipoObjetivo.OBTENER_CAPACIDAD;
+                            dominio.getCapacidad(destino);
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Acción no reconocida: " + accion);
                     }
 
-                    Objetivo objetivo = new Objetivo(
-                            tipo, protagonista, destino);
-
+                    Objetivo objetivo = new Objetivo(tipo, protagonista, destino);
 
                     String id = archivo.getName()
                             .replaceFirst("^Escenario", "")
@@ -94,7 +103,6 @@ public class LectorEscenario {
                         throw new IllegalArgumentException(
                                 "Se esperaba la cabecera Condiciones:");
                     }
-
                     cabeceraEncontrada = true;
 
                 } else {
@@ -125,38 +133,29 @@ public class LectorEscenario {
             String linea, PreparadorEscenario preparador) {
 
         Matcher matcher = FAVOR.matcher(linea);
-
         if (matcher.matches()) {
-            preparador.favor(
-                    matcher.group(1).trim(), matcher.group(2).trim());
+            preparador.favor(matcher.group(1).trim(), matcher.group(2).trim());
             return;
         }
 
         matcher = ENOJO.matcher(linea);
-
         if (matcher.matches()) {
-            preparador.enojo(
-                    matcher.group(1).trim(), matcher.group(2).trim());
+            preparador.enojo(matcher.group(1).trim(), matcher.group(2).trim());
             return;
         }
 
         matcher = NO_TIENE.matcher(linea);
-
         if (matcher.matches()) {
-            preparador.noTiene(
-                    matcher.group(1).trim(), matcher.group(2).trim());
+            preparador.noTiene(matcher.group(1).trim(), matcher.group(2).trim());
             return;
         }
 
         matcher = TIENE.matcher(linea);
-
         if (matcher.matches()) {
-            preparador.tiene(
-                    matcher.group(1).trim(), matcher.group(2).trim());
+            preparador.tiene(matcher.group(1).trim(), matcher.group(2).trim());
             return;
         }
 
-        throw new IllegalArgumentException(
-                "Condicion no reconocida: " + linea);
+        throw new IllegalArgumentException("Condicion no reconocida: " + linea);
     }
 }
