@@ -271,6 +271,27 @@ R03-R04-R06 hace que Ariadna le entregue el HiloAriadna.
 - **Consecuencias:** `modify(Ubicacion)` de `$h` a MundoExterior; evento `SALIR`. salience -20: sale despues de recoger los trofeos.
 - **Ejemplo:** *Teseo sale de LaberintoCreta debido a seguir HiloAriadna tras matar a Minotauro.*
 
+### C04 · Minos se enoja con Dedalo cuando alguien entra y sale del laberinto — `creta.drl` · E
+- **Condiciones:** Minos y Dedalo vivos; `Muerte($h, $m)` con `$m` en LaberintoCreta y `$h` ya en MundoExterior; aun no hay `Enojo(Dedalo, Minos)`.
+- **Consecuencias:** `insert(Enojo(Dedalo, Minos))`; evento `PROVOCAR_ENOJO`.
+- **Justificacion:** el resumen del enunciado dice que la muerte del Minotauro enoja a Minos con Dedalo porque
+  alguien ha entrado y salido del laberinto. Nombra a Minos y Dedalo porque la ontologia no dice quien
+  construyo el laberinto, y el enunciado pide no ampliarla. Se reutiliza `Enojo` (ver DISENO_CRETA).
+- **Ejemplo:** *Minos se enoja con Dedalo debido a que Teseo ha entrado y salido de LaberintoCreta y ha matado a Minotauro.*
+
+### C05 · Minos encierra en el laberinto a quien le enoja — `creta.drl` · E
+- **Condiciones:** Minos vivo; `Enojo($x, Minos)`; `$x` vivo, libre y en MundoExterior.
+- **Consecuencias:** `$x` pasa a LaberintoCreta y a preso; `insert(Cautiverio(Minos, $x))`; evento `APRESAR`.
+- **Justificacion:** general, como sugiere el enunciado («quien enoje a Minos es enviado al laberinto»). Tambien
+  funciona si el enojo viene del escenario («Dedalo tiene el enojo de Minos»).
+- **Ejemplo:** *Minos encierra a Dedalo en LaberintoCreta debido a su enojo con Dedalo.*
+
+### C06 · Minos encierra tambien a los hijos de quien le enoja — `creta.drl` · E
+- **Condiciones:** Minos vivo; `Enojo($x, Minos)`; `Filiacion($y, $x)`; `$y` vivo, libre y en MundoExterior.
+- **Consecuencias:** como C05 para `$y`. salience -1: primero el padre y despues el hijo.
+- **Justificacion:** general: usa `es_hijo_de` del OWL (Icaro hijo de Dedalo), igual que R02 usa la hija de Casiopea.
+- **Ejemplo:** *Minos encierra a Icaro en LaberintoCreta debido a ser hijo de Dedalo.*
+
 ## 5. Reglas del catalogo que no son una regla DRL propia
 
 | Id | Donde se implementa |

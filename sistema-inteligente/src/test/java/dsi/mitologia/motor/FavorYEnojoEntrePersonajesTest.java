@@ -1,6 +1,5 @@
 package dsi.mitologia.motor;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -20,7 +19,6 @@ import dsi.mitologia.escenario.EscenarioMitologico;
 import dsi.mitologia.escenario.PreparadorEscenario;
 import dsi.mitologia.eventos.EventoMitologico;
 import dsi.mitologia.eventos.TipoAccion;
-import dsi.mitologia.modelo.enums.EstadoLibertad;
 
 public class FavorYEnojoEntrePersonajesTest {
 
@@ -76,7 +74,7 @@ public class FavorYEnojoEntrePersonajesTest {
                 assertFalse(ev.getDestinatario().getId().equals("Minos"));
             }
         }
-        assertEquals(EstadoLibertad.LIBRE, esc.getEstado().getPersonaje("Dedalo").getEstadoLibertad());
+        assertTrue(esc.getEstado().tienePreso("Minos", "Dedalo"));
     }
 
     private static EscenarioMitologico ejecutar(String... lineas) throws Exception {

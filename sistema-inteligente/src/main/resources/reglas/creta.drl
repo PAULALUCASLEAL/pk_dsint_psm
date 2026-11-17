@@ -6,6 +6,9 @@ import dsi.mitologia.modelo.Lugar
 import dsi.mitologia.hechos.Posesion
 import dsi.mitologia.hechos.Ubicacion
 import dsi.mitologia.hechos.Muerte
+import dsi.mitologia.hechos.Enojo
+import dsi.mitologia.hechos.Cautiverio
+import dsi.mitologia.hechos.Filiacion
 import dsi.mitologia.eventos.EventoMitologico
 import dsi.mitologia.eventos.TipoAccion
 import dsi.mitologia.modelo.enums.EstadoVital
@@ -67,5 +70,60 @@ then
         .descripcion($h.getNombre() + " sale de " + $lab.getNombre() + " debido a seguir " + $hilo.getNombre()
             + " tras matar a " + $v.getNombre())
         .justificacion("tener " + $hilo.getNombre() + " y haber matado a " + $v.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C04 Minos se enoja con Dedalo cuando alguien entra y sale del laberinto"
+when
+    $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
+    $ded   : Personaje(id == "Dedalo", estadoVital == EstadoVital.VIVO)
+             Muerte($h : asesino, $m : victima)
+             Ubicacion(personaje == $m, $lab : lugar, lugar.id == "LaberintoCreta")
+             Ubicacion(personaje == $h, lugar.id == "MundoExterior")
+             not Enojo(personaje == $ded, dios == $minos)
+then
+    insert(new Enojo($ded, $minos));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.PROVOCAR_ENOJO, $minos).destinatario($ded)
+        .descripcion($minos.getNombre() + " se enoja con " + $ded.getNombre() + " debido a que " + $h.getNombre()
+            + " ha entrado y salido de " + $lab.getNombre() + " y ha matado a " + $m.getNombre())
+        .justificacion($h.getNombre() + " ha entrado y salido de " + $lab.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C05 Minos encierra en el laberinto a quien le enoja"
+when
+    $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
+             Enojo($x : personaje, dios == $minos)
+    $xP    : Personaje(this == $x, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $u     : Ubicacion(personaje == $x, lugar.id == "MundoExterior")
+    $lab   : Lugar(id == "LaberintoCreta")
+then
+    modify($u) { setLugar($lab) }
+    modify($xP) { setEstadoLibertad(EstadoLibertad.PRESO) }
+    insert(new Cautiverio($minos, $x));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.APRESAR, $minos).destinatario($x)
+        .descripcion($minos.getNombre() + " encierra a " + $x.getNombre() + " en " + $lab.getNombre()
+            + " debido a su enojo con " + $x.getNombre())
+        .justificacion("el enojo de " + $minos.getNombre() + " con " + $x.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C06 Minos encierra tambien a los hijos de quien le enoja"
+    salience -1
+when
+    $minos : Personaje(id == "Minos", estadoVital == EstadoVital.VIVO)
+             Enojo($x : personaje, dios == $minos)
+             Filiacion($y : hijo, progenitor == $x)
+    $yP    : Personaje(this == $y, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $u     : Ubicacion(personaje == $y, lugar.id == "MundoExterior")
+    $lab   : Lugar(id == "LaberintoCreta")
+then
+    modify($u) { setLugar($lab) }
+    modify($yP) { setEstadoLibertad(EstadoLibertad.PRESO) }
+    insert(new Cautiverio($minos, $y));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.APRESAR, $minos).destinatario($y)
+        .descripcion($minos.getNombre() + " encierra a " + $y.getNombre() + " en " + $lab.getNombre()
+            + " debido a ser hijo de " + $x.getNombre())
+        .justificacion("ser hijo de " + $x.getNombre() + ", que ha enojado a " + $minos.getNombre())
         .regla(drools.getRule().getName()));
 end
