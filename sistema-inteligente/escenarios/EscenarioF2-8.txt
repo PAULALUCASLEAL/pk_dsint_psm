@@ -1,0 +1,13 @@
+Puede Heracles tener la capacidad de Vuelo?
+Condiciones:
+Dedalo tiene el enojo de Minos
+Casiopea tiene el enojo de Poseidon
+Teseo tiene el favor de Ariadna
+Perseo tiene el favor de Atenea
+Perseo tiene el favor de Hermes
+Perseo tiene el favor de Hades
+Perseo tiene el favor de Hefesto
+Perseo tiene el favor de Dedalo
+Heracles tiene EspadaIndestructible
+Heracles tiene el favor de Poseidon
+Ninfas no tiene SandaliasAladas

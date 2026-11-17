@@ -173,19 +173,23 @@ public class Principal {
         String accion;
 
         switch (objetivo.getTipo()) {
-            case MATAR:
-                accion = "matar a ";
-                break;
-
-            case LIBERAR:
-                accion = "liberar a ";
-                break;
-
-            default:
-                throw new IllegalArgumentException(
-                        "Respuesta no implementada para: "
-                        + objetivo.getTipo());
-        }
+        case MATAR:
+            accion = "matar a ";
+            break;
+        case LIBERAR:
+            accion = "liberar a ";
+            break;
+        case OBTENER_OBJETO:
+            accion = "obtener ";
+            break;
+        case OBTENER_CAPACIDAD:
+            accion = "tener la capacidad de ";
+            break;
+        default:
+            throw new IllegalArgumentException(
+                    "Respuesta no implementada para: "
+                    + objetivo.getTipo());
+    }
 
         if (esc.getResultado() == ResultadoMision.CONSEGUIDO) {
             sb.append("Si, ")
