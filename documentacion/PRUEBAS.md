@@ -10,7 +10,7 @@ Comprobar que el sistema no consigue el rescate cuando falta
 una capacidad necesaria y no existe una alternativa.
 
 Entrada:
-escenarios/EscenarioF1-1.txt, eliminando únicamente la condición
+escenarios/EscenarioF2-1.txt, eliminando únicamente la condición
 "Perseo tiene el favor de Hades". (Cuando se hizo la prueba el fichero
 se llamaba EscenarioF2-1.txt; por eso la salida pone "Escenario F2-1".)
 
@@ -108,7 +108,7 @@ Comprobar que el lector reconoce preguntas de matar y
 que la respuesta utiliza el verbo correspondiente.
 
 Entrada:
-Se utiliza EscenarioF1-1.txt con sus condiciones originales,
+Se utiliza EscenarioF2-1.txt (antes EscenarioF1-1.txt) con sus condiciones originales,
 cambiando temporalmente la pregunta por:
 Puede Perseo matar a Medusa?
 

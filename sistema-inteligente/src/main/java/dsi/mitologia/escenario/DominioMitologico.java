@@ -277,6 +277,10 @@ public class DominioMitologico {
         return lugares.get(id);
     }
 
+    public Collection<Lugar> getLugares() {
+        return Collections.unmodifiableCollection(lugares.values());
+    }
+
     public List<Ubicacion> getUbicacionesIniciales() {
         return Collections.unmodifiableList(ubicacionesIniciales);
     }

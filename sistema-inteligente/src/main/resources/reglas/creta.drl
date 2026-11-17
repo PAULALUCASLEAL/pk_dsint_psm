@@ -1,0 +1,71 @@
+package reglas
+
+import dsi.mitologia.modelo.Personaje
+import dsi.mitologia.modelo.Objeto
+import dsi.mitologia.modelo.Lugar
+import dsi.mitologia.hechos.Posesion
+import dsi.mitologia.hechos.Ubicacion
+import dsi.mitologia.hechos.Muerte
+import dsi.mitologia.eventos.EventoMitologico
+import dsi.mitologia.eventos.TipoAccion
+import dsi.mitologia.modelo.enums.EstadoVital
+import dsi.mitologia.modelo.enums.EstadoLibertad
+
+global dsi.mitologia.eventos.RegistroEventos registro
+
+rule "C01 Entrar en el laberinto con el hilo de Ariadna y un arma"
+when
+    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $u    : Ubicacion(personaje == $h, lugar.id == "MundoExterior")
+    $hilo : Objeto(id == "HiloAriadna")
+            Posesion(poseedor == $h, objeto == $hilo)
+            Posesion(poseedor == $h, $arma : objeto)
+            Objeto(this == $arma, arma)
+    $m    : Personaje(criatura, estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $m, $lab : lugar, lugar.id == "LaberintoCreta")
+then
+    modify($u) { setLugar($lab) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.ENTRAR, $h).destinatario($lab).objeto($hilo)
+        .descripcion($h.getNombre() + " entra en " + $lab.getNombre() + " debido a tener " + $hilo.getNombre()
+            + " y " + $arma.getNombre() + " para enfrentarse a " + $m.getNombre())
+        .justificacion("tener " + $hilo.getNombre() + " y " + $arma.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C02 Matar con un arma a la criatura del laberinto"
+    salience -10
+when
+    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+            Ubicacion(personaje == $h, $lab : lugar, lugar.id == "LaberintoCreta")
+    $m    : Personaje(criatura, estadoVital == EstadoVital.VIVO)
+            Ubicacion(personaje == $m, lugar == $lab)
+            Posesion(poseedor == $h, $arma : objeto)
+            Objeto(this == $arma, arma)
+then
+    modify($m) { setEstadoVital(EstadoVital.MUERTO) }
+    insert(new Muerte($h, $m));
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.MATAR, $h).destinatario($m).objeto($arma)
+        .descripcion($h.getNombre() + " mata a " + $m.getNombre() + " debido a tener " + $arma.getNombre()
+            + " y estar con el en " + $lab.getNombre())
+        .justificacion("tener " + $arma.getNombre() + " y estar en " + $lab.getNombre())
+        .regla(drools.getRule().getName()));
+end
+
+rule "C03 Salir del laberinto siguiendo el hilo de Ariadna"
+    salience -20
+when
+    $h    : Personaje(heroe, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
+    $u    : Ubicacion(personaje == $h, $lab : lugar, lugar.id == "LaberintoCreta")
+    $hilo : Objeto(id == "HiloAriadna")
+            Posesion(poseedor == $h, objeto == $hilo)
+            Muerte(asesino == $h, $v : victima)
+            Ubicacion(personaje == $v, lugar == $lab)
+    $ext  : Lugar(id == "MundoExterior")
+then
+    modify($u) { setLugar($ext) }
+    registro.registrar(EventoMitologico.nuevo(TipoAccion.SALIR, $h).destinatario($lab).objeto($hilo)
+        .descripcion($h.getNombre() + " sale de " + $lab.getNombre() + " debido a seguir " + $hilo.getNombre()
+            + " tras matar a " + $v.getNombre())
+        .justificacion("tener " + $hilo.getNombre() + " y haber matado a " + $v.getNombre())
+        .regla(drools.getRule().getName()));
+end

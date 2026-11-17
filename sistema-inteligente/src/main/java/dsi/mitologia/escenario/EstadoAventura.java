@@ -645,6 +645,7 @@ public class EstadoAventura {
         hechos.addAll(dominio.getObjetos());
         hechos.addAll(dominio.getCapacidades());
         hechos.addAll(dominio.getProporciona());
+        hechos.addAll(dominio.getLugares());
         hechos.addAll(filiaciones);
         hechos.addAll(posesiones);
         hechos.addAll(capacidades);

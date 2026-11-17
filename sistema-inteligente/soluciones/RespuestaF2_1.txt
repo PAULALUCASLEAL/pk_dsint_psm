@@ -1,4 +1,4 @@
-Escenario F1-1: Puede Perseo liberar a Andromeda?
+Escenario F2-1: Puede Perseo liberar a Andromeda?
 Condiciones:
   Perseo tiene el favor de Atenea
   Perseo tiene el favor de Hermes
@@ -6,14 +6,14 @@ Condiciones:
   Perseo tiene el favor de Hefesto
   Casiopea tiene el enojo de Poseidon
 Si, Perseo puede liberar a Andromeda debido a que:
-  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
-  Andromeda queda presa debido a estar Ceto libre.
   Perseo obtiene CascoHades debido a tener el favor de Hades.
-  Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
   Perseo obtiene HozAcero debido a tener el favor de Hermes.
   Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
   Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
   Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
+  Andromeda queda presa debido a estar Ceto libre.
   Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
   Perseo obtiene (roba) OjoGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
   Perseo devuelve OjoGrayas a las Grayas a cambio de saber donde estan las Ninfas.

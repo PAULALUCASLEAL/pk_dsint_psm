@@ -247,6 +247,30 @@ relato; **T** = decision tecnica del equipo (control, no regla mitologica).
 - **Justificacion:** con la prioridad minima solo se disparan cuando no queda otra accion; como no
   modifican nada, describen el estado final.
 
+### Mito de Creta (fase 2) — `creta.drl`
+
+La ayuda de Ariadna no necesita regla propia: con «Teseo tiene el favor de Ariadna» en el escenario,
+R03-R04-R06 hace que Ariadna le entregue el HiloAriadna.
+
+### C01 · Entrar en el laberinto con el hilo de Ariadna y un arma — `creta.drl` · E
+- **Condiciones:** `$h` heroe vivo y libre en MundoExterior; posee HiloAriadna y un objeto de clase Arma;
+  hay una criatura viva en LaberintoCreta.
+- **Consecuencias:** `modify(Ubicacion)` de `$h` a LaberintoCreta; evento `ENTRAR`.
+- **Justificacion:** el resumen del enunciado dice que Ariadna ayuda a Teseo a entrar y a salir. Se exige
+  arma porque el heroe entra para enfrentarse al Minotauro. Es general: vale para cualquier heroe con el hilo.
+- **Ejemplo:** *Teseo entra en LaberintoCreta debido a tener HiloAriadna y EspadaTeseo para enfrentarse a Minotauro.*
+
+### C02 · Matar con un arma a la criatura del laberinto — `creta.drl` · E
+- **Condiciones:** `$h` heroe vivo y libre en LaberintoCreta; una criatura viva en el mismo lugar; `$h` posee un Arma.
+- **Consecuencias:** criatura muerta; `insert(Muerte($h, criatura))`; evento `MATAR`. salience -10, como el resto de combates.
+- **Justificacion:** R25 ya hace que el vencedor se quede con CabezaMinotauro y CuernoMinotauro.
+- **Ejemplo:** *Teseo mata a Minotauro debido a tener EspadaTeseo y estar con el en LaberintoCreta.*
+
+### C03 · Salir del laberinto siguiendo el hilo de Ariadna — `creta.drl` · E
+- **Condiciones:** `$h` heroe vivo y libre en LaberintoCreta; posee HiloAriadna; ha matado a una criatura de ese lugar.
+- **Consecuencias:** `modify(Ubicacion)` de `$h` a MundoExterior; evento `SALIR`. salience -20: sale despues de recoger los trofeos.
+- **Ejemplo:** *Teseo sale de LaberintoCreta debido a seguir HiloAriadna tras matar a Minotauro.*
+
 ## 5. Reglas del catalogo que no son una regla DRL propia
 
 | Id | Donde se implementa |

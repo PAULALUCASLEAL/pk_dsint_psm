@@ -50,6 +50,8 @@ public enum TipoAccion {
     PROVOCAR_ENOJO,
     /** Cierre de la explicacion: se alcanza la mision preguntada (sin propiedad OWL propia). */
     CUMPLIR_OBJETIVO,
+    ENTRAR,
+    SALIR,
     /** Nota narrativa sin cambio de estado (p. ej. por que una regla no puede aplicarse). */
     INFORMACION
 }
