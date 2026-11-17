@@ -185,7 +185,7 @@ public class ReglasPerseoAndromedaTest {
         // Una regla de cada fichero .drl
         assertTrue(nombres.contains("R00 Mostrar la informacion inicial antes de la historia"));
         assertTrue(nombres.contains("R01 Un dios enojado libera a la criatura que retenia"));
-        assertTrue(nombres.contains("R03-R04-R06 Un dios entrega su objeto a quien tiene su favor"));
+        assertTrue(nombres.contains("R03-R04-R06 Quien da su favor entrega su objeto"));
         assertTrue(nombres.contains("R09-R12 Capacidad proporcionada por un objeto poseido"));
         assertTrue(nombres.contains("R13 Localizar a las Grayas con el favor de Hermes y Atenea"));
         assertTrue(nombres.contains("R23-R24 Matar a Medusa con arma, Reflejo, Invisibilidad y Vuelo"));

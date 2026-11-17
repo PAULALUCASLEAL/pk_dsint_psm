@@ -14,13 +14,13 @@ import dsi.mitologia.modelo.enums.EstadoLibertad
 
 global dsi.mitologia.eventos.RegistroEventos registro
 
-// R03 + R04 + R06 en una sola regla general: un dios vivo entrega lo que posee a quien tiene su favor.
+// R03 + R04 + R06 en una sola regla general: quien da su favor (dios o no) entrega lo que posee.
 // Con el OWL: Atenea -> EscudoBronce, Hermes -> HozAcero, Hades -> CascoHades.
 // La EspadaIndestructible de Hefesto queda fuera: segun el enunciado es una version alternativa
 // (R07, solo con la variante ESPADA_HEFESTO). En la version principal Hefesto pule el escudo (R05).
 // Transferencia coherente (R40): se modifica la unica Posesion del objeto, no se crea otra.
 // No hay bucle: tras el modify la Posesion ya no es del dios y el patron deja de casar.
-rule "R03-R04-R06 Un dios entrega su objeto a quien tiene su favor"
+rule "R03-R04-R06 Quien da su favor entrega su objeto"
 when
     $p   : Personaje(dios == false, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
            Favor(personaje == $p, $d : dios)

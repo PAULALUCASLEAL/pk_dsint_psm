@@ -244,3 +244,33 @@ esta preparado para almacenar sus datos iniciales.
 El proyecto compila, pero esas propiedades nuevas todavia
 no estan conectadas con EstadoAventura y el cargador.
 Las reglas de Creta aun no estan implementadas.
+
+
+
+---------ACTUALIZACION (16/11): CAMBIOS DE MARIA SOBRE LO ANTERIOR-----------------
+
+Algunas cosas de arriba se han sustituido por algo mas general.
+Lo de arriba se deja como historial, pero lo que vale ahora es esto:
+
+-en_laberinto (booleano) y UbicacionLaberinto.java YA NO EXISTEN.
+ Ahora hay una clase Lugar (LaberintoCreta, MundoExterior), la propiedad
+ esta_en_lugar y el hecho Ubicacion(personaje, lugar).
+
+-roto (booleano) y EstadoRoturaObjeto.java YA NO EXISTEN.
+ Ahora hay una propiedad estado_fisico ("intacto" o "roto") y el hecho
+ EstadoFisicoObjeto(objeto, condicion).
+
+-ayuda_a, hostil_con, AyudaHumana y HostilidadHumana YA NO EXISTEN.
+ Duplicaban Favor y Enojo. Ahora Favor y Enojo valen para cualquier personaje
+ (el enunciado pide no añadir casi nada a la ontologia). Ver DISENO_CRETA.md.
+ "Ariadna ayuda a Teseo" se escribe en el escenario: "Teseo tiene el favor de Ariadna".
+ "Minos contra Dedalo" se escribe: "Dedalo tiene el enojo de Minos".
+
+Puntos 1, 2 y 3 del pendiente: HECHOS.
+-Ubicacion y EstadoFisicoObjeto se cargan del OWL, se copian por escenario,
+ se meten en Drools y se recuperan al terminar.
+-Arreglado: sincronizarDesde perdia las Ubicacion al terminar Drools.
+-OWL: el Minotauro empieza en LaberintoCreta y las dos alas empiezan "intacto".
+-Pruebas nuevas: EstadoInicialCretaTest (6) y FavorYEnojoEntrePersonajesTest (3).
+
+Pruebas: 52 en total, pasan todas. Los escenarios F1-1 y F1-2 siguen dando Si.

@@ -22,7 +22,7 @@ global dsi.mitologia.eventos.RegistroEventos registro
 rule "R01 Un dios enojado libera a la criatura que retenia"
 when
     Enojo($m : personaje, $d : dios)
-    Personaje(this == $d, estadoVital == EstadoVital.VIVO)
+    Personaje(this == $d, dios, estadoVital == EstadoVital.VIVO)
     $cau : Cautiverio(captor == $d, $cr : preso)
     $crP : Personaje(this == $cr, criatura, estadoVital == EstadoVital.VIVO,
                      estadoLibertad == EstadoLibertad.PRESO)

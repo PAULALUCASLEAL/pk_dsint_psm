@@ -33,7 +33,7 @@ import dsi.mitologia.modelo.enums.TipoPersonaje;
  *
  * <p>Por que importan: las reglas del mito solo podran hacer insert/modify/delete sobre estos hechos,
  * asi que el modelo debe garantizar por si mismo que el estado es coherente (un objeto tiene un solo
- * dueno, un muerto no actua, el favor solo lo da un Dios, no se libera a quien esta libre). Si una
+ * dueno, un muerto no actua, no se libera a quien esta libre). Si una
  * regla futura intenta un paso imposible, el modelo lo rechaza con excepcion en vez de dejar un estado
  * absurdo. Ninguna de estas operaciones infiere: Java solo aplica cambios que se le piden.</p>
  *
@@ -354,13 +354,12 @@ public class ModeloMitologicoTest {
         assertEquals(ResultadoMision.CONSEGUIDO, e.evaluarResultado());
     }
 
-    /**
-     * Relacion con la ontologia: el rango de tiene_favor es Dios. Medusa (Criatura) no puede dar favor;
-     * detectaria que una condicion inicial mal escrita introdujese un favor imposible.
-     */
-    @Test(expected = IllegalStateException.class)
-    public void elFavorSoloPuedeVenirDeUnDios() {
-        estado.agregarFavor(perseo, estado.getPersonaje("Medusa"));
+    @Test
+    public void unPersonajeQueNoEsDiosPuedeDarFavorYEnojo() {
+        Personaje medusa = estado.getPersonaje("Medusa");
+        assertTrue(estado.agregarFavor(perseo, medusa));
+        assertTrue(estado.tieneFavor(perseo, medusa));
+        assertTrue(estado.agregarEnojo(perseo, medusa));
     }
 
     /** Un personaje muerto no puede ser actor de ningun suceso (aqui, apresar a Andromeda). */

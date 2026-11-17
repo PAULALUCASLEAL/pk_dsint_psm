@@ -1,6 +1,9 @@
 # Guía del proyecto DSINT
 
-Este documento es solo del mito de Perseo y Andrómeda.
+Este documento explica el sistema del mito de Perseo y Andrómeda (fase 1.b), que está terminado.
+La ampliación al mito de Creta (fase 2) está en marcha: el diseño está en `DISENO_CRETA.md`,
+el diario de cambios en `CAMBIOS_CRETA_SERGIO.txt` y las pruebas manuales en `PRUEBAS.md`.
+Aquí solo se resume lo que ya existe de Creta (sección «Lo nuevo de Creta»).
 
 ## Estructura de la carpeta pk\_dsint\_psm
 
@@ -9,15 +12,23 @@ Todo lo importante está en `sistema-inteligente/`, que es un proyecto Maven nor
 ```
 pk_dsint_psm/
 ├── ontologia/
-│   └── mitologia.owl           la ontología (personajes, objetos, capacidades)
+│   ├── mitologia.owl           la ontología (personajes, objetos, capacidades, lugares)
+│   └── mitologia.pprj          proyecto de Protégé 3.4.8 para abrir el OWL
 ├── documentacion/
-│   └── REGLAS_DROOLS.md        documentación técnica de cada regla
+│   ├── GUIA_PROYECTO.md        este documento
+│   ├── REGLAS_DROOLS.md        documentación técnica de cada regla
+│   ├── DISENO_CRETA.md         decisiones de diseño del mito de Creta
+│   ├── CAMBIOS_CRETA_SERGIO.txt diario de cambios de Creta y lista de pendientes
+│   └── PRUEBAS.md              pruebas manuales con su resultado
 └── sistema-inteligente/
     ├── pom.xml                 dependencias (Drools 7.74.1, JUnit) y Java 8
+    ├── escenarios/             ENTRADA: EscenarioF1-1.txt, EscenarioF1-2.txt...
+    ├── soluciones/             SALIDA: RespuestaF1_1.txt, RespuestaF1_2.txt...
     └── src/
         ├── main/java/dsi/mitologia/
-        │   ├── Principal.java      el "main": ejecuta los escenarios y escribe la respuesta
-        │   ├── modelo/             las COSAS del mito (Personaje, Objeto, Capacidad)
+        │   ├── Principal.java      el "main": lee escenarios/, ejecuta y escribe en soluciones/
+        │   ├── entrada/            el lector de los ficheros de escenario
+        │   ├── modelo/             las COSAS del mito (Personaje, Objeto, Capacidad, Lugar)
         │   ├── hechos/             las RELACIONES entre cosas (quién tiene qué, quién mató a quién...)
         │   ├── escenario/          una partida: condiciones, estado y resultado
         │   ├── eventos/            el "diario" de lo que va pasando, un REGISTRO
@@ -41,8 +52,9 @@ Para orientarse: si quieres saber **qué sabe** el programa, mira `modelo/` y `h
 | --- | --- | --- |
 | `Personaje` | Cualquier ser: Perseo, Medusa, Atenea... | id, nombre, tipos (Dios, Héroe, Criatura...), si está vivo o muerto, si está libre o preso |
 | `Objeto` | Una cosa: casco, hoz, zurrón... | id, nombre, categorías (Arma, Protección, Artefacto mágico, Parte anatómica) |
-| `Capacidad` | Un poder: Vuelo, Invisibilidad, Reflejo, Petrificación | id y nombre |
-| `EntidadMitologica` | Interfaz común a las tres | solo «tener id y nombre» |
+| `Capacidad` | Un poder: Vuelo, Invisibilidad, Reflejo, Petrificación, FuerzaExtraordinaria | id y nombre |
+| `Lugar` | (Creta) Un sitio: LaberintoCreta, MundoExterior | id y nombre |
+| `EntidadMitologica` | Interfaz común a las cuatro | solo «tener id y nombre» |
 | `enums/` | Listas cerradas de valores | `EstadoVital` (vivo/muerto), `EstadoLibertad` (libre/preso), `TipoPersonaje`, `CategoriaObjeto`, `OrigenCapacidad` |
 
 **hechos/ — las relaciones** (cada una es una ficha aparte para que las reglas las puedan buscar)
@@ -52,14 +64,16 @@ Para orientarse: si quieres saber **qué sabe** el programa, mira `modelo/` y `h
 | `Posesion` | X tiene el objeto O (un objeto, un único dueño) | Hades tiene CascoHades |
 | `ProporcionaCapacidad` | El objeto O da la capacidad C | CascoHades da Invisibilidad |
 | `CapacidadDisponible` | X tiene la capacidad C gracias a una fuente | Perseo tiene Vuelo por SandaliasAladas |
-| `Favor` | X tiene el favor del dios D | Perseo – Atenea |
-| `Enojo` | X tiene el enojo del dios D | Casiopea – Poseidón |
+| `Favor` | X tiene el favor de D (un dios o no) | Perseo – Atenea, Teseo – Ariadna |
+| `Enojo` | X tiene el enojo de D (un dios o no) | Casiopea – Poseidón, Dédalo – Minos |
 | `Cautiverio` | C tiene preso a P | Ceto tiene presa a Andrómeda |
 | `Liberacion` | L ha liberado a P | Perseo libera a Andrómeda |
 | `Muerte` | A ha matado a V | Perseo mata a Medusa |
 | `Localizacion` | X ha encontrado a Y | Perseo localiza a las Grayas |
 | `Filiacion` | H es hijo de P | Andrómeda es hija de Casiopea |
-| `VarianteMito` | Activa una versión alternativa del mito (nueva) | «Variante Pegaso» |
+| `VarianteMito` | Activa una versión alternativa del mito | «Variante Pegaso» |
+| `Ubicacion` | (Creta) X está en el lugar L; cambia con `modify` cuando se mueve | Teseo está en MundoExterior |
+| `EstadoFisicoObjeto` | (Creta) El objeto O está «intacto» o «roto» | AlasIcaro está roto |
 
 **escenario/ — una partida**
 
@@ -70,18 +84,19 @@ Para orientarse: si quieres saber **qué sabe** el programa, mira `modelo/` y `h
 | `EscenarioMitologico` | Una partida completa: pregunta, condiciones, estado, diario y resultado. |
 | `Objetivo` / `TipoObjetivo` | La pregunta en forma de dato: «Perseo LIBERAR Andrómeda». Sabe comprobar si se ha cumplido. |
 | `ResultadoMision` | PENDIENTE, CONSEGUIDO o NO\_CONSEGUIDO. |
-| `PreparadorEscenario` | (Nueva) Carga el OWL y aplica las condiciones: «favor», «enojo», «tiene», «no tiene», «variante». |
+| `PreparadorEscenario` | Carga el OWL y aplica las condiciones: «favor», «enojo», «tiene», «no tiene», «variante». |
 
 **El resto**
 
 | Clase | Qué hace |
 | --- | --- |
-| `ontologia/CargadorOntologia` | Lee `mitologia.owl` (es XML) y crea los personajes, objetos y relaciones. |
+| `entrada/LectorEscenario` | Lee un `EscenarioFx-y.txt`: la pregunta («Puede X liberar/matar a Y?»), la línea `Condiciones:` y cada condición («tiene el favor de», «tiene el enojo de», «tiene», «no tiene»). |
+| `ontologia/CargadorOntologia` | Lee `mitologia.owl` (es XML, formato Protégé 3.4.8 o 5) y crea los personajes, objetos, lugares y relaciones. |
 | `eventos/EventoMitologico` | Una línea del diario: quién, qué acción, sobre quién, con qué objeto y por qué. |
 | `eventos/RegistroEventos` | El diario entero, numerado (E1, E2...). Las reglas escriben en él. |
 | `eventos/TipoAccion` | Tipos de acción: OBTENER\_OBJETO, ROBAR\_OBJETO, MATAR, LIBERAR... |
 | `motor/MotorReglas` | La única clase que habla con Drools: mete los hechos, dispara las reglas y recoge el resultado. |
-| `Principal` | El `main`: prepara los escenarios 1 y 2 del enunciado y escribe la respuesta. |
+| `Principal` | El `main`: lee todos los `escenarios/EscenarioF1-x.txt` y `EscenarioF2-x.txt`, los ejecuta y escribe cada respuesta en `soluciones/RespuestaFx_y.txt`. |
 
 ## Qué pasa cuando se ejecuta un escenario
 
@@ -97,9 +112,10 @@ Java prepara los datos y Drools hace todo el razonamiento (el paso 4 es el de Dr
                                      │
                                      ▼
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ 2 · Preparar la partida                                                  │
-│   PreparadorEscenario hace una copia (EstadoAventura) y aplica las       │
-│   condiciones: favores, enojo, «Perseo tiene...», «Atenea no tiene...».  │
+│ 2 · Leer el escenario y preparar la partida                              │
+│   LectorEscenario lee escenarios/EscenarioFx-y.txt; PreparadorEscenario  │
+│   hace una copia (EstadoAventura) y aplica las condiciones: favores,     │
+│   enojo, «Perseo tiene...», «Atenea no tiene...».                        │
 └──────────────────────────────────────────────────────────────────────────┘
                                      │
                                      ▼
@@ -120,7 +136,8 @@ Java prepara los datos y Drools hace todo el razonamiento (el paso 4 es el de Dr
 ┌──────────────────────────────────────────────────────────────────────────┐
 │ 5 · Recoger y responder                                                  │
 │   MotorReglas copia el estado final y Objetivo decide si es Sí o No;     │
-│   Principal escribe la respuesta con los eventos del diario.             │
+│   Principal escribe la respuesta con los eventos del diario en           │
+│   soluciones/RespuestaFx_y.txt y también por pantalla.                   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -138,7 +155,7 @@ Una regla en un fichero `.drl` tiene dos partes:
 Ejemplo real, de `favores.drl`, con comentarios:
 
 ```
-rule "R03-R04-R06 Un dios entrega su objeto a quien tiene su favor"
+rule "R03-R04-R06 Quien da su favor entrega su objeto"
 when
     $p   : Personaje(dios == false, estadoVital == VIVO, estadoLibertad == LIBRE)
                                   // alguien que no es dios, vivo y libre...
@@ -206,11 +223,12 @@ Hace falta **Java 8**. Con versiones nuevas de Java (por ejemplo, la 25) Drools 
 
 ```bash
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)   # en Mac: usar Java 8
-mvn clean test        # pasa todas las pruebas
-mvn compile exec:java # imprime la respuesta de los escenarios 1 y 2
+mvn clean test        # ejecuta las pruebas automáticas
+mvn compile exec:java # lee escenarios/, imprime cada respuesta y la guarda en soluciones/
 ```
 
-Hay 41 pruebas automáticas y pasan todas. Las del mito están en `ReglasPerseoAndromedaTest`:
+Hay 52 pruebas automáticas y pasan todas. Las del estado inicial de Creta están en `EstadoInicialCretaTest`, y las de favores y enojos entre personajes que no son dioses en `FavorYEnojoEntrePersonajesTest`;
+las del mito de Perseo, en `ReglasPerseoAndromedaTest`:
 
 | Prueba | Qué se comprueba | Resultado esperado |
 | --- | --- | --- |
@@ -224,9 +242,35 @@ Hay 41 pruebas automáticas y pasan todas. Las del mito están en `ReglasPerseoA
 
 La regla de prueba antigua `ping → pong` solo comprobaba que Drools arrancaba. Ahora está en los recursos de test y no se carga con las reglas del mito.
 
-## Lo que falta todavía
+## Lo nuevo de Creta (fase 2, en construcción)
 
-- [ ] Leer las preguntas desde los ficheros `escenarios/EscenarioF1-x.txt` (ahora los escenarios están escritos en `Principal`).
-- [ ] Escribir la respuesta en `soluciones/RespuestaF1_x.txt` (ahora solo sale por pantalla).
+Ya existe:
+
+- **Ontología:** Teseo (Héroe y Mortal), Ariadna, Dédalo, Ícaro y Minos (Mortal), Minotauro (Criatura),
+  Heracles (Héroe y Semidiós, con FuerzaExtraordinaria y el favor de Zeus). Objetos: HiloAriadna,
+  EspadaTeseo, AlasIcaro y AlasDedalo (dan Vuelo, sin dueño al empezar), CuernoMinotauro (parte anatómica
+  y arma), CeraAbejas, PlumasAve, CabezaMinotauro y CabezaCeto. Lugares: LaberintoCreta y MundoExterior.
+  Propiedades: `esta_en_lugar` y `estado_fisico` («intacto»/«roto»). `tiene_favor` y `tiene_enojo` admiten ahora
+  cualquier personaje, no solo dioses (ver «Relaciones humanas» en `DISENO_CRETA.md`).
+- **Java:** las clases `Lugar`, `Ubicacion` y `EstadoFisicoObjeto`.
+  Los cuatro hechos se cargan del OWL, se copian por escenario, se meten en Drools y se recuperan al acabar.
+  Al empezar: el Minotauro está en LaberintoCreta; Teseo, Ariadna, Dédalo e Ícaro en MundoExterior;
+  las dos alas están «intacto». La ayuda de Ariadna se escribe en el escenario («Teseo tiene el favor de Ariadna»)
+  y el enojo de Minos lo creará una regla o el escenario («Dedalo tiene el enojo de Minos»).
+- **Efecto en Perseo:** como Ceto ahora posee CabezaCeto, la regla R25 se la da a Perseo al matarlo.
+  Las respuestas F1 tienen una línea más, pero el resultado no cambia.
+
+Todavía no existe ninguna regla de Creta. La lista completa de pendientes está al final de
+`CAMBIOS_CRETA_SERGIO.txt`. Fallos que había y ya están arreglados:
+
+- [x] Favor y Enojo valen para cualquier personaje; se quitan `ayuda_a`, `hostil_con`, `AyudaHumana` y `HostilidadHumana`.
+- [x] `EstadoAventura.sincronizarDesde` recupera las `Ubicacion` al acabar Drools (antes se perdían).
+- [x] En el OWL el Minotauro empieza en LaberintoCreta.
+- [x] AlasIcaro y AlasDedalo tienen `estado_fisico` «intacto».
+
+## Lo que falta todavía (Perseo)
+
+- [x] Leer las preguntas desde los ficheros `escenarios/EscenarioF1-x.txt` (hecho: `LectorEscenario`).
+- [x] Escribir la respuesta en `soluciones/RespuestaF1_x.txt` (hecho: `Principal`).
 - [ ] Nombres bonitos («Casco de Hades» en lugar de `CascoHades`): el OWL no los tiene.
 - [ ] Decidir entre todos el punto de partida (Andrómeda libre al empezar) y si añadimos al OWL el anillo, el espejo de mano y el conjuro, que ahora añade Java.

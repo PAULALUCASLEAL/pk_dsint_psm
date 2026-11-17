@@ -5,18 +5,17 @@ import java.util.Objects;
 import dsi.mitologia.modelo.Personaje;
 
 /**
- * Hecho: un personaje tiene el enojo de un dios ("Casiopea tiene el enojo de Poseidon").
+ * Hecho: un personaje tiene el enojo de otro ("Casiopea tiene el enojo de Poseidon").
  */
 public final class Enojo {
 
     /** Quien sufre el enojo (sujeto de tiene_enojo)*/
     private final Personaje personaje;
-    /** Dios enojado (objeto de tiene_enojo; debe ser Dios por allValuesFrom) */
+    /** Quien esta enojado (objeto de tiene_enojo) */
     private final Personaje dios;
 
     /**
-     * Crea el hecho de enojo. Solo se rechazan nulos; el tipo Dios lo valida EstadoAventura para
-     * mantener este hecho como simple portador de datos.
+     * Crea el hecho de enojo. Solo se rechazan nulos.
      */
     public Enojo(Personaje personaje, Personaje dios) {
         if (personaje == null || dios == null) throw new IllegalArgumentException("Enojo necesita personaje y dios");

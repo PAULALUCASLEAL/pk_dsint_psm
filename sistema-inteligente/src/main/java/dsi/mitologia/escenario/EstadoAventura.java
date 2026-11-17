@@ -31,46 +31,33 @@ import dsi.mitologia.modelo.enums.OrigenCapacidad;
 /**
  * Estado de UNA aventura: copias propias de los personajes y todos los hechos dinamicos.
  *
- * <p>Relacion con la ontologia: cada lista guarda los hechos desempaquetados de una ObjectProperty
- * del OWL ({@code tiene_objeto} -> Posesion, {@code tiene_capacidad} -> CapacidadDisponible,
- * {@code tiene_favor} -> Favor, {@code tiene_enojo} -> Enojo, {@code es_hijo_de} -> Filiacion,
- * {@code localiza_a} -> Localizacion, {@code apresa_a} -> Cautiverio, {@code mata_a} -> Muerte,
- * {@code libera_a} -> Liberacion). Las DatatypeProperties {@code estado_vital} y
- * {@code estado_libertad} viven en las copias de {@link Personaje}. Las propiedades inversas
- * ({@code esta_en_posesion_de}, {@code esta_preso_por}...) no se duplican: se leen del mismo hecho.</p>
+ * Relacion con la ontologia: cada lista guarda los hechos desempaquetados de una ObjectProperty
+ * del OWL ({tiene_objeto} -> Posesion, {tiene_capacidad} -> CapacidadDisponible,
+ * {tiene_favor} -> Favor, {tiene_enojo} -> Enojo, {es_hijo_de} -> Filiacion,
+ * {localiza_a} -> Localizacion, {apresa_a} -> Cautiverio, {mata_a} -> Muerte,
+ * {libera_a} -> Liberacion). Las DatatypeProperties {estado_vital} y
+ * {estado_libertad} viven en las copias de {Personaje}. Las propiedades inversas
+ * ({esta_en_posesion_de}, {esta_preso_por}...) no se duplican: se leen del mismo hecho.
  *
- * <p>Responsabilidades:</p>
- * <ol>
- *   <li>Preparar la memoria de trabajo inicial (estado por defecto + condiciones del escenario).</li>
- *   <li>Ofrecer operaciones de cambio de estado que comprueban la integridad
- *       (sin posesiones duplicadas, sin matar a un muerto, sin liberar a un libre...).
- *       Estas operaciones NO deciden cuando ocurre algo: eso lo deciden las reglas.</li>
- *   <li>Entregar los hechos a Drools ({@link #getHechos()}) y recoger el estado final
- *       ({@link #sincronizarDesde(Collection)}).</li>
- * </ol>
- *
- * <p>Papel en el mito: al empezar, Atenea posee EscudoBronce, Ceto tiene presa a Andromeda, etc.
- * El parser aplica las condiciones ("Atenea no tiene Escudo de Bronce" -> {@link #retirarObjeto}),
+ * Papel en el mito: al empezar, Atenea posee EscudoBronce, Ceto tiene presa a Andromeda, etc.
+ * El parser aplica las condiciones ("Atenea no tiene Escudo de Bronce" -> {#retirarObjeto}),
  * las reglas producen los cambios (Perseo recibe la HozAcero, mata a Medusa...) y al final el estado
- * sincronizado permite comprobar si existe {@code Liberacion(Perseo, Andromeda)}.</p>
+ * sincronizado permite comprobar si existe {Liberacion(Perseo, Andromeda)}
  *
- * <p>Errores de integridad: {@link IllegalStateException}. Altas repetidas (un favor que ya
- * existe) devuelven {@code false} sin duplicar.</p>
+ * No hay nada estatico: dos escenarios no comparten ningun objeto mutable.
  *
- * <p>No hay nada estatico: dos escenarios no comparten ningun objeto mutable.</p>
- *
- * <p>Decision de diseno: los personajes son copias propias (no los prototipos del dominio) porque
+ * Decision de diseno: los personajes son copias propias (no los prototipos del dominio) porque
  * su estado vital y de libertad cambia; si se compartieran, matar a Medusa en un escenario la dejaria
- * muerta en el siguiente. Objetos y capacidades no tienen estado mutable y se toman del dominio.</p>
+ * muerta en el siguiente. Objetos y capacidades no tienen estado mutable y se toman del dominio.
  */
 public class EstadoAventura {
 
-    /** Dominio del que se copio este estado; aporta objetos, capacidades y proporciona_capacidad. */
+	
     private final DominioMitologico dominio;
-    /** Copias propias de los personajes, por id; son las que se insertan en Drools. */
+ 
     private final Map<String, Personaje> personajes = new LinkedHashMap<String, Personaje>();
 
-    /** Hechos {@code tiene_objeto}; fuente de verdad de quien posee cada objeto (uno por objeto). */
+    /** Hechos {tiene_objeto}; fuente de verdad de quien posee cada objeto (uno por objeto). */
     private final List<Posesion> posesiones = new ArrayList<Posesion>();
     /** Hechos {@code tiene_capacidad}, uno por cada fuente (objeto, conjuro, montura o propia). */
     private final List<CapacidadDisponible> capacidades = new ArrayList<CapacidadDisponible>();
@@ -104,7 +91,7 @@ public class EstadoAventura {
      *
      * <p>Lo llama el constructor de {@link EscenarioMitologico}. Las relaciones por defecto se
      * aplican con las mismas operaciones que usaran el parser y las reglas, de forma que la integridad
-     * (un objeto, un poseedor; favores solo de dioses) se comprueba tambien sobre los datos del OWL.</p>
+     * (un objeto, un poseedor) se comprueba tambien sobre los datos del OWL.</p>
      */
     public static EstadoAventura inicial(DominioMitologico dominio) {
         EstadoAventura e = new EstadoAventura(dominio);
@@ -551,9 +538,7 @@ public class EstadoAventura {
         return false;
     }
 
-    /** El rango OWL de tiene_favor es Dios: se rechaza un "dios" que no lo sea. */
     public boolean agregarFavor(Personaje personaje, Personaje dios) {
-        exigirDios(dios);
         return anadirSiFalta(favores, new Favor(mio(personaje), mio(dios)));
     }
 
@@ -567,9 +552,7 @@ public class EstadoAventura {
         return favores.contains(new Favor(personaje, dios));
     }
 
-    /** Anade {@code tiene_enojo}; igual que el favor, el rango OWL exige que sea un Dios. */
     public boolean agregarEnojo(Personaje personaje, Personaje dios) {
-        exigirDios(dios);
         return anadirSiFalta(enojos, new Enojo(mio(personaje), mio(dios)));
     }
 
@@ -638,6 +621,11 @@ public class EstadoAventura {
         return Collections.unmodifiableList(ubicaciones);
     }
 
+    /** Estado fisico de los objetos que lo tienen (p. ej. AlasIcaro intacto). */
+    public List<EstadoFisicoObjeto> getEstadosFisicos() {
+        return Collections.unmodifiableList(estadosFisicos);
+    }
+
     // =====================================================================
     // Puente con Drools (sin depender de la API de Drools)
     // =====================================================================
@@ -700,6 +688,7 @@ public class EstadoAventura {
             else if (h instanceof Cautiverio) cautiverios.add((Cautiverio) h);
             else if (h instanceof Muerte) muertes.add((Muerte) h);
             else if (h instanceof Liberacion) liberaciones.add((Liberacion) h);
+            else if (h instanceof Ubicacion) ubicaciones.add((Ubicacion) h);
             else if (h instanceof EstadoFisicoObjeto) estadosFisicos.add((EstadoFisicoObjeto) h);
         }
     }
@@ -767,13 +756,6 @@ public class EstadoAventura {
     private void exigirVivo(Personaje p, String accion) {
         if (mio(p).getEstadoVital() != EstadoVital.VIVO) {
             throw new IllegalStateException(p.getId() + " esta muerto y no puede " + accion);
-        }
-    }
-
-    /** Integridad con la ontologia: el rango de tiene_favor y tiene_enojo es la clase Dios. */
-    private void exigirDios(Personaje dios) {
-        if (!mio(dios).isDios()) {
-            throw new IllegalStateException(dios.getId() + " no es un Dios (rango de tiene_favor/tiene_enojo)");
         }
     }
 

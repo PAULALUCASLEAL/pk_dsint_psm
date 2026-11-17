@@ -61,10 +61,6 @@ public class DominioMitologico {
     private final List<String[]> cautiverios = new ArrayList<String[]>();
     /** Pares {personaje, capacidad} de {tiene_capacidad} innatas (sin objeto que las de). */
     private final List<String[]> capacidadesPropias = new ArrayList<String[]>();
-    // Pares: ayudante, beneficiario.
-    private final List<String[]> ayudasHumanas = new ArrayList<String[]>();
-    // Pares: personaje hostil, destinatario.
-    private final List<String[]> hostilidadesHumanas = new ArrayList<String[]>();
     // Para la ubicacion
     private final Map<String, Lugar> lugares = new LinkedHashMap<>();
     private final List<Ubicacion> ubicacionesIniciales = new ArrayList<>();
@@ -193,24 +189,6 @@ public class DominioMitologico {
 
         condicionesActuales.add(condicion);
     }
-   
-    public void registrarAyudaHumana(
-            String ayudanteId, String beneficiarioId) {
-
-        anadirPar(
-                ayudasHumanas,
-                getPersonaje(ayudanteId).getId(),
-                getPersonaje(beneficiarioId).getId());
-    }
-
-    public void registrarHostilidadHumana(
-            String hostilId, String destinatarioId) {
-
-        anadirPar(
-                hostilidadesHumanas,
-                getPersonaje(hostilId).getId(),
-                getPersonaje(destinatarioId).getId());
-    }
     
 
 
@@ -307,13 +285,6 @@ public class DominioMitologico {
         return Collections.unmodifiableMap(estadosFisicos);
     }
 
-    List<String[]> getAyudasHumanas() {
-        return Collections.unmodifiableList(ayudasHumanas);
-    }
-
-    List<String[]> getHostilidadesHumanas() {
-        return Collections.unmodifiableList(hostilidadesHumanas);
-    }
 
 
     

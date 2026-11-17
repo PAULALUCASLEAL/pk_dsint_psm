@@ -1,1 +1,15 @@
+# Sistema operativo
 .DS_Store
+
+# Compilados (Maven deja todo en target/, Eclipse a veces en bin/)
+target/
+bin/
+*.class
+
+# Ficheros temporales, logs y pruebas sueltas
+tmp/
+*.log
+
+# Proyectos de Eclipse creados por error dentro de src/
+sistema-inteligente/src/.project
+sistema-inteligente/src/.classpath

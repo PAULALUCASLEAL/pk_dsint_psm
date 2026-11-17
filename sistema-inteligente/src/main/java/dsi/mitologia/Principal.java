@@ -24,14 +24,10 @@ import dsi.mitologia.motor.MotorReglas;
 /**
  * Punto de entrada del sistema inteligente DSI_Mitologia.
  *
- * ESTADO: las reglas reales de la fase 1.b estan en src/main/resources/reglas. Mientras no exista el
- * lector de EscenarioFx-y.txt, {@link #main} ejecuta los dos escenarios del enunciado (pag. 11-12)
- * construidos con {@link PreparadorEscenario} y muestra la respuesta por consola.
- *
- * <p>Funcion prevista (fase 1.b): por cada fichero de escenario del directorio {@code escenarios}
+ * <p>Funcionamiento: por cada fichero de escenario del directorio {@code escenarios}
  * (EscenarioFx-y.txt, donde x es la fase y y el numero de escenario) se leen la pregunta ("Puede
  * Perseo liberar a Andromeda?") y las condiciones ("Perseo tiene el favor de Atenea", "Atenea no tiene
- * Escudo de Bronce"...), se insertan como hechos en una sesion Drools nueva y se ejecutan las reglas.
+ * Escudo de Bronce"...) con {@link LectorEscenario}, se insertan como hechos en una sesion Drools nueva y se ejecutan las reglas.
  * El resultado se escribe en {@code soluciones/RespuestaFx_y.txt} (mismo sufijo que la entrada): primero
  * la respuesta ("Si, ... puede ..." o "No, ...") y despues la secuencia causal que la justifica (Ceto
  * queda libre, Andromeda presa, Perseo obtiene los objetos, mata a Medusa, petrifica a Ceto...).</p>
@@ -41,9 +37,7 @@ import dsi.mitologia.motor.MotorReglas;
  * encadenamiento hacia atras), usando agenda-groups para mostrar primero el estado inicial y despues la
  * historia. Cada escenario usa su propia {@link KieSession} para que los escenarios sean independientes.</p>
  *
- * <p>Pendiente: lector de EscenarioFx-y.txt, insercion del conocimiento por defecto y de las
- * condiciones y escritor de RespuestaFx_y.txt. La regla temporal ping -> pong se ha trasladado a los
- * recursos de test (PruebaIntegracionDroolsTest).</p>
+ * <p>La regla temporal ping -> pong esta en los recursos de test (PruebaIntegracionDroolsTest).</p>
  */
 public class Principal {
 
@@ -90,7 +84,7 @@ public class Principal {
 
         if (archivos.length == 0) {
             System.out.println(
-                    "No hay archivos EscenarioF2-1.txt a EscenarioF2-8.txt en "
+                    "No hay archivos EscenarioF1-x.txt ni EscenarioF2-x.txt en "
                     + directorioEntrada.getAbsolutePath());
             return;
         }

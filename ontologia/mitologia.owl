@@ -33,7 +33,7 @@
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:allValuesFrom>
-          <owl:Class rdf:ID="Dios"/>
+          <owl:Class rdf:about="#Personaje"/>
         </owl:allValuesFrom>
         <owl:onProperty>
           <owl:ObjectProperty rdf:ID="tiene_favor"/>
@@ -95,7 +95,7 @@
           <owl:ObjectProperty rdf:ID="tiene_enojo"/>
         </owl:onProperty>
         <owl:allValuesFrom>
-          <owl:Class rdf:about="#Dios"/>
+          <owl:Class rdf:about="#Personaje"/>
         </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
@@ -312,14 +312,6 @@
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:range rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="ayuda_a">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Relacion entre un personaje que presta ayuda y otro que la recibe.&#xD;
-   Se distingue del favor divino. Permite representar la ayuda de&#xD;
-   Ariadna a Teseo</rdfs:comment>
-    <rdfs:range rdf:resource="#Personaje"/>
-    <rdfs:domain rdf:resource="#Personaje"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#mata_a">
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -335,16 +327,12 @@
     <rdfs:range rdf:resource="#Capacidad"/>
     <rdfs:domain rdf:resource="#Objeto"/>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="hostil_con">
-    <rdfs:domain rdf:resource="#Personaje"/>
-    <rdfs:range rdf:resource="#Personaje"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#tiene_favor">
-    <rdfs:range rdf:resource="#Dios"/>
+    <rdfs:range rdf:resource="#Personaje"/>
     <rdfs:domain rdf:resource="#Personaje"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
-      Relaciona a un Personaje con un Dios del que recibe su favor.
+      Relaciona a un Personaje con otro Personaje (un dios o no) del que recibe su favor.
     &lt;/p&gt;</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#tiene_capacidad">
@@ -358,9 +346,9 @@
   <owl:ObjectProperty rdf:about="#tiene_enojo">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >&lt;p style="margin-top: 0"&gt;
-      Relaciona a un Personaje con un Dios que le castiga con su enojo.
+      Relaciona a un Personaje con otro Personaje (un dios o no) que le castiga con su enojo.
     &lt;/p&gt;</rdfs:comment>
-    <rdfs:range rdf:resource="#Dios"/>
+    <rdfs:range rdf:resource="#Personaje"/>
     <rdfs:domain rdf:resource="#Personaje"/>
   </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="#estado_libertad">
@@ -473,9 +461,13 @@
     <proporciona_capacidad>
       <Capacidad rdf:ID="Vuelo"/>
     </proporciona_capacidad>
+    <estado_fisico rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >intacto</estado_fisico>
   </ArtefactoMagico>
   <ArtefactoMagico rdf:ID="AlasIcaro">
     <proporciona_capacidad rdf:resource="#Vuelo"/>
+    <estado_fisico rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >intacto</estado_fisico>
   </ArtefactoMagico>
   <Objeto rdf:ID="CeraAbejas"/>
   <Criatura rdf:ID="Pegaso">
@@ -573,6 +565,7 @@
   <Criatura rdf:ID="Minotauro">
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Criatura encerrada en el laberinto y derrotada por Teseo</rdfs:comment>
+    <esta_en_lugar rdf:resource="#LaberintoCreta"/>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
     <tiene_objeto>
@@ -698,7 +691,6 @@
         <esta_en_posesion_de rdf:resource="#Ariadna"/>
       </ArtefactoMagico>
     </tiene_objeto>
-    <ayuda_a rdf:resource="#Teseo"/>
     <estado_libertad rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >libre</estado_libertad>
     <esta_en_lugar rdf:resource="#MundoExterior"/>

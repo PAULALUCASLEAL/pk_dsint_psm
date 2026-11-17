@@ -89,7 +89,7 @@ public class Personaje implements EntidadMitologica {
         return tipos.contains(tipo);
     }
 
-    /** Clase OWL {@code Dios}. Solo un dios concede favor o enojo. */
+    /** Clase OWL {@code Dios}. */
     public boolean isDios() {
         return esDeTipo(TipoPersonaje.DIOS);
     }

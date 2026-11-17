@@ -1,3 +1,8 @@
+Nota: los resultados observados se obtuvieron antes de añadir CabezaCeto a la ontologia.
+Ahora las respuestas incluyen ademas la linea "Perseo obtiene CabezaCeto debido a matar a Ceto",
+justo antes de liberar a Andromeda. El resultado final (Si / No) no cambia.
+
+
 PRUEBA: Perseo sin el favor de Hades
 
 Objetivo:
@@ -5,8 +10,9 @@ Comprobar que el sistema no consigue el rescate cuando falta
 una capacidad necesaria y no existe una alternativa.
 
 Entrada:
-EscenarioF2-1.txt, eliminando únicamente la condición
-"Perseo tiene el favor de Hades".
+escenarios/EscenarioF1-1.txt, eliminando únicamente la condición
+"Perseo tiene el favor de Hades". (Cuando se hizo la prueba el fichero
+se llamaba EscenarioF2-1.txt; por eso la salida pone "Escenario F2-1".)
 
 Resultado esperado:
 Perseo no recibe CascoHades y no obtiene Invisibilidad.
@@ -89,7 +95,7 @@ Si, Perseo puede liberar a Andromeda debido a que:
   Perseo libera a Andromeda debido a matar a Ceto.
 
 Evidencia:
-soluciones/RespuestaF1_2.txt
+sistema-inteligente/soluciones/RespuestaF1_2.txt
 
 Conclusion:
 El resultado coincide con lo esperado.
@@ -143,7 +149,7 @@ Si, Perseo puede matar a Medusa debido a que:
   Perseo libera a Andromeda debido a matar a Ceto.
 
 Evidencia:
-documentacion/prueba-matar-medusa.txt
+sistema-inteligente/soluciones/prueba-matar-medusa.txt
 
 Conclusion:
 Funciona perfecto. Hemos ampliado el reconocimiento de preguntas y la presentacion del resultado sin modificar las reglas Drools.

@@ -112,14 +112,14 @@ relato; **T** = decision tecnica del equipo (control, no regla mitologica).
 - **Justificacion:** no se apresa dos veces (exige libre). Usa la filiacion del OWL en vez de nombrar a Andromeda.
 - **Ejemplo:** *Andromeda queda presa debido a estar Ceto libre.*
 
-### R03-R04-R06 · Un dios entrega su objeto a quien tiene su favor — `favores.drl` · E
+### R03-R04-R06 · Quien da su favor entrega su objeto — `favores.drl` · E
 - **Condiciones:** `$p` no dios, vivo y libre; `Favor($p, $d)`; `$d` vivo; `Posesion(poseedor $d, objeto $o)`;
   `$o` distinto de `EspadaIndestructible`.
 - **Consecuencias:** `modify(Posesion){ setPoseedor($p) }`; evento `OBTENER_OBJETO`.
 - **Hechos:** `Personaje`, `Favor`, `Posesion`, `Objeto`.
 - **Enunciado:** «Perseo obtiene Escudo de Bronce / Hoz de Acero / Casco de Hades debido a tener el favor
   de Atenea / Hermes / Hades».
-- **Justificacion:** una regla para los tres dioses: quien entrega que lo dice el OWL (tiene_objeto). La
+- **Justificacion:** una regla para los tres dioses (y para quien no es dios, como Ariadna con su hilo): quien entrega que lo dice el OWL (tiene_objeto). La
   espada de Hefesto se excluye porque el enunciado la presenta como version alternativa (R07). Un hecho
   negativo («Atenea no tiene EscudoBronce») elimina la `Posesion` y la regla no puede dispararse (R32-R33).
 - **Ejemplo:** *Perseo obtiene HozAcero debido a tener el favor de Hermes.*

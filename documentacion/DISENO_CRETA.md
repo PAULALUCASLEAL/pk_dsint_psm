@@ -49,6 +49,15 @@ Justificacion:
 Estar libre no significa necesariamente estar fuera.
 El escenario F2-2 exige comprobar que Dedalo sale del laberinto.
 
+Como se ha hecho:
+Primero se probo un booleano en_laberinto, pero se ha cambiado por algo
+mas general: la clase Lugar (individuos LaberintoCreta y MundoExterior),
+la propiedad de objeto esta_en_lugar y el hecho Java Ubicacion(personaje, lugar).
+Moverse es hacer modify de la Ubicacion. Asi se pueden añadir mas lugares
+sin tocar el modelo.
+
+El Minotauro empieza en LaberintoCreta; Teseo, Ariadna, Dedalo e Icaro en MundoExterior.
+
 ## Estado de las alas
 
 Vamos a representar explicitamente si las alas estan rotas.
@@ -57,17 +66,40 @@ Las alas rotas no deben permitir que se pueda volar.
 Justificacion:
 El enunciado permite recuperar y reparar las alas de Icaro.
 
+Como se ha hecho:
+Primero se probo un booleano roto, pero se ha cambiado por la propiedad
+de datos estado_fisico con valores "intacto" o "roto" y el hecho Java
+EstadoFisicoObjeto(objeto, condicion). Romperse o repararse es hacer modify
+de la condicion.
+
+Las dos alas empiezan "intacto". Pendiente: la regla de capacidades aun no
+comprueba que las alas esten intactas.
+
 ## Relaciones humanas
 
-Vamos a mantener los favores y enojos divinos existentes.
-Añadiremos relaciones separadas para ayuda y hostilidad humanas.
+Decision final: reutilizamos Favor y Enojo para cualquier personaje, no solo dioses.
+Ariadna y Minos siguen siendo Mortal (Minos es hijo de Zeus, pero no es un dios).
+
+Primero se probo otra opcion: propiedades nuevas ayuda_a y hostil_con, con sus hechos
+Java AyudaHumana y HostilidadHumana. Se descarto porque duplicaba Favor y Enojo.
 
 Justificacion:
-El modelo actual restringe Favor y Enojo a dioses.
-Ariadna y Minos no deben clasificarse como dioses para evitarlo.
-Esto tiene sentido porque Ariadna es la princesa que ayuda a Teseo, y Minos es el rey de Creta.
-Aunque Minos es hijo de Zeus, eso no implica clasificarlo como Dios.
-Asi podemos representalro como Mortal y mantener separada las relacuiones humanas de los favores y enojos divinos.
+- El enunciado pide no añadir practicamente nada a la ontologia. Asi no se añade
+  ninguna propiedad: solo se amplia el rango de tiene_favor y tiene_enojo de Dios a Personaje.
+- El enunciado dice que en los ficheros de escenario solo se ponen favores, enojos,
+  desposesiones y apresamientos. Con Enojo se puede escribir "Casiopea tiene el enojo de Minos"
+  y el lector ya lo entiende. Con un hecho aparte no habria forma de escribirlo.
+- La regla R03 (quien da su favor entrega su objeto) ya sirve para Ariadna:
+  con "Teseo tiene el favor de Ariadna", Ariadna le da el HiloAriadna sin regla nueva.
+
+Como se ha hecho:
+- OWL: rango de tiene_favor y tiene_enojo = Personaje. Se quitan ayuda_a y hostil_con.
+- Java: se quita la comprobacion "tiene que ser un Dios" y las clases AyudaHumana y HostilidadHumana.
+- Reglas: R03 se llama ahora "Quien da su favor entrega su objeto". R01 (un dios enojado suelta
+  a la criatura) exige ahora que quien se enoja sea un dios, para que el enojo de Minos no suelte criaturas.
+- El favor de Ariadna NO se pone en el OWL: se pone en el escenario ("Teseo tiene el favor de Ariadna").
+  Si estuviera en el OWL, Ariadna daria el hilo a Teseo en todas las historias, tambien en las de Perseo,
+  y nadie mas podria conseguirlo. El enunciado tambien dice que por defecto nadie tiene favores.
 
 ## Aparicion de las alas
 
