@@ -2,10 +2,10 @@ Escenario F2-2: Puede Teseo matar a Minotauro?
 Condiciones:
   Teseo tiene el favor de Ariadna
 Si, Teseo puede matar a Minotauro debido a que:
-  Teseo obtiene HiloAriadna debido a tener el favor de Ariadna.
-  Teseo entra en LaberintoCreta debido a tener HiloAriadna y EspadaTeseo para enfrentarse a Minotauro.
   Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
   Andromeda queda presa debido a estar Ceto libre.
+  Teseo obtiene HiloAriadna debido a tener el favor de Ariadna.
+  Teseo entra en LaberintoCreta debido a tener HiloAriadna y EspadaTeseo para enfrentarse a Minotauro.
   Teseo mata a Minotauro debido a tener EspadaTeseo y estar con el en LaberintoCreta.
   Teseo obtiene CabezaMinotauro debido a matar a Minotauro.
   Teseo obtiene CuernoMinotauro debido a matar a Minotauro.
@@ -16,9 +16,9 @@ Si, Teseo puede matar a Minotauro debido a que:
   Dedalo encuentra PlumasAve en LaberintoCreta.
   Dedalo encuentra CeraAbejas en LaberintoCreta.
   Dedalo fabrica AlasDedalo debido a tener CeraAbejas y PlumasAve.
+  Dedalo obtiene Capacidad Vuelo debido a tener AlasDedalo.
   Dedalo fabrica AlasIcaro para Icaro debido a tener CeraAbejas y PlumasAve.
   Icaro obtiene Capacidad Vuelo debido a tener AlasIcaro.
   Icaro escapa volando de LaberintoCreta debido a tener Vuelo (AlasIcaro).
-  Dedalo obtiene Capacidad Vuelo debido a tener AlasDedalo.
   Dedalo escapa volando de LaberintoCreta debido a tener Vuelo (AlasDedalo).
   Icaro muere al escapar volando y AlasIcaro quedan rotas donde cae.

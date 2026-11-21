@@ -1,4 +1,4 @@
-Escenario F2-7: Puede Heracles liberar a Andromeda?
+Escenario F2-7: Puede Heracles Obtener CabezaCeto?
 Condiciones:
   Perseo tiene el favor de Atenea
   Perseo tiene el favor de Hermes
@@ -8,17 +8,13 @@ Condiciones:
   Heracles tiene EspadaIndestructible
   Heracles tiene el favor de Zeus
   Casiopea tiene el enojo de Poseidon
-Si, Heracles puede liberar a Andromeda debido a que:
-  Teseo obtiene HiloAriadna debido a tener el favor de Ariadna.
-  Perseo obtiene CascoHades debido a tener el favor de Hades.
-  Perseo obtiene HozAcero debido a tener el favor de Hermes.
-  Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
-  Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
-  Teseo entra en LaberintoCreta debido a tener HiloAriadna y EspadaTeseo para enfrentarse a Minotauro.
+Si, Heracles puede obtener CabezaCeto debido a que:
+  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
   Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
   Andromeda queda presa debido a estar Ceto libre.
-  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
-  Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Teseo obtiene HiloAriadna debido a tener el favor de Ariadna.
+  Teseo entra en LaberintoCreta debido a tener HiloAriadna y EspadaTeseo para enfrentarse a Minotauro.
+  Perseo obtiene CascoHades debido a tener el favor de Hades.
   Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
   Perseo obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
   Perseo devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
@@ -26,28 +22,60 @@ Si, Heracles puede liberar a Andromeda debido a que:
   Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
   Perseo obtiene SandaliasAladas debido a las Ninfas localizadas.
   Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
+  Perseo obtiene HozAcero debido a tener el favor de Hermes.
+  Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
+  Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
+  Perseo obtiene CabezaMedusa debido a matar a Medusa.
+  Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
   Teseo mata a Minotauro debido a tener EspadaTeseo y estar con el en LaberintoCreta.
   Teseo obtiene CabezaMinotauro debido a matar a Minotauro.
-  Perseo asesina a Teseo en combate con HozAcero para robarle CabezaMinotauro.
-  Perseo saquea EspadaTeseo del cadaver de Teseo.
-  Perseo saquea HiloAriadna del cadaver de Teseo.
-  Perseo obtiene CabezaMinotauro debido a matar a Teseo.
-  Heracles asesina a Perseo en combate con EspadaIndestructible para robarle CabezaMinotauro.
-  Heracles saquea EscudoEspejo del cadaver de Perseo.
-  Heracles saquea CascoHades del cadaver de Perseo.
-  Heracles saquea HozAcero del cadaver de Perseo.
-  Heracles saquea SandaliasAladas del cadaver de Perseo.
-  Heracles saquea ZurronMagico del cadaver de Perseo.
-  Heracles saquea EspadaTeseo del cadaver de Perseo.
-  Heracles saquea HiloAriadna del cadaver de Perseo.
+  Teseo obtiene CuernoMinotauro debido a matar a Minotauro.
+  Perseo mata a Ceto debido a tener CabezaMedusa.
+  Perseo obtiene CabezaCeto debido a matar a Ceto.
+  Perseo libera a Andromeda debido a matar a Ceto.
+  Teseo sale de LaberintoCreta debido a seguir HiloAriadna tras matar a Minotauro.
+  Minos se enoja con Dedalo debido a que Teseo ha entrado y salido de LaberintoCreta y ha matado a Minotauro.
+  Minos encierra a Dedalo en LaberintoCreta debido a su enojo con Dedalo.
+  Minos encierra a Icaro en LaberintoCreta debido a ser hijo de Dedalo.
+  Dedalo encuentra PlumasAve en LaberintoCreta.
+  Dedalo encuentra CeraAbejas en LaberintoCreta.
+  Dedalo fabrica AlasDedalo debido a tener CeraAbejas y PlumasAve.
+  Dedalo obtiene Capacidad Vuelo debido a tener AlasDedalo.
+  Dedalo fabrica AlasIcaro para Icaro debido a tener CeraAbejas y PlumasAve.
+  Icaro obtiene Capacidad Vuelo debido a tener AlasIcaro.
+  Icaro escapa volando de LaberintoCreta debido a tener Vuelo (AlasIcaro).
+  Dedalo escapa volando de LaberintoCreta debido a tener Vuelo (AlasDedalo).
+  Icaro muere al escapar volando y AlasIcaro quedan rotas donde cae.
+  Teseo asesina a Perseo en combate con EspadaTeseo para robarle CabezaMedusa.
+  Teseo saquea EscudoEspejo del cadaver de Perseo.
+  Teseo saquea CascoHades del cadaver de Perseo.
+  Teseo saquea HozAcero del cadaver de Perseo.
+  Teseo saquea SandaliasAladas del cadaver de Perseo.
+  Teseo saquea ZurronMagico del cadaver de Perseo.
+  Teseo obtiene CabezaMedusa debido a matar a Perseo.
+  Teseo no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Teseo obtiene CabezaCeto debido a matar a Perseo.
+  Teseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
+  Teseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
+  Teseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
+  Teseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Heracles asesina a Teseo en combate con EspadaIndestructible para robarle CabezaMinotauro.
+  Heracles saquea EspadaTeseo del cadaver de Teseo.
+  Heracles saquea HiloAriadna del cadaver de Teseo.
+  Heracles saquea EscudoEspejo del cadaver de Teseo.
+  Heracles saquea CascoHades del cadaver de Teseo.
+  Heracles saquea HozAcero del cadaver de Teseo.
+  Heracles saquea SandaliasAladas del cadaver de Teseo.
+  Heracles saquea ZurronMagico del cadaver de Teseo.
+  Heracles obtiene CabezaMinotauro debido a matar a Teseo.
+  Heracles obtiene CuernoMinotauro debido a matar a Teseo.
+  Heracles obtiene CabezaMedusa debido a matar a Teseo.
+  Heracles no muere al obtener CabezaMedusa por tener ZurronMagico.
+  Heracles obtiene CabezaCeto debido a matar a Teseo.
+  Heracles obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
   Heracles obtiene Capacidad Vuelo debido a tener SandaliasAladas.
   Heracles obtiene Capacidad Invisibilidad debido a tener CascoHades.
   Heracles obtiene Capacidad Reflejo debido a tener EscudoEspejo.
-  Heracles obtiene CabezaMinotauro debido a matar a Perseo.
-  Heracles mata a Medusa debido a tener EspadaIndestructible, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
-  Heracles obtiene CabezaMedusa debido a matar a Medusa.
-  Heracles no muere al obtener CabezaMedusa por tener ZurronMagico.
-  Heracles obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
-  Heracles mata a Ceto debido a tener CabezaMedusa.
-  Heracles libera a Andromeda debido a matar a Ceto.
-  Heracles obtiene CabezaCeto debido a matar a Ceto.

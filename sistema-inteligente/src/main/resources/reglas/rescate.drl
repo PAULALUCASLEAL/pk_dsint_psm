@@ -10,6 +10,7 @@ import dsi.mitologia.hechos.CapacidadDisponible
 import dsi.mitologia.hechos.Cautiverio
 import dsi.mitologia.hechos.Muerte
 import dsi.mitologia.hechos.Liberacion
+import dsi.mitologia.hechos.Ubicacion
 import dsi.mitologia.escenario.Objetivo
 import dsi.mitologia.escenario.TipoObjetivo
 import dsi.mitologia.eventos.EventoMitologico
@@ -130,11 +131,15 @@ then
 end
 
 rule "R32 Solo puede quedar uno: Combate a muerte entre heroes por los trofeos"
+    salience -30
 when
+               Posesion(objeto.id == "EspadaIndestructible", poseedor.heroe == true)
     $asesino : Personaje(heroe == true, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE)
-    Favor(personaje == $asesino) // Solo participan héroes activos
+               Favor(personaje == $asesino)
+               Ubicacion(personaje == $asesino, $lug : lugar)
     $victima : Personaje(heroe == true, estadoVital == EstadoVital.VIVO, estadoLibertad == EstadoLibertad.LIBRE, this != $asesino)
-    Favor(personaje == $victima) // Solo atacan a héroes activos
+               Favor(personaje == $victima)
+               Ubicacion(personaje == $victima, lugar == $lug)
     $arma    : Objeto(arma == true)
                Posesion(poseedor == $asesino, objeto == $arma)
     $trofeo  : Objeto(parteAnatomica == true)

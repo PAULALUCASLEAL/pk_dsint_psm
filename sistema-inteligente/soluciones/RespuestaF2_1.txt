@@ -6,14 +6,10 @@ Condiciones:
   Perseo tiene el favor de Hefesto
   Casiopea tiene el enojo de Poseidon
 Si, Perseo puede liberar a Andromeda debido a que:
-  Perseo obtiene CascoHades debido a tener el favor de Hades.
-  Perseo obtiene HozAcero debido a tener el favor de Hermes.
-  Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
-  Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
   Ceto queda libre debido al enojo de Poseidon hacia Casiopea.
   Andromeda queda presa debido a estar Ceto libre.
-  Perseo localiza a las Grayas debido a tener el favor de Hermes y Atenea.
-  Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
+  Perseo obtiene CascoHades debido a tener el favor de Hades.
   Perseo obtiene Capacidad Invisibilidad debido a tener CascoHades.
   Perseo obtiene (roba) DienteGrayas de las Grayas debido a tener Invisibilidad (CascoHades) y las Grayas localizadas.
   Perseo devuelve DienteGrayas a las Grayas a cambio de saber donde estan las Ninfas.
@@ -21,10 +17,14 @@ Si, Perseo puede liberar a Andromeda debido a que:
   Perseo obtiene ZurronMagico debido a las Ninfas localizadas.
   Perseo obtiene SandaliasAladas debido a las Ninfas localizadas.
   Perseo obtiene Capacidad Vuelo debido a tener SandaliasAladas.
+  Perseo obtiene HozAcero debido a tener el favor de Hermes.
+  Perseo obtiene EscudoBronce debido a tener el favor de Atenea.
+  Perseo obtiene EscudoEspejo debido a tener el favor de Hefesto y el EscudoBronce.
+  Perseo obtiene Capacidad Reflejo debido a tener EscudoEspejo.
   Perseo mata a Medusa debido a tener HozAcero, Espejo (EscudoEspejo), Invisibilidad (CascoHades) y Vuelo (SandaliasAladas).
   Perseo obtiene CabezaMedusa debido a matar a Medusa.
   Perseo no muere al obtener CabezaMedusa por tener ZurronMagico.
   Perseo obtiene Capacidad Petrificacion debido a tener CabezaMedusa.
   Perseo mata a Ceto debido a tener CabezaMedusa.
-  Perseo libera a Andromeda debido a matar a Ceto.
   Perseo obtiene CabezaCeto debido a matar a Ceto.
+  Perseo libera a Andromeda debido a matar a Ceto.
